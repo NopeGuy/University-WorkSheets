@@ -68,7 +68,8 @@ public class LinhaEncomenda
      * C)
      */
     public double calculaValorDesconto() {
-        return this.quantidade * this.preco * this.desconto;
+        double valor = this.quantidade * this.preco * this.desconto;
+        return valor;
     }  
     
     public String getReferencia() {
@@ -140,10 +141,10 @@ public class LinhaEncomenda
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Linha Encomenda:: {");
-        sb.append("CodProduto: ").append(this.referencia);
-        sb.append("Descrição: ").append(this.descricao);
-        sb.append("Quantidade: ").append(this.quantidade);
-        sb.append("Imposto: ").append(this.imposto);
+        sb.append("CodProduto: ").append(this.referencia).append("; ");
+        sb.append("Descrição: ").append(this.descricao).append("; ");
+        sb.append("Quantidade: ").append(this.quantidade).append("; ");
+        sb.append("Imposto: ").append(this.imposto).append("; ");
         sb.append("Desconto: ").append(this.desconto).append("}");
         return sb.toString();
     }            
