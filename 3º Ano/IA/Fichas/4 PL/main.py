@@ -1,0 +1,104 @@
+#LICENCIATURA EM ENGENHARIA INFORMÁTICA
+#MESTRADO integrado EM ENGENHARIA INFORMÁTICA
+
+#Inteligência Artificial
+#2022/23
+
+#Draft Ficha 1
+
+
+#Importar classes nodo e grafo
+from grafo import Graph
+from nodo import Node
+
+
+def main():
+
+    #Criar instância de grafo
+    g = Graph()
+
+    #Adicionar vertices ao grafo g
+    g.add_edge("s", "e",2)
+    g.add_edge("s", "a",2)
+    g.add_edge("e", "f",5)
+    g.add_edge("a", "b",2)
+    g.add_edge("b", "c", 2)
+    g.add_edge("c", "d", 3)
+    g.add_edge("d", "t",3)
+    g.add_edge("g", "t", 2)
+    g.add_edge("f","g",2)
+    
+    g.addH("s", 10)
+    g.addH("e", 8)
+    g.addH("a", 5)
+    g.addH("b", 7)
+    g.addH("c", 3)
+    g.addH("d", 2)
+    g.addH("t", 0)
+    g.addH("f", 6)
+    g.addH("g", 4)
+
+
+    #cosntrução de menu
+    saida = -1
+    while saida != 0:
+        print("1-Imprimir Grafo")
+        print("2-Desenhar Grafo")
+        print("3-Imprimir  nodos de Grafo")
+        print("4-Imprimir arestas de Grafo")
+        print("5-DFS")
+        print("6-BFS")
+        print("7-Greedy")
+        print("8-A*")
+        print("0-Saír")
+
+        saida = int(input("introduza a sua opcao-> "))
+        if saida == 0:
+            print("saindo.......")
+        elif saida == 1:
+            #Escrever o grafo como string
+            print(g)
+            l=input("prima enter para continuar")
+        elif saida == 2:
+            #Desenhar o grafo de forma gráfica
+            g.desenha()
+        elif saida == 3:
+            #Imprimir as chaves do dicionario que representa o grafo
+            print(g.m_graph.keys())
+            l = input("prima enter para continuar")
+        elif saida == 4:
+            #imprimir todas as arestas do grafo
+            print(g.imprime_aresta())
+            l = input("prima enter para continuar")
+        elif saida == 5:
+            #Efetuar  pesquisa de caminho entre nodo inicial e final com DFS
+            inicio=input("Nodo inicial->")
+            fim = input("Nodo final->")
+            print(g.procura_DFS( inicio, fim, path=[], visited=set()))
+            l = input("prima enter para continuar")
+        elif saida == 6:
+            # Efetuar  pesquisa de caminho entre nodo inicial e final com BFS
+            inicio = input("Nodo inicial->")
+            fim = input("Nodo final->")
+            print(g.procura_BFS(inicio, fim))
+            l = input("prima enter para continuar")
+        elif saida == 7:
+            # Efetuar  pesquisa de caminho entre nodo inicial e final com Greedy
+            inicio = input("Nodo inicial->")
+            fim = input("Nodo final->")
+            print(g.gulosa(inicio, fim))
+            l = input("prima enter para continuar")
+        elif saida == 8:
+            # Efetuar  pesquisa de caminho entre nodo inicial e final com A*
+            inicio = input("Nodo inicial->")
+            fim = input("Nodo final->")
+            print(g.a_star(inicio, fim))
+            l = input("prima enter para continuar")
+        else:
+            print("Opção inválida...")
+            l = input("prima enter para continuar")
+
+
+
+if __name__ == "__main__":
+    main()
