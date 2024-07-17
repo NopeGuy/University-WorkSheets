@@ -4,10 +4,10 @@ import java.util.Set;
 public class Servidor {
 
     public static void main(String[] args){
-        WarehouseGreedy h = new WarehouseGreedy();
+        WarehouseGreedy h = new Warehouse();
         new Thread(() -> {
             try {
-                while(1 == 1){
+                while(true){
                     System.out.printf("Vou fazer supply na T=%d\n", 1);
                     h.supply("Leite", 10);
                     h.supply("Donuts", 5);
@@ -22,7 +22,7 @@ public class Servidor {
         for(int i = 0; i<5; i++){
             int fI = i;
             new Thread(() -> {
-                while(1 == 1) {
+                while(true) {
                     try {
                         Set<String> items = new HashSet<>();
                         items.add("Leite");
