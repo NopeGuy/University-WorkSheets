@@ -1,7 +1,5 @@
 # GitHub Projects
 
-## Projects Overview
-
 | **Semester** | **Year 1** | **Year 2** | **Year 3** |
 |--------------|------------|------------|------------|
 | **Semester 1** | [**LI1-2223**](https://github.com/NopeGuy/BlockDudeHaskell) | [**LI3-2223**](https://github.com/NopeGuy/LI3-2223) | [**DSS-2324**](https://github.com/NopeGuy/DSS-2324) <br> [**IA-2324**](https://github.com/NopeGuy/IA-2324) <br> [**SD-2324**](https://github.com/NopeGuy/SD-2324) <br> [**CC-2324**](https://github.com/NopeGuy/CC-2324/tree/main) <br> [**LI4-2324**](https://github.com/NopeGuy/LI4-2324) |
