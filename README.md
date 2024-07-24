@@ -2,27 +2,25 @@
 
 # Projetos Universitários
 
-| **Ano** | **Semestre** | **Projeto** | **Link** | **Data** |
-|---------|--------------|-------------|----------|----------|
-| **Ano 1** | **Semestre 1** | BlockDudeHaskell | [Link](https://github.com/NopeGuy/BlockDudeHaskell) | 2022-2023 |
-| **Ano 1** | **Semestre 1** | LI2-1920 | [Link](https://github.com/NopeGuy/LI2-1920) | 2019-2020 |
-| **Ano 1** | **Semestre 1** | LI3-2223 | [Link](https://github.com/NopeGuy/LI3-2223) | 2022-2023 |
-| **Ano 1** | **Semestre 1** | Fitness APP | [Link](https://github.com/NopeGuy/POO-2324) | 2023-2024 |
-| **Ano 1** | **Semestre 2** | Parser and Data Management | [Link](https://github.com/NopeGuy/LI3-2223) | 2022-2023 |
-| **Ano 1** | **Semestre 2** | Text FootManager Ever™ | [Link](https://github.com/NopeGuy/project-poo-2021) | 2021-2022 |
-| **Ano 1** | **Semestre 2** | Delivery Search Algorithm | [Link](https://github.com/NopeGuy/IA-2324) | 2023-2024 |
-| **Ano 1** | **Semestre 2** | Tracking Program Execution | [Link](https://github.com/NopeGuy/SO2223) | 2022-2023 |
-| **Ano 1** | **Semestre 2** | Software Systems Project | [Link](https://github.com/NopeGuy/DSS-2324) | 2023-2024 |
-| **Ano 2** | **Semestre 1** | Forth Compiler | [Link](https://github.com/NopeGuy/PL-2324) | 2023-2024 |
-| **Ano 2** | **Semestre 1** | Safe OS Message Service | [Link](https://github.com/NopeGuy/SSI-2324/tree/main/TPs/TP2) | 2023-2024 |
-| **Ano 2** | **Semestre 1** | Concurrent Cloud Computing | [Link](https://github.com/NopeGuy/SD-2324) | 2023-2024 |
-| **Ano 2** | **Semestre 2** | Encrypted Message Service | [Link](https://github.com/NopeGuy/SSI-2324/tree/main/TPs/TP1) | 2023-2024 |
-| **Ano 2** | **Semestre 2** | File Sharing with UDP/Torrent | [Link](https://github.com/NopeGuy/CC-2324/tree/main) | 2023-2024 |
-| **Ano 2** | **Semestre 2** | Graphics Engine and Model Creator | [Link](https://github.com/NopeGuy/CG-2324) | 2023-2024 |
-| **Ano 2** | **Semestre 2** | Analysis and Test of Software | [Link](https://github.com/NopeGuy/ATS-2324) | 2023-2024 |
-| **Ano 2** | **Semestre 2** | Mechanic Management Service | [Link](https://github.com/NopeGuy/IPM-2324) | 2023-2024 |
-
-
+| **Year** | **Semester** | **Project** | **Link** | **Date** |
+|----------|--------------|-------------|----------|----------|
+| **Year 1** | **Semester 1** | BlockDudeHaskell | [Link](https://github.com/NopeGuy/BlockDudeHaskell) | 2022-2023 |
+| | | LI2-1920 | [Link](https://github.com/NopeGuy/LI2-1920) | 2019-2020 |
+| | | LI3-2223 | [Link](https://github.com/NopeGuy/LI3-2223) | 2022-2023 |
+| | | Fitness APP | [Link](https://github.com/NopeGuy/POO-2324) | 2023-2024 |
+| **Year 1** | **Semester 2** | Parser and Data Management | [Link](https://github.com/NopeGuy/LI3-2223) | 2022-2023 |
+| | | Text FootManager Ever™ | [Link](https://github.com/NopeGuy/project-poo-2021) | 2021-2022 |
+| | | Delivery Search Algorithm | [Link](https://github.com/NopeGuy/IA-2324) | 2023-2024 |
+| | | Tracking Program Execution | [Link](https://github.com/NopeGuy/SO2223) | 2022-2023 |
+| | | Software Systems Project | [Link](https://github.com/NopeGuy/DSS-2324) | 2023-2024 |
+| **Year 2** | **Semester 1** | Forth Compiler | [Link](https://github.com/NopeGuy/PL-2324) | 2023-2024 |
+| | | Safe OS Message Service | [Link](https://github.com/NopeGuy/SSI-2324/tree/main/TPs/TP2) | 2023-2024 |
+| | | Concurrent Cloud Computing | [Link](https://github.com/NopeGuy/SD-2324) | 2023-2024 |
+| **Year 2** | **Semester 2** | Encrypted Message Service | [Link](https://github.com/NopeGuy/SSI-2324/tree/main/TPs/TP1) | 2023-2024 |
+| | | File Sharing with UDP/Torrent | [Link](https://github.com/NopeGuy/CC-2324/tree/main) | 2023-2024 |
+| | | Graphics Engine and Model Creator | [Link](https://github.com/NopeGuy/CG-2324) | 2023-2024 |
+| | | Analysis and Test of Software | [Link](https://github.com/NopeGuy/ATS-2324) | 2023-2024 |
+| | | Mechanic Management Service | [Link](https://github.com/NopeGuy/IPM-2324) | 2023-2024 |
 
 # University WorkSheets
 
