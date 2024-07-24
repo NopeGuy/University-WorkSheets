@@ -5,7 +5,7 @@
 ## Ano 1
 
 ### Semestre 1
-- [**LI1**](https://github.com/NopeGuy/BlockDudeHaskell)
+- [**LI1-2223**](https://github.com/NopeGuy/BlockDudeHaskell)
 
 ### Semestre 2
 - [**LI2-1920**](https://github.com/NopeGuy/LI2-1920)
@@ -18,7 +18,7 @@
 
 ### Semestre 2
 - [**POO-2324**](https://github.com/NopeGuy/POO-2324)
-- [**SO2223**](https://github.com/NopeGuy/SO2223)
+- [**SO-2223**](https://github.com/NopeGuy/SO2223)
 
   
 ## Ano 3
