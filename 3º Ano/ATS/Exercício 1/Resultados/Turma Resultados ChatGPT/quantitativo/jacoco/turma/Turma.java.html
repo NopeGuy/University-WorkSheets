@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Turma.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">turma</a> &gt; <span class="el_source">Turma.java</span></div><h1>Turma.java</h1><pre class="source lang-java linenums">package turma;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Turma {
+
+    private List&lt;Aluno&gt; alunos;
+
+<span class="nc" id="L11">    public Turma(){</span>
+<span class="nc" id="L12">        alunos = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public Turma(List&lt;Aluno&gt; novosAlunos){</span>
+<span class="fc" id="L16">        this.setAlunos(novosAlunos);</span>
+<span class="fc" id="L17">    }</span>
+
+    public Turma (Turma t){
+<span class="nc" id="L20">        this(t.getAlunos());</span>
+<span class="nc" id="L21">    }</span>
+
+    public void setAlunos(List&lt;Aluno&gt; novosAlunos){
+<span class="fc" id="L24">        alunos = novosAlunos.stream().map(Aluno::clone).collect(Collectors.toList());</span>
+<span class="fc" id="L25">    }</span>
+
+    public List&lt;Aluno&gt; getAlunos(){
+<span class="nc" id="L28">        return alunos.stream().map(Aluno::clone).collect(Collectors.toList());</span>
+    }
+
+    public void addAluno(Aluno a){
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">        if (!alunos.contains(a)) alunos.add(a.clone());</span>
+<span class="fc" id="L33">    }</span>
+
+    public boolean containsAluno(String numero) {
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        return alunos.stream().filter(x -&gt; x.getNumero().equals(numero)).count() &gt; 0;</span>
+    }
+
+    public void removeAluno(String numero) throws AlunoInexistenteException {
+<span class="fc" id="L40">        Iterator&lt;Aluno&gt; it = alunos.iterator();</span>
+<span class="fc" id="L41">        boolean removido = false;</span>
+<span class="fc bfc" id="L42" title="All 4 branches covered.">        while (it.hasNext() &amp;&amp; !removido) {</span>
+<span class="fc" id="L43">            Aluno aluno = it.next();</span>
+<span class="fc bfc" id="L44" title="All 2 branches covered.">            if (aluno.getNumero().equals(numero)) {</span>
+<span class="fc" id="L45">                it.remove();</span>
+<span class="fc" id="L46">                removido = true;</span>
+            }
+<span class="fc" id="L48">        }</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (!removido)</span>
+<span class="fc" id="L50">            throw new AlunoInexistenteException(numero);</span>
+<span class="fc" id="L51">    }</span>
+
+    public Aluno getAluno(String numero) throws AlunoInexistenteException{
+<span class="nc" id="L54">         return alunos.stream().filter(x -&gt; x.getNumero().equals(numero)).findFirst().orElseThrow(() -&gt; new AlunoInexistenteException(numero)).clone();</span>
+    }
+
+    public double media(){
+<span class="fc" id="L58">        int i = 0;</span>
+<span class="fc" id="L59">        double media = 0.0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        for (Aluno a : alunos){</span>
+<span class="fc" id="L61">            media += a.media();</span>
+<span class="fc" id="L62">            i++;</span>
+<span class="fc" id="L63">        }</span>
+<span class="fc" id="L64">        return media/i;</span>
+    }
+
+    public List&lt;Aluno&gt; reprovados(){
+<span class="fc" id="L68">        List&lt;Aluno&gt; r = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        for (Aluno a : alunos) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            if (a.media() &lt; 10) r.add(a.clone());</span>
+<span class="fc" id="L71">        }</span>
+<span class="fc" id="L72">        return r;</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

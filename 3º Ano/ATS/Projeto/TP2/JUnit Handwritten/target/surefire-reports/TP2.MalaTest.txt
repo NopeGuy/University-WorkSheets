@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TP2.MalaTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in TP2.MalaTest
+testClone  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected: TP2.Mala<Mala:: {Artigo:: { Código de barras: A8 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Dimensão: 30 Material: Couro Ano da Coleção: 2021 Premium: true Valorização: 5.0}> but was: TP2.Mala<Mala:: {Artigo:: { Código de barras: A8 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Dimensão: 30 Material: Couro Ano da Coleção: 2021 Premium: true Valorização: 5.0}>
+	at TP2.MalaTest.testClone(MalaTest.java:42)
+
+testEquals  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Mala:: {Artigo:: { Código de barras: A11 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Dimensão: 30 Material: Couro Ano da Coleção: 2021 Premium: true Valorização: 5.0}> but was:<Mala:: {Artigo:: { Código de barras: A12 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Dimensão: 30 Material: Couro Ano da Coleção: 2021 Premium: true Valorização: 5.0}>
+	at TP2.MalaTest.testEquals(MalaTest.java:49)
+

@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TP2.UtilizadorTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.101 s <<< FAILURE! - in TP2.UtilizadorTest
+testAdicionaProdutoVendido  Time elapsed: 0.065 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at TP2.UtilizadorTest.testAdicionaProdutoVendido(UtilizadorTest.java:41)
+
+testCriaCodigo  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <7> but was: <6>
+	at TP2.UtilizadorTest.testCriaCodigo(UtilizadorTest.java:15)
+

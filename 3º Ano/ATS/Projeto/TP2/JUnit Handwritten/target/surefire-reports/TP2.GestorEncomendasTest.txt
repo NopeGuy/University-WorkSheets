@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TP2.GestorEncomendasTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in TP2.GestorEncomendasTest
+testFinalizadaToExpedida  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Expedida> but was: <Pendente>
+	at TP2.GestorEncomendasTest.testFinalizadaToExpedida(GestorEncomendasTest.java:92)
+
+testConstrutorCopia  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: TP2.GestorEncomendas@446c3920<Gestor de Encomendas:: { Informações das encomendas: {24=Encomenda:: { Artigos: [] Código: 24 Dimensão: Pequeno Estado: Pendente Data de criação: N/A  Data de entrega: N/A}}}> but was: TP2.GestorEncomendas@2eaef76d<Gestor de Encomendas:: { Informações das encomendas: {24=Encomenda:: { Artigos: [] Código: 24 Dimensão: Pequeno Estado: Pendente Data de criação: N/A  Data de entrega: N/A}}}>
+	at TP2.GestorEncomendasTest.testConstrutorCopia(GestorEncomendasTest.java:49)
+

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Ponto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">poligono</a> &gt; <span class="el_source">Ponto.java</span></div><h1>Ponto.java</h1><pre class="source lang-java linenums">package poligono;
+/**
+ * Write a description of class Ponto here.
+ * 
+ * @author Joao Saraiva 
+ * @version 2010/11
+ */
+import static java.lang.Math.*; 
+
+public class Ponto { 
+ 
+  
+   private double x, y; 
+ 
+   // Construtores usuais 
+   public Ponto(double x, double y) 
+<span class="fc" id="L17">   { this.x = x; this.y = y; } </span>
+   
+   public Ponto()
+   
+<span class="nc" id="L21">   { this(0.0, 0.0); }  // usa o outro construtor </span>
+   public Ponto(Ponto p) 
+<span class="fc" id="L23">   { x = p.getX(); y = p.getY(); } </span>
+ 
+   
+   // M�todos de Inst�ncia 
+<span class="fc" id="L27">   public double getX() { return this.x; } </span>
+<span class="fc" id="L28">   public double getY() { return this.y; } </span>
+   
+<span class="nc" id="L30">   public void setX(double x) {this.x = x;}</span>
+<span class="nc" id="L31">   public void setY(double y) {this.y = y;}</span>
+ 
+   /** incremento das coordenadas */ 
+   public void incCoord(double dx, double dy) { 
+<span class="nc" id="L35">      this.x += dx; this.y += dy; </span>
+<span class="nc" id="L36">   } </span>
+   /** decremento das coordenadas */ 
+   public void decCoord(double dx, double dy) { 
+<span class="nc" id="L39">      this.x -= dx; this.y -= dy; </span>
+<span class="nc" id="L40">   } </span>
+
+    /** soma as coordenadas do ponto par�metro ao ponto receptor */ 
+   public void somaPonto(Ponto p) { 
+<span class="nc" id="L44">      this.x += p.getX(); this.y += p.getY(); </span>
+<span class="nc" id="L45">   } </span>
+   /** soma os valores par�metro e devolve um novo ponto */ 
+   public Ponto somaPonto(double dx, double dy) { 
+<span class="nc" id="L48">     return new Ponto(this.x += dx, this.y+= dy); </span>
+   } 
+   /* determina se um ponto � sim�trico (dista do eixo dos XX o 
+       mesmo que do eixo dos YY */ 
+   public boolean simetrico() { 
+<span class="nc bnc" id="L53" title="All 2 branches missed.">     return abs(this.x) == abs(this.y); </span>
+   } 
+ 
+   /** verifica se ambas as coordenadas s�o positivas */ 
+   public boolean coordPos() { 
+<span class="nc bnc" id="L58" title="All 4 branches missed.">     return this.x &gt; 0 &amp;&amp; this.y &gt; 0; </span>
+   }  
+ 
+   /** Distancia entre dois pontos */
+   public double distancia (Ponto p)
+<span class="fc" id="L63">   { return Math.sqrt( (Math.pow(p.getX()- this.x,2)) </span>
+<span class="fc" id="L64">                     + (Math.pow(p.getY() - this.y,2))</span>
+                     );
+       
+    }
+   
+   // M�todos complementares usuais 
+ 
+   public boolean equals (Object o)
+<span class="nc bnc" id="L72" title="All 2 branches missed.">    { if (this == o) </span>
+<span class="nc" id="L73">        { return true; }</span>
+      
+<span class="nc bnc" id="L75" title="All 4 branches missed.">      if ((o == null) || (o.getClass() != this.getClass()))</span>
+<span class="nc" id="L76">        { return false; }</span>
+      
+<span class="nc" id="L78">      Ponto p = (Ponto) o;</span>
+<span class="nc bnc" id="L79" title="All 4 branches missed.">      return ( this.x == p.getX() &amp;&amp; this.y == p.getY());</span>
+    }
+   
+   public String toString()
+   {
+<span class="nc" id="L84">     return (&quot;x : &quot; + this.x + &quot; y: &quot; + this.y);   </span>
+   }
+    
+    
+   
+ 
+   /** Cria uma c�pia do ponto receptor (receptor = this) */ 
+   public Ponto clone() { 
+<span class="fc" id="L92">      return new Ponto(this);  </span>
+   } 
+
+   
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

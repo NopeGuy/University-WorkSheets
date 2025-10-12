@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "RoomCriation";
+}
+
+<head>
+    <style>
+        .form-container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 20px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h2>Criação de Sala</h2>
+    <br />
+    <p> Introduza o título (Nome do produto) e a sua descrição.</p>
+    <p><b>NOTA</b>: Não é possível ter mais que 3 salas ativas ao mesmo tempo.</p>
+    <br />
+    <div class="form-container">
+    <form asp-action="CreateRoom" asp-controller="Rooms" method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="text" name="tit" placeholder="Título" />
+            <input type="text" name="desc" placeholder="Descrição" />
+        <button type="submit">Criar Sala</button>
+    </form>
+    </div>
+</body>

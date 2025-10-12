@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Aluno.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">turma</a> &gt; <span class="el_source">Aluno.java</span></div><h1>Aluno.java</h1><pre class="source lang-java linenums">package turma;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Aluno {
+    private String nome;
+    private String numero;
+    private Map&lt;String, Double&gt; notas;
+
+<span class="nc" id="L10">    public Aluno(String nome, String numero, Map&lt;String, Double&gt; notas) {</span>
+<span class="nc" id="L11">        this.nome = nome;</span>
+<span class="nc" id="L12">        this.numero = numero;</span>
+<span class="nc" id="L13">        this.notas = notas;</span>
+<span class="nc" id="L14">    }</span>
+
+<span class="nc" id="L16">    public Aluno() {</span>
+<span class="nc" id="L17">        this.nome = &quot;&quot;;</span>
+<span class="nc" id="L18">        this.numero = &quot;0&quot;;</span>
+<span class="nc" id="L19">        this.notas = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L20">    }</span>
+
+<span class="fc" id="L22">    public Aluno(Aluno aluno) {</span>
+<span class="fc" id="L23">        this.nome = aluno.getNome();</span>
+<span class="fc" id="L24">        this.numero = aluno.getNumero();</span>
+<span class="fc" id="L25">        this.notas = new HashMap&lt;&gt;(aluno.notas);</span>
+<span class="fc" id="L26">    }</span>
+
+<span class="fc" id="L28">    public Aluno(String nome, String numero) {</span>
+<span class="fc" id="L29">        this.nome = nome;</span>
+<span class="fc" id="L30">        this.numero = numero;</span>
+<span class="fc" id="L31">        this.notas = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L32">    }</span>
+
+    @Override
+    public Aluno clone() {
+<span class="fc" id="L36">        return new Aluno(this);</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (this == obj) {</span>
+<span class="nc" id="L42">            return true;</span>
+        }
+<span class="pc bpc" id="L44" title="2 of 4 branches missed.">        if (obj == null || getClass() != obj.getClass()) {</span>
+<span class="nc" id="L45">            return false;</span>
+        }
+
+<span class="fc" id="L48">        Aluno otherAluno = (Aluno) obj;</span>
+
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        return nome.equals(otherAluno.nome)</span>
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">                &amp;&amp; numero.equals(otherAluno.numero)</span>
+<span class="pc bpc" id="L52" title="1 of 2 branches missed.">                &amp;&amp; notas.equals(otherAluno.notas);</span>
+    }
+
+    public String getNome() {
+<span class="fc" id="L56">        return nome;</span>
+    }
+
+    public String getNumero() {
+<span class="fc" id="L60">        return numero;</span>
+    }
+
+    public double getNota(String disciplina) {
+<span class="fc" id="L64">        return notas.getOrDefault(disciplina, 0.0);</span>
+    }
+
+    public String toString() {
+<span class="nc" id="L68">        return &quot;Nome: &quot; + nome + &quot;, Número: &quot; + numero + &quot;, Notas: &quot; + notas;</span>
+    }
+
+    public void setNome(String nome) {
+<span class="nc" id="L72">        this.nome = nome;</span>
+<span class="nc" id="L73">    }</span>
+
+    public void setNumero(String numero) {
+<span class="nc" id="L76">        this.numero = numero;</span>
+<span class="nc" id="L77">    }</span>
+
+    public void setNota(String disciplina, double nota) throws NotaInvalidaException {
+<span class="pc bpc" id="L80" title="1 of 4 branches missed.">        if (nota &lt; 0 || nota &gt; 20) {</span>
+<span class="fc" id="L81">            throw new NotaInvalidaException(&quot;Nota inválida&quot;);</span>
+        }
+        else{
+<span class="fc" id="L84">            notas.put(disciplina, nota);</span>
+        }
+<span class="fc" id="L86">    }</span>
+
+    public void incrementaNota(String disciplina, double nota) {
+<span class="nc" id="L89">        notas.put(disciplina, notas.getOrDefault(disciplina, 0.0) + nota);</span>
+<span class="nc" id="L90">    }</span>
+
+    public double media() {
+<span class="pc bpc" id="L93" title="1 of 2 branches missed.">        if (notas.isEmpty()) {</span>
+<span class="nc" id="L94">            return 0.0;</span>
+        }
+
+<span class="fc" id="L97">        double somaNotas = 0.0;</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for (double nota : notas.values()) {</span>
+<span class="fc" id="L99">            somaNotas += nota;</span>
+<span class="fc" id="L100">        }</span>
+<span class="fc" id="L101">        return somaNotas / notas.size();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

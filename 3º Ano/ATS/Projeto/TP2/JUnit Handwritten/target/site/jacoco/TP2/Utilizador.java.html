@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Utilizador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Utilizador.java</span></div><h1>Utilizador.java</h1><pre class="source lang-java linenums">package TP2;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+public class Utilizador implements Serializable, Comparable&lt;Utilizador&gt; {
+
+    // Variáveis de classe
+<span class="fc" id="L13">    private static long codigo = 1;</span>
+
+    // Métodos de classe
+    public static long getCodigo() {
+<span class="fc" id="L17">        return codigo;</span>
+    }
+
+    public static void setCodigo(long codigo) {
+<span class="nc" id="L21">        Utilizador.codigo = codigo;</span>
+<span class="nc" id="L22">    }</span>
+
+    public static long criaCodigo() {
+<span class="fc" id="L25">        return codigo++;</span>
+    }
+
+    // Variáveis de instância
+    private long id;
+    private String email;
+    private String nome;
+    private String morada;
+    private long nif;
+    private String password;
+    private int n_vendidos;
+    private int n_comprados;
+
+    private Set&lt;String&gt; produtosVendidos; // Contém o id dos artigos vendidos
+    private Set&lt;String&gt; produtosVender; // Contém o id dos artigos que tem à venda
+    private Set&lt;String&gt; pendentes; // Contém o id dos artigos que estão pendentes, ou seja, que ainda estão no
+                                   // carrinho
+
+    private Map&lt;Long, Fatura&gt; faturasVendas; // Mapeamento das faturas pelo id da encomenda
+    private Map&lt;Long, Fatura&gt; faturasCompras;// Mapeamento das faturas pelo id da encomenda
+
+    private Set&lt;Long&gt; comprei; // contém o id das encomendas efetuadas;
+    private Set&lt;Long&gt; devolvidos; // Set que contém os ids das encomendas devolvidos
+    private Encomenda carrinho; // encomenda atual
+
+    // Construtor vazio
+<span class="fc" id="L51">    public Utilizador() {</span>
+<span class="fc" id="L52">        this.id = Utilizador.criaCodigo();</span>
+<span class="fc" id="L53">        this.email = &quot;n/d&quot;;</span>
+<span class="fc" id="L54">        this.nome = &quot;n/d&quot;;</span>
+<span class="fc" id="L55">        this.morada = &quot;n/d&quot;;</span>
+<span class="fc" id="L56">        this.nif = -1; // negativo pois não está associado a ninguém.</span>
+<span class="fc" id="L57">        this.password = &quot;n/d&quot;;</span>
+<span class="fc" id="L58">        this.n_vendidos = 0;</span>
+<span class="fc" id="L59">        this.n_comprados = 0;</span>
+
+<span class="fc" id="L61">        this.produtosVendidos = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L62">        this.produtosVender = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L63">        this.pendentes = new HashSet&lt;&gt;();</span>
+
+<span class="fc" id="L65">        this.faturasVendas = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L66">        this.faturasCompras = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L68">        this.comprei = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L69">        this.devolvidos = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L70">        this.carrinho = new Encomenda();</span>
+<span class="fc" id="L71">    }</span>
+
+    // Construtor parametrizado
+<span class="nc" id="L74">    public Utilizador(String email, String nome, String morada, Long nif2, String password) {</span>
+<span class="nc" id="L75">        this.id = Utilizador.criaCodigo();</span>
+<span class="nc" id="L76">        this.email = email;</span>
+<span class="nc" id="L77">        this.nome = nome;</span>
+<span class="nc" id="L78">        this.morada = morada;</span>
+<span class="nc" id="L79">        this.nif = nif2;</span>
+<span class="nc" id="L80">        this.password = password;</span>
+<span class="nc" id="L81">        this.n_vendidos = 0;</span>
+<span class="nc" id="L82">        this.n_comprados = 0;</span>
+
+<span class="nc" id="L84">        this.produtosVendidos = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L85">        this.produtosVender = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L86">        this.pendentes = new HashSet&lt;&gt;();</span>
+
+<span class="nc" id="L88">        this.faturasVendas = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L89">        this.faturasCompras = new HashMap&lt;&gt;();</span>
+
+<span class="nc" id="L91">        this.comprei = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L92">        this.devolvidos = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L93">        this.carrinho = new Encomenda();</span>
+
+<span class="nc" id="L95">    }</span>
+
+    // Construtor cópia
+<span class="nc" id="L98">    public Utilizador(Utilizador umUtilizador) {</span>
+<span class="nc" id="L99">        this.id = umUtilizador.getId();</span>
+<span class="nc" id="L100">        this.email = umUtilizador.getEmail();</span>
+<span class="nc" id="L101">        this.nome = umUtilizador.getNome();</span>
+<span class="nc" id="L102">        this.morada = umUtilizador.getMorada();</span>
+<span class="nc" id="L103">        this.nif = umUtilizador.getNif();</span>
+<span class="nc" id="L104">        this.password = umUtilizador.getPassword();</span>
+<span class="nc" id="L105">        this.n_vendidos = umUtilizador.getN_vendidos();</span>
+<span class="nc" id="L106">        this.n_comprados = umUtilizador.getN_comprados();</span>
+
+<span class="nc" id="L108">        this.produtosVendidos = umUtilizador.getProdutosVendidos();</span>
+<span class="nc" id="L109">        this.produtosVender = umUtilizador.getProdutosVender();</span>
+<span class="nc" id="L110">        this.pendentes = umUtilizador.getPendentes();</span>
+
+<span class="nc" id="L112">        this.faturasVendas = umUtilizador.getFaturasVendas();</span>
+<span class="nc" id="L113">        this.faturasCompras = umUtilizador.getFaturasCompras();</span>
+
+<span class="nc" id="L115">        this.comprei = umUtilizador.getComprei();</span>
+<span class="nc" id="L116">        this.devolvidos = umUtilizador.getDevolvidos();</span>
+<span class="nc" id="L117">        this.carrinho = umUtilizador.getCarrinho();</span>
+
+<span class="nc" id="L119">    }</span>
+
+    // Métodos getters e setters
+    public int getN_comprados() {
+<span class="fc" id="L123">        return n_comprados;</span>
+    }
+
+    public int getN_vendidos() {
+<span class="fc" id="L127">        return n_vendidos;</span>
+    }
+
+    public long getId() {
+<span class="nc" id="L131">        return id;</span>
+    }
+
+    public String getEmail() {
+<span class="fc" id="L135">        return email;</span>
+    }
+
+    public String getNome() {
+<span class="fc" id="L139">        return nome;</span>
+    }
+
+    public String getMorada() {
+<span class="fc" id="L143">        return morada;</span>
+    }
+
+    public long getNif() {
+<span class="fc" id="L147">        return nif;</span>
+    }
+
+    public String getPassword() {
+<span class="fc" id="L151">        return password;</span>
+    }
+
+    public Set&lt;String&gt; getProdutosVendidos() {
+<span class="fc" id="L155">        Set&lt;String&gt; copia = new HashSet&lt;&gt;(this.produtosVendidos);</span>
+<span class="fc" id="L156">        return copia;</span>
+    }
+
+    public Set&lt;String&gt; getProdutosVender() {
+<span class="fc" id="L160">        Set&lt;String&gt; copia = new HashSet&lt;&gt;(this.produtosVender);</span>
+<span class="fc" id="L161">        return copia;</span>
+    }
+
+    public Set&lt;String&gt; getPendentes() {
+<span class="fc" id="L165">        Set&lt;String&gt; copia = new HashSet&lt;&gt;(this.pendentes);</span>
+<span class="fc" id="L166">        return copia;</span>
+    }
+
+    public Set&lt;Long&gt; getComprei() {
+<span class="fc" id="L170">        Set&lt;Long&gt; copia = new HashSet&lt;&gt;(this.comprei);</span>
+<span class="fc" id="L171">        return copia;</span>
+    }
+
+    public Set&lt;Long&gt; getDevolvidos() {
+<span class="fc" id="L175">        return (new HashSet&lt;&gt;(this.devolvidos));</span>
+    }
+
+    public Encomenda getCarrinho() {
+<span class="nc" id="L179">        Encomenda copia = new Encomenda(this.carrinho);</span>
+<span class="nc" id="L180">        return copia;</span>
+    }
+
+    public long getIdCarrinho() {
+<span class="nc" id="L184">        return this.carrinho.getId();</span>
+    }
+
+    public Map&lt;Long, Fatura&gt; getFaturasVendas() {
+<span class="fc" id="L188">        Map&lt;Long, Fatura&gt; copia = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">        for (Long l : this.faturasVendas.keySet()) {</span>
+<span class="fc" id="L190">            copia.put(l, this.faturasVendas.get(l));</span>
+        }
+<span class="fc" id="L192">        return copia;</span>
+    }
+
+    public Fatura get1FaturaVenda(long idEncomenda) {
+<span class="nc" id="L196">        return this.faturasVendas.get(idEncomenda);</span>
+    }
+
+    public Map&lt;Long, Fatura&gt; getFaturasCompras() {
+<span class="fc" id="L200">        Map&lt;Long, Fatura&gt; copia = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">        for (Long l : this.faturasCompras.keySet()) {</span>
+<span class="fc" id="L202">            copia.put(l, this.faturasCompras.get(l));</span>
+        }
+<span class="fc" id="L204">        return copia;</span>
+    }
+
+    public Fatura get1FaturaCompra(long idEncomenda) {
+<span class="nc" id="L208">        return this.faturasCompras.get(idEncomenda);</span>
+    }
+
+    public void setId(long id) {
+<span class="nc" id="L212">        this.id = id;</span>
+<span class="nc" id="L213">    }</span>
+
+    public void setEmail(String email) {
+<span class="nc" id="L216">        this.email = email;</span>
+<span class="nc" id="L217">    }</span>
+
+    public void setNome(String nome) {
+<span class="nc" id="L220">        this.nome = nome;</span>
+<span class="nc" id="L221">    }</span>
+
+    public void setMorada(String morada) {
+<span class="nc" id="L224">        this.morada = morada;</span>
+<span class="nc" id="L225">    }</span>
+
+    public void setNif(long nif) {
+<span class="nc" id="L228">        this.nif = nif;</span>
+<span class="nc" id="L229">    }</span>
+
+    public void setPassword(String password) {
+<span class="nc" id="L232">        this.password = password;</span>
+<span class="nc" id="L233">    }</span>
+
+    public void setProdutosVendidos(Set&lt;String&gt; novo) {
+<span class="nc" id="L236">        this.produtosVendidos = new HashSet&lt;&gt;(novo);</span>
+<span class="nc" id="L237">    }</span>
+
+    public void setProdutosVender(Set&lt;String&gt; novo) {
+<span class="nc" id="L240">        this.produtosVender = new HashSet&lt;&gt;(novo);</span>
+<span class="nc" id="L241">    }</span>
+
+    public void setPendentes(Set&lt;String&gt; novo) {
+<span class="nc" id="L244">        this.pendentes = new HashSet&lt;&gt;(novo);</span>
+<span class="nc" id="L245">    }</span>
+
+    public void setN_comprados(int n_comprados) {
+<span class="nc" id="L248">        this.n_comprados = n_comprados;</span>
+<span class="nc" id="L249">    }</span>
+
+    public void setN_vendidos(int n_vendidos) {
+<span class="nc" id="L252">        this.n_vendidos = n_vendidos;</span>
+<span class="nc" id="L253">    }</span>
+
+    public void setComprei(Set&lt;Long&gt; comprei) {
+<span class="nc" id="L256">        this.comprei = new HashSet&lt;&gt;(comprei);</span>
+<span class="nc" id="L257">    }</span>
+
+    public void setDevolvidos(Set&lt;Long&gt; devolvidos) {
+<span class="nc" id="L260">        this.devolvidos = new HashSet&lt;&gt;(devolvidos);</span>
+<span class="nc" id="L261">    }</span>
+
+    public void setCarrinho(Encomenda carrinho) {
+<span class="nc" id="L264">        this.carrinho = carrinho.clone();</span>
+<span class="nc" id="L265">    }</span>
+
+    public void setFaturasVendas(Map&lt;Long, Fatura&gt; faturasVendas) {
+<span class="nc" id="L268">        this.faturasVendas = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L269" title="All 2 branches missed.">        for (Long l : faturasVendas.keySet()) {</span>
+<span class="nc" id="L270">            this.faturasVendas.put(l, faturasVendas.get(l).clone());</span>
+        }
+<span class="nc" id="L272">    }</span>
+
+    public void setFaturasCompras(Map&lt;Long, Fatura&gt; faturasCompras) {
+<span class="nc" id="L275">        this.faturasCompras = new HashMap&lt;&gt;();</span>
+<span class="nc bnc" id="L276" title="All 2 branches missed.">        for (Long l : faturasCompras.keySet()) {</span>
+<span class="nc" id="L277">            this.faturasCompras.put(l, faturasCompras.get(l).clone());</span>
+        }
+<span class="nc" id="L279">    }</span>
+
+    // Metodo que verifica se dois objetos são iguais
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L284" title="All 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L285">            return true;</span>
+
+<span class="nc bnc" id="L287" title="All 4 branches missed.">        if (o == null || o.getClass() != this.getClass())</span>
+<span class="nc" id="L288">            return false;</span>
+
+<span class="nc" id="L290">        Utilizador u = (Utilizador) o;</span>
+
+<span class="nc bnc" id="L292" title="All 4 branches missed.">        return (this.id == u.getId() &amp;&amp; this.getEmail().equals(u.getEmail())</span>
+<span class="nc bnc" id="L293" title="All 4 branches missed.">                &amp;&amp; this.nome.equals(u.getNome()) &amp;&amp; this.morada.equals(u.getMorada())</span>
+<span class="nc bnc" id="L294" title="All 4 branches missed.">                &amp;&amp; this.nif == u.getNif() &amp;&amp; this.password.equals(u.getPassword())</span>
+<span class="nc bnc" id="L295" title="All 2 branches missed.">                &amp;&amp; this.produtosVendidos.equals(u.getProdutosVendidos())</span>
+<span class="nc bnc" id="L296" title="All 2 branches missed.">                &amp;&amp; this.produtosVender.equals(u.getProdutosVender())</span>
+<span class="nc bnc" id="L297" title="All 2 branches missed.">                &amp;&amp; this.pendentes.equals(u.getPendentes())</span>
+<span class="nc bnc" id="L298" title="All 2 branches missed.">                &amp;&amp; this.faturasVendas.equals(u.getFaturasVendas())</span>
+<span class="nc bnc" id="L299" title="All 2 branches missed.">                &amp;&amp; this.faturasCompras.equals(u.getFaturasCompras())</span>
+<span class="nc bnc" id="L300" title="All 2 branches missed.">                &amp;&amp; this.comprei.equals(u.getComprei())</span>
+<span class="nc bnc" id="L301" title="All 2 branches missed.">                &amp;&amp; this.devolvidos.equals(u.getDevolvidos())</span>
+<span class="nc bnc" id="L302" title="All 2 branches missed.">                &amp;&amp; this.carrinho.equals(u.getCarrinho())</span>
+<span class="nc bnc" id="L303" title="All 2 branches missed.">                &amp;&amp; this.n_comprados == u.getN_comprados()</span>
+<span class="nc bnc" id="L304" title="All 2 branches missed.">                &amp;&amp; this.n_vendidos == u.getN_vendidos());</span>
+    }
+
+    // Método que passa as informações de um utilizador para String
+    @Override
+    public String toString() {
+<span class="nc" id="L310">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L311">        sb.append(&quot;Utilizador:: {&quot;);</span>
+<span class="nc" id="L312">        sb.append(&quot;Código: &quot;).append(this.id);</span>
+<span class="nc" id="L313">        sb.append(&quot; Email: &quot;).append(this.email);</span>
+<span class="nc" id="L314">        sb.append(&quot; Nome: &quot;).append(this.nome);</span>
+<span class="nc" id="L315">        sb.append(&quot; Morada: &quot;).append(this.morada);</span>
+<span class="nc" id="L316">        sb.append(&quot; Pass: &quot;).append(this.password);</span>
+<span class="nc" id="L317">        sb.append(&quot; Nif: &quot;).append(this.nif);</span>
+<span class="nc" id="L318">        sb.append(&quot; Artigos comprados: &quot;).append(this.n_comprados);</span>
+<span class="nc" id="L319">        sb.append(&quot; Artigos vendidos: &quot;).append(this.n_vendidos);</span>
+<span class="nc" id="L320">        sb.append(&quot; Id dos artigos vendidos: &quot;).append(this.produtosVendidos.toString());</span>
+<span class="nc" id="L321">        sb.append(&quot; Id dos artigos a vender: &quot;).append(this.produtosVender.toString());</span>
+<span class="nc" id="L322">        sb.append(&quot; Id das artigos pendentes: &quot;).append(this.pendentes.toString());</span>
+<span class="nc" id="L323">        sb.append(&quot; Id dos artigos comprados: &quot;).append(this.comprei.toString());</span>
+<span class="nc" id="L324">        sb.append(&quot; Id dos artigos devolvidos: &quot;).append(this.devolvidos.toString());</span>
+<span class="nc" id="L325">        sb.append(&quot; Faturas dos artigos comprados: &quot;).append(this.faturasCompras.toString());</span>
+<span class="nc" id="L326">        sb.append(&quot; Faturas dos artigos vendidos: &quot;).append(this.faturasVendas.toString());</span>
+<span class="nc" id="L327">        sb.append(&quot; Carrinho: &quot;).append(this.carrinho.toString()).append(&quot; }&quot;);</span>
+
+<span class="nc" id="L329">        return sb.toString();</span>
+    }
+
+    // Método que cria uma cópia de um utilizador
+    @Override
+    public Utilizador clone() {
+<span class="nc" id="L335">        Utilizador copia = new Utilizador(this);</span>
+<span class="nc" id="L336">        return copia;</span>
+    }
+
+    // ---------------------Métodos relativos ao vendedor---------------------------
+
+    // Método que insere um novo artigo para venda
+    public String insereNovoArtigo(String idNovo) throws ArtigoExistenteException {
+<span class="nc bnc" id="L343" title="All 2 branches missed.">        if (this.produtosVender.contains(idNovo) == true)</span>
+<span class="nc" id="L344">            throw new ArtigoExistenteException(&quot;O artigo &quot; + idNovo + &quot; já se encontra à venda&quot;);</span>
+
+        else {
+<span class="nc" id="L347">            this.produtosVender.add(idNovo);</span>
+<span class="nc" id="L348">            return idNovo; // retornar o id inserido</span>
+        }
+    }
+
+    // Método que elimina um artigo que está à venda
+    public String eliminaArtigo(String idEliminar) throws ArtigoNaoEncontradoException {
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        if (this.produtosVender.contains(idEliminar) == false)</span>
+<span class="nc" id="L355">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot; + idEliminar + &quot; não se encontra à venda&quot;);</span>
+
+        else {
+<span class="nc" id="L358">            this.produtosVender.remove(idEliminar);</span>
+<span class="nc" id="L359">            return idEliminar;</span>
+        }
+    }
+
+    // Método que faz a passagem de um artigo à venda para pendente
+    // Usar quando o utilizador puser o artigo no carrinho
+    public String aVendaToPendente(String id) throws ArtigoNaoEncontradoException {
+<span class="nc bnc" id="L366" title="All 2 branches missed.">        if (this.produtosVender.contains(id) == false)</span>
+<span class="nc" id="L367">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot; + id + &quot; não se encontra à venda&quot;);</span>
+
+        else {
+<span class="nc" id="L370">            this.pendentes.add(id);</span>
+<span class="nc" id="L371">            this.produtosVender.remove(id);</span>
+<span class="nc" id="L372">            return id;</span>
+        }
+    }
+
+    // Método que passa um artigo vendido para à venda
+    // Caso o artigo seja devolvido
+    public String vendidoToaVenda(String id) throws ArtigoNaoEncontradoException {
+<span class="nc bnc" id="L379" title="All 2 branches missed.">        if (this.produtosVendidos.contains(id) == false)</span>
+<span class="nc" id="L380">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot; + id + &quot; não foi vendido&quot;);</span>
+
+        else {
+<span class="nc" id="L383">            this.produtosVender.add(id);</span>
+<span class="nc" id="L384">            this.produtosVendidos.remove(id);</span>
+<span class="nc" id="L385">            return id;</span>
+        }
+    }
+
+    // Método que faz a passagem de um artigo pendente para vendido.
+    // Usar quando o Utilizador finalizar a encomenda.
+    public String pendenteToVendido(String id) throws ArtigoNaoEncontradoException {
+<span class="nc bnc" id="L392" title="All 2 branches missed.">        if (this.pendentes.contains(id) == false)</span>
+<span class="nc" id="L393">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot; + id + &quot; não existe no carrinho&quot;);</span>
+
+        else {
+<span class="nc" id="L396">            this.produtosVendidos.add(id);</span>
+<span class="nc" id="L397">            this.pendentes.remove(id);</span>
+<span class="nc" id="L398">            return id;</span>
+        }
+    }
+
+    // Método que faz a passagem de um artigo pendente para à venda.
+    // Usar quando o Utilizador remover um artigo no carrinho.
+    public String pendenteToAvenda(String id) throws ArtigoNaoEncontradoException {
+<span class="nc bnc" id="L405" title="All 2 branches missed.">        if (this.pendentes.contains(id) == false)</span>
+<span class="nc" id="L406">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot; + id + &quot; não existe no carrinho&quot;);</span>
+
+        else {
+<span class="nc" id="L409">            this.produtosVender.add(id);</span>
+<span class="nc" id="L410">            this.pendentes.remove(id);</span>
+<span class="nc" id="L411">            return id;</span>
+        }
+    }
+
+    // Método que calcula o numero de artigos vendidos numa determinada data
+    public int numeroArtigos(Set&lt;String&gt; idsArtigos) {
+<span class="nc" id="L417">        return (idsArtigos.size());</span>
+    }
+
+    // ---------------------Métodos relativos ao
+    // comprador---------------------------
+
+    // Método que atualiza o carrinho, ou seja uma encomenda
+    public long atualizaEncomenda(LocalDate data) {
+        // this.carrinho = new Encomenda();
+        // Mudar o idComprador
+<span class="nc" id="L427">        this.carrinho.setIdComprador(this.id);</span>
+        // Mudar a dataCriação
+<span class="nc" id="L429">        this.carrinho.setData(data);</span>
+<span class="nc" id="L430">        return (this.carrinho.getId());</span>
+    }
+
+    // Método que finaliza a encomenda por indicação do utilizador
+    // Retornar a Encomenda.
+    public Encomenda finalizaEncomenda(LocalDate data) throws EncomendaExistenteException, CarrinhoVazioException {
+<span class="nc bnc" id="L436" title="All 2 branches missed.">        if (this.comprei.contains(this.carrinho.getId()) == true)</span>
+<span class="nc" id="L437">            throw new EncomendaExistenteException(&quot;A encomenda &quot; + this.carrinho.getId() + &quot; já foi comprada&quot;);</span>
+
+<span class="nc bnc" id="L439" title="All 2 branches missed.">        else if (this.carrinho.numeroArtigos() == 0) {</span>
+<span class="nc" id="L440">            throw new CarrinhoVazioException(&quot;O carrinho está vazio!&quot;);</span>
+        } else {
+<span class="nc" id="L442">            this.comprei.add(this.carrinho.getId());</span>
+<span class="nc" id="L443">            this.carrinho.setEstado(Estado.Finalizada);</span>
+<span class="nc" id="L444">            this.carrinho.setEstado(Estado.Expedida);</span>
+<span class="nc" id="L445">            this.carrinho.setDataEntrega(data);</span>
+<span class="nc" id="L446">            this.carrinho.defineTamanho();</span>
+<span class="nc" id="L447">            return (this.getCarrinho());</span>
+        }
+    }
+
+    // Método que elimina todos os artigos que estão no carrinho.
+    // Retornar um set com os ids dos artigos
+    public Set&lt;String&gt; removeCarrinho() {
+<span class="nc" id="L454">        return (this.carrinho.removeTudo());</span>
+    }
+
+    // Método que cria um novo Carrinho
+    // Usar quando se finalizar uma encomenda
+    public void novoCarrinho() {
+<span class="nc" id="L460">        this.carrinho = new Encomenda();</span>
+<span class="nc" id="L461">    }</span>
+
+    // Método que adiciona um artigo ao carrinho.
+    public String adicionaArtigo(String id) throws ArtigoExistenteException {
+<span class="fc" id="L465">        return (this.carrinho.adicionaArtigo(id));</span>
+    }
+
+    // Método que remove um artigo de uma encomenda
+    public String removeArtigo(String id) throws ArtigoNaoEncontradoException {
+<span class="nc" id="L470">        return (this.carrinho.removeArtigo(id));</span>
+    }
+
+    // Método que retorna um set que contém os ids dos artigos que estão no carrinho
+    public Set&lt;String&gt; artigosCarrinho() {
+<span class="nc" id="L475">        return (this.carrinho.getEncomenda());</span>
+    }
+
+    // Método que verifica se aquela encomenda foi comprada
+    public boolean verificaComprei(long idEncomenda) {
+<span class="nc" id="L480">        return (this.comprei.contains(idEncomenda));</span>
+    }
+
+    // Método que passa uma encomenda de comprei para devolvido
+    // Usar quando o utilizador devolver a encomenda
+    // Primeiro é preciso verificar se a encomenda pode ser devolvida
+    public long compreiToDevolvido(long idEncomenda) throws EncomendaNaoEncontradaException {
+<span class="nc bnc" id="L487" title="All 2 branches missed.">        if (this.comprei.contains(idEncomenda) == false)</span>
+<span class="nc" id="L488">            throw new EncomendaNaoEncontradaException(&quot;A encomenda &quot; + idEncomenda + &quot; não foi comprada&quot;);</span>
+
+        else {
+<span class="nc" id="L491">            this.devolvidos.add(idEncomenda);</span>
+<span class="nc" id="L492">            this.comprei.remove(idEncomenda);</span>
+<span class="nc" id="L493">            return idEncomenda;</span>
+        }
+    }
+
+    @Override
+    public int compareTo(Utilizador u) {
+<span class="nc bnc" id="L499" title="All 2 branches missed.">        if (this.n_comprados == u.getN_comprados())</span>
+<span class="nc" id="L500">            return Long.compare(this.id, u.getId());</span>
+
+<span class="nc bnc" id="L502" title="All 2 branches missed.">        else if (this.n_comprados &gt; u.getN_comprados())</span>
+<span class="nc" id="L503">            return -1;</span>
+
+        else
+<span class="nc" id="L506">            return 1;</span>
+    }
+
+    public void adicionaFaturaVendedor(boolean isCompra, long idEncomenda, long nifComprador, String idArtigo,
+            double precoArtigo, boolean isNovo, double taxaNovo, double taxaUsado) {
+<span class="fc" id="L511">        double taxaVintage = 0;</span>
+<span class="pc bpc" id="L512" title="1 of 2 branches missed.">        if (isNovo)</span>
+<span class="fc" id="L513">            taxaVintage -= taxaNovo;</span>
+        else
+<span class="nc" id="L515">            taxaVintage -= taxaUsado;</span>
+<span class="pc bpc" id="L516" title="1 of 2 branches missed.">        if (this.faturasVendas.containsKey(idEncomenda)) {</span>
+<span class="nc" id="L517">            this.faturasVendas.get(idEncomenda).atualizaFatura(idArtigo, precoArtigo, taxaVintage,</span>
+<span class="nc" id="L518">                    precoArtigo + taxaVintage);</span>
+<span class="nc" id="L519">        } else {</span>
+<span class="fc" id="L520">            Set&lt;String&gt; set = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L521">            set.add(idArtigo);</span>
+<span class="fc" id="L522">            this.faturasVendas.put(idEncomenda, new Fatura(isCompra, idEncomenda, nifComprador, set, precoArtigo,</span>
+<span class="fc" id="L523">                    taxaVintage, precoArtigo + taxaVintage));</span>
+        }
+<span class="fc" id="L525">    }</span>
+
+    public void adicionaFaturaComprador(boolean isCompra, long idEncomenda, long nifComprador, Set&lt;String&gt; artigos,
+            double custoProdutos, double precoTransporte, double precoFinal) {
+<span class="fc" id="L529">        this.faturasCompras.put(idEncomenda,</span>
+<span class="fc" id="L530">                new Fatura(isCompra, idEncomenda, nifComprador, artigos, custoProdutos, precoTransporte, precoFinal));</span>
+<span class="fc" id="L531">    }</span>
+
+    public String imprimeFaturasCompras() {
+<span class="fc" id="L534">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L535" title="All 2 branches covered.">        for (long l : this.faturasCompras.keySet()) {</span>
+<span class="fc" id="L536">            sb.append(this.faturasCompras.get(l));</span>
+<span class="fc" id="L537">            sb.append(&quot;\n&quot;);</span>
+        }
+<span class="fc" id="L539">        return sb.toString();</span>
+    }
+
+    public String imprimeFaturasVendas() {
+<span class="nc" id="L543">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L544" title="All 2 branches missed.">        for (long l : this.faturasVendas.keySet()) {</span>
+<span class="nc" id="L545">            sb.append(this.faturasVendas.get(l));</span>
+<span class="nc" id="L546">            sb.append(&quot;\n&quot;);</span>
+        }
+<span class="nc" id="L548">        return sb.toString();</span>
+    }
+
+    public String imprime1FaturaCompra(long idEncomenda) {
+<span class="nc" id="L552">        return this.faturasCompras.get(idEncomenda).toString();</span>
+    }
+
+    public String imprime1FaturaVenda(long idEncomenda) {
+<span class="nc" id="L556">        return this.faturasVendas.get(idEncomenda).toString();</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

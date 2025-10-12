@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Transportadora.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Transportadora.java</span></div><h1>Transportadora.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.Serializable;
+
+public class Transportadora implements Serializable {
+
+    // Variável de classe
+<span class="fc" id="L7">    private static long codigo = 1;</span>
+
+    // Métodos de classe
+    public static long getCodigo() {
+<span class="nc" id="L11">        return codigo;</span>
+    }
+
+    // :)
+    public static void setCodigo(long codigo) {
+<span class="nc" id="L16">        Transportadora.codigo = codigo;</span>
+<span class="nc" id="L17">    }</span>
+
+    public static long criaCodigo() {
+<span class="fc" id="L20">        return codigo++;</span>
+    }
+
+    private long id;
+    private String nome;
+    private double valor_pequenas;
+    private double valor_medio;
+    private double valor_grande;
+    private double impostos;
+    private double margemlucro;
+    private double totalLucro;
+    private boolean premium;
+    private int formula; // tem de ser 1,2,3
+
+    // Construtor vazio
+<span class="fc" id="L35">    public Transportadora() {</span>
+<span class="fc" id="L36">        this.id = criaCodigo();</span>
+<span class="fc" id="L37">        this.nome = &quot;Transportadora Invalida&quot;;</span>
+<span class="fc" id="L38">        this.valor_pequenas = 0;</span>
+<span class="fc" id="L39">        this.valor_medio = 0;</span>
+<span class="fc" id="L40">        this.valor_grande = 0;</span>
+<span class="fc" id="L41">        this.impostos = 0;</span>
+<span class="fc" id="L42">        this.margemlucro = 0;</span>
+<span class="fc" id="L43">        this.totalLucro = 0;</span>
+<span class="fc" id="L44">        this.premium = false;</span>
+<span class="fc" id="L45">        this.formula = 0;</span>
+
+<span class="fc" id="L47">    }</span>
+
+    // Construtor parametrizado
+<span class="fc" id="L50">    public Transportadora(String nome, double valor_pequenas, double valor_medio, double valor_grande, double impostos,</span>
+            double margemlucro, boolean premium, int formula) {
+<span class="fc" id="L52">        this.id = criaCodigo();</span>
+<span class="fc" id="L53">        this.nome = nome;</span>
+<span class="fc" id="L54">        this.valor_pequenas = valor_pequenas;</span>
+<span class="fc" id="L55">        this.valor_medio = valor_medio;</span>
+<span class="fc" id="L56">        this.valor_grande = valor_grande;</span>
+<span class="fc" id="L57">        this.impostos = impostos;</span>
+<span class="fc" id="L58">        this.margemlucro = margemlucro;</span>
+<span class="fc" id="L59">        this.totalLucro = 0;</span>
+<span class="fc" id="L60">        this.premium = premium;</span>
+<span class="fc" id="L61">        this.formula = formula;</span>
+        // this.totalLucro = totalLucro;
+<span class="fc" id="L63">    }</span>
+
+    // Construtor cópia
+<span class="fc" id="L66">    public Transportadora(Transportadora transportadora) {</span>
+<span class="fc" id="L67">        this.id = transportadora.getId();</span>
+<span class="fc" id="L68">        this.nome = transportadora.getNome();</span>
+<span class="fc" id="L69">        this.valor_grande = transportadora.getValor_grande();</span>
+<span class="fc" id="L70">        this.valor_medio = transportadora.getValor_medio();</span>
+<span class="fc" id="L71">        this.valor_pequenas = transportadora.getValor_pequenas();</span>
+<span class="fc" id="L72">        this.margemlucro = transportadora.getMargemlucro();</span>
+<span class="fc" id="L73">        this.impostos = transportadora.getImpostos();</span>
+<span class="fc" id="L74">        this.totalLucro = transportadora.getTotalLucro();</span>
+<span class="fc" id="L75">        this.premium = transportadora.isPremium();</span>
+<span class="fc" id="L76">        this.formula = transportadora.getFormula();</span>
+
+<span class="fc" id="L78">    }</span>
+
+    // Métodos getters e setters
+    public void setNome(String nome) {
+<span class="nc" id="L82">        this.nome = nome;</span>
+<span class="nc" id="L83">    }</span>
+
+    public void setValor_pequenas(double valor_pequenas) {
+<span class="nc" id="L86">        this.valor_pequenas = valor_pequenas;</span>
+<span class="nc" id="L87">    }</span>
+
+    public void setValor_medio(double valor_medio) {
+<span class="nc" id="L90">        this.valor_medio = valor_medio;</span>
+<span class="nc" id="L91">    }</span>
+
+    public void setValor_grande(double valor_grande) {
+<span class="nc" id="L94">        this.valor_grande = valor_grande;</span>
+<span class="nc" id="L95">    }</span>
+
+    public void setMargemlucro(double margemlucro) {
+<span class="nc" id="L98">        this.margemlucro = margemlucro;</span>
+<span class="nc" id="L99">    }</span>
+
+    public void setTotalLucro(double totalLucro) {
+<span class="fc" id="L102">        this.totalLucro += totalLucro;</span>
+<span class="fc" id="L103">    }</span>
+
+    public void setImpostos(double impostos) {
+<span class="nc" id="L106">        this.impostos = impostos;</span>
+<span class="nc" id="L107">    }</span>
+
+    public void setId(long id) {
+<span class="nc" id="L110">        this.id = id;</span>
+<span class="nc" id="L111">    }</span>
+
+    public void setPremium(boolean premium) {
+<span class="nc" id="L114">        this.premium = premium;</span>
+<span class="nc" id="L115">    }</span>
+
+    public void setFormula(int formula) {
+<span class="nc" id="L118">        this.formula = formula;</span>
+<span class="nc" id="L119">    }</span>
+
+    public double getImpostos() {
+<span class="fc" id="L122">        return impostos;</span>
+    }
+
+    public double getMargemlucro() {
+<span class="fc" id="L126">        return margemlucro;</span>
+    }
+
+    public double getValor_grande() {
+<span class="fc" id="L130">        return valor_grande;</span>
+    }
+
+    public double getValor_medio() {
+<span class="fc" id="L134">        return valor_medio;</span>
+    }
+
+    public double getValor_pequenas() {
+<span class="fc" id="L138">        return valor_pequenas;</span>
+    }
+
+    public String getNome() {
+<span class="fc" id="L142">        return nome;</span>
+    }
+
+    public long getId() {
+<span class="fc" id="L146">        return id;</span>
+    }
+
+    public double getTotalLucro() {
+<span class="fc" id="L150">        return totalLucro;</span>
+    }
+
+    public boolean isPremium() {
+<span class="fc" id="L154">        return this.premium;</span>
+    }
+
+    public int getFormula() {
+<span class="fc" id="L158">        return formula;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if (obj == this)</span>
+<span class="nc" id="L164">            return true;</span>
+
+<span class="pc bpc" id="L166" title="2 of 4 branches missed.">        if (obj == null || this.getClass() != obj.getClass())</span>
+<span class="nc" id="L167">            return false;</span>
+
+<span class="fc" id="L169">        Transportadora t = (Transportadora) obj;</span>
+
+<span class="pc bpc" id="L171" title="3 of 6 branches missed.">        return (this.id == t.getId() &amp;&amp; this.nome.equals(t.getNome()) &amp;&amp; this.valor_grande == t.getValor_grande()</span>
+<span class="pc bpc" id="L172" title="1 of 2 branches missed.">                &amp;&amp; this.valor_medio == t.getValor_medio()</span>
+<span class="pc bpc" id="L173" title="2 of 4 branches missed.">                &amp;&amp; this.valor_pequenas == t.valor_pequenas &amp;&amp; this.impostos == t.getImpostos()</span>
+<span class="pc bpc" id="L174" title="2 of 4 branches missed.">                &amp;&amp; this.margemlucro == t.margemlucro &amp;&amp; this.totalLucro == t.getTotalLucro()</span>
+<span class="pc bpc" id="L175" title="2 of 4 branches missed.">                &amp;&amp; this.premium == t.isPremium() &amp;&amp; this.formula == t.getFormula());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L180">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L181">        sb.append(&quot;Transportadora:: {&quot;);</span>
+<span class="nc" id="L182">        sb.append(&quot; Id: &quot;).append(this.id);</span>
+<span class="nc" id="L183">        sb.append(&quot; Nome: &quot;).append(this.nome);</span>
+<span class="nc" id="L184">        sb.append(&quot; Valor da encomenda pequena: &quot;).append(this.valor_pequenas);</span>
+<span class="nc" id="L185">        sb.append(&quot; Valor da encomenda média: &quot;).append(this.valor_medio);</span>
+<span class="nc" id="L186">        sb.append(&quot; Valor da encomenda grande: &quot;).append(this.valor_grande);</span>
+<span class="nc" id="L187">        sb.append(&quot; Imposto: &quot;).append(this.impostos);</span>
+<span class="nc" id="L188">        sb.append(&quot; Margem de lucro: &quot;).append(this.margemlucro);</span>
+<span class="nc" id="L189">        sb.append(&quot; É premium: &quot;).append(this.premium);</span>
+<span class="nc" id="L190">        sb.append(&quot; Formula atual: &quot;).append(this.formula);</span>
+<span class="nc" id="L191">        sb.append(&quot; Total lucro: &quot;).append(this.totalLucro).append(&quot;}&quot;);</span>
+<span class="nc" id="L192">        return sb.toString();</span>
+    }
+
+    @Override
+    public Transportadora clone() {
+<span class="nc" id="L197">        Transportadora copia = new Transportadora(this);</span>
+<span class="nc" id="L198">        return copia;</span>
+    }
+
+    // Método que calcula o preço de transporte 1
+    public double preco_transportadora1(int quant_artigos) {
+<span class="fc" id="L203">        double valorbase = 0;</span>
+<span class="pc bpc" id="L204" title="1 of 2 branches missed.">        if (quant_artigos == 1)</span>
+<span class="nc" id="L205">            valorbase = this.getValor_pequenas();</span>
+<span class="pc bpc" id="L206" title="2 of 4 branches missed.">        else if (quant_artigos &gt;= 2 &amp;&amp; quant_artigos &lt;= 5)</span>
+<span class="fc" id="L207">            valorbase = this.getValor_medio();</span>
+<span class="nc bnc" id="L208" title="All 2 branches missed.">        else if (quant_artigos &gt; 5)</span>
+<span class="nc" id="L209">            valorbase = this.getValor_grande();</span>
+<span class="fc" id="L210">        double preco = ((valorbase * this.getMargemlucro() * (1 + this.getImpostos())) * 0.9);</span>
+<span class="fc" id="L211">        this.setTotalLucro(preco);</span>
+
+<span class="fc" id="L213">        return preco;</span>
+    }
+
+    // Método que calcula o preço de transporte 2;
+    // Apenas altero o 0.9 para 1.1
+    public double preco_transportadora2(int quant_artigos) {
+<span class="fc" id="L219">        double valorbase = 0;</span>
+<span class="pc bpc" id="L220" title="1 of 2 branches missed.">        if (quant_artigos == 1)</span>
+<span class="nc" id="L221">            valorbase = this.getValor_pequenas();</span>
+<span class="pc bpc" id="L222" title="2 of 4 branches missed.">        else if (quant_artigos &gt;= 2 &amp;&amp; quant_artigos &lt;= 5)</span>
+<span class="fc" id="L223">            valorbase = this.getValor_medio();</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">        else if (quant_artigos &gt; 5)</span>
+<span class="nc" id="L225">            valorbase = this.getValor_grande();</span>
+<span class="fc" id="L226">        double preco = (valorbase * (1 + this.getMargemlucro() + this.getImpostos()) * 0.7)  ;</span>
+<span class="fc" id="L227">        this.setTotalLucro(preco);</span>
+
+<span class="fc" id="L229">        return preco;</span>
+    }
+
+    // Método que pode ser usado para as transportadoras premium
+    // Apenas altero o 0.9 para 1.5
+    public double preco_transportadora3(int quant_artigos) {
+<span class="fc" id="L235">        double valorbase = 0;</span>
+<span class="pc bpc" id="L236" title="1 of 2 branches missed.">        if (quant_artigos == 1)</span>
+<span class="nc" id="L237">            valorbase = this.getValor_pequenas();</span>
+<span class="pc bpc" id="L238" title="2 of 4 branches missed.">        else if (quant_artigos &gt;= 2 &amp;&amp; quant_artigos &lt;= 5)</span>
+<span class="fc" id="L239">            valorbase = this.getValor_medio();</span>
+<span class="nc bnc" id="L240" title="All 2 branches missed.">        else if (quant_artigos &gt; 5)</span>
+<span class="nc" id="L241">            valorbase = this.getValor_grande();</span>
+<span class="fc" id="L242">        double preco = ((valorbase * this.getMargemlucro() * (1 + this.getImpostos())) * 1.5);</span>
+<span class="fc" id="L243">        this.setTotalLucro(preco);</span>
+
+<span class="fc" id="L245">        return preco;</span>
+    }
+
+    public String formula1() {
+<span class="fc" id="L249">        String resultado = &quot;(ValorBase * MargemLucroTransportadora * (1 + Imposto)) * 0,9&quot;;</span>
+<span class="fc" id="L250">        return resultado;</span>
+    }
+
+    public String formula2() {
+<span class="fc" id="L254">        String resultado = &quot;ValorBase * (1 + MargemLucroTransportadora + Imposto) * 0,7&quot;;</span>
+<span class="fc" id="L255">        return resultado;</span>
+    }
+
+    public String formula3() {
+<span class="fc" id="L259">        String resultado = &quot;(ValorBase * MargemLucroTransportadora * (1 + Imposto)) * 1,5&quot;;</span>
+<span class="fc" id="L260">        return resultado;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

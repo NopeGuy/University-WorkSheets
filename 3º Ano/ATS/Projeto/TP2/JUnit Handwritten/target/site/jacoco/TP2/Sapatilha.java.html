@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Sapatilha.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Sapatilha.java</span></div><h1>Sapatilha.java</h1><pre class="source lang-java linenums">package TP2;
+import java.time.LocalDate;
+
+public class Sapatilha extends Artigo{
+    private int tamanho;
+    private boolean atacadores; // possui ou não
+    private String cor;
+    private int anoColecao; // data de lançamento
+    private boolean premium;
+    private double desconto; // em percentagem
+
+    // Construtores
+    public Sapatilha() {
+<span class="fc" id="L14">        super();</span>
+<span class="fc" id="L15">        this.tamanho = 0;</span>
+<span class="fc" id="L16">        this.atacadores = false;</span>
+<span class="fc" id="L17">        this.cor = &quot;&quot;;</span>
+<span class="fc" id="L18">        this.anoColecao = 0;</span>
+<span class="fc" id="L19">        this.premium = false;</span>
+<span class="fc" id="L20">        this.desconto = 0;</span>
+<span class="fc" id="L21">    }</span>
+
+    public Sapatilha(String descricao, String marca, Double preco_base, boolean uso, int estado_uso, int n_utilizadores,
+            Long transportadora, Long vendedor, int tamanho, boolean atacadores, String cor, int anoColecao,
+            boolean premium, double desconto) {
+<span class="fc" id="L26">        super(descricao, marca, preco_base, uso, estado_uso, n_utilizadores, transportadora, vendedor);</span>
+<span class="fc" id="L27">        this.tamanho = tamanho;</span>
+<span class="fc" id="L28">        this.atacadores = atacadores;</span>
+<span class="fc" id="L29">        this.cor = cor;</span>
+<span class="fc" id="L30">        this.anoColecao = anoColecao;</span>
+<span class="fc" id="L31">        this.premium = premium;</span>
+<span class="fc" id="L32">        this.desconto = desconto;</span>
+<span class="fc" id="L33">    }</span>
+
+    public Sapatilha(Sapatilha s) {
+<span class="fc" id="L36">        super(s);</span>
+<span class="fc" id="L37">        this.tamanho = s.getTamanho();</span>
+<span class="fc" id="L38">        this.atacadores = s.isAtacadores();</span>
+<span class="fc" id="L39">        this.cor = s.getCor();</span>
+<span class="fc" id="L40">        this.anoColecao = s.getAnoColecao();</span>
+<span class="fc" id="L41">        this.premium = s.isPremium();</span>
+<span class="fc" id="L42">        this.desconto = s.getDesconto();</span>
+<span class="fc" id="L43">    }</span>
+
+    // Getters
+    public int getTamanho() {
+<span class="fc" id="L47">        return tamanho;</span>
+    }
+
+    public boolean isAtacadores() {
+<span class="fc" id="L51">        return atacadores;</span>
+    }
+
+    public String getCor() {
+<span class="fc" id="L55">        return cor;</span>
+    }
+
+    public int getAnoColecao() {
+<span class="fc" id="L59">        return anoColecao;</span>
+    }
+
+    public boolean isPremium() {
+<span class="fc" id="L63">        return premium;</span>
+    }
+
+    public double getDesconto() {
+<span class="fc" id="L67">        return desconto;</span>
+    }
+
+    // Setters
+    public void setTamanho(int tamanho) {
+<span class="nc" id="L72">        this.tamanho = tamanho;</span>
+<span class="nc" id="L73">    }</span>
+
+    public void setAtacadores(boolean atacadores) {
+<span class="nc" id="L76">        this.atacadores = atacadores;</span>
+<span class="nc" id="L77">    }</span>
+
+    public void setCor(String cor) {
+<span class="nc" id="L80">        this.cor = cor;</span>
+<span class="nc" id="L81">    }</span>
+
+    public void setAnoColecao(int dataColecao) {
+<span class="nc" id="L84">        this.anoColecao = dataColecao;</span>
+<span class="nc" id="L85">    }</span>
+
+    public void setPremium(boolean premium) {
+<span class="fc" id="L88">        this.premium = premium;</span>
+<span class="fc" id="L89">    }</span>
+
+    public void setDesconto(double desconto) {
+<span class="nc" id="L92">        this.desconto = desconto;</span>
+<span class="nc" id="L93">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L97">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L98">        sb.append(&quot;Sapatilhas:: {&quot;);</span>
+<span class="fc" id="L99">        sb.append(super.toString());</span>
+<span class="fc" id="L100">        sb.append(&quot; Tamanho: &quot;).append(this.tamanho);</span>
+<span class="fc" id="L101">        sb.append(&quot; Atacadores: &quot;).append(this.atacadores);</span>
+<span class="fc" id="L102">        sb.append(&quot; Cor: &quot;).append(this.cor);</span>
+<span class="fc" id="L103">        sb.append(&quot; Data da Coleção: &quot;).append(this.anoColecao);</span>
+<span class="fc" id="L104">        sb.append(&quot; Premium: &quot;).append(this.premium);</span>
+<span class="fc" id="L105">        sb.append(&quot; Desconto: &quot;).append(this.desconto).append(&quot;}&quot;);</span>
+<span class="fc" id="L106">        return sb.toString();</span>
+    }
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L111">            return true;</span>
+<span class="pc bpc" id="L112" title="2 of 4 branches missed.">        if (o == null || o.getClass() != this.getClass())</span>
+<span class="nc" id="L113">            return false;</span>
+<span class="fc" id="L114">        Sapatilha s = (Sapatilha) o;</span>
+
+<span class="pc bpc" id="L116" title="5 of 6 branches missed.">        return (super.equals(s) &amp;&amp; this.tamanho == s.getTamanho() &amp;&amp; this.atacadores == s.isAtacadores()</span>
+<span class="nc bnc" id="L117" title="All 4 branches missed.">                &amp;&amp; this.cor.equals(s.getCor()) &amp;&amp; this.anoColecao == s.getAnoColecao()</span>
+<span class="nc bnc" id="L118" title="All 4 branches missed.">                &amp;&amp; this.premium == s.isPremium() &amp;&amp; this.desconto == s.getDesconto());</span>
+    }
+
+    @Override
+    public Sapatilha clone() {
+<span class="fc" id="L123">        return new Sapatilha(this);</span>
+    }
+
+    @Override
+    public double preco_atual(LocalDate data) {
+<span class="fc" id="L128">        double preco = this.getPreco_base();</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if (this.premium)</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">            if (this.getData_venda().equals(LocalDate.MIN) == true) {</span>
+<span class="fc" id="L131">                preco += preco * (data.getYear() - this.anoColecao) / 10;</span>
+<span class="fc" id="L132">            } else {</span>
+<span class="nc" id="L133">                preco += preco * (this.getData_venda().getYear() - this.anoColecao) / 10;</span>
+<span class="nc" id="L134">            }</span>
+<span class="pc bpc" id="L135" title="1 of 2 branches missed.">        else if (!this.getNovo()) {</span>
+<span class="fc" id="L136">            preco -= preco * this.getN_utilizadores() / (10 * this.getEstado_uso()); // verificar fórmula a utilizar</span>
+<span class="fc" id="L137">            preco *= (100 - this.desconto) / 100;</span>
+<span class="pc bnc" id="L138" title="All 4 branches missed.">        } else if (this.tamanho &gt; 45 &amp;&amp; this.getNovo())</span>
+<span class="nc" id="L139">            preco *= (100 - this.desconto) / 100;</span>
+<span class="pc bpc" id="L140" title="1 of 2 branches missed.">        if (preco &lt;= 0.01)</span>
+<span class="nc" id="L141">            preco = 0.01;</span>
+<span class="fc" id="L142">        return preco;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

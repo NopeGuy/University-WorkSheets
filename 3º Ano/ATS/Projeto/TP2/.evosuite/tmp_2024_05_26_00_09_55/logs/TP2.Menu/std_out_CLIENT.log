@@ -1,0 +1,41 @@
+* Starting client
+* Connecting to master process on port 3284
+* Analyzing classpath: 
+  - /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/target/classes
+  - /home/lufe/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar
+  - /home/lufe/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+  - /home/lufe/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.1/junit-vintage-engine-5.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar
+  - /home/lufe/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar
+  - /home/lufe/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar
+* Finished analyzing classpath
+* Generating tests for class TP2.Menu
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 00:20:30.637 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Menu.seed
+* Loaded 0 tests from /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Menu.seed
+* Total number of test goals: 
+  - Line 740
+  - Branch 152
+  - Exception 0
+  - MutationFactory 699
+  - Output 161
+  - Method 92
+  - MethodNoException 92
+  - CBranchFitnessFactory 152
+* Using seed 1716679228808
+* Starting evolution
+* Search finished after 91s and 0 generations, 363 statements, best individual has fitness: 1146.0150438596493
+* Writing sequences to pool
+* Minimizing test suite

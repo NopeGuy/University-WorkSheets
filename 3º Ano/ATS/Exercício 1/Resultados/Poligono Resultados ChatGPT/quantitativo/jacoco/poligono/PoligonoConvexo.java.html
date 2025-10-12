@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PoligonoConvexo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">poligono</a> &gt; <span class="el_source">PoligonoConvexo.java</span></div><h1>PoligonoConvexo.java</h1><pre class="source lang-java linenums">package poligono;
+/**
+ * Write a description of class PoligonoConvexo here.
+ * 
+ * @author João Saraiva
+ * @version 6/2018
+ */
+
+import java.util.List;
+import java.util.ArrayList;
+
+public class PoligonoConvexo extends Poligono
+{
+    
+    public PoligonoConvexo()
+<span class="fc" id="L16">    { super(); }</span>
+    
+    public PoligonoConvexo(List&lt;Ponto&gt; pts) 
+<span class="nc" id="L19">    { super(pts);</span>
+      
+<span class="nc" id="L21">    }</span>
+    
+    /*
+    public PoligonoConvexo(List&lt;Ponto&gt; pts) throws NaoConvexoException 
+    { super(pts);
+      if (! eConvexo())
+        throw new NaoConvexoException() ;
+    }
+    */
+    
+    public List&lt;Triangulo&gt; triangula()
+<span class="nc" id="L32">    {  List&lt;Triangulo&gt; res = new ArrayList&lt;&gt;(); </span>
+<span class="nc" id="L33">       List&lt;Ponto&gt; pts = super.getPoligono();</span>
+<span class="nc" id="L34">       Ponto p0 = pts.get(0);</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">       for (int i = 1 ; i &lt; pts.size()-2 ; i++)</span>
+<span class="nc" id="L36">         { Triangulo t = new Triangulo(p0.clone(), pts.get(i).clone(), pts.get(i+1).clone());</span>
+<span class="nc" id="L37">           res.add(t);</span>
+        }
+<span class="nc" id="L39">       return res;</span>
+        
+    }
+    
+    public double area ()
+<span class="nc" id="L44">    {  List&lt;Triangulo&gt; triangs = triangula(); </span>
+<span class="nc" id="L45">       return (double) triangs.stream()</span>
+<span class="nc" id="L46">                              .mapToDouble(t -&gt; t.areaTriangulo())</span>
+<span class="nc" id="L47">                              .sum();</span>
+    }
+    
+    
+    
+ 
+    public PoligonoConvexo clone ()
+<span class="nc" id="L54">    { return new PoligonoConvexo(); }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

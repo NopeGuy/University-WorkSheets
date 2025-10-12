@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Fatura.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Fatura.java</span></div><h1>Fatura.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Fatura implements Serializable {
+<span class="fc" id="L8">    private static long codigo = 1;</span>
+
+    public static long getCodigo() {
+<span class="fc" id="L11">        return codigo;</span>
+    }
+
+    public static long criaCodigo() {
+<span class="fc" id="L15">        return codigo++;</span>
+    }
+
+    public static void setCodigo(long codigo) {
+<span class="fc" id="L19">        Fatura.codigo = codigo;</span>
+<span class="fc" id="L20">    }</span>
+
+    public long id;
+    public boolean compra; // identifica se é uma compra ou uma venda
+    public long idEncomenda;
+    public long nifComprador;
+    private Set&lt;String&gt; artigos; // Guarda os ids dos artigos
+    public double custoProdutos;
+    public double alteracaoPreco; // Valor que vai para a Vintage (negativo) no caso de uma venda e transporte no
+                                  // caso de uma compra
+    public double precoFinal;
+
+    // Construtor vazio
+<span class="fc" id="L33">    public Fatura() {</span>
+<span class="fc" id="L34">        this.id = criaCodigo();</span>
+<span class="fc" id="L35">        this.compra = false;</span>
+<span class="fc" id="L36">        this.idEncomenda = 0;</span>
+<span class="fc" id="L37">        this.nifComprador = 0;</span>
+<span class="fc" id="L38">        this.artigos = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L39">        this.custoProdutos = 0;</span>
+<span class="fc" id="L40">        this.alteracaoPreco = 0;</span>
+<span class="fc" id="L41">        this.precoFinal = 0;</span>
+<span class="fc" id="L42">    }</span>
+
+    // Construtor parametrizado
+    public Fatura(boolean compra, long idEncomenda, long nifComprador, Set&lt;String&gt; artigos, double custoProdutos,
+<span class="fc" id="L46">            double alteracaoPreco, double precoFinal) {</span>
+<span class="fc" id="L47">        this.id = criaCodigo();</span>
+<span class="fc" id="L48">        this.compra = compra;</span>
+<span class="fc" id="L49">        this.idEncomenda = idEncomenda;</span>
+<span class="fc" id="L50">        this.nifComprador = nifComprador;</span>
+<span class="fc" id="L51">        this.artigos = artigos;</span>
+<span class="fc" id="L52">        this.custoProdutos = custoProdutos;</span>
+<span class="fc" id="L53">        this.alteracaoPreco = alteracaoPreco;</span>
+<span class="fc" id="L54">        this.precoFinal = precoFinal;</span>
+<span class="fc" id="L55">    }</span>
+
+    // Construtor de cópia
+<span class="fc" id="L58">    public Fatura(Fatura umaFatura) {</span>
+<span class="fc" id="L59">        this.id = criaCodigo();</span>
+<span class="fc" id="L60">        this.compra = umaFatura.isCompra();</span>
+<span class="fc" id="L61">        this.idEncomenda = umaFatura.getIdEncomenda();</span>
+<span class="fc" id="L62">        this.nifComprador = umaFatura.getNifComprador();</span>
+<span class="fc" id="L63">        this.artigos = umaFatura.getArtigos();</span>
+<span class="fc" id="L64">        this.custoProdutos = umaFatura.getCustoProdutos();</span>
+<span class="fc" id="L65">        this.alteracaoPreco = umaFatura.getAlteracaoPreco();</span>
+<span class="fc" id="L66">        this.precoFinal = umaFatura.getPrecoFinal();</span>
+<span class="fc" id="L67">    }</span>
+
+    // Getters
+    public long getId() {
+<span class="fc" id="L71">        return id;</span>
+    }
+
+    public boolean isCompra() {
+<span class="fc" id="L75">        return compra;</span>
+    }
+
+    public long getIdEncomenda() {
+<span class="fc" id="L79">        return idEncomenda;</span>
+    }
+
+    public long getNifComprador() {
+<span class="fc" id="L83">        return nifComprador;</span>
+    }
+
+    public Set&lt;String&gt; getArtigos() {
+<span class="fc" id="L87">        return (new HashSet&lt;&gt;(this.artigos));</span>
+    }
+
+    public double getCustoProdutos() {
+<span class="fc" id="L91">        return custoProdutos;</span>
+    }
+
+    public double getAlteracaoPreco() {
+<span class="fc" id="L95">        return alteracaoPreco;</span>
+    }
+
+    public double getPrecoFinal() {
+<span class="fc" id="L99">        return precoFinal;</span>
+    }
+
+    // Setters
+    public void setId(long id) {
+<span class="fc" id="L104">        this.id = id;</span>
+<span class="fc" id="L105">    }</span>
+
+    public void setCompra(boolean compra) {
+<span class="fc" id="L108">        this.compra = compra;</span>
+<span class="fc" id="L109">    }</span>
+
+    public void setIdEncomenda(long idEncomenda) {
+<span class="fc" id="L112">        this.idEncomenda = idEncomenda;</span>
+<span class="fc" id="L113">    }</span>
+
+    public void setNifComprador(long nifComprador) {
+<span class="fc" id="L116">        this.nifComprador = nifComprador;</span>
+<span class="fc" id="L117">    }</span>
+
+    public void setArtigos(Set&lt;String&gt; artigos) {
+<span class="fc" id="L120">        this.artigos = new HashSet&lt;&gt;(artigos);</span>
+<span class="fc" id="L121">    }</span>
+
+    public void setCustoProdutos(double custoProdutos) {
+<span class="fc" id="L124">        this.custoProdutos = custoProdutos;</span>
+<span class="fc" id="L125">    }</span>
+
+    public void setAlteracaoPreco(double alteracaoPreco) {
+<span class="fc" id="L128">        this.alteracaoPreco = alteracaoPreco;</span>
+<span class="fc" id="L129">    }</span>
+
+    public void setPrecoFinal(double precoFinal) {
+<span class="fc" id="L132">        this.precoFinal = precoFinal;</span>
+<span class="fc" id="L133">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L137" title="All 2 branches covered.">        if (o == this)</span>
+<span class="fc" id="L138">            return true;</span>
+
+<span class="fc bfc" id="L140" title="All 4 branches covered.">        if (o == null || o.getClass() != this.getClass())</span>
+<span class="fc" id="L141">            return false;</span>
+
+<span class="fc" id="L143">        Fatura f = (Fatura) o;</span>
+
+<span class="fc bfc" id="L145" title="All 6 branches covered.">        return (this.id == f.getId() &amp;&amp; this.compra == f.isCompra() &amp;&amp; this.idEncomenda == f.getIdEncomenda()</span>
+<span class="fc bfc" id="L146" title="All 2 branches covered.">                &amp;&amp; this.nifComprador == f.getNifComprador()</span>
+<span class="fc bfc" id="L147" title="All 4 branches covered.">                &amp;&amp; this.artigos.equals(f.getArtigos()) &amp;&amp; this.custoProdutos == f.getCustoProdutos()</span>
+<span class="fc bfc" id="L148" title="All 2 branches covered.">                &amp;&amp; this.alteracaoPreco == f.getAlteracaoPreco()</span>
+<span class="fc bfc" id="L149" title="All 2 branches covered.">                &amp;&amp; this.precoFinal == f.getPrecoFinal());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L154">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L155">        DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="fc" id="L156">        sb.append(&quot;Fatura &quot;).append(this.id).append(&quot; - &quot;);</span>
+<span class="fc bfc" id="L157" title="All 2 branches covered.">        if (this.compra)</span>
+<span class="fc" id="L158">            sb.append(&quot;Compra\n&quot;);</span>
+        else
+<span class="fc" id="L160">            sb.append(&quot;Venda\n&quot;);</span>
+<span class="fc" id="L161">        sb.append(&quot;NIF do comprador: &quot;).append(this.nifComprador).append(&quot;\n&quot;);</span>
+<span class="fc" id="L162">        sb.append(&quot;Artigos vendidos: &quot;).append(this.artigos.toString()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L163">        sb.append(&quot;\n&quot;);</span>
+<span class="fc" id="L164">        sb.append(&quot;Custo dos produtos: &quot;).append(df.format(this.custoProdutos)).append(&quot;€\n&quot;);</span>
+<span class="fc bfc" id="L165" title="All 2 branches covered.">        if (this.compra)</span>
+<span class="fc" id="L166">            sb.append(&quot;Custo do transporte: &quot;).append(df.format(this.alteracaoPreco)).append(&quot;€\n&quot;);</span>
+        else
+<span class="fc" id="L168">            sb.append(&quot;Taxa Vintage: &quot;).append(df.format(this.alteracaoPreco)).append(&quot;€\n&quot;);</span>
+<span class="fc" id="L169">        sb.append(&quot;Preço final: &quot;).append(df.format(this.precoFinal)).append(&quot;€\n&quot;);</span>
+<span class="fc" id="L170">        return sb.toString();</span>
+    }
+
+    @Override
+    public Fatura clone() {
+<span class="fc" id="L175">        return new Fatura(this);</span>
+    }
+
+    public void atualizaFatura(String idArtigo, double custoProdutos, double alteracaoPreco, double precoFinal) {
+<span class="fc" id="L179">        this.artigos.add(idArtigo);</span>
+<span class="fc" id="L180">        this.custoProdutos += custoProdutos;</span>
+<span class="fc" id="L181">        this.alteracaoPreco += alteracaoPreco;</span>
+<span class="fc" id="L182">        this.precoFinal += precoFinal;</span>
+<span class="fc" id="L183">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

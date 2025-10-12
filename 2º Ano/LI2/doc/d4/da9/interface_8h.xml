@@ -1,0 +1,214 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="d4/da9/interface_8h" kind="file" language="C++">
+    <compoundname>interface.h</compoundname>
+    <includes refid="d0/dfb/camadadedados_8h" local="yes">camadadedados.h</includes>
+    <includes local="no">stdbool.h</includes>
+    <includedby refid="de/df3/camadadedados_8c" local="yes">src/camadadedados.c</includedby>
+    <includedby refid="dd/dda/interface_8c" local="yes">src/interface.c</includedby>
+    <includedby refid="d0/d29/main_8c" local="yes">src/main.c</includedby>
+    <incdepgraph>
+      <node id="29">
+        <label>stdbool.h</label>
+      </node>
+      <node id="27">
+        <label>src/interface.h</label>
+        <link refid="d4/da9/interface_8h"/>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>camadadedados.h</label>
+        <link refid="d0/dfb/camadadedados_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="33">
+        <label>src/main.c</label>
+        <link refid="d0/d29/main_8c"/>
+      </node>
+      <node id="32">
+        <label>src/interface.c</label>
+        <link refid="dd/dda/interface_8c"/>
+      </node>
+      <node id="30">
+        <label>src/interface.h</label>
+        <link refid="d4/da9/interface_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>src/camadadedados.c</label>
+        <link refid="de/df3/camadadedados_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="d4/da9/interface_8h_1ad5228cd48403ef9d8b632f5c7c124720" prot="public" static="no">
+        <name>n</name>
+        <initializer>8</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/interface.h" line="6" column="9" bodyfile="src/interface.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="d4/da9/interface_8h_1ad24ebffc3b7cd5e04988c49fdcb80293" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool finish</definition>
+        <argsstring></argsstring>
+        <name>finish</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/interface.h" line="34" column="1" bodyfile="src/interface.c" bodystart="15" bodyend="-1"/>
+        <referencedby refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" compoundref="dd/dda/interface_8c" startline="140" endline="414">interpretador</referencedby>
+        <referencedby refid="d0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="d0/d29/main_8c" startline="10" endline="27">main</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d4/da9/interface_8h_1abef6a3cea4024b440dd53791f894d859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void printBoard</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>printBoard</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Esta função constrói os tabuleiros. </para>        </briefdescription>
+        <detaileddescription>
+<para>Esta função funciona através de ciclos onde o primeiro ciclo constroi a primeira linha do tabuleiro, sendo q isto só se repete até i &lt; n. ou seja até i &lt; 8 construindo assim um tabuleiro com 8 linhas e colunas. No fim é aplicado printf (&quot;\n &quot;) para introduzir espaços entre o tabuleiro e onde o jogador insere a jogada. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/interface.h" line="21" column="1" bodyfile="src/interface.c" bodystart="58" bodyend="86"/>
+        <references refid="dd/dda/interface_8c_1a8716f6d46efcf2a5f9289cae79a2d7d5" compoundref="dd/dda/interface_8c" startline="17" endline="32">jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" compoundref="d0/dfb/camadadedados_8h" startline="60">ESTADO::jogador_atual</references>
+        <references refid="dd/dda/interface_8c_1ad5228cd48403ef9d8b632f5c7c124720" compoundref="dd/dda/interface_8c" startline="14">n</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" compoundref="d0/dfb/camadadedados_8h" startline="59">ESTADO::num_jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" compoundref="d0/dfb/camadadedados_8h" startline="56">ESTADO::tab</references>
+        <referencedby refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" compoundref="dd/dda/interface_8c" startline="140" endline="414">interpretador</referencedby>
+        <referencedby refid="d0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="d0/d29/main_8c" startline="10" endline="27">main</referencedby>
+        <referencedby refid="dd/dda/interface_8c_1af4ccfe7bf0afc3f0395cea05cec0604a" compoundref="dd/dda/interface_8c" startline="106" endline="137">position</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int interpretador</definition>
+        <argsstring>(ESTADO *e)</argsstring>
+        <name>interpretador</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>O interpretador é a função aonde estão guardados os vários comandos. </para>        </briefdescription>
+        <detaileddescription>
+<para>O interpretador também verifica se uma jogada introduzida é válida , dá o jogo como finalizado através da função check_finish e dá print a indicar o respectivo vencedor. O comandos &quot;gr&quot; guarda o estado do jogo num ficheiro. O comando &quot;ler &quot; lê o estado do jogo a partir do ficheiro guardado em &quot;gr&quot;. O comando &quot;jog&quot; verifica as posiçães adjacentes que estão livres a partir da posição da peça branca e efetua uma jogada aleatória (Caso a peça branca esteja numa posição consecutiva á casa de vitória, essa jogada será sempre prioridade). O comando &quot;jog2&quot;(estratégia da distância_euclidiana) procura todas as jogadas possíveis a partir da posição em que a peça branca se encontra , depois percorre todas essas posições possíveis e calcula a distância euclidiana para ,assim, saber qual a é a posição mais perto da casa de vitória.(Caso a peça branca esteja numa posição consecutiva á casa de vitória, essa jogada será sempre prioridade). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/interface.h" line="32" column="1" bodyfile="src/interface.c" bodystart="140" bodyend="414"/>
+        <references refid="d0/de3/logic_8c_1a4e5a3116b44605378488af31039df61c" compoundref="d0/de3/logic_8c" startline="32" endline="59">add_position</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" compoundref="d0/dfb/camadadedados_8h" startline="26">BRANCA</references>
+        <references refid="dd/dda/interface_8c_1a6821bafc3c88dfb2e433a095df9940c6" compoundref="dd/dda/interface_8c" startline="12">BUF_SIZE</references>
+        <references refid="d0/de3/logic_8c_1a43982fa6048da27b2c695d9e0ef6ac61" compoundref="d0/de3/logic_8c" startline="5" endline="29">check_finish</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" compoundref="d0/dfb/camadadedados_8h" startline="35">COORDENADA::coluna</references>
+        <references refid="dc/dff/lista_8c_1ae3b99323b6f8f35d80bb69ff1a27985e" compoundref="dc/dff/lista_8c" startline="7" endline="12">criar_lista</references>
+        <references refid="dc/dff/lista_8c_1abfcb205f3eb670157be0d1221021714b" compoundref="dc/dff/lista_8c" startline="28" endline="30">devolve_cabeca</references>
+        <references refid="dd/dda/interface_8c_1a6e4ec549c380199b75e71502e50b4d55" compoundref="dd/dda/interface_8c" startline="34" endline="44">distancia_euclidiana</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" compoundref="d0/dfb/camadadedados_8h" startline="24">DOIS</references>
+        <references refid="dd/dda/interface_8c_1ad24ebffc3b7cd5e04988c49fdcb80293" compoundref="dd/dda/interface_8c" startline="15">finish</references>
+        <references refid="dd/dda/interface_8c_1aa065f30aa9f5f9a42132c82c787ee70b" compoundref="dd/dda/interface_8c" startline="10">fp</references>
+        <references refid="dc/dff/lista_8c_1a37ba5fc3cfddb6bc94d4b54b00bc696e" compoundref="dc/dff/lista_8c" startline="15" endline="25">insere_cabeca</references>
+        <references refid="dd/dda/interface_8c_1a8716f6d46efcf2a5f9289cae79a2d7d5" compoundref="dd/dda/interface_8c" startline="17" endline="32">jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" compoundref="d0/dfb/camadadedados_8h" startline="58">ESTADO::jogadas</references>
+        <references refid="dd/dda/interface_8c_1ae404db419db2957309e2e9a5aa656060" compoundref="dd/dda/interface_8c" startline="46" endline="56">jogadasInFile</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" compoundref="d0/dfb/camadadedados_8h" startline="60">ESTADO::jogador_atual</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" compoundref="d0/dfb/camadadedados_8h" startline="36">COORDENADA::linha</references>
+        <references refid="dc/dff/lista_8c_1a4c10928f7acaa4e3de3760cea0dfd9c0" compoundref="dc/dff/lista_8c" startline="49" endline="55">lista_esta_vazia</references>
+        <references refid="dd/dda/interface_8c_1ad5228cd48403ef9d8b632f5c7c124720" compoundref="dd/dda/interface_8c" startline="14">n</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" compoundref="d0/dfb/camadadedados_8h" startline="59">ESTADO::num_jogadas</references>
+        <references refid="dd/dda/interface_8c_1af4ccfe7bf0afc3f0395cea05cec0604a" compoundref="dd/dda/interface_8c" startline="106" endline="137">position</references>
+        <references refid="dd/dda/interface_8c_1abef6a3cea4024b440dd53791f894d859" compoundref="dd/dda/interface_8c" startline="58" endline="86">printBoard</references>
+        <references refid="dd/dda/interface_8c_1aaba49233e5966d7bdb109c2ceb59f7a0" compoundref="dd/dda/interface_8c" startline="88" endline="104">printInFile</references>
+        <references refid="dc/dff/lista_8c_1a9026a681a68322b5ec7f07137b864cbd" compoundref="dc/dff/lista_8c" startline="38" endline="46">remove_cabeca</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" compoundref="d0/dfb/camadadedados_8h" startline="56">ESTADO::tab</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" compoundref="d0/dfb/camadadedados_8h" startline="57">ESTADO::ultima_jogada</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" compoundref="d0/dfb/camadadedados_8h" startline="23">UM</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" compoundref="d0/dfb/camadadedados_8h" startline="25">VAZIO</references>
+        <referencedby refid="d0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="d0/d29/main_8c" startline="10" endline="27">main</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Inicialização/configuração do tabuleiro e jogadas. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">@file<sp/>interface.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Inicialização/configuração<sp/>do<sp/>tabuleiro<sp/>e<sp/>jogadas</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="d4/da9/interface_8h_1ad5228cd48403ef9d8b632f5c7c124720" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>n<sp/>8</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RASTROS_BOARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RASTROS_BOARD_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/dfb/camadadedados_8h" kindref="compound">camadadedados.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdbool.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/dfb/camadadedados_8h" kindref="compound">camadadedados.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="15"><highlight class="comment">/**<sp/>\brief<sp/>Esta<sp/>função<sp/>constrói<sp/>os<sp/>tabuleiros.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>Esta<sp/>função<sp/>funciona<sp/>através<sp/>de<sp/>ciclos<sp/>onde<sp/>o<sp/>primeiro<sp/>ciclo<sp/>constroi<sp/>a<sp/>primeira<sp/>linha<sp/><sp/>do<sp/>tabuleiro,<sp/>sendo<sp/>q<sp/>isto<sp/>só<sp/>se<sp/><sp/>repete<sp/>até<sp/>i<sp/>&lt;<sp/>n.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>ou<sp/>seja<sp/>até<sp/>i<sp/>&lt;<sp/>8<sp/>construindo<sp/>assim<sp/>um<sp/>tabuleiro<sp/>com<sp/>8<sp/>linhas<sp/>e<sp/>colunas.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>No<sp/>fim<sp/>é<sp/>aplicado<sp/>printf<sp/>(&quot;\n<sp/>&quot;)<sp/>para<sp/>introduzir<sp/>espaços<sp/>entre<sp/>o<sp/>tabuleiro<sp/>e<sp/>onde<sp/>o<sp/>jogador<sp/>insere<sp/>a<sp/>jogada.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/da9/interface_8h_1abef6a3cea4024b440dd53791f894d859" kindref="member">printBoard</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="23"><highlight class="comment">/**<sp/>\brief<sp/>O<sp/>interpretador<sp/>é<sp/>a<sp/>função<sp/>aonde<sp/>estão<sp/>guardados<sp/>os<sp/>vários<sp/>comandos.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment">*O<sp/>interpretador<sp/>também<sp/><sp/>verifica<sp/>se<sp/>uma<sp/>jogada<sp/>introduzida<sp/>é<sp/>válida<sp/>,<sp/>dá<sp/>o<sp/>jogo<sp/>como<sp/>finalizado<sp/>através<sp/>da<sp/>função<sp/>check_finish<sp/>e<sp/>dá<sp/>print<sp/>a<sp/>indicar<sp/>o<sp/>respectivo<sp/>vencedor.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>O<sp/>comandos<sp/>&quot;gr&quot;<sp/>guarda<sp/>o<sp/>estado<sp/>do<sp/>jogo<sp/>num<sp/>ficheiro.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>O<sp/>comando<sp/>&quot;ler<sp/>&quot;<sp/>lê<sp/>o<sp/>estado<sp/>do<sp/>jogo<sp/>a<sp/>partir<sp/>do<sp/>ficheiro<sp/>guardado<sp/>em<sp/>&quot;gr&quot;.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/>O<sp/>comando<sp/>&quot;jog&quot;<sp/>verifica<sp/>as<sp/>posiçães<sp/>adjacentes<sp/>que<sp/>estão<sp/>livres<sp/>a<sp/>partir<sp/>da<sp/>posição<sp/>da<sp/>peça<sp/>branca<sp/>e<sp/>efetua<sp/>uma<sp/>jogada<sp/>aleatória<sp/>(Caso<sp/>a<sp/>peça<sp/>branca<sp/>esteja<sp/>numa<sp/>posição<sp/>consecutiva<sp/>á<sp/>casa<sp/>de<sp/>vitória,<sp/>essa<sp/>jogada<sp/>será<sp/>sempre<sp/>prioridade).</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*<sp/>O<sp/>comando<sp/>&quot;jog2&quot;(estratégia<sp/>da<sp/>distância_euclidiana)<sp/>procura<sp/>todas<sp/>as<sp/>jogadas<sp/>possíveis<sp/>a<sp/>partir<sp/>da<sp/>posição<sp/>em<sp/>que<sp/>a<sp/>peça<sp/>branca<sp/>se<sp/>encontra<sp/>,<sp/>depois<sp/>percorre<sp/>todas<sp/>essas<sp/>posições<sp/>possíveis<sp/>e<sp/>calcula<sp/>a<sp/>distância<sp/>euclidiana<sp/>para<sp/>,assim,<sp/>saber<sp/>qual<sp/>a<sp/>é<sp/>a<sp/>posição<sp/>mais<sp/>perto<sp/>da<sp/>casa<sp/>de<sp/>vitória.(Caso<sp/>a<sp/>peça<sp/>branca<sp/>esteja<sp/>numa<sp/>posição<sp/>consecutiva<sp/>á<sp/>casa<sp/>de<sp/>vitória,<sp/>essa<sp/>jogada<sp/>será<sp/>sempre<sp/>prioridade).</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado</highlight></codeline>
+<codeline lineno="30"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" kindref="member">interpretador</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="d4/da9/interface_8h_1ad24ebffc3b7cd5e04988c49fdcb80293" kindref="member">finish</ref>;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/interface.h"/>
+  </compounddef>
+</doxygen>

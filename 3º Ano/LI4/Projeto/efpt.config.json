@@ -1,0 +1,77 @@
+﻿{
+   "CodeGenerationMode": 4,
+   "ContextClassName": "bdContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "Noitcua",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 2,
+   "SelectedToBeGenerated": 0,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[admin]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[chat]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[comprador]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[denuncia]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[sala]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[utilizador]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[venda]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vendedor]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[vendedor_has_sala]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "3l1t3b00k.li4.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": true,
+   "UseDbContextSplitting": false,
+   "UseDecimalDataAnnotationForSprocResult": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

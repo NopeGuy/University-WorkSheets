@@ -1,0 +1,82 @@
+* Starting client
+* Connecting to master process on port 15072
+* Analyzing classpath: 
+  - /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/target/classes
+  - /home/lufe/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar
+  - /home/lufe/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+  - /home/lufe/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.1/junit-vintage-engine-5.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar
+  - /home/lufe/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar
+  - /home/lufe/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar
+* Finished analyzing classpath
+* Generating tests for class TP2.Gestor_Utilizadores
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 00:31:59.172 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Gestor_Utilizadores.seed
+* Loaded 0 tests from /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Gestor_Utilizadores.seed
+* Total number of test goals: 
+  - Line 112
+  - Branch 71
+  - Exception 0
+  - MutationFactory 172
+  - Output 158
+  - Method 46
+  - MethodNoException 46
+  - CBranchFitnessFactory 71
+* Using seed 1716679917473
+* Starting evolution
+* Search finished after 57s and 194 generations, 61326 statements, best individual has fitness: 162.62499999797168
+* Writing sequences to pool
+* Minimizing test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 88%
+* Total number of goals: 112
+* Number of covered goals: 98
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 94%
+* Total number of goals: 71
+* Number of covered goals: 67
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 39
+* Number of covered goals: 39
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 90%
+* Total number of goals: 172
+* Number of covered goals: 154
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 30%
+* Total number of goals: 158
+* Number of covered goals: 48
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 46
+* Number of covered goals: 46
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 57%
+* Total number of goals: 46
+* Number of covered goals: 26
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 93%
+* Total number of goals: 71
+* Number of covered goals: 66
+* Generated 74 tests with total length 261
+* Resulting test suite's coverage: 81% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 39%
+* Compiling and checking tests
+* Writing JUnit test case 'Gestor_Utilizadores_ESTest' to /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/tmp_2024_05_26_00_09_55/tests
+* Done!
+

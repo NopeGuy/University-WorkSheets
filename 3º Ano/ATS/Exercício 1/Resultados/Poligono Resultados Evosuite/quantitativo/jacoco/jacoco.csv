@@ -1,0 +1,7 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+projectturma,poligono,PoligonoConvexo,0,69,0,2,0,15,0,7,0,6
+projectturma,poligono,Ponto,0,194,0,16,0,26,0,25,0,17
+projectturma,poligono,Poligono,0,266,0,20,0,36,0,18,0,8
+projectturma,poligono,Retangulo,0,72,0,0,0,17,0,4,0,4
+projectturma,poligono,Triangulo,0,79,0,0,0,17,0,4,0,4
+projectturma,poligono,NaoConvexoException,0,3,0,0,0,1,0,1,0,1

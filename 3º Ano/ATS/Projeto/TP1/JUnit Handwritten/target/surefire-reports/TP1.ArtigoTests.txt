@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: TP1.ArtigoTests
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in TP1.ArtigoTests
+testConstrutorComParametros  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<11>
+	at TP1.ArtigoTests.testConstrutorComParametros(ArtigoTests.java:32)
+
+testConstrutorPadrao  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<3> but was:<13>
+	at TP1.ArtigoTests.testConstrutorPadrao(ArtigoTests.java:12)
+

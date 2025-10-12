@@ -1,0 +1,14 @@
+lu@mail:THIS:ONE:HN3648:UPS:25.0:0.0:3:189:large:2000:leather
+lu@mail:premium hand:asd:HP42870:Fedex:100.0:0.0:0:3:large:2010:leather:Mask
+lu@mail:Primo:Baf:HP1485:GLS:24.0:0.0:0:100:large:2010:leather:Bodacious Masked Man
+als@um:Good ol' shirt:DI:TN92391:CTT:30.0:0.0:1:10:L:palm trees
+als@um:Air Jordan 2025:Nike air:SP98268:UPS:250.0:0.0:2:3:40:true:black:2020:Nike Man
+berna@mail:Reebok generico:Reebok:SN9561:GLS:30.0:0.0:0:10:42:true:yellow:2019
+berna@mail:Mystery shoe:mystery:SN11891:Fedex:1.0:0.0:10:1:39:false:rainbow:2015
+berna@mail:Random T-Shirt I had:Springfield:TN59903:UPS:3.0:0.0:1:1:XL:stripes
+jp@mail:Pretty bag:Pretty Inc.:HN83230:GLS:40.0:0.0:2:3:large:2010:leather
+als@um:Apple Shirt:Apple:TN54431:CTT:50000.0:0.0:1:1:M:stripes
+als@um:Apple shoe:Apple:SP22837:UPS:300000.0:0.0:1:1:40:true:white:2009:Steve Jobs
+nestor@um:Rizz:B):SN62603:GLS:30.0:0.0:0:1:44:false:blue:2022
+nestor@um:Apple Shirt:Apple:TN54431:CTT:50000.0:0.0:1:1:M:stripes
+nestor@um:Apple shoe:Apple:SP22837:UPS:300000.0:0.0:1:1:40:true:white:2009:Steve Jobs

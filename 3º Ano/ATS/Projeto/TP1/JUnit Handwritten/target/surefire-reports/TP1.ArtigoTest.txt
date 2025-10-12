@@ -1,0 +1,27 @@
+-------------------------------------------------------------------------------
+Test set: TP1.ArtigoTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in TP1.ArtigoTest
+testToString  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	Cannot instantiate the type Artigo
+	LocalDate cannot be resolved
+
+	at TP1.ArtigoTest.testToString(ArtigoTest.java:34)
+
+testArtigo  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	Cannot instantiate the type Artigo
+
+	at TP1.ArtigoTest.testArtigo(ArtigoTest.java:10)
+
+testEquals  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	Cannot instantiate the type Artigo
+	Cannot instantiate the type Artigo
+
+	at TP1.ArtigoTest.testEquals(ArtigoTest.java:26)
+

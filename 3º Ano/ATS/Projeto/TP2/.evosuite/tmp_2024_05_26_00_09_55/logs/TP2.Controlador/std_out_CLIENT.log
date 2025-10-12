@@ -1,0 +1,135 @@
+* Starting client
+* Connecting to master process on port 17143
+* Analyzing classpath: 
+  - /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/target/classes
+  - /home/lufe/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar
+  - /home/lufe/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+  - /home/lufe/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.1/junit-vintage-engine-5.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar
+  - /home/lufe/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar
+  - /home/lufe/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar
+* Finished analyzing classpath
+* Generating tests for class TP2.Controlador
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 00:10:04.244 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Controlador.seed
+* Loaded 0 tests from /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Controlador.seed
+* Total number of test goals: 
+  - Line 473
+  - Branch 251
+  - Exception 0
+  - MutationFactory 297
+  - Output 8
+  - Method 28
+  - MethodNoException 28
+  - CBranchFitnessFactory 251
+* Using seed 1716678601031
+* Starting evolution
+* Search finished after 205s and 6 generations, 1196 statements, best individual has fitness: 1402.0298939983222
+* Writing sequences to pool
+* Minimizing test suite
+[MASTER] 00:14:20.890 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 11%
+* Total number of goals: 473
+* Number of covered goals: 51
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 4%
+* Total number of goals: 251
+* Number of covered goals: 9
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 30
+* Number of covered goals: 30
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 6%
+* Total number of goals: 297
+* Number of covered goals: 17
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 25%
+* Total number of goals: 8
+* Number of covered goals: 2
+* Coverage analysis for criterion METHOD
+[MASTER] 00:14:20.964 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHOD] TP2.Controlador.escolha_sapatilhas()V
+[MASTER] 00:14:20.964 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHOD] TP2.Controlador.escolha_venda_tshirt()V
+[MASTER] 00:14:20.964 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHOD] TP2.Controlador.getMenu()LTP2/Menu;
+[MASTER] 00:14:20.965 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHOD] TP2.Controlador.menu_venda_retirar_artigo()V
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 28
+* Number of covered goals: 28
+* Coverage analysis for criterion METHODNOEXCEPTION
+[MASTER] 00:14:20.971 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.adicionar_artigo_carrinho()V
+[MASTER] 00:14:20.971 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha()V
+[MASTER] 00:14:20.971 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_carrinho()V
+[MASTER] 00:14:20.971 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_faturas()V
+[MASTER] 00:14:20.971 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_malas()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_query()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_sapatilhas()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_tipo()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_transportadora()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_tshit()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_venda()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_venda_malas()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_venda_sapatilhas()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_venda_tipo()V
+[MASTER] 00:14:20.972 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.escolha_venda_tshirt()V
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.getMenu()LTP2/Menu;
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.inicio_controlador()V
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.login()Z
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.menu_venda_retirar_artigo()V
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.parsing()V
+[MASTER] 00:14:20.973 [pool-2-thread-1] WARN  CoverageArchive - A solution with a timeout/exception result has been added to the archive. The covered goal was [METHODNOEX] TP2.Controlador.registar()V
+* Coverage of criterion METHODNOEXCEPTION: 96%
+* Total number of goals: 28
+* Number of covered goals: 27
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 3%
+* Total number of goals: 251
+* Number of covered goals: 8
+* Generated 49 tests with total length 743
+* Resulting test suite's coverage: 33% (average coverage for all fitness functions)
+* Generating assertions
+[MASTER] 00:14:43.583 [pool-2-thread-1] WARN  SimpleMutationAssertionGenerator - Assertion minimization is taking too long (0.6824848484848485% of time used, but only 5/49 tests minimized), falling back to using all assertions
+* Resulting test suite's mutation score: 2%
+* Compiling and checking tests
+[MASTER] 00:15:12.071 [pool-2-thread-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 00:15:12.071 [pool-2-thread-1] WARN  JUnitAnalyzer - Failing test:
+ Controlador controlador0 = new Controlador();
+controlador0.escolha_venda_sapatilhas();
+controlador0.escolha_query();
+controlador0.escolha_tipo();
+controlador0.adicionar_artigo_carrinho();
+controlador0.escolha_transportadora();
+controlador0.escolha_venda_malas();
+controlador0.escolha_sapatilhas();
+
+[MASTER] 00:15:15.742 [pool-2-thread-1] WARN  JUnitAnalyzer - Found unstable test named test0 -> class java.lang.StackOverflowError: null
+[MASTER] 00:15:15.743 [pool-2-thread-1] WARN  JUnitAnalyzer - Failing test:
+ Controlador controlador0 = new Controlador();
+assertNotNull(controlador0);
+
+controlador0.registar();
+controlador0.escolha_malas();
+controlador0.escolha_tipo();
+controlador0.escolha();
+controlador0.menu_venda_retirar_artigo();
+controlador0.escolha_tipo();
+
+* Permissions denied during test execution: 
+  - java.lang.RuntimePermission: 
+         writeFileDescriptor: 4
+* Writing JUnit test case 'Controlador_ESTest' to /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/tmp_2024_05_26_00_09_55/tests
+* Done!
+

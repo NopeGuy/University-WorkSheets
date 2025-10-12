@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vintage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">Vintage.java</span></div><h1>Vintage.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import TP1.Encomenda.Estado_Encomenda;
+
+import java.io.*;
+import java.time.LocalDate;
+
+public class Vintage implements Serializable{
+    private String sessaoAtual;
+    private Map&lt;String, Utilizador&gt; utilizadores;
+    private List&lt;Encomenda&gt; encomendas;
+    private Map&lt;String, Transportadoras&gt; transportadoras;
+    private LocalDate dataPrograma;
+
+<span class="fc" id="L23">    public Vintage() {</span>
+<span class="fc" id="L24">        this.sessaoAtual = null;</span>
+<span class="fc" id="L25">        this.utilizadores = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L26">        this.encomendas = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L27">        this.transportadoras = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L28">        this.dataPrograma = LocalDate.now();</span>
+<span class="fc" id="L29">    }</span>
+
+<span class="fc" id="L31">    public Vintage(String sessao, Map&lt;String,Utilizador&gt; users, List&lt;Encomenda&gt; enco, Map&lt;String,Transportadoras&gt; transp, LocalDate data){</span>
+<span class="fc" id="L32">        this.sessaoAtual = sessao;</span>
+<span class="fc" id="L33">        setUtizadores(users);</span>
+<span class="fc" id="L34">        setEncomendas(enco);</span>
+<span class="fc" id="L35">        setTransportadoras(transp);</span>
+<span class="fc" id="L36">        this.dataPrograma = data;</span>
+<span class="fc" id="L37">    }</span>
+
+<span class="fc" id="L39">    public Vintage(Vintage v){</span>
+<span class="fc" id="L40">        this.sessaoAtual = v.getSessaoAtual();</span>
+<span class="fc" id="L41">        setUtizadores(v.getUtilizadores());</span>
+<span class="fc" id="L42">        setEncomendas(v.getEncomendas());</span>
+<span class="fc" id="L43">        setTransportadoras(v.getTransportadoras());</span>
+<span class="fc" id="L44">        this.dataPrograma = v.getDataPrograma();</span>
+<span class="fc" id="L45">    }</span>
+
+
+
+
+    public String getSessaoAtual(){
+<span class="fc" id="L51">        return this.sessaoAtual;</span>
+    }
+
+    public void SetSessaoAtual(String s){
+<span class="fc" id="L55">        this.sessaoAtual = s;</span>
+<span class="fc" id="L56">    }</span>
+
+
+
+    public Map&lt;String,Utilizador&gt; getUtilizadores(){
+<span class="fc" id="L61">        Map&lt;String,Utilizador&gt; aux = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for (Map.Entry&lt;String,Utilizador&gt; a : this.utilizadores.entrySet()){</span>
+<span class="fc" id="L63">            aux.put(a.getKey(), a.getValue().clone());</span>
+<span class="fc" id="L64">        }</span>
+<span class="fc" id="L65">        return aux;</span>
+    }
+
+    public void setUtizadores(Map&lt;String,Utilizador&gt; u){
+<span class="fc" id="L69">        Map&lt;String,Utilizador&gt; aux = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for(Map.Entry&lt;String,Utilizador&gt; a : u.entrySet()){</span>
+<span class="fc" id="L71">            aux.put(a.getKey(),a.getValue().clone());</span>
+<span class="fc" id="L72">        }</span>
+<span class="fc" id="L73">        this.utilizadores = aux;</span>
+<span class="fc" id="L74">    }</span>
+
+
+
+    public List&lt;Encomenda&gt; getEncomendas(){
+<span class="fc" id="L79">        List&lt;Encomenda&gt; enc = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc" id="L81">            enc.add(e.clone());</span>
+<span class="fc" id="L82">        }</span>
+<span class="fc" id="L83">        return enc;</span>
+    }
+
+    
+
+    public void setEncomendas(List&lt;Encomenda&gt; enco){
+<span class="fc" id="L89">        List&lt;Encomenda&gt; enc = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L90" title="All 2 branches covered.">        for (Encomenda e : enco){</span>
+<span class="fc" id="L91">            enc.add(e.clone());</span>
+<span class="fc" id="L92">        }</span>
+<span class="fc" id="L93">        this.encomendas = enc;</span>
+<span class="fc" id="L94">    }</span>
+
+    public Map&lt;String, Transportadoras&gt; getTransportadoras() {
+<span class="fc" id="L97">        Map&lt;String,Transportadoras&gt; aux = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L98" title="All 2 branches covered.">        for (Map.Entry&lt;String,Transportadoras&gt; e : this.transportadoras.entrySet()){</span>
+<span class="fc" id="L99">            aux.put(e.getKey(), e.getValue().clone());</span>
+<span class="fc" id="L100">        }</span>
+<span class="fc" id="L101">        return aux;</span>
+    }
+
+
+    public void setTransportadoras(Map&lt;String,Transportadoras&gt; transp){
+<span class="fc" id="L106">        Map&lt;String,Transportadoras&gt; aux = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        for (Map.Entry&lt;String,Transportadoras&gt; e : transp.entrySet()){</span>
+<span class="fc" id="L108">            aux.put(e.getKey(), e.getValue().clone());</span>
+<span class="fc" id="L109">        }</span>
+<span class="fc" id="L110">        this.transportadoras = aux;</span>
+<span class="fc" id="L111">    }</span>
+
+
+
+
+
+
+    public LocalDate getDataPrograma(){
+<span class="fc" id="L119">        return this.dataPrograma;</span>
+    }
+
+
+
+    public void setDataPrograma(LocalDate data){
+<span class="fc" id="L125">        this.dataPrograma = data;</span>
+<span class="fc" id="L126">    }</span>
+
+
+
+
+
+    public boolean equals(Object o){
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        if (this == o) </span>
+<span class="fc" id="L134">            return true;</span>
+<span class="fc bfc" id="L135" title="All 4 branches covered.">        if ((o == null) || (this.getClass() != o.getClass())) </span>
+<span class="fc" id="L136">            return false;</span>
+<span class="fc" id="L137">        Vintage v = (Vintage) o;</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        return (this.sessaoAtual.equals(v.getSessaoAtual()) &amp;&amp;</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">                this.utilizadores.equals(v.getUtilizadores()) &amp;&amp;</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">                this.encomendas.equals(v.getEncomendas()) &amp;&amp;</span>
+<span class="pc bpc" id="L141" title="1 of 2 branches missed.">                this.transportadoras.equals(v.getTransportadoras()) &amp;&amp;</span>
+<span class="pc bpc" id="L142" title="1 of 2 branches missed.">                this.dataPrograma.equals(v.getDataPrograma()));</span>
+    } 
+
+    public String toString(){
+<span class="fc" id="L146">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L147">        sb.append(&quot;----------------------------------------\n&quot;);</span>
+<span class="fc" id="L148">        sb.append(&quot;               VINTAGE                  \n&quot;);</span>
+<span class="fc" id="L149">        sb.append(&quot;----------------------------------------\n&quot;);</span>
+<span class="fc" id="L150">        sb.append(&quot;Sessão Atual: &quot;).append(this.sessaoAtual).append(&quot;\n&quot;);</span>
+<span class="fc" id="L151">        sb.append(&quot;Utilizadores: &quot;).append(this.utilizadores).append(&quot;\n&quot;);</span>
+<span class="fc" id="L152">        sb.append(&quot;Encomendas: &quot;).append(this.encomendas).append(&quot;\n&quot;);</span>
+<span class="fc" id="L153">        sb.append(&quot;Transportadoras: &quot;).append(this.transportadoras).append(&quot;\n&quot;);</span>
+<span class="fc" id="L154">        sb.append(&quot;Data do Programa: &quot;).append(this.dataPrograma).append(&quot;\n&quot;);</span>
+<span class="fc" id="L155">        return sb.toString();</span>
+    }
+
+
+
+
+
+
+
+
+
+
+    //  Métodos auxiliares
+
+
+
+
+    public List&lt;Artigo&gt; getArtigosVenda(){
+<span class="fc" id="L173">        List&lt;Artigo&gt; artigos = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">        for (Map.Entry&lt;String,Utilizador&gt; entry: utilizadores.entrySet()){</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">            if (!entry.getKey().equals(this.sessaoAtual)){</span>
+<span class="fc" id="L176">                entry.getValue().getPorVender().stream().forEach(artigos::add);</span>
+            }
+<span class="fc" id="L178">        }</span>
+<span class="fc" id="L179">        return artigos;</span>
+    }
+
+
+    public Map&lt;String, Transportadoras&gt; getTransportadorasPremium(){
+<span class="fc" id="L184">        Map&lt;String,Transportadoras&gt; aux = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L185" title="All 2 branches covered.">        for (Map.Entry&lt;String,Transportadoras&gt; e : this.transportadoras.entrySet()){</span>
+<span class="fc bfc" id="L186" title="All 2 branches covered.">            if(e.getValue().isPremium()){</span>
+<span class="fc" id="L187">            aux.put(e.getKey(), e.getValue().clone());</span>
+            }
+<span class="fc" id="L189">        }</span>
+<span class="fc" id="L190">        return aux;</span>
+    }
+
+
+
+    public void adicionaUtilizador(Utilizador user){
+<span class="fc" id="L196">        utilizadores.put(user.getEmail(),user);</span>
+<span class="fc" id="L197">    }</span>
+
+
+    public void adicionarTransportadora(Transportadoras t){
+<span class="fc" id="L201">        transportadoras.put(t.getNome(), t);</span>
+<span class="fc" id="L202">    }</span>
+
+    public Transportadoras getTransportadora(String t){
+<span class="fc" id="L205">        return this.transportadoras.get(t).clone();</span>
+    }
+
+
+
+
+    public List&lt;Encomenda&gt; getEncomendasSessaoAtual(){
+<span class="fc" id="L212">        List&lt;Encomenda&gt; encomendas = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L213" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">            if (e.getDono().equals(this.sessaoAtual)){</span>
+<span class="fc" id="L215">                encomendas.add(e.clone());</span>
+            }
+<span class="fc" id="L217">        }</span>
+<span class="fc" id="L218">        return encomendas;</span>
+    }
+
+
+    public boolean existeEmail(String email){
+<span class="fc" id="L223">        return this.utilizadores.containsKey(email);</span>
+    }
+
+
+    public boolean existeUser(String email, String password){
+<span class="fc" id="L228">        Utilizador user = this.utilizadores.get(email);</span>
+<span class="fc bfc" id="L229" title="All 2 branches covered.">        if (user != null){</span>
+<span class="fc" id="L230">        return this.utilizadores.get(email).getPassword().equals(password);</span>
+        }
+<span class="fc" id="L232">        return false;</span>
+    }
+
+    public void addEncomenda(Encomenda e){
+<span class="fc" id="L236">        this.encomendas.add(e);</span>
+<span class="fc" id="L237">    }</span>
+
+    public void avancarTempo(){
+<span class="fc bfc" id="L240" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc" id="L241">            int comparar = this.dataPrograma.compareTo(e.getPrazoLimite());</span>
+<span class="fc bfc" id="L242" title="All 4 branches covered.">            if (comparar &gt; 0 &amp;&amp; e.getEstado() != Estado_Encomenda.DEVOLVIDA){</span>
+<span class="fc" id="L243">                e.setEstado(Estado_Encomenda.FINALIZADA);</span>
+            }
+
+<span class="fc" id="L246">        }</span>
+<span class="fc" id="L247">    }</span>
+
+
+    public List&lt;Encomenda&gt; encomendasParaDevolver(){
+<span class="pc bnc" id="L251" title="All 4 branches missed.">        return this.encomendas.stream().filter(e -&gt; e.getPrazoLimite().isAfter(dataPrograma) &amp;&amp; e.getDono().equals(this.sessaoAtual)).map(e -&gt; e.clone()).collect(Collectors.toList());</span>
+    }
+
+
+    public void devolverEncomenda(int id){
+<span class="fc bfc" id="L256" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc bfc" id="L257" title="All 2 branches covered.">            if (id == e.getId()){</span>
+<span class="pc bnc" id="L258" title="All 2 branches missed.">                for (Map.Entry&lt;Integer,String&gt; dono : e.getVendedores().entrySet()){</span>
+<span class="nc" id="L259">                    adicionaArtigoVenda(dono.getKey(), dono.getValue(), e);</span>
+<span class="nc" id="L260">                }</span>
+<span class="nc" id="L261">                this.utilizadores.get(e.getDono()).removeCompras(e.getArtigos());</span>
+<span class="nc" id="L262">                e.setEstado(Estado_Encomenda.DEVOLVIDA);</span>
+<span class="nc" id="L263">                break;</span>
+            }
+<span class="fc" id="L265">        }</span>
+<span class="fc" id="L266">    }</span>
+
+    public void adiarPrazoLimite(int id, int dias){
+<span class="fc bfc" id="L269" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">            if (id == e.getId()){</span>
+<span class="fc" id="L271">                LocalDate dataLimite = e.getPrazoLimite().plusDays(dias);</span>
+<span class="fc" id="L272">                e.setPrazoLimite(dataLimite);</span>
+            }
+<span class="fc" id="L274">        }</span>
+<span class="fc" id="L275">    }</span>
+
+    private void adicionaArtigoVenda(int id, String email, Encomenda e){
+<span class="nc bnc" id="L278" title="All 2 branches missed.">        for(Artigo a : e.getArtigos()){</span>
+<span class="nc bnc" id="L279" title="All 2 branches missed.">            if (a.getId() == id){</span>
+<span class="nc bnc" id="L280" title="All 2 branches missed.">                for(String u : this.utilizadores.keySet()){</span>
+<span class="nc bnc" id="L281" title="All 2 branches missed.">                    if (email.equals(u)){ </span>
+<span class="nc" id="L282">                        adicionarPorVender(a, u);</span>
+<span class="nc" id="L283">                        this.utilizadores.get(u).removeVenda(id);</span>
+<span class="nc" id="L284">                        this.utilizadores.get(u).removeFaturacao(e.getDataCriacao(),a.precoFinal(e.getDataCriacao()));</span>
+                     }
+<span class="nc" id="L286">                }</span>
+            }
+<span class="nc" id="L288">        }</span>
+<span class="nc" id="L289">    }</span>
+
+
+    public void trataEncomenda(List&lt;Integer&gt; carrinho, List&lt;Artigo&gt; artigos, Map&lt;Integer,String&gt; vendedores){
+<span class="fc bfc" id="L293" title="All 2 branches covered.">        for (int id: carrinho){</span>
+<span class="fc" id="L294">            adicionaArtigo(id, artigos, vendedores);</span>
+<span class="fc" id="L295">        }</span>
+<span class="fc" id="L296">    }</span>
+
+    private void adicionaArtigo(int id,List&lt;Artigo&gt; artigos,Map&lt;Integer,String&gt; vendedores){
+
+<span class="pc bpc" id="L300" title="1 of 2 branches missed.">        for (Map.Entry&lt;String,Utilizador&gt; user : this.utilizadores.entrySet()){</span>
+<span class="nc bnc" id="L301" title="All 4 branches missed.">            if (user.getValue().getPorVender().stream().anyMatch(artigo -&gt; artigo.getId() == id)){</span>
+<span class="nc" id="L302">                Artigo a = user.getValue().removePorVender(id);</span>
+<span class="nc" id="L303">                this.utilizadores.get(this.sessaoAtual).adicionaCompra(a.clone());</span>
+<span class="nc" id="L304">                user.getValue().adicionaVendas(a);</span>
+<span class="nc" id="L305">                user.getValue().adicionaFaturacao(this.dataPrograma,a.precoFinal(dataPrograma));    // adiciona a faturação</span>
+<span class="nc" id="L306">                artigos.add(a.clone());</span>
+<span class="nc" id="L307">                vendedores.put(id, user.getKey());</span>
+            }
+<span class="nc" id="L309">        }</span>
+<span class="fc" id="L310">    }</span>
+
+    public double calculaCustoExpedicao(List&lt;Artigo&gt; artigosEncomenda){
+<span class="fc" id="L313">        double custosExpedicao = 0.0;</span>
+
+<span class="fc bfc" id="L315" title="All 2 branches covered.">        for (String t : this.transportadoras.keySet()){</span>
+<span class="pc" id="L316">            Long aux = artigosEncomenda.stream().filter(a -&gt; a.getTransportadora().equals(t)).count();</span>
+<span class="pc bpc" id="L317" title="1 of 2 branches missed.">            if (aux != 0){</span>
+<span class="nc" id="L318">                double expedicaoT = this.transportadoras.get(t).calculaPrecoExpedicao(aux);</span>
+<span class="nc" id="L319">                custosExpedicao +=expedicaoT;</span>
+            }
+<span class="fc" id="L321">        }</span>
+<span class="fc" id="L322">        return custosExpedicao;</span>
+    }
+
+    public void adicionarPorVender(Artigo a,String user){
+<span class="fc" id="L326">        this.utilizadores.get(user).adicionarPorVender(a);</span>
+<span class="fc" id="L327">    }</span>
+
+
+
+    public void aterarTransportadora(String transportadora, Double lucro, Double imposto, int formula){
+<span class="fc" id="L332">        this.transportadoras.get(transportadora).altera(lucro,imposto,formula);</span>
+<span class="fc" id="L333">    }</span>
+
+
+
+
+    // ESTATISTICAS
+
+    public String calculaMaiorFaturacaoSempre(){
+<span class="fc" id="L341">        double max = 0.0;</span>
+<span class="fc" id="L342">        String utilizador = &quot;&quot;;</span>
+<span class="fc bfc" id="L343" title="All 2 branches covered.">        for(String user : this.utilizadores.keySet()){</span>
+<span class="fc" id="L344">            double valor = this.utilizadores.get(user).calculaFaturacaoSempre();</span>
+<span class="pc bpc" id="L345" title="1 of 2 branches missed.">            if (valor &gt; max) {</span>
+<span class="nc" id="L346">                max = valor;</span>
+<span class="nc" id="L347">                utilizador = user;</span>
+            }
+<span class="fc" id="L349">        }</span>
+<span class="fc" id="L350">        return utilizador;</span>
+    }
+
+    public double getMaiorFaturacaoSempre(String user){
+<span class="fc" id="L354">        return this.utilizadores.get(user).calculaFaturacaoSempre();</span>
+    }
+
+    public String calculaMaiorFauracaoIntevalo(LocalDate before, LocalDate after){
+<span class="fc" id="L358">        double max = 0.0;</span>
+<span class="fc" id="L359">        String utilizador = &quot;&quot;;</span>
+<span class="fc bfc" id="L360" title="All 2 branches covered.">        for(String user : this.utilizadores.keySet()){</span>
+<span class="fc" id="L361">            double valor = this.utilizadores.get(user).calculaFaturacaoIntervalo(before, after);</span>
+<span class="pc bpc" id="L362" title="1 of 2 branches missed.">            if (valor &gt; max) {</span>
+<span class="nc" id="L363">                max = valor;</span>
+<span class="nc" id="L364">                utilizador = user;</span>
+            }
+<span class="fc" id="L366">        }</span>
+<span class="fc" id="L367">        return utilizador;</span>
+    }
+
+    public double getMaiorFaturacaoIntervalo(LocalDate before, LocalDate after, String user){
+<span class="fc" id="L371">        return this.utilizadores.get(user).calculaFaturacaoIntervalo(before, after);</span>
+    }
+
+
+    public String calculaMaiorVolFaturacao(){
+<span class="fc" id="L376">        double max = 0.0;</span>
+<span class="fc" id="L377">        String transportadora = &quot;&quot;;</span>
+<span class="fc bfc" id="L378" title="All 2 branches covered.">        for(String transp : this.transportadoras.keySet()){</span>
+<span class="fc" id="L379">            double valor = this.transportadoras.get(transp).getVolFaturacao();</span>
+<span class="fc bfc" id="L380" title="All 2 branches covered.">            if (valor &gt; max){</span>
+<span class="fc" id="L381">                max = valor;</span>
+<span class="fc" id="L382">                transportadora = transp;</span>
+            }
+<span class="fc" id="L384">        }</span>
+<span class="fc" id="L385">        return transportadora;</span>
+    }
+
+    public double getMaiorVolFaturacao(String transp){
+<span class="fc" id="L389">        return this.transportadoras.get(transp).getVolFaturacao();</span>
+    }
+
+    public List&lt;Artigo&gt; listarVendas(String email){
+<span class="fc bfc" id="L393" title="All 2 branches covered.">        if (this.utilizadores.containsKey(email)){</span>
+<span class="fc" id="L394">            return this.utilizadores.get(email).getVendas();</span>
+        } else {
+<span class="fc" id="L396">            return null;</span>
+        }
+    }
+
+    public Map&lt;String,Double&gt; top10Vendedores(LocalDate data){
+<span class="fc" id="L401">        Map&lt;String,Double&gt; vendasUser = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L402" title="All 2 branches covered.">        for(String u : this.utilizadores.keySet()){</span>
+<span class="fc" id="L403">            double venda = verificaCompras(data, this.utilizadores.get(u).getVendas());</span>
+<span class="fc" id="L404">            vendasUser.put(u, venda);</span>
+<span class="fc" id="L405">        }</span>
+<span class="fc" id="L406">        return vendasUser.entrySet().stream()</span>
+<span class="fc" id="L407">                                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))</span>
+<span class="fc" id="L408">                                            .collect(Collectors.toMap(</span>
+                                                    Map.Entry::getKey,
+                                                    Map.Entry::getValue,
+<span class="nc" id="L411">                                                    (oldValue, newValue) -&gt; oldValue, LinkedHashMap::new));</span>
+    }
+
+
+
+    public Map&lt;String,Double&gt; top10Compradores(LocalDate data){
+
+<span class="fc" id="L418">        Map&lt;String,Double&gt; comprasUser = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L419" title="All 2 branches covered.">        for(String u : this.utilizadores.keySet()){</span>
+<span class="fc" id="L420">            double compra = verificaCompras(data,this.utilizadores.get(u).getCompras());</span>
+<span class="fc" id="L421">            comprasUser.put(u, compra);</span>
+<span class="fc" id="L422">        }</span>
+
+<span class="fc" id="L424">        return comprasUser.entrySet().stream()</span>
+<span class="fc" id="L425">                                            .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))</span>
+<span class="fc" id="L426">                                            .collect(Collectors.toMap(</span>
+                                                    Map.Entry::getKey,
+                                                    Map.Entry::getValue,
+<span class="nc" id="L429">                                                    (oldValue, newValue) -&gt; oldValue, LinkedHashMap::new));</span>
+
+
+    }
+
+
+    private double verificaCompras(LocalDate data, List&lt;Artigo&gt; compras){
+<span class="fc" id="L436">        double total = 0.0;</span>
+<span class="fc bfc" id="L437" title="All 2 branches covered.">        for (Artigo a : compras){</span>
+<span class="fc bfc" id="L438" title="All 2 branches covered.">            for (Encomenda e : this.encomendas){</span>
+<span class="pc bpc" id="L439" title="3 of 4 branches missed.">                if (e.getArtigos().contains(a) &amp;&amp; e.getDataCriacao().isAfter(data)){</span>
+<span class="nc" id="L440">                        total+= a.precoFinal(e.getDataCriacao());</span>
+                }
+<span class="fc" id="L442">            }</span>
+<span class="fc" id="L443">        }</span>
+<span class="fc" id="L444">        return total;</span>
+    }
+
+
+
+    public double totalDinheiroVintage(){
+<span class="fc" id="L450">        double total = 0.0;</span>
+<span class="fc bfc" id="L451" title="All 2 branches covered.">        for (Encomenda e : this.encomendas){</span>
+<span class="fc bfc" id="L452" title="All 2 branches covered.">            if (e.getEstado() == Estado_Encomenda.FINALIZADA) </span>
+<span class="fc" id="L453">            total += e.getPrecoFinal();</span>
+<span class="fc" id="L454">        }</span>
+<span class="fc" id="L455">        return total;</span>
+    } 
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

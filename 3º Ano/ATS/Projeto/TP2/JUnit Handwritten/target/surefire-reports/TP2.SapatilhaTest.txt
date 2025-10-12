@@ -1,0 +1,20 @@
+-------------------------------------------------------------------------------
+Test set: TP2.SapatilhaTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.036 s <<< FAILURE! - in TP2.SapatilhaTest
+testClone  Time elapsed: 0.018 s  <<< FAILURE!
+java.lang.AssertionError: expected: TP2.Sapatilha<Sapatilhas:: {Artigo:: { Código de barras: A1 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: 42 Atacadores: true Cor: Azul Data da Coleção: 2021 Premium: true Desconto: 10.0}> but was: TP2.Sapatilha<Sapatilhas:: {Artigo:: { Código de barras: A1 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: 42 Atacadores: true Cor: Azul Data da Coleção: 2021 Premium: true Desconto: 10.0}>
+	at TP2.SapatilhaTest.testClone(SapatilhaTest.java:46)
+
+testToString  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...tilhas:: {Artigo:: {[Descrição: Descrição Marca: Marca Preço Base: 100.0 Novo: false Estado de Uso: 1 Número de Utilizadores: 1 Transportadora: 1 Vendedor: 1]} Tamanho: 42 Atacad...> but was:<...tilhas:: {Artigo:: {[ Código de barras: A2 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 ]} Tamanho: 42 Atacad...>
+	at TP2.SapatilhaTest.testToString(SapatilhaTest.java:83)
+
+testPrecoAtual  Time elapsed: 0.002 s  <<< FAILURE!
+java.lang.AssertionError: expected:<91.0> but was:<81.0>
+	at TP2.SapatilhaTest.testPrecoAtual(SapatilhaTest.java:70)
+
+testEquals  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Sapatilhas:: {Artigo:: { Código de barras: A5 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: 42 Atacadores: true Cor: Azul Data da Coleção: 2021 Premium: true Desconto: 10.0}> but was:<Sapatilhas:: {Artigo:: { Código de barras: A6 Descrição: Descrição Marca: Marca Preço base: 100.0 Novo: false Estado de uso: 1 Número de utilizadores: 1 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: 42 Atacadores: true Cor: Azul Data da Coleção: 2021 Premium: true Desconto: 10.0}>
+	at TP2.SapatilhaTest.testEquals(SapatilhaTest.java:55)
+

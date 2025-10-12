@@ -1,0 +1,4 @@
+: OLA 3 5 + ;
+: ADEUS ( -- soma ) OLA 5 +; 
+OLA \ isto é comentário
+    ADEUS

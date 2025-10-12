@@ -1,0 +1,27 @@
+﻿@model Noitcua.Models.utilizador
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="email">Email</label>
+        <input asp-for="email" class="form-control" />
+        <span asp-validation-for="email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="password">Palavra chave</label>
+        <input asp-for="password" class="form-control" type="password" />
+        <span asp-validation-for="password" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Login</button>
+    <div class="form-group">
+        <br />
+        <a class="btn btn-secondary" href="@Url.Action("Register", "Account")">Registar</a>
+        <a class="btn btn-secondary" href="@Url.Action("ForgotPassword", "Account")">Esqueceu a palavra chave?</a>
+    </div>
+</form>

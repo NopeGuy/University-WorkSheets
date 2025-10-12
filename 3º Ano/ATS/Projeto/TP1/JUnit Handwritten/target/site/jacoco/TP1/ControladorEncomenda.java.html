@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControladorEncomenda.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">ControladorEncomenda.java</span></div><h1>ControladorEncomenda.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+public class ControladorEncomenda implements Serializable{
+    
+    private final Input in;
+    
+    
+<span class="nc" id="L15">    public ControladorEncomenda(){</span>
+<span class="nc" id="L16">        in = new Input();</span>
+<span class="nc" id="L17">    }</span>
+
+    public List&lt;Integer&gt; adicionarArtigo(Apresentacao a, List&lt;Integer&gt; carrinho, List&lt;Integer&gt; idDisponível){
+<span class="nc" id="L20">        boolean id = false;</span>
+        
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        while(!id){</span>
+<span class="nc" id="L23">            Integer idArtigo = in.lerInt(a, &quot;Selecione o ID do artigo:&quot;, 0, 10000);</span>
+            
+<span class="nc bnc" id="L25" title="All 4 branches missed.">            if(idDisponível.contains(idArtigo) &amp;&amp; !(carrinho.contains(idArtigo))){</span>
+<span class="nc" id="L26">                id = true;</span>
+<span class="nc" id="L27">                carrinho.add(idArtigo);</span>
+<span class="nc" id="L28">                a.printMessage(&quot;Artigo com ID &quot; + idArtigo + &quot; foi adicionado ao carrinho!&quot;);</span>
+<span class="nc" id="L29">            }</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            else if (carrinho.contains(idArtigo)){a.printMessage(&quot;Artigo já selecionado.&quot;);}</span>
+<span class="nc" id="L31">            else{a.printMessage(&quot;ID do Artigo não existe.&quot;);}</span>
+        }
+<span class="nc" id="L33">        return carrinho;</span>
+    }
+
+
+    // método auxiliar para as compras
+    private List&lt;Integer&gt; getIDArtigosVenda(List&lt;Artigo&gt; artigos){
+<span class="nc" id="L39">        return artigos.stream().map(a -&gt; a.getId()).collect(Collectors.toList());</span>
+    }
+
+
+    public List&lt;Integer&gt; removerArtigo(Apresentacao a, List&lt;Integer&gt; carrinho){
+<span class="nc" id="L44">        boolean id = false;</span>
+
+<span class="nc bnc" id="L46" title="All 2 branches missed.">        while (!id){</span>
+<span class="nc" id="L47">            Integer idArtigo = in.lerInt(a, &quot;Selecione o ID a remover: &quot;, 0, 10000);</span>
+
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (carrinho.contains(idArtigo)){</span>
+<span class="nc" id="L50">                id = true;</span>
+<span class="nc" id="L51">                carrinho.remove(idArtigo);</span>
+<span class="nc" id="L52">                a.printMessage(&quot;Artigo com ID &quot; + idArtigo + &quot; foi removido do carrinho!&quot;);</span>
+<span class="nc" id="L53">            }</span>
+<span class="nc" id="L54">            else {a.printMessage(&quot;ID não existe no carrinho&quot;);}</span>
+        }
+<span class="nc" id="L56">        return carrinho;</span>
+    }
+
+
+
+
+    public void interpretador(Apresentacao a, Vintage v){
+<span class="nc" id="L63">        boolean b = true;</span>
+        int comando;
+<span class="nc" id="L65">        List&lt;Artigo&gt; artigosVenda = v.getArtigosVenda(); // produtos disponíveis</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (artigosVenda.size() == 0){a.printMessage(&quot;Não existem artigos disponíveis.&quot;);return;}</span>
+<span class="nc" id="L67">        List&lt;Integer&gt; carrinho = new ArrayList&lt;&gt;(); // carrinho de compras</span>
+<span class="nc" id="L68">        List&lt;Integer&gt; idDisponivel = getIDArtigosVenda(artigosVenda);</span>
+<span class="nc" id="L69">        a.printArtigos(artigosVenda,v.getDataPrograma());</span>
+
+
+            
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        while(b){</span>
+<span class="nc" id="L74">            a.printMenuEncomenda();</span>
+<span class="nc" id="L75">            comando = in.lerInt(a,&quot;Escolha a sua opção:&quot;,0,3);</span>
+            
+<span class="nc bnc" id="L77" title="All 5 branches missed.">            switch(comando){</span>
+                case 1: // adicionar produto ao carrinho
+<span class="nc" id="L79">                    a.printCarrinho(carrinho);</span>
+<span class="nc" id="L80">                    carrinho = adicionarArtigo(a, carrinho, idDisponivel);</span>
+<span class="nc" id="L81">                    break;</span>
+
+                case 2: // remover produto do carrinho
+<span class="nc" id="L84">                    a.printCarrinho(carrinho);</span>
+<span class="nc" id="L85">                    carrinho = removerArtigo(a, carrinho);</span>
+<span class="nc" id="L86">                    break;</span>
+
+                
+                case 3: // terminar encomenda
+<span class="nc bnc" id="L90" title="All 2 branches missed.">                    if (carrinho.isEmpty()){a.printMessage(&quot;Carrinho de Compras Vazio!&quot;);break;}</span>
+<span class="nc" id="L91">                    List&lt;Artigo&gt; artigos = new ArrayList&lt;&gt;();            // guarda a lista de artigos da encomenda</span>
+<span class="nc" id="L92">                    Map&lt;Integer,String&gt; vendedores = new HashMap&lt;&gt;();    // guarda o id do produto e o email do vendedor </span>
+                    
+<span class="nc" id="L94">                    v.trataEncomenda(carrinho, artigos, vendedores);</span>
+
+<span class="nc" id="L96">                    String dono = v.getSessaoAtual();</span>
+<span class="nc" id="L97">                    double custoExpedicao = v.calculaCustoExpedicao(artigos);</span>
+
+<span class="nc" id="L99">                    Encomenda encomenda = new Encomenda(dono, artigos, custoExpedicao, v.getDataPrograma(), vendedores);</span>
+<span class="nc" id="L100">                    v.addEncomenda(encomenda);</span>
+<span class="nc" id="L101">                    a.printMessage(encomenda.toString());</span>
+<span class="nc" id="L102">                    a.printMessage(&quot;Encomenda Finalizada com Sucesso!&quot;);</span>
+
+                
+                case 0:
+<span class="nc" id="L106">                    b = false;</span>
+<span class="nc" id="L107">                    break;</span>
+                default:
+<span class="nc" id="L109">                    a.printMessage(&quot;Erro! Comando Inválido.&quot;);</span>
+                    break;
+            }
+        } 
+<span class="nc" id="L113">    }</span>
+
+
+    public void interpretadorDevolver(Apresentacao a, Vintage v){
+<span class="nc" id="L117">        List&lt;Encomenda&gt; encomendas = v.encomendasParaDevolver();</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        if (encomendas.size() == 0){</span>
+<span class="nc" id="L119">            a.printMessage(&quot;Não existem encomendas para devolução.&quot;);</span>
+<span class="nc" id="L120">            return;</span>
+        }
+
+<span class="nc" id="L123">        int encomenda = -1;</span>
+<span class="nc" id="L124">        a.printEncomendas(encomendas);</span>
+
+<span class="nc" id="L126">        List&lt;Integer&gt; idEnc = encomendas.stream().map(enc -&gt; enc.getId()).collect(Collectors.toList());</span>
+<span class="nc" id="L127">        boolean b = true;</span>
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        while (b){</span>
+<span class="nc" id="L129">            encomenda = in.lerInt(a, &quot;Escolha a encomenda que quer devolver: &quot;, 0, 100000);</span>
+<span class="nc bnc" id="L130" title="All 2 branches missed.">            if (idEnc.contains(encomenda)){b = false;}</span>
+<span class="nc" id="L131">            else{a.printMessage(&quot;Encomenda não existe.&quot;);}</span>
+        }
+<span class="nc" id="L133">        v.devolverEncomenda(encomenda);</span>
+<span class="nc" id="L134">        a.printMessage(&quot;Encomenda foi devolvida.&quot;);</span>
+<span class="nc" id="L135">    }</span>
+
+
+
+    public void interpretadorAdiar(Apresentacao a, Vintage v){
+<span class="nc" id="L140">        List&lt;Encomenda&gt; encomendas = v.encomendasParaDevolver();</span>
+<span class="nc bnc" id="L141" title="All 2 branches missed.">        if (encomendas.size() == 0){</span>
+<span class="nc" id="L142">            a.printMessage(&quot;Não existem encomendas para adiar.&quot;);</span>
+<span class="nc" id="L143">            return;</span>
+        }
+
+<span class="nc" id="L146">        int encomenda = -1;</span>
+<span class="nc" id="L147">        a.printEncomendas(encomendas);</span>
+
+<span class="nc" id="L149">        List&lt;Integer&gt; idEnc = encomendas.stream().map(enc -&gt; enc.getId()).collect(Collectors.toList());</span>
+<span class="nc" id="L150">        boolean b = true;</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">        while (b){</span>
+<span class="nc" id="L152">            encomenda = in.lerInt(a, &quot;Escolha a encomenda que pretende adiar: &quot;, 0, 100000);</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">            if (idEnc.contains(encomenda)){b = false;}</span>
+<span class="nc" id="L154">            else{a.printMessage(&quot;Encomenda não existe.&quot;);}</span>
+        }
+<span class="nc" id="L156">        int dias = in.lerInt(a, &quot;Nº de dias que pretende adiar: &quot;, 0, 100);</span>
+<span class="nc" id="L157">        v.adiarPrazoLimite(encomenda,dias);</span>
+<span class="nc" id="L158">        a.printMessage(&quot;Prazo limite encomenda adiado &quot; + dias +&quot; dias.&quot;);</span>
+<span class="nc" id="L159">    }</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

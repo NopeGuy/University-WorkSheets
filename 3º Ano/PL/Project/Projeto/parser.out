@@ -1,0 +1,1523 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ARGSEP
+    COMMENT
+    COMMENT2
+    FUNIN
+    FUNOUT
+    LPAREN
+    RPAREN
+
+Grammar
+
+Rule 0     S' -> exps
+Rule 1     exps -> exps exp
+Rule 2     exps -> empty
+Rule 3     exp -> WORD
+Rule 4     funStarted -> FUNCTIONSTART WORD
+Rule 5     functionBody -> exps FUNCTIONEND
+Rule 6     exp -> funStarted functionBody
+Rule 7     exp -> ADD
+Rule 8     exp -> SUB
+Rule 9     exp -> MUL
+Rule 10    exp -> DIV
+Rule 11    exp -> MOD
+Rule 12    exp -> LESSER
+Rule 13    exp -> GREATER
+Rule 14    exp -> DIFF
+Rule 15    exp -> GREQUAL
+Rule 16    exp -> LESEQUAL
+Rule 17    exp -> EQUALS
+Rule 18    exp -> IF exps THEN
+Rule 19    exp -> IF exps ELSE exps THEN
+Rule 20    exp -> CHAR WORD
+Rule 21    exp -> PRINTDELIM
+Rule 22    exp -> CR
+Rule 23    exp -> SPACE
+Rule 24    exp -> KEY
+Rule 25    exp -> SPACES
+Rule 26    exp -> EMIT
+Rule 27    num -> NUMBER
+Rule 28    exp -> num
+Rule 29    exp -> POPPRINT
+Rule 30    exp -> SWAP
+Rule 31    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ADD                  : 7
+ARGSEP               : 
+CHAR                 : 20
+COMMENT              : 
+COMMENT2             : 
+CR                   : 22
+DIFF                 : 14
+DIV                  : 10
+ELSE                 : 19
+EMIT                 : 26
+EQUALS               : 17
+FUNCTIONEND          : 5
+FUNCTIONSTART        : 4
+FUNIN                : 
+FUNOUT               : 
+GREATER              : 13
+GREQUAL              : 15
+IF                   : 18 19
+KEY                  : 24
+LESEQUAL             : 16
+LESSER               : 12
+LPAREN               : 
+MOD                  : 11
+MUL                  : 9
+NUMBER               : 27
+POPPRINT             : 29
+PRINTDELIM           : 21
+RPAREN               : 
+SPACE                : 23
+SPACES               : 25
+SUB                  : 8
+SWAP                 : 30
+THEN                 : 18 19
+WORD                 : 3 4 20
+error                : 
+
+Nonterminals, with rules where they appear
+
+empty                : 2
+exp                  : 1
+exps                 : 1 5 18 19 19 0
+funStarted           : 6
+functionBody         : 6
+num                  : 28
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . exps
+    (1) exps -> . exps exp
+    (2) exps -> . empty
+    (31) empty -> .
+
+    WORD            reduce using rule 31 (empty -> .)
+    ADD             reduce using rule 31 (empty -> .)
+    SUB             reduce using rule 31 (empty -> .)
+    MUL             reduce using rule 31 (empty -> .)
+    DIV             reduce using rule 31 (empty -> .)
+    MOD             reduce using rule 31 (empty -> .)
+    LESSER          reduce using rule 31 (empty -> .)
+    GREATER         reduce using rule 31 (empty -> .)
+    DIFF            reduce using rule 31 (empty -> .)
+    GREQUAL         reduce using rule 31 (empty -> .)
+    LESEQUAL        reduce using rule 31 (empty -> .)
+    EQUALS          reduce using rule 31 (empty -> .)
+    IF              reduce using rule 31 (empty -> .)
+    CHAR            reduce using rule 31 (empty -> .)
+    PRINTDELIM      reduce using rule 31 (empty -> .)
+    CR              reduce using rule 31 (empty -> .)
+    SPACE           reduce using rule 31 (empty -> .)
+    KEY             reduce using rule 31 (empty -> .)
+    SPACES          reduce using rule 31 (empty -> .)
+    EMIT            reduce using rule 31 (empty -> .)
+    POPPRINT        reduce using rule 31 (empty -> .)
+    SWAP            reduce using rule 31 (empty -> .)
+    FUNCTIONSTART   reduce using rule 31 (empty -> .)
+    NUMBER          reduce using rule 31 (empty -> .)
+    $end            reduce using rule 31 (empty -> .)
+
+    exps                           shift and go to state 1
+    empty                          shift and go to state 2
+
+state 1
+
+    (0) S' -> exps .
+    (1) exps -> exps . exp
+    (3) exp -> . WORD
+    (6) exp -> . funStarted functionBody
+    (7) exp -> . ADD
+    (8) exp -> . SUB
+    (9) exp -> . MUL
+    (10) exp -> . DIV
+    (11) exp -> . MOD
+    (12) exp -> . LESSER
+    (13) exp -> . GREATER
+    (14) exp -> . DIFF
+    (15) exp -> . GREQUAL
+    (16) exp -> . LESEQUAL
+    (17) exp -> . EQUALS
+    (18) exp -> . IF exps THEN
+    (19) exp -> . IF exps ELSE exps THEN
+    (20) exp -> . CHAR WORD
+    (21) exp -> . PRINTDELIM
+    (22) exp -> . CR
+    (23) exp -> . SPACE
+    (24) exp -> . KEY
+    (25) exp -> . SPACES
+    (26) exp -> . EMIT
+    (28) exp -> . num
+    (29) exp -> . POPPRINT
+    (30) exp -> . SWAP
+    (4) funStarted -> . FUNCTIONSTART WORD
+    (27) num -> . NUMBER
+
+    WORD            shift and go to state 4
+    ADD             shift and go to state 6
+    SUB             shift and go to state 7
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+    MOD             shift and go to state 10
+    LESSER          shift and go to state 11
+    GREATER         shift and go to state 12
+    DIFF            shift and go to state 13
+    GREQUAL         shift and go to state 14
+    LESEQUAL        shift and go to state 15
+    EQUALS          shift and go to state 16
+    IF              shift and go to state 17
+    CHAR            shift and go to state 18
+    PRINTDELIM      shift and go to state 19
+    CR              shift and go to state 20
+    SPACE           shift and go to state 21
+    KEY             shift and go to state 22
+    SPACES          shift and go to state 23
+    EMIT            shift and go to state 24
+    POPPRINT        shift and go to state 26
+    SWAP            shift and go to state 27
+    FUNCTIONSTART   shift and go to state 28
+    NUMBER          shift and go to state 29
+
+    exp                            shift and go to state 3
+    funStarted                     shift and go to state 5
+    num                            shift and go to state 25
+
+state 2
+
+    (2) exps -> empty .
+
+    WORD            reduce using rule 2 (exps -> empty .)
+    ADD             reduce using rule 2 (exps -> empty .)
+    SUB             reduce using rule 2 (exps -> empty .)
+    MUL             reduce using rule 2 (exps -> empty .)
+    DIV             reduce using rule 2 (exps -> empty .)
+    MOD             reduce using rule 2 (exps -> empty .)
+    LESSER          reduce using rule 2 (exps -> empty .)
+    GREATER         reduce using rule 2 (exps -> empty .)
+    DIFF            reduce using rule 2 (exps -> empty .)
+    GREQUAL         reduce using rule 2 (exps -> empty .)
+    LESEQUAL        reduce using rule 2 (exps -> empty .)
+    EQUALS          reduce using rule 2 (exps -> empty .)
+    IF              reduce using rule 2 (exps -> empty .)
+    CHAR            reduce using rule 2 (exps -> empty .)
+    PRINTDELIM      reduce using rule 2 (exps -> empty .)
+    CR              reduce using rule 2 (exps -> empty .)
+    SPACE           reduce using rule 2 (exps -> empty .)
+    KEY             reduce using rule 2 (exps -> empty .)
+    SPACES          reduce using rule 2 (exps -> empty .)
+    EMIT            reduce using rule 2 (exps -> empty .)
+    POPPRINT        reduce using rule 2 (exps -> empty .)
+    SWAP            reduce using rule 2 (exps -> empty .)
+    FUNCTIONSTART   reduce using rule 2 (exps -> empty .)
+    NUMBER          reduce using rule 2 (exps -> empty .)
+    $end            reduce using rule 2 (exps -> empty .)
+    FUNCTIONEND     reduce using rule 2 (exps -> empty .)
+    THEN            reduce using rule 2 (exps -> empty .)
+    ELSE            reduce using rule 2 (exps -> empty .)
+
+
+state 3
+
+    (1) exps -> exps exp .
+
+    WORD            reduce using rule 1 (exps -> exps exp .)
+    ADD             reduce using rule 1 (exps -> exps exp .)
+    SUB             reduce using rule 1 (exps -> exps exp .)
+    MUL             reduce using rule 1 (exps -> exps exp .)
+    DIV             reduce using rule 1 (exps -> exps exp .)
+    MOD             reduce using rule 1 (exps -> exps exp .)
+    LESSER          reduce using rule 1 (exps -> exps exp .)
+    GREATER         reduce using rule 1 (exps -> exps exp .)
+    DIFF            reduce using rule 1 (exps -> exps exp .)
+    GREQUAL         reduce using rule 1 (exps -> exps exp .)
+    LESEQUAL        reduce using rule 1 (exps -> exps exp .)
+    EQUALS          reduce using rule 1 (exps -> exps exp .)
+    IF              reduce using rule 1 (exps -> exps exp .)
+    CHAR            reduce using rule 1 (exps -> exps exp .)
+    PRINTDELIM      reduce using rule 1 (exps -> exps exp .)
+    CR              reduce using rule 1 (exps -> exps exp .)
+    SPACE           reduce using rule 1 (exps -> exps exp .)
+    KEY             reduce using rule 1 (exps -> exps exp .)
+    SPACES          reduce using rule 1 (exps -> exps exp .)
+    EMIT            reduce using rule 1 (exps -> exps exp .)
+    POPPRINT        reduce using rule 1 (exps -> exps exp .)
+    SWAP            reduce using rule 1 (exps -> exps exp .)
+    FUNCTIONSTART   reduce using rule 1 (exps -> exps exp .)
+    NUMBER          reduce using rule 1 (exps -> exps exp .)
+    $end            reduce using rule 1 (exps -> exps exp .)
+    FUNCTIONEND     reduce using rule 1 (exps -> exps exp .)
+    THEN            reduce using rule 1 (exps -> exps exp .)
+    ELSE            reduce using rule 1 (exps -> exps exp .)
+
+
+state 4
+
+    (3) exp -> WORD .
+
+    WORD            reduce using rule 3 (exp -> WORD .)
+    ADD             reduce using rule 3 (exp -> WORD .)
+    SUB             reduce using rule 3 (exp -> WORD .)
+    MUL             reduce using rule 3 (exp -> WORD .)
+    DIV             reduce using rule 3 (exp -> WORD .)
+    MOD             reduce using rule 3 (exp -> WORD .)
+    LESSER          reduce using rule 3 (exp -> WORD .)
+    GREATER         reduce using rule 3 (exp -> WORD .)
+    DIFF            reduce using rule 3 (exp -> WORD .)
+    GREQUAL         reduce using rule 3 (exp -> WORD .)
+    LESEQUAL        reduce using rule 3 (exp -> WORD .)
+    EQUALS          reduce using rule 3 (exp -> WORD .)
+    IF              reduce using rule 3 (exp -> WORD .)
+    CHAR            reduce using rule 3 (exp -> WORD .)
+    PRINTDELIM      reduce using rule 3 (exp -> WORD .)
+    CR              reduce using rule 3 (exp -> WORD .)
+    SPACE           reduce using rule 3 (exp -> WORD .)
+    KEY             reduce using rule 3 (exp -> WORD .)
+    SPACES          reduce using rule 3 (exp -> WORD .)
+    EMIT            reduce using rule 3 (exp -> WORD .)
+    POPPRINT        reduce using rule 3 (exp -> WORD .)
+    SWAP            reduce using rule 3 (exp -> WORD .)
+    FUNCTIONSTART   reduce using rule 3 (exp -> WORD .)
+    NUMBER          reduce using rule 3 (exp -> WORD .)
+    $end            reduce using rule 3 (exp -> WORD .)
+    FUNCTIONEND     reduce using rule 3 (exp -> WORD .)
+    THEN            reduce using rule 3 (exp -> WORD .)
+    ELSE            reduce using rule 3 (exp -> WORD .)
+
+
+state 5
+
+    (6) exp -> funStarted . functionBody
+    (5) functionBody -> . exps FUNCTIONEND
+    (1) exps -> . exps exp
+    (2) exps -> . empty
+    (31) empty -> .
+
+    FUNCTIONEND     reduce using rule 31 (empty -> .)
+    WORD            reduce using rule 31 (empty -> .)
+    ADD             reduce using rule 31 (empty -> .)
+    SUB             reduce using rule 31 (empty -> .)
+    MUL             reduce using rule 31 (empty -> .)
+    DIV             reduce using rule 31 (empty -> .)
+    MOD             reduce using rule 31 (empty -> .)
+    LESSER          reduce using rule 31 (empty -> .)
+    GREATER         reduce using rule 31 (empty -> .)
+    DIFF            reduce using rule 31 (empty -> .)
+    GREQUAL         reduce using rule 31 (empty -> .)
+    LESEQUAL        reduce using rule 31 (empty -> .)
+    EQUALS          reduce using rule 31 (empty -> .)
+    IF              reduce using rule 31 (empty -> .)
+    CHAR            reduce using rule 31 (empty -> .)
+    PRINTDELIM      reduce using rule 31 (empty -> .)
+    CR              reduce using rule 31 (empty -> .)
+    SPACE           reduce using rule 31 (empty -> .)
+    KEY             reduce using rule 31 (empty -> .)
+    SPACES          reduce using rule 31 (empty -> .)
+    EMIT            reduce using rule 31 (empty -> .)
+    POPPRINT        reduce using rule 31 (empty -> .)
+    SWAP            reduce using rule 31 (empty -> .)
+    FUNCTIONSTART   reduce using rule 31 (empty -> .)
+    NUMBER          reduce using rule 31 (empty -> .)
+
+    functionBody                   shift and go to state 30
+    exps                           shift and go to state 31
+    empty                          shift and go to state 2
+
+state 6
+
+    (7) exp -> ADD .
+
+    WORD            reduce using rule 7 (exp -> ADD .)
+    ADD             reduce using rule 7 (exp -> ADD .)
+    SUB             reduce using rule 7 (exp -> ADD .)
+    MUL             reduce using rule 7 (exp -> ADD .)
+    DIV             reduce using rule 7 (exp -> ADD .)
+    MOD             reduce using rule 7 (exp -> ADD .)
+    LESSER          reduce using rule 7 (exp -> ADD .)
+    GREATER         reduce using rule 7 (exp -> ADD .)
+    DIFF            reduce using rule 7 (exp -> ADD .)
+    GREQUAL         reduce using rule 7 (exp -> ADD .)
+    LESEQUAL        reduce using rule 7 (exp -> ADD .)
+    EQUALS          reduce using rule 7 (exp -> ADD .)
+    IF              reduce using rule 7 (exp -> ADD .)
+    CHAR            reduce using rule 7 (exp -> ADD .)
+    PRINTDELIM      reduce using rule 7 (exp -> ADD .)
+    CR              reduce using rule 7 (exp -> ADD .)
+    SPACE           reduce using rule 7 (exp -> ADD .)
+    KEY             reduce using rule 7 (exp -> ADD .)
+    SPACES          reduce using rule 7 (exp -> ADD .)
+    EMIT            reduce using rule 7 (exp -> ADD .)
+    POPPRINT        reduce using rule 7 (exp -> ADD .)
+    SWAP            reduce using rule 7 (exp -> ADD .)
+    FUNCTIONSTART   reduce using rule 7 (exp -> ADD .)
+    NUMBER          reduce using rule 7 (exp -> ADD .)
+    $end            reduce using rule 7 (exp -> ADD .)
+    FUNCTIONEND     reduce using rule 7 (exp -> ADD .)
+    THEN            reduce using rule 7 (exp -> ADD .)
+    ELSE            reduce using rule 7 (exp -> ADD .)
+
+
+state 7
+
+    (8) exp -> SUB .
+
+    WORD            reduce using rule 8 (exp -> SUB .)
+    ADD             reduce using rule 8 (exp -> SUB .)
+    SUB             reduce using rule 8 (exp -> SUB .)
+    MUL             reduce using rule 8 (exp -> SUB .)
+    DIV             reduce using rule 8 (exp -> SUB .)
+    MOD             reduce using rule 8 (exp -> SUB .)
+    LESSER          reduce using rule 8 (exp -> SUB .)
+    GREATER         reduce using rule 8 (exp -> SUB .)
+    DIFF            reduce using rule 8 (exp -> SUB .)
+    GREQUAL         reduce using rule 8 (exp -> SUB .)
+    LESEQUAL        reduce using rule 8 (exp -> SUB .)
+    EQUALS          reduce using rule 8 (exp -> SUB .)
+    IF              reduce using rule 8 (exp -> SUB .)
+    CHAR            reduce using rule 8 (exp -> SUB .)
+    PRINTDELIM      reduce using rule 8 (exp -> SUB .)
+    CR              reduce using rule 8 (exp -> SUB .)
+    SPACE           reduce using rule 8 (exp -> SUB .)
+    KEY             reduce using rule 8 (exp -> SUB .)
+    SPACES          reduce using rule 8 (exp -> SUB .)
+    EMIT            reduce using rule 8 (exp -> SUB .)
+    POPPRINT        reduce using rule 8 (exp -> SUB .)
+    SWAP            reduce using rule 8 (exp -> SUB .)
+    FUNCTIONSTART   reduce using rule 8 (exp -> SUB .)
+    NUMBER          reduce using rule 8 (exp -> SUB .)
+    $end            reduce using rule 8 (exp -> SUB .)
+    FUNCTIONEND     reduce using rule 8 (exp -> SUB .)
+    THEN            reduce using rule 8 (exp -> SUB .)
+    ELSE            reduce using rule 8 (exp -> SUB .)
+
+
+state 8
+
+    (9) exp -> MUL .
+
+    WORD            reduce using rule 9 (exp -> MUL .)
+    ADD             reduce using rule 9 (exp -> MUL .)
+    SUB             reduce using rule 9 (exp -> MUL .)
+    MUL             reduce using rule 9 (exp -> MUL .)
+    DIV             reduce using rule 9 (exp -> MUL .)
+    MOD             reduce using rule 9 (exp -> MUL .)
+    LESSER          reduce using rule 9 (exp -> MUL .)
+    GREATER         reduce using rule 9 (exp -> MUL .)
+    DIFF            reduce using rule 9 (exp -> MUL .)
+    GREQUAL         reduce using rule 9 (exp -> MUL .)
+    LESEQUAL        reduce using rule 9 (exp -> MUL .)
+    EQUALS          reduce using rule 9 (exp -> MUL .)
+    IF              reduce using rule 9 (exp -> MUL .)
+    CHAR            reduce using rule 9 (exp -> MUL .)
+    PRINTDELIM      reduce using rule 9 (exp -> MUL .)
+    CR              reduce using rule 9 (exp -> MUL .)
+    SPACE           reduce using rule 9 (exp -> MUL .)
+    KEY             reduce using rule 9 (exp -> MUL .)
+    SPACES          reduce using rule 9 (exp -> MUL .)
+    EMIT            reduce using rule 9 (exp -> MUL .)
+    POPPRINT        reduce using rule 9 (exp -> MUL .)
+    SWAP            reduce using rule 9 (exp -> MUL .)
+    FUNCTIONSTART   reduce using rule 9 (exp -> MUL .)
+    NUMBER          reduce using rule 9 (exp -> MUL .)
+    $end            reduce using rule 9 (exp -> MUL .)
+    FUNCTIONEND     reduce using rule 9 (exp -> MUL .)
+    THEN            reduce using rule 9 (exp -> MUL .)
+    ELSE            reduce using rule 9 (exp -> MUL .)
+
+
+state 9
+
+    (10) exp -> DIV .
+
+    WORD            reduce using rule 10 (exp -> DIV .)
+    ADD             reduce using rule 10 (exp -> DIV .)
+    SUB             reduce using rule 10 (exp -> DIV .)
+    MUL             reduce using rule 10 (exp -> DIV .)
+    DIV             reduce using rule 10 (exp -> DIV .)
+    MOD             reduce using rule 10 (exp -> DIV .)
+    LESSER          reduce using rule 10 (exp -> DIV .)
+    GREATER         reduce using rule 10 (exp -> DIV .)
+    DIFF            reduce using rule 10 (exp -> DIV .)
+    GREQUAL         reduce using rule 10 (exp -> DIV .)
+    LESEQUAL        reduce using rule 10 (exp -> DIV .)
+    EQUALS          reduce using rule 10 (exp -> DIV .)
+    IF              reduce using rule 10 (exp -> DIV .)
+    CHAR            reduce using rule 10 (exp -> DIV .)
+    PRINTDELIM      reduce using rule 10 (exp -> DIV .)
+    CR              reduce using rule 10 (exp -> DIV .)
+    SPACE           reduce using rule 10 (exp -> DIV .)
+    KEY             reduce using rule 10 (exp -> DIV .)
+    SPACES          reduce using rule 10 (exp -> DIV .)
+    EMIT            reduce using rule 10 (exp -> DIV .)
+    POPPRINT        reduce using rule 10 (exp -> DIV .)
+    SWAP            reduce using rule 10 (exp -> DIV .)
+    FUNCTIONSTART   reduce using rule 10 (exp -> DIV .)
+    NUMBER          reduce using rule 10 (exp -> DIV .)
+    $end            reduce using rule 10 (exp -> DIV .)
+    FUNCTIONEND     reduce using rule 10 (exp -> DIV .)
+    THEN            reduce using rule 10 (exp -> DIV .)
+    ELSE            reduce using rule 10 (exp -> DIV .)
+
+
+state 10
+
+    (11) exp -> MOD .
+
+    WORD            reduce using rule 11 (exp -> MOD .)
+    ADD             reduce using rule 11 (exp -> MOD .)
+    SUB             reduce using rule 11 (exp -> MOD .)
+    MUL             reduce using rule 11 (exp -> MOD .)
+    DIV             reduce using rule 11 (exp -> MOD .)
+    MOD             reduce using rule 11 (exp -> MOD .)
+    LESSER          reduce using rule 11 (exp -> MOD .)
+    GREATER         reduce using rule 11 (exp -> MOD .)
+    DIFF            reduce using rule 11 (exp -> MOD .)
+    GREQUAL         reduce using rule 11 (exp -> MOD .)
+    LESEQUAL        reduce using rule 11 (exp -> MOD .)
+    EQUALS          reduce using rule 11 (exp -> MOD .)
+    IF              reduce using rule 11 (exp -> MOD .)
+    CHAR            reduce using rule 11 (exp -> MOD .)
+    PRINTDELIM      reduce using rule 11 (exp -> MOD .)
+    CR              reduce using rule 11 (exp -> MOD .)
+    SPACE           reduce using rule 11 (exp -> MOD .)
+    KEY             reduce using rule 11 (exp -> MOD .)
+    SPACES          reduce using rule 11 (exp -> MOD .)
+    EMIT            reduce using rule 11 (exp -> MOD .)
+    POPPRINT        reduce using rule 11 (exp -> MOD .)
+    SWAP            reduce using rule 11 (exp -> MOD .)
+    FUNCTIONSTART   reduce using rule 11 (exp -> MOD .)
+    NUMBER          reduce using rule 11 (exp -> MOD .)
+    $end            reduce using rule 11 (exp -> MOD .)
+    FUNCTIONEND     reduce using rule 11 (exp -> MOD .)
+    THEN            reduce using rule 11 (exp -> MOD .)
+    ELSE            reduce using rule 11 (exp -> MOD .)
+
+
+state 11
+
+    (12) exp -> LESSER .
+
+    WORD            reduce using rule 12 (exp -> LESSER .)
+    ADD             reduce using rule 12 (exp -> LESSER .)
+    SUB             reduce using rule 12 (exp -> LESSER .)
+    MUL             reduce using rule 12 (exp -> LESSER .)
+    DIV             reduce using rule 12 (exp -> LESSER .)
+    MOD             reduce using rule 12 (exp -> LESSER .)
+    LESSER          reduce using rule 12 (exp -> LESSER .)
+    GREATER         reduce using rule 12 (exp -> LESSER .)
+    DIFF            reduce using rule 12 (exp -> LESSER .)
+    GREQUAL         reduce using rule 12 (exp -> LESSER .)
+    LESEQUAL        reduce using rule 12 (exp -> LESSER .)
+    EQUALS          reduce using rule 12 (exp -> LESSER .)
+    IF              reduce using rule 12 (exp -> LESSER .)
+    CHAR            reduce using rule 12 (exp -> LESSER .)
+    PRINTDELIM      reduce using rule 12 (exp -> LESSER .)
+    CR              reduce using rule 12 (exp -> LESSER .)
+    SPACE           reduce using rule 12 (exp -> LESSER .)
+    KEY             reduce using rule 12 (exp -> LESSER .)
+    SPACES          reduce using rule 12 (exp -> LESSER .)
+    EMIT            reduce using rule 12 (exp -> LESSER .)
+    POPPRINT        reduce using rule 12 (exp -> LESSER .)
+    SWAP            reduce using rule 12 (exp -> LESSER .)
+    FUNCTIONSTART   reduce using rule 12 (exp -> LESSER .)
+    NUMBER          reduce using rule 12 (exp -> LESSER .)
+    $end            reduce using rule 12 (exp -> LESSER .)
+    FUNCTIONEND     reduce using rule 12 (exp -> LESSER .)
+    THEN            reduce using rule 12 (exp -> LESSER .)
+    ELSE            reduce using rule 12 (exp -> LESSER .)
+
+
+state 12
+
+    (13) exp -> GREATER .
+
+    WORD            reduce using rule 13 (exp -> GREATER .)
+    ADD             reduce using rule 13 (exp -> GREATER .)
+    SUB             reduce using rule 13 (exp -> GREATER .)
+    MUL             reduce using rule 13 (exp -> GREATER .)
+    DIV             reduce using rule 13 (exp -> GREATER .)
+    MOD             reduce using rule 13 (exp -> GREATER .)
+    LESSER          reduce using rule 13 (exp -> GREATER .)
+    GREATER         reduce using rule 13 (exp -> GREATER .)
+    DIFF            reduce using rule 13 (exp -> GREATER .)
+    GREQUAL         reduce using rule 13 (exp -> GREATER .)
+    LESEQUAL        reduce using rule 13 (exp -> GREATER .)
+    EQUALS          reduce using rule 13 (exp -> GREATER .)
+    IF              reduce using rule 13 (exp -> GREATER .)
+    CHAR            reduce using rule 13 (exp -> GREATER .)
+    PRINTDELIM      reduce using rule 13 (exp -> GREATER .)
+    CR              reduce using rule 13 (exp -> GREATER .)
+    SPACE           reduce using rule 13 (exp -> GREATER .)
+    KEY             reduce using rule 13 (exp -> GREATER .)
+    SPACES          reduce using rule 13 (exp -> GREATER .)
+    EMIT            reduce using rule 13 (exp -> GREATER .)
+    POPPRINT        reduce using rule 13 (exp -> GREATER .)
+    SWAP            reduce using rule 13 (exp -> GREATER .)
+    FUNCTIONSTART   reduce using rule 13 (exp -> GREATER .)
+    NUMBER          reduce using rule 13 (exp -> GREATER .)
+    $end            reduce using rule 13 (exp -> GREATER .)
+    FUNCTIONEND     reduce using rule 13 (exp -> GREATER .)
+    THEN            reduce using rule 13 (exp -> GREATER .)
+    ELSE            reduce using rule 13 (exp -> GREATER .)
+
+
+state 13
+
+    (14) exp -> DIFF .
+
+    WORD            reduce using rule 14 (exp -> DIFF .)
+    ADD             reduce using rule 14 (exp -> DIFF .)
+    SUB             reduce using rule 14 (exp -> DIFF .)
+    MUL             reduce using rule 14 (exp -> DIFF .)
+    DIV             reduce using rule 14 (exp -> DIFF .)
+    MOD             reduce using rule 14 (exp -> DIFF .)
+    LESSER          reduce using rule 14 (exp -> DIFF .)
+    GREATER         reduce using rule 14 (exp -> DIFF .)
+    DIFF            reduce using rule 14 (exp -> DIFF .)
+    GREQUAL         reduce using rule 14 (exp -> DIFF .)
+    LESEQUAL        reduce using rule 14 (exp -> DIFF .)
+    EQUALS          reduce using rule 14 (exp -> DIFF .)
+    IF              reduce using rule 14 (exp -> DIFF .)
+    CHAR            reduce using rule 14 (exp -> DIFF .)
+    PRINTDELIM      reduce using rule 14 (exp -> DIFF .)
+    CR              reduce using rule 14 (exp -> DIFF .)
+    SPACE           reduce using rule 14 (exp -> DIFF .)
+    KEY             reduce using rule 14 (exp -> DIFF .)
+    SPACES          reduce using rule 14 (exp -> DIFF .)
+    EMIT            reduce using rule 14 (exp -> DIFF .)
+    POPPRINT        reduce using rule 14 (exp -> DIFF .)
+    SWAP            reduce using rule 14 (exp -> DIFF .)
+    FUNCTIONSTART   reduce using rule 14 (exp -> DIFF .)
+    NUMBER          reduce using rule 14 (exp -> DIFF .)
+    $end            reduce using rule 14 (exp -> DIFF .)
+    FUNCTIONEND     reduce using rule 14 (exp -> DIFF .)
+    THEN            reduce using rule 14 (exp -> DIFF .)
+    ELSE            reduce using rule 14 (exp -> DIFF .)
+
+
+state 14
+
+    (15) exp -> GREQUAL .
+
+    WORD            reduce using rule 15 (exp -> GREQUAL .)
+    ADD             reduce using rule 15 (exp -> GREQUAL .)
+    SUB             reduce using rule 15 (exp -> GREQUAL .)
+    MUL             reduce using rule 15 (exp -> GREQUAL .)
+    DIV             reduce using rule 15 (exp -> GREQUAL .)
+    MOD             reduce using rule 15 (exp -> GREQUAL .)
+    LESSER          reduce using rule 15 (exp -> GREQUAL .)
+    GREATER         reduce using rule 15 (exp -> GREQUAL .)
+    DIFF            reduce using rule 15 (exp -> GREQUAL .)
+    GREQUAL         reduce using rule 15 (exp -> GREQUAL .)
+    LESEQUAL        reduce using rule 15 (exp -> GREQUAL .)
+    EQUALS          reduce using rule 15 (exp -> GREQUAL .)
+    IF              reduce using rule 15 (exp -> GREQUAL .)
+    CHAR            reduce using rule 15 (exp -> GREQUAL .)
+    PRINTDELIM      reduce using rule 15 (exp -> GREQUAL .)
+    CR              reduce using rule 15 (exp -> GREQUAL .)
+    SPACE           reduce using rule 15 (exp -> GREQUAL .)
+    KEY             reduce using rule 15 (exp -> GREQUAL .)
+    SPACES          reduce using rule 15 (exp -> GREQUAL .)
+    EMIT            reduce using rule 15 (exp -> GREQUAL .)
+    POPPRINT        reduce using rule 15 (exp -> GREQUAL .)
+    SWAP            reduce using rule 15 (exp -> GREQUAL .)
+    FUNCTIONSTART   reduce using rule 15 (exp -> GREQUAL .)
+    NUMBER          reduce using rule 15 (exp -> GREQUAL .)
+    $end            reduce using rule 15 (exp -> GREQUAL .)
+    FUNCTIONEND     reduce using rule 15 (exp -> GREQUAL .)
+    THEN            reduce using rule 15 (exp -> GREQUAL .)
+    ELSE            reduce using rule 15 (exp -> GREQUAL .)
+
+
+state 15
+
+    (16) exp -> LESEQUAL .
+
+    WORD            reduce using rule 16 (exp -> LESEQUAL .)
+    ADD             reduce using rule 16 (exp -> LESEQUAL .)
+    SUB             reduce using rule 16 (exp -> LESEQUAL .)
+    MUL             reduce using rule 16 (exp -> LESEQUAL .)
+    DIV             reduce using rule 16 (exp -> LESEQUAL .)
+    MOD             reduce using rule 16 (exp -> LESEQUAL .)
+    LESSER          reduce using rule 16 (exp -> LESEQUAL .)
+    GREATER         reduce using rule 16 (exp -> LESEQUAL .)
+    DIFF            reduce using rule 16 (exp -> LESEQUAL .)
+    GREQUAL         reduce using rule 16 (exp -> LESEQUAL .)
+    LESEQUAL        reduce using rule 16 (exp -> LESEQUAL .)
+    EQUALS          reduce using rule 16 (exp -> LESEQUAL .)
+    IF              reduce using rule 16 (exp -> LESEQUAL .)
+    CHAR            reduce using rule 16 (exp -> LESEQUAL .)
+    PRINTDELIM      reduce using rule 16 (exp -> LESEQUAL .)
+    CR              reduce using rule 16 (exp -> LESEQUAL .)
+    SPACE           reduce using rule 16 (exp -> LESEQUAL .)
+    KEY             reduce using rule 16 (exp -> LESEQUAL .)
+    SPACES          reduce using rule 16 (exp -> LESEQUAL .)
+    EMIT            reduce using rule 16 (exp -> LESEQUAL .)
+    POPPRINT        reduce using rule 16 (exp -> LESEQUAL .)
+    SWAP            reduce using rule 16 (exp -> LESEQUAL .)
+    FUNCTIONSTART   reduce using rule 16 (exp -> LESEQUAL .)
+    NUMBER          reduce using rule 16 (exp -> LESEQUAL .)
+    $end            reduce using rule 16 (exp -> LESEQUAL .)
+    FUNCTIONEND     reduce using rule 16 (exp -> LESEQUAL .)
+    THEN            reduce using rule 16 (exp -> LESEQUAL .)
+    ELSE            reduce using rule 16 (exp -> LESEQUAL .)
+
+
+state 16
+
+    (17) exp -> EQUALS .
+
+    WORD            reduce using rule 17 (exp -> EQUALS .)
+    ADD             reduce using rule 17 (exp -> EQUALS .)
+    SUB             reduce using rule 17 (exp -> EQUALS .)
+    MUL             reduce using rule 17 (exp -> EQUALS .)
+    DIV             reduce using rule 17 (exp -> EQUALS .)
+    MOD             reduce using rule 17 (exp -> EQUALS .)
+    LESSER          reduce using rule 17 (exp -> EQUALS .)
+    GREATER         reduce using rule 17 (exp -> EQUALS .)
+    DIFF            reduce using rule 17 (exp -> EQUALS .)
+    GREQUAL         reduce using rule 17 (exp -> EQUALS .)
+    LESEQUAL        reduce using rule 17 (exp -> EQUALS .)
+    EQUALS          reduce using rule 17 (exp -> EQUALS .)
+    IF              reduce using rule 17 (exp -> EQUALS .)
+    CHAR            reduce using rule 17 (exp -> EQUALS .)
+    PRINTDELIM      reduce using rule 17 (exp -> EQUALS .)
+    CR              reduce using rule 17 (exp -> EQUALS .)
+    SPACE           reduce using rule 17 (exp -> EQUALS .)
+    KEY             reduce using rule 17 (exp -> EQUALS .)
+    SPACES          reduce using rule 17 (exp -> EQUALS .)
+    EMIT            reduce using rule 17 (exp -> EQUALS .)
+    POPPRINT        reduce using rule 17 (exp -> EQUALS .)
+    SWAP            reduce using rule 17 (exp -> EQUALS .)
+    FUNCTIONSTART   reduce using rule 17 (exp -> EQUALS .)
+    NUMBER          reduce using rule 17 (exp -> EQUALS .)
+    $end            reduce using rule 17 (exp -> EQUALS .)
+    FUNCTIONEND     reduce using rule 17 (exp -> EQUALS .)
+    THEN            reduce using rule 17 (exp -> EQUALS .)
+    ELSE            reduce using rule 17 (exp -> EQUALS .)
+
+
+state 17
+
+    (18) exp -> IF . exps THEN
+    (19) exp -> IF . exps ELSE exps THEN
+    (1) exps -> . exps exp
+    (2) exps -> . empty
+    (31) empty -> .
+
+    THEN            reduce using rule 31 (empty -> .)
+    ELSE            reduce using rule 31 (empty -> .)
+    WORD            reduce using rule 31 (empty -> .)
+    ADD             reduce using rule 31 (empty -> .)
+    SUB             reduce using rule 31 (empty -> .)
+    MUL             reduce using rule 31 (empty -> .)
+    DIV             reduce using rule 31 (empty -> .)
+    MOD             reduce using rule 31 (empty -> .)
+    LESSER          reduce using rule 31 (empty -> .)
+    GREATER         reduce using rule 31 (empty -> .)
+    DIFF            reduce using rule 31 (empty -> .)
+    GREQUAL         reduce using rule 31 (empty -> .)
+    LESEQUAL        reduce using rule 31 (empty -> .)
+    EQUALS          reduce using rule 31 (empty -> .)
+    IF              reduce using rule 31 (empty -> .)
+    CHAR            reduce using rule 31 (empty -> .)
+    PRINTDELIM      reduce using rule 31 (empty -> .)
+    CR              reduce using rule 31 (empty -> .)
+    SPACE           reduce using rule 31 (empty -> .)
+    KEY             reduce using rule 31 (empty -> .)
+    SPACES          reduce using rule 31 (empty -> .)
+    EMIT            reduce using rule 31 (empty -> .)
+    POPPRINT        reduce using rule 31 (empty -> .)
+    SWAP            reduce using rule 31 (empty -> .)
+    FUNCTIONSTART   reduce using rule 31 (empty -> .)
+    NUMBER          reduce using rule 31 (empty -> .)
+
+    exps                           shift and go to state 32
+    empty                          shift and go to state 2
+
+state 18
+
+    (20) exp -> CHAR . WORD
+
+    WORD            shift and go to state 33
+
+
+state 19
+
+    (21) exp -> PRINTDELIM .
+
+    WORD            reduce using rule 21 (exp -> PRINTDELIM .)
+    ADD             reduce using rule 21 (exp -> PRINTDELIM .)
+    SUB             reduce using rule 21 (exp -> PRINTDELIM .)
+    MUL             reduce using rule 21 (exp -> PRINTDELIM .)
+    DIV             reduce using rule 21 (exp -> PRINTDELIM .)
+    MOD             reduce using rule 21 (exp -> PRINTDELIM .)
+    LESSER          reduce using rule 21 (exp -> PRINTDELIM .)
+    GREATER         reduce using rule 21 (exp -> PRINTDELIM .)
+    DIFF            reduce using rule 21 (exp -> PRINTDELIM .)
+    GREQUAL         reduce using rule 21 (exp -> PRINTDELIM .)
+    LESEQUAL        reduce using rule 21 (exp -> PRINTDELIM .)
+    EQUALS          reduce using rule 21 (exp -> PRINTDELIM .)
+    IF              reduce using rule 21 (exp -> PRINTDELIM .)
+    CHAR            reduce using rule 21 (exp -> PRINTDELIM .)
+    PRINTDELIM      reduce using rule 21 (exp -> PRINTDELIM .)
+    CR              reduce using rule 21 (exp -> PRINTDELIM .)
+    SPACE           reduce using rule 21 (exp -> PRINTDELIM .)
+    KEY             reduce using rule 21 (exp -> PRINTDELIM .)
+    SPACES          reduce using rule 21 (exp -> PRINTDELIM .)
+    EMIT            reduce using rule 21 (exp -> PRINTDELIM .)
+    POPPRINT        reduce using rule 21 (exp -> PRINTDELIM .)
+    SWAP            reduce using rule 21 (exp -> PRINTDELIM .)
+    FUNCTIONSTART   reduce using rule 21 (exp -> PRINTDELIM .)
+    NUMBER          reduce using rule 21 (exp -> PRINTDELIM .)
+    $end            reduce using rule 21 (exp -> PRINTDELIM .)
+    FUNCTIONEND     reduce using rule 21 (exp -> PRINTDELIM .)
+    THEN            reduce using rule 21 (exp -> PRINTDELIM .)
+    ELSE            reduce using rule 21 (exp -> PRINTDELIM .)
+
+
+state 20
+
+    (22) exp -> CR .
+
+    WORD            reduce using rule 22 (exp -> CR .)
+    ADD             reduce using rule 22 (exp -> CR .)
+    SUB             reduce using rule 22 (exp -> CR .)
+    MUL             reduce using rule 22 (exp -> CR .)
+    DIV             reduce using rule 22 (exp -> CR .)
+    MOD             reduce using rule 22 (exp -> CR .)
+    LESSER          reduce using rule 22 (exp -> CR .)
+    GREATER         reduce using rule 22 (exp -> CR .)
+    DIFF            reduce using rule 22 (exp -> CR .)
+    GREQUAL         reduce using rule 22 (exp -> CR .)
+    LESEQUAL        reduce using rule 22 (exp -> CR .)
+    EQUALS          reduce using rule 22 (exp -> CR .)
+    IF              reduce using rule 22 (exp -> CR .)
+    CHAR            reduce using rule 22 (exp -> CR .)
+    PRINTDELIM      reduce using rule 22 (exp -> CR .)
+    CR              reduce using rule 22 (exp -> CR .)
+    SPACE           reduce using rule 22 (exp -> CR .)
+    KEY             reduce using rule 22 (exp -> CR .)
+    SPACES          reduce using rule 22 (exp -> CR .)
+    EMIT            reduce using rule 22 (exp -> CR .)
+    POPPRINT        reduce using rule 22 (exp -> CR .)
+    SWAP            reduce using rule 22 (exp -> CR .)
+    FUNCTIONSTART   reduce using rule 22 (exp -> CR .)
+    NUMBER          reduce using rule 22 (exp -> CR .)
+    $end            reduce using rule 22 (exp -> CR .)
+    FUNCTIONEND     reduce using rule 22 (exp -> CR .)
+    THEN            reduce using rule 22 (exp -> CR .)
+    ELSE            reduce using rule 22 (exp -> CR .)
+
+
+state 21
+
+    (23) exp -> SPACE .
+
+    WORD            reduce using rule 23 (exp -> SPACE .)
+    ADD             reduce using rule 23 (exp -> SPACE .)
+    SUB             reduce using rule 23 (exp -> SPACE .)
+    MUL             reduce using rule 23 (exp -> SPACE .)
+    DIV             reduce using rule 23 (exp -> SPACE .)
+    MOD             reduce using rule 23 (exp -> SPACE .)
+    LESSER          reduce using rule 23 (exp -> SPACE .)
+    GREATER         reduce using rule 23 (exp -> SPACE .)
+    DIFF            reduce using rule 23 (exp -> SPACE .)
+    GREQUAL         reduce using rule 23 (exp -> SPACE .)
+    LESEQUAL        reduce using rule 23 (exp -> SPACE .)
+    EQUALS          reduce using rule 23 (exp -> SPACE .)
+    IF              reduce using rule 23 (exp -> SPACE .)
+    CHAR            reduce using rule 23 (exp -> SPACE .)
+    PRINTDELIM      reduce using rule 23 (exp -> SPACE .)
+    CR              reduce using rule 23 (exp -> SPACE .)
+    SPACE           reduce using rule 23 (exp -> SPACE .)
+    KEY             reduce using rule 23 (exp -> SPACE .)
+    SPACES          reduce using rule 23 (exp -> SPACE .)
+    EMIT            reduce using rule 23 (exp -> SPACE .)
+    POPPRINT        reduce using rule 23 (exp -> SPACE .)
+    SWAP            reduce using rule 23 (exp -> SPACE .)
+    FUNCTIONSTART   reduce using rule 23 (exp -> SPACE .)
+    NUMBER          reduce using rule 23 (exp -> SPACE .)
+    $end            reduce using rule 23 (exp -> SPACE .)
+    FUNCTIONEND     reduce using rule 23 (exp -> SPACE .)
+    THEN            reduce using rule 23 (exp -> SPACE .)
+    ELSE            reduce using rule 23 (exp -> SPACE .)
+
+
+state 22
+
+    (24) exp -> KEY .
+
+    WORD            reduce using rule 24 (exp -> KEY .)
+    ADD             reduce using rule 24 (exp -> KEY .)
+    SUB             reduce using rule 24 (exp -> KEY .)
+    MUL             reduce using rule 24 (exp -> KEY .)
+    DIV             reduce using rule 24 (exp -> KEY .)
+    MOD             reduce using rule 24 (exp -> KEY .)
+    LESSER          reduce using rule 24 (exp -> KEY .)
+    GREATER         reduce using rule 24 (exp -> KEY .)
+    DIFF            reduce using rule 24 (exp -> KEY .)
+    GREQUAL         reduce using rule 24 (exp -> KEY .)
+    LESEQUAL        reduce using rule 24 (exp -> KEY .)
+    EQUALS          reduce using rule 24 (exp -> KEY .)
+    IF              reduce using rule 24 (exp -> KEY .)
+    CHAR            reduce using rule 24 (exp -> KEY .)
+    PRINTDELIM      reduce using rule 24 (exp -> KEY .)
+    CR              reduce using rule 24 (exp -> KEY .)
+    SPACE           reduce using rule 24 (exp -> KEY .)
+    KEY             reduce using rule 24 (exp -> KEY .)
+    SPACES          reduce using rule 24 (exp -> KEY .)
+    EMIT            reduce using rule 24 (exp -> KEY .)
+    POPPRINT        reduce using rule 24 (exp -> KEY .)
+    SWAP            reduce using rule 24 (exp -> KEY .)
+    FUNCTIONSTART   reduce using rule 24 (exp -> KEY .)
+    NUMBER          reduce using rule 24 (exp -> KEY .)
+    $end            reduce using rule 24 (exp -> KEY .)
+    FUNCTIONEND     reduce using rule 24 (exp -> KEY .)
+    THEN            reduce using rule 24 (exp -> KEY .)
+    ELSE            reduce using rule 24 (exp -> KEY .)
+
+
+state 23
+
+    (25) exp -> SPACES .
+
+    WORD            reduce using rule 25 (exp -> SPACES .)
+    ADD             reduce using rule 25 (exp -> SPACES .)
+    SUB             reduce using rule 25 (exp -> SPACES .)
+    MUL             reduce using rule 25 (exp -> SPACES .)
+    DIV             reduce using rule 25 (exp -> SPACES .)
+    MOD             reduce using rule 25 (exp -> SPACES .)
+    LESSER          reduce using rule 25 (exp -> SPACES .)
+    GREATER         reduce using rule 25 (exp -> SPACES .)
+    DIFF            reduce using rule 25 (exp -> SPACES .)
+    GREQUAL         reduce using rule 25 (exp -> SPACES .)
+    LESEQUAL        reduce using rule 25 (exp -> SPACES .)
+    EQUALS          reduce using rule 25 (exp -> SPACES .)
+    IF              reduce using rule 25 (exp -> SPACES .)
+    CHAR            reduce using rule 25 (exp -> SPACES .)
+    PRINTDELIM      reduce using rule 25 (exp -> SPACES .)
+    CR              reduce using rule 25 (exp -> SPACES .)
+    SPACE           reduce using rule 25 (exp -> SPACES .)
+    KEY             reduce using rule 25 (exp -> SPACES .)
+    SPACES          reduce using rule 25 (exp -> SPACES .)
+    EMIT            reduce using rule 25 (exp -> SPACES .)
+    POPPRINT        reduce using rule 25 (exp -> SPACES .)
+    SWAP            reduce using rule 25 (exp -> SPACES .)
+    FUNCTIONSTART   reduce using rule 25 (exp -> SPACES .)
+    NUMBER          reduce using rule 25 (exp -> SPACES .)
+    $end            reduce using rule 25 (exp -> SPACES .)
+    FUNCTIONEND     reduce using rule 25 (exp -> SPACES .)
+    THEN            reduce using rule 25 (exp -> SPACES .)
+    ELSE            reduce using rule 25 (exp -> SPACES .)
+
+
+state 24
+
+    (26) exp -> EMIT .
+
+    WORD            reduce using rule 26 (exp -> EMIT .)
+    ADD             reduce using rule 26 (exp -> EMIT .)
+    SUB             reduce using rule 26 (exp -> EMIT .)
+    MUL             reduce using rule 26 (exp -> EMIT .)
+    DIV             reduce using rule 26 (exp -> EMIT .)
+    MOD             reduce using rule 26 (exp -> EMIT .)
+    LESSER          reduce using rule 26 (exp -> EMIT .)
+    GREATER         reduce using rule 26 (exp -> EMIT .)
+    DIFF            reduce using rule 26 (exp -> EMIT .)
+    GREQUAL         reduce using rule 26 (exp -> EMIT .)
+    LESEQUAL        reduce using rule 26 (exp -> EMIT .)
+    EQUALS          reduce using rule 26 (exp -> EMIT .)
+    IF              reduce using rule 26 (exp -> EMIT .)
+    CHAR            reduce using rule 26 (exp -> EMIT .)
+    PRINTDELIM      reduce using rule 26 (exp -> EMIT .)
+    CR              reduce using rule 26 (exp -> EMIT .)
+    SPACE           reduce using rule 26 (exp -> EMIT .)
+    KEY             reduce using rule 26 (exp -> EMIT .)
+    SPACES          reduce using rule 26 (exp -> EMIT .)
+    EMIT            reduce using rule 26 (exp -> EMIT .)
+    POPPRINT        reduce using rule 26 (exp -> EMIT .)
+    SWAP            reduce using rule 26 (exp -> EMIT .)
+    FUNCTIONSTART   reduce using rule 26 (exp -> EMIT .)
+    NUMBER          reduce using rule 26 (exp -> EMIT .)
+    $end            reduce using rule 26 (exp -> EMIT .)
+    FUNCTIONEND     reduce using rule 26 (exp -> EMIT .)
+    THEN            reduce using rule 26 (exp -> EMIT .)
+    ELSE            reduce using rule 26 (exp -> EMIT .)
+
+
+state 25
+
+    (28) exp -> num .
+
+    WORD            reduce using rule 28 (exp -> num .)
+    ADD             reduce using rule 28 (exp -> num .)
+    SUB             reduce using rule 28 (exp -> num .)
+    MUL             reduce using rule 28 (exp -> num .)
+    DIV             reduce using rule 28 (exp -> num .)
+    MOD             reduce using rule 28 (exp -> num .)
+    LESSER          reduce using rule 28 (exp -> num .)
+    GREATER         reduce using rule 28 (exp -> num .)
+    DIFF            reduce using rule 28 (exp -> num .)
+    GREQUAL         reduce using rule 28 (exp -> num .)
+    LESEQUAL        reduce using rule 28 (exp -> num .)
+    EQUALS          reduce using rule 28 (exp -> num .)
+    IF              reduce using rule 28 (exp -> num .)
+    CHAR            reduce using rule 28 (exp -> num .)
+    PRINTDELIM      reduce using rule 28 (exp -> num .)
+    CR              reduce using rule 28 (exp -> num .)
+    SPACE           reduce using rule 28 (exp -> num .)
+    KEY             reduce using rule 28 (exp -> num .)
+    SPACES          reduce using rule 28 (exp -> num .)
+    EMIT            reduce using rule 28 (exp -> num .)
+    POPPRINT        reduce using rule 28 (exp -> num .)
+    SWAP            reduce using rule 28 (exp -> num .)
+    FUNCTIONSTART   reduce using rule 28 (exp -> num .)
+    NUMBER          reduce using rule 28 (exp -> num .)
+    $end            reduce using rule 28 (exp -> num .)
+    FUNCTIONEND     reduce using rule 28 (exp -> num .)
+    THEN            reduce using rule 28 (exp -> num .)
+    ELSE            reduce using rule 28 (exp -> num .)
+
+
+state 26
+
+    (29) exp -> POPPRINT .
+
+    WORD            reduce using rule 29 (exp -> POPPRINT .)
+    ADD             reduce using rule 29 (exp -> POPPRINT .)
+    SUB             reduce using rule 29 (exp -> POPPRINT .)
+    MUL             reduce using rule 29 (exp -> POPPRINT .)
+    DIV             reduce using rule 29 (exp -> POPPRINT .)
+    MOD             reduce using rule 29 (exp -> POPPRINT .)
+    LESSER          reduce using rule 29 (exp -> POPPRINT .)
+    GREATER         reduce using rule 29 (exp -> POPPRINT .)
+    DIFF            reduce using rule 29 (exp -> POPPRINT .)
+    GREQUAL         reduce using rule 29 (exp -> POPPRINT .)
+    LESEQUAL        reduce using rule 29 (exp -> POPPRINT .)
+    EQUALS          reduce using rule 29 (exp -> POPPRINT .)
+    IF              reduce using rule 29 (exp -> POPPRINT .)
+    CHAR            reduce using rule 29 (exp -> POPPRINT .)
+    PRINTDELIM      reduce using rule 29 (exp -> POPPRINT .)
+    CR              reduce using rule 29 (exp -> POPPRINT .)
+    SPACE           reduce using rule 29 (exp -> POPPRINT .)
+    KEY             reduce using rule 29 (exp -> POPPRINT .)
+    SPACES          reduce using rule 29 (exp -> POPPRINT .)
+    EMIT            reduce using rule 29 (exp -> POPPRINT .)
+    POPPRINT        reduce using rule 29 (exp -> POPPRINT .)
+    SWAP            reduce using rule 29 (exp -> POPPRINT .)
+    FUNCTIONSTART   reduce using rule 29 (exp -> POPPRINT .)
+    NUMBER          reduce using rule 29 (exp -> POPPRINT .)
+    $end            reduce using rule 29 (exp -> POPPRINT .)
+    FUNCTIONEND     reduce using rule 29 (exp -> POPPRINT .)
+    THEN            reduce using rule 29 (exp -> POPPRINT .)
+    ELSE            reduce using rule 29 (exp -> POPPRINT .)
+
+
+state 27
+
+    (30) exp -> SWAP .
+
+    WORD            reduce using rule 30 (exp -> SWAP .)
+    ADD             reduce using rule 30 (exp -> SWAP .)
+    SUB             reduce using rule 30 (exp -> SWAP .)
+    MUL             reduce using rule 30 (exp -> SWAP .)
+    DIV             reduce using rule 30 (exp -> SWAP .)
+    MOD             reduce using rule 30 (exp -> SWAP .)
+    LESSER          reduce using rule 30 (exp -> SWAP .)
+    GREATER         reduce using rule 30 (exp -> SWAP .)
+    DIFF            reduce using rule 30 (exp -> SWAP .)
+    GREQUAL         reduce using rule 30 (exp -> SWAP .)
+    LESEQUAL        reduce using rule 30 (exp -> SWAP .)
+    EQUALS          reduce using rule 30 (exp -> SWAP .)
+    IF              reduce using rule 30 (exp -> SWAP .)
+    CHAR            reduce using rule 30 (exp -> SWAP .)
+    PRINTDELIM      reduce using rule 30 (exp -> SWAP .)
+    CR              reduce using rule 30 (exp -> SWAP .)
+    SPACE           reduce using rule 30 (exp -> SWAP .)
+    KEY             reduce using rule 30 (exp -> SWAP .)
+    SPACES          reduce using rule 30 (exp -> SWAP .)
+    EMIT            reduce using rule 30 (exp -> SWAP .)
+    POPPRINT        reduce using rule 30 (exp -> SWAP .)
+    SWAP            reduce using rule 30 (exp -> SWAP .)
+    FUNCTIONSTART   reduce using rule 30 (exp -> SWAP .)
+    NUMBER          reduce using rule 30 (exp -> SWAP .)
+    $end            reduce using rule 30 (exp -> SWAP .)
+    FUNCTIONEND     reduce using rule 30 (exp -> SWAP .)
+    THEN            reduce using rule 30 (exp -> SWAP .)
+    ELSE            reduce using rule 30 (exp -> SWAP .)
+
+
+state 28
+
+    (4) funStarted -> FUNCTIONSTART . WORD
+
+    WORD            shift and go to state 34
+
+
+state 29
+
+    (27) num -> NUMBER .
+
+    WORD            reduce using rule 27 (num -> NUMBER .)
+    ADD             reduce using rule 27 (num -> NUMBER .)
+    SUB             reduce using rule 27 (num -> NUMBER .)
+    MUL             reduce using rule 27 (num -> NUMBER .)
+    DIV             reduce using rule 27 (num -> NUMBER .)
+    MOD             reduce using rule 27 (num -> NUMBER .)
+    LESSER          reduce using rule 27 (num -> NUMBER .)
+    GREATER         reduce using rule 27 (num -> NUMBER .)
+    DIFF            reduce using rule 27 (num -> NUMBER .)
+    GREQUAL         reduce using rule 27 (num -> NUMBER .)
+    LESEQUAL        reduce using rule 27 (num -> NUMBER .)
+    EQUALS          reduce using rule 27 (num -> NUMBER .)
+    IF              reduce using rule 27 (num -> NUMBER .)
+    CHAR            reduce using rule 27 (num -> NUMBER .)
+    PRINTDELIM      reduce using rule 27 (num -> NUMBER .)
+    CR              reduce using rule 27 (num -> NUMBER .)
+    SPACE           reduce using rule 27 (num -> NUMBER .)
+    KEY             reduce using rule 27 (num -> NUMBER .)
+    SPACES          reduce using rule 27 (num -> NUMBER .)
+    EMIT            reduce using rule 27 (num -> NUMBER .)
+    POPPRINT        reduce using rule 27 (num -> NUMBER .)
+    SWAP            reduce using rule 27 (num -> NUMBER .)
+    FUNCTIONSTART   reduce using rule 27 (num -> NUMBER .)
+    NUMBER          reduce using rule 27 (num -> NUMBER .)
+    $end            reduce using rule 27 (num -> NUMBER .)
+    FUNCTIONEND     reduce using rule 27 (num -> NUMBER .)
+    THEN            reduce using rule 27 (num -> NUMBER .)
+    ELSE            reduce using rule 27 (num -> NUMBER .)
+
+
+state 30
+
+    (6) exp -> funStarted functionBody .
+
+    WORD            reduce using rule 6 (exp -> funStarted functionBody .)
+    ADD             reduce using rule 6 (exp -> funStarted functionBody .)
+    SUB             reduce using rule 6 (exp -> funStarted functionBody .)
+    MUL             reduce using rule 6 (exp -> funStarted functionBody .)
+    DIV             reduce using rule 6 (exp -> funStarted functionBody .)
+    MOD             reduce using rule 6 (exp -> funStarted functionBody .)
+    LESSER          reduce using rule 6 (exp -> funStarted functionBody .)
+    GREATER         reduce using rule 6 (exp -> funStarted functionBody .)
+    DIFF            reduce using rule 6 (exp -> funStarted functionBody .)
+    GREQUAL         reduce using rule 6 (exp -> funStarted functionBody .)
+    LESEQUAL        reduce using rule 6 (exp -> funStarted functionBody .)
+    EQUALS          reduce using rule 6 (exp -> funStarted functionBody .)
+    IF              reduce using rule 6 (exp -> funStarted functionBody .)
+    CHAR            reduce using rule 6 (exp -> funStarted functionBody .)
+    PRINTDELIM      reduce using rule 6 (exp -> funStarted functionBody .)
+    CR              reduce using rule 6 (exp -> funStarted functionBody .)
+    SPACE           reduce using rule 6 (exp -> funStarted functionBody .)
+    KEY             reduce using rule 6 (exp -> funStarted functionBody .)
+    SPACES          reduce using rule 6 (exp -> funStarted functionBody .)
+    EMIT            reduce using rule 6 (exp -> funStarted functionBody .)
+    POPPRINT        reduce using rule 6 (exp -> funStarted functionBody .)
+    SWAP            reduce using rule 6 (exp -> funStarted functionBody .)
+    FUNCTIONSTART   reduce using rule 6 (exp -> funStarted functionBody .)
+    NUMBER          reduce using rule 6 (exp -> funStarted functionBody .)
+    $end            reduce using rule 6 (exp -> funStarted functionBody .)
+    FUNCTIONEND     reduce using rule 6 (exp -> funStarted functionBody .)
+    THEN            reduce using rule 6 (exp -> funStarted functionBody .)
+    ELSE            reduce using rule 6 (exp -> funStarted functionBody .)
+
+
+state 31
+
+    (5) functionBody -> exps . FUNCTIONEND
+    (1) exps -> exps . exp
+    (3) exp -> . WORD
+    (6) exp -> . funStarted functionBody
+    (7) exp -> . ADD
+    (8) exp -> . SUB
+    (9) exp -> . MUL
+    (10) exp -> . DIV
+    (11) exp -> . MOD
+    (12) exp -> . LESSER
+    (13) exp -> . GREATER
+    (14) exp -> . DIFF
+    (15) exp -> . GREQUAL
+    (16) exp -> . LESEQUAL
+    (17) exp -> . EQUALS
+    (18) exp -> . IF exps THEN
+    (19) exp -> . IF exps ELSE exps THEN
+    (20) exp -> . CHAR WORD
+    (21) exp -> . PRINTDELIM
+    (22) exp -> . CR
+    (23) exp -> . SPACE
+    (24) exp -> . KEY
+    (25) exp -> . SPACES
+    (26) exp -> . EMIT
+    (28) exp -> . num
+    (29) exp -> . POPPRINT
+    (30) exp -> . SWAP
+    (4) funStarted -> . FUNCTIONSTART WORD
+    (27) num -> . NUMBER
+
+    FUNCTIONEND     shift and go to state 35
+    WORD            shift and go to state 4
+    ADD             shift and go to state 6
+    SUB             shift and go to state 7
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+    MOD             shift and go to state 10
+    LESSER          shift and go to state 11
+    GREATER         shift and go to state 12
+    DIFF            shift and go to state 13
+    GREQUAL         shift and go to state 14
+    LESEQUAL        shift and go to state 15
+    EQUALS          shift and go to state 16
+    IF              shift and go to state 17
+    CHAR            shift and go to state 18
+    PRINTDELIM      shift and go to state 19
+    CR              shift and go to state 20
+    SPACE           shift and go to state 21
+    KEY             shift and go to state 22
+    SPACES          shift and go to state 23
+    EMIT            shift and go to state 24
+    POPPRINT        shift and go to state 26
+    SWAP            shift and go to state 27
+    FUNCTIONSTART   shift and go to state 28
+    NUMBER          shift and go to state 29
+
+    exp                            shift and go to state 3
+    funStarted                     shift and go to state 5
+    num                            shift and go to state 25
+
+state 32
+
+    (18) exp -> IF exps . THEN
+    (19) exp -> IF exps . ELSE exps THEN
+    (1) exps -> exps . exp
+    (3) exp -> . WORD
+    (6) exp -> . funStarted functionBody
+    (7) exp -> . ADD
+    (8) exp -> . SUB
+    (9) exp -> . MUL
+    (10) exp -> . DIV
+    (11) exp -> . MOD
+    (12) exp -> . LESSER
+    (13) exp -> . GREATER
+    (14) exp -> . DIFF
+    (15) exp -> . GREQUAL
+    (16) exp -> . LESEQUAL
+    (17) exp -> . EQUALS
+    (18) exp -> . IF exps THEN
+    (19) exp -> . IF exps ELSE exps THEN
+    (20) exp -> . CHAR WORD
+    (21) exp -> . PRINTDELIM
+    (22) exp -> . CR
+    (23) exp -> . SPACE
+    (24) exp -> . KEY
+    (25) exp -> . SPACES
+    (26) exp -> . EMIT
+    (28) exp -> . num
+    (29) exp -> . POPPRINT
+    (30) exp -> . SWAP
+    (4) funStarted -> . FUNCTIONSTART WORD
+    (27) num -> . NUMBER
+
+    THEN            shift and go to state 36
+    ELSE            shift and go to state 37
+    WORD            shift and go to state 4
+    ADD             shift and go to state 6
+    SUB             shift and go to state 7
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+    MOD             shift and go to state 10
+    LESSER          shift and go to state 11
+    GREATER         shift and go to state 12
+    DIFF            shift and go to state 13
+    GREQUAL         shift and go to state 14
+    LESEQUAL        shift and go to state 15
+    EQUALS          shift and go to state 16
+    IF              shift and go to state 17
+    CHAR            shift and go to state 18
+    PRINTDELIM      shift and go to state 19
+    CR              shift and go to state 20
+    SPACE           shift and go to state 21
+    KEY             shift and go to state 22
+    SPACES          shift and go to state 23
+    EMIT            shift and go to state 24
+    POPPRINT        shift and go to state 26
+    SWAP            shift and go to state 27
+    FUNCTIONSTART   shift and go to state 28
+    NUMBER          shift and go to state 29
+
+    exp                            shift and go to state 3
+    funStarted                     shift and go to state 5
+    num                            shift and go to state 25
+
+state 33
+
+    (20) exp -> CHAR WORD .
+
+    WORD            reduce using rule 20 (exp -> CHAR WORD .)
+    ADD             reduce using rule 20 (exp -> CHAR WORD .)
+    SUB             reduce using rule 20 (exp -> CHAR WORD .)
+    MUL             reduce using rule 20 (exp -> CHAR WORD .)
+    DIV             reduce using rule 20 (exp -> CHAR WORD .)
+    MOD             reduce using rule 20 (exp -> CHAR WORD .)
+    LESSER          reduce using rule 20 (exp -> CHAR WORD .)
+    GREATER         reduce using rule 20 (exp -> CHAR WORD .)
+    DIFF            reduce using rule 20 (exp -> CHAR WORD .)
+    GREQUAL         reduce using rule 20 (exp -> CHAR WORD .)
+    LESEQUAL        reduce using rule 20 (exp -> CHAR WORD .)
+    EQUALS          reduce using rule 20 (exp -> CHAR WORD .)
+    IF              reduce using rule 20 (exp -> CHAR WORD .)
+    CHAR            reduce using rule 20 (exp -> CHAR WORD .)
+    PRINTDELIM      reduce using rule 20 (exp -> CHAR WORD .)
+    CR              reduce using rule 20 (exp -> CHAR WORD .)
+    SPACE           reduce using rule 20 (exp -> CHAR WORD .)
+    KEY             reduce using rule 20 (exp -> CHAR WORD .)
+    SPACES          reduce using rule 20 (exp -> CHAR WORD .)
+    EMIT            reduce using rule 20 (exp -> CHAR WORD .)
+    POPPRINT        reduce using rule 20 (exp -> CHAR WORD .)
+    SWAP            reduce using rule 20 (exp -> CHAR WORD .)
+    FUNCTIONSTART   reduce using rule 20 (exp -> CHAR WORD .)
+    NUMBER          reduce using rule 20 (exp -> CHAR WORD .)
+    $end            reduce using rule 20 (exp -> CHAR WORD .)
+    FUNCTIONEND     reduce using rule 20 (exp -> CHAR WORD .)
+    THEN            reduce using rule 20 (exp -> CHAR WORD .)
+    ELSE            reduce using rule 20 (exp -> CHAR WORD .)
+
+
+state 34
+
+    (4) funStarted -> FUNCTIONSTART WORD .
+
+    FUNCTIONEND     reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    WORD            reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    ADD             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    SUB             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    MUL             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    DIV             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    MOD             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    LESSER          reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    GREATER         reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    DIFF            reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    GREQUAL         reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    LESEQUAL        reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    EQUALS          reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    IF              reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    CHAR            reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    PRINTDELIM      reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    CR              reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    SPACE           reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    KEY             reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    SPACES          reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    EMIT            reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    POPPRINT        reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    SWAP            reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    FUNCTIONSTART   reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+    NUMBER          reduce using rule 4 (funStarted -> FUNCTIONSTART WORD .)
+
+
+state 35
+
+    (5) functionBody -> exps FUNCTIONEND .
+
+    WORD            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    ADD             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    SUB             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    MUL             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    DIV             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    MOD             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    LESSER          reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    GREATER         reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    DIFF            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    GREQUAL         reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    LESEQUAL        reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    EQUALS          reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    IF              reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    CHAR            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    PRINTDELIM      reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    CR              reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    SPACE           reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    KEY             reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    SPACES          reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    EMIT            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    POPPRINT        reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    SWAP            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    FUNCTIONSTART   reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    NUMBER          reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    $end            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    FUNCTIONEND     reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    THEN            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+    ELSE            reduce using rule 5 (functionBody -> exps FUNCTIONEND .)
+
+
+state 36
+
+    (18) exp -> IF exps THEN .
+
+    WORD            reduce using rule 18 (exp -> IF exps THEN .)
+    ADD             reduce using rule 18 (exp -> IF exps THEN .)
+    SUB             reduce using rule 18 (exp -> IF exps THEN .)
+    MUL             reduce using rule 18 (exp -> IF exps THEN .)
+    DIV             reduce using rule 18 (exp -> IF exps THEN .)
+    MOD             reduce using rule 18 (exp -> IF exps THEN .)
+    LESSER          reduce using rule 18 (exp -> IF exps THEN .)
+    GREATER         reduce using rule 18 (exp -> IF exps THEN .)
+    DIFF            reduce using rule 18 (exp -> IF exps THEN .)
+    GREQUAL         reduce using rule 18 (exp -> IF exps THEN .)
+    LESEQUAL        reduce using rule 18 (exp -> IF exps THEN .)
+    EQUALS          reduce using rule 18 (exp -> IF exps THEN .)
+    IF              reduce using rule 18 (exp -> IF exps THEN .)
+    CHAR            reduce using rule 18 (exp -> IF exps THEN .)
+    PRINTDELIM      reduce using rule 18 (exp -> IF exps THEN .)
+    CR              reduce using rule 18 (exp -> IF exps THEN .)
+    SPACE           reduce using rule 18 (exp -> IF exps THEN .)
+    KEY             reduce using rule 18 (exp -> IF exps THEN .)
+    SPACES          reduce using rule 18 (exp -> IF exps THEN .)
+    EMIT            reduce using rule 18 (exp -> IF exps THEN .)
+    POPPRINT        reduce using rule 18 (exp -> IF exps THEN .)
+    SWAP            reduce using rule 18 (exp -> IF exps THEN .)
+    FUNCTIONSTART   reduce using rule 18 (exp -> IF exps THEN .)
+    NUMBER          reduce using rule 18 (exp -> IF exps THEN .)
+    $end            reduce using rule 18 (exp -> IF exps THEN .)
+    FUNCTIONEND     reduce using rule 18 (exp -> IF exps THEN .)
+    THEN            reduce using rule 18 (exp -> IF exps THEN .)
+    ELSE            reduce using rule 18 (exp -> IF exps THEN .)
+
+
+state 37
+
+    (19) exp -> IF exps ELSE . exps THEN
+    (1) exps -> . exps exp
+    (2) exps -> . empty
+    (31) empty -> .
+
+    THEN            reduce using rule 31 (empty -> .)
+    WORD            reduce using rule 31 (empty -> .)
+    ADD             reduce using rule 31 (empty -> .)
+    SUB             reduce using rule 31 (empty -> .)
+    MUL             reduce using rule 31 (empty -> .)
+    DIV             reduce using rule 31 (empty -> .)
+    MOD             reduce using rule 31 (empty -> .)
+    LESSER          reduce using rule 31 (empty -> .)
+    GREATER         reduce using rule 31 (empty -> .)
+    DIFF            reduce using rule 31 (empty -> .)
+    GREQUAL         reduce using rule 31 (empty -> .)
+    LESEQUAL        reduce using rule 31 (empty -> .)
+    EQUALS          reduce using rule 31 (empty -> .)
+    IF              reduce using rule 31 (empty -> .)
+    CHAR            reduce using rule 31 (empty -> .)
+    PRINTDELIM      reduce using rule 31 (empty -> .)
+    CR              reduce using rule 31 (empty -> .)
+    SPACE           reduce using rule 31 (empty -> .)
+    KEY             reduce using rule 31 (empty -> .)
+    SPACES          reduce using rule 31 (empty -> .)
+    EMIT            reduce using rule 31 (empty -> .)
+    POPPRINT        reduce using rule 31 (empty -> .)
+    SWAP            reduce using rule 31 (empty -> .)
+    FUNCTIONSTART   reduce using rule 31 (empty -> .)
+    NUMBER          reduce using rule 31 (empty -> .)
+
+    exps                           shift and go to state 38
+    empty                          shift and go to state 2
+
+state 38
+
+    (19) exp -> IF exps ELSE exps . THEN
+    (1) exps -> exps . exp
+    (3) exp -> . WORD
+    (6) exp -> . funStarted functionBody
+    (7) exp -> . ADD
+    (8) exp -> . SUB
+    (9) exp -> . MUL
+    (10) exp -> . DIV
+    (11) exp -> . MOD
+    (12) exp -> . LESSER
+    (13) exp -> . GREATER
+    (14) exp -> . DIFF
+    (15) exp -> . GREQUAL
+    (16) exp -> . LESEQUAL
+    (17) exp -> . EQUALS
+    (18) exp -> . IF exps THEN
+    (19) exp -> . IF exps ELSE exps THEN
+    (20) exp -> . CHAR WORD
+    (21) exp -> . PRINTDELIM
+    (22) exp -> . CR
+    (23) exp -> . SPACE
+    (24) exp -> . KEY
+    (25) exp -> . SPACES
+    (26) exp -> . EMIT
+    (28) exp -> . num
+    (29) exp -> . POPPRINT
+    (30) exp -> . SWAP
+    (4) funStarted -> . FUNCTIONSTART WORD
+    (27) num -> . NUMBER
+
+    THEN            shift and go to state 39
+    WORD            shift and go to state 4
+    ADD             shift and go to state 6
+    SUB             shift and go to state 7
+    MUL             shift and go to state 8
+    DIV             shift and go to state 9
+    MOD             shift and go to state 10
+    LESSER          shift and go to state 11
+    GREATER         shift and go to state 12
+    DIFF            shift and go to state 13
+    GREQUAL         shift and go to state 14
+    LESEQUAL        shift and go to state 15
+    EQUALS          shift and go to state 16
+    IF              shift and go to state 17
+    CHAR            shift and go to state 18
+    PRINTDELIM      shift and go to state 19
+    CR              shift and go to state 20
+    SPACE           shift and go to state 21
+    KEY             shift and go to state 22
+    SPACES          shift and go to state 23
+    EMIT            shift and go to state 24
+    POPPRINT        shift and go to state 26
+    SWAP            shift and go to state 27
+    FUNCTIONSTART   shift and go to state 28
+    NUMBER          shift and go to state 29
+
+    exp                            shift and go to state 3
+    funStarted                     shift and go to state 5
+    num                            shift and go to state 25
+
+state 39
+
+    (19) exp -> IF exps ELSE exps THEN .
+
+    WORD            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    ADD             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    SUB             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    MUL             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    DIV             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    MOD             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    LESSER          reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    GREATER         reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    DIFF            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    GREQUAL         reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    LESEQUAL        reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    EQUALS          reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    IF              reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    CHAR            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    PRINTDELIM      reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    CR              reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    SPACE           reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    KEY             reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    SPACES          reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    EMIT            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    POPPRINT        reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    SWAP            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    FUNCTIONSTART   reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    NUMBER          reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    $end            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    FUNCTIONEND     reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    THEN            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+    ELSE            reduce using rule 19 (exp -> IF exps ELSE exps THEN .)
+

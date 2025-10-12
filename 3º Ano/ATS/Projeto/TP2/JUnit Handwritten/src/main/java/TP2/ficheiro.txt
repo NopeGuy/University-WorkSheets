@@ -1,0 +1,8 @@
+15:05:2023,1,Comprar,A1
+15:05:2023,1,Comprar,A2
+15:05:2023,1,Comprar,A3
+15:05:2023,1,Vender,Sapatilha,asdas, asdas,false,Boas,Adidas,200,false,2,5,2,42,true,preto,2020
+15:05:2023,2,Vender,Sapatilha,false,Boas,POO,200,false,2,5,2,42,true,branco,2012
+15:05:2023,2,Vender,T-shirt,bonita,Prada,200,true,0,0,2,S,liso
+15:05:2023,2,Vender,Mala,bonita,Arroz,10,true,0,0,2,2,Pele,2020,false
+

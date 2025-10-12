@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controlador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Controlador.java</span></div><h1>Controlador.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.IOException;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.text.DecimalFormat;
+
+public class Controlador implements Serializable {
+    private Menu menu;
+    private Vintage vintage;
+
+    // Construtores
+<span class="fc" id="L12">    public Controlador() {</span>
+<span class="fc" id="L13">        this.menu = new Menu();</span>
+<span class="fc" id="L14">        this.vintage = new Vintage();</span>
+<span class="fc" id="L15">    }</span>
+
+    // é preciso fazer clone?
+<span class="fc" id="L18">    public Controlador(Menu menu, Vintage vintage) {</span>
+<span class="fc" id="L19">        this.menu = menu;</span>
+<span class="fc" id="L20">        this.vintage = vintage;</span>
+<span class="fc" id="L21">    }</span>
+
+<span class="fc" id="L23">    public Controlador(Controlador a) {</span>
+<span class="fc" id="L24">        this.menu = a.getMenu();</span>
+<span class="fc" id="L25">        this.vintage = a.getVintage();</span>
+<span class="fc" id="L26">    }</span>
+
+
+    public Menu getMenu() {
+<span class="fc" id="L30">        return menu;</span>
+    }
+
+    public Vintage getVintage() {
+<span class="fc" id="L34">        return vintage;</span>
+    }
+
+    public void inicio_controlador() {
+<span class="fc" id="L38">        this.povoar();</span>
+        int e;
+        do {        
+<span class="fc" id="L41">            this.menu.tempo_vintage(this.vintage.getData().toString());</span>
+<span class="fc" id="L42">            e = this.menu.iniciar_menu();</span>
+
+<span class="pc bpc" id="L44" title="7 of 8 branches missed.">            switch (e) {</span>
+                case 1:
+                    // Login -------------------------------
+<span class="nc bnc" id="L47" title="All 2 branches missed.">                    if (this.login() == true) {</span>
+                        //this.menu.clear();
+<span class="nc" id="L49">                        this.escolha();</span>
+                    }
+                    // this.menu.clear();
+                    break;
+                case 2:
+                    // Registo -------------------------------
+<span class="nc" id="L55">                    this.registar();</span>
+                    // this.menu.clear();
+<span class="nc" id="L57">                    break;</span>
+                case 3:
+<span class="nc" id="L59">                    this.escolha_query();</span>
+                    // this.menu.clear();
+<span class="nc" id="L61">                    break;</span>
+                case 4:
+<span class="nc" id="L63">                    this.escolha_transportadora();</span>
+<span class="nc" id="L64">                    break;</span>
+                // this.menu.clear();
+                case 5:
+<span class="nc" id="L67">                    LocalDate data = this.menu.tempo_avançar(this.vintage.getData());</span>
+<span class="nc" id="L68">                    this.vintage.avancarTempo(data);</span>
+<span class="nc" id="L69">                    this.menu.tempo_avançado();</span>
+<span class="nc" id="L70">                    break;</span>
+                case 6:
+<span class="nc" id="L72">                this.parsing();</span>
+<span class="nc" id="L73">                break;</span>
+                case 7:
+<span class="fc" id="L75">                    this.menu.sair_print();</span>
+<span class="fc" id="L76">                    this.salvarEstado();</span>
+<span class="fc" id="L77">                    break;</span>
+                default:
+                    break;
+            }
+<span class="pc bpc" id="L81" title="1 of 2 branches missed.">        } while (e != 7);</span>
+
+<span class="fc" id="L83">    }</span>
+
+    public void povoar(){
+        try {
+<span class="fc" id="L87">            this.vintage.povoamento();</span>
+<span class="nc" id="L88">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L89">            this.menu.imprimir(e.getMessage());</span>
+<span class="fc" id="L90">        }</span>
+<span class="fc" id="L91">    }</span>
+    public void salvarEstado(){
+        try {
+<span class="nc" id="L94">            this.vintage.salvarEstado();</span>
+<span class="fc" id="L95">        } catch (IOException e) {</span>
+<span class="fc" id="L96">            this.menu.imprimir(e.getMessage());</span>
+<span class="nc" id="L97">        }</span>
+<span class="fc" id="L98">    }</span>
+
+    public boolean login() {
+        // this.menu.clear();
+<span class="nc" id="L102">        this.menu.login();</span>
+<span class="nc" id="L103">        String email = this.menu.pedir_email();</span>
+<span class="nc" id="L104">        boolean email_correto = this.vintage.existeEmail(email);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        if (email_correto == false) {</span>
+            // this.menu.clear();
+<span class="nc" id="L107">            this.menu.email_nao_existe();</span>
+<span class="nc" id="L108">            return false;</span>
+        } else {
+<span class="nc" id="L110">            String password = this.menu.pedir_password();</span>
+<span class="nc" id="L111">            boolean password_correta = this.vintage.verificaPassword(email, password);</span>
+<span class="nc bnc" id="L112" title="All 2 branches missed.">            while (password_correta == false) { // verificar se a password está correta</span>
+<span class="nc" id="L113">                password = this.menu.pedir_password();</span>
+<span class="nc" id="L114">                password_correta = this.vintage.verificaPassword(email, password);</span>
+
+            } // Vai retornar o id do utilizador se for -1
+
+<span class="nc" id="L118">            this.vintage.login_utlizador(email); // Aqui faz set do utilizador que está na vinatge, passando o email</span>
+<span class="nc" id="L119">            this.menu.login_sucesso();</span>
+<span class="nc" id="L120">            return true;</span>
+        }
+
+    }
+
+    public void registar() {
+        // this.menu.clear();
+<span class="fc" id="L127">        this.menu.registo();</span>
+<span class="nc" id="L128">        String nome_registo = this.menu.pedir_nome();</span>
+<span class="nc" id="L129">        String morada_registo = this.menu.pedir_morada();</span>
+<span class="nc" id="L130">        long nif = this.menu.pedir_nif();</span>
+<span class="nc" id="L131">        String email_registo = this.menu.pedir_email();</span>
+<span class="nc" id="L132">        Boolean email_existe = this.vintage.existeEmail(email_registo);</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">        while (email_existe == true) { // falta verificar se o email já existe</span>
+<span class="nc" id="L134">            this.menu.email_ja_existe_print();</span>
+<span class="nc" id="L135">            email_registo = this.menu.pedir_email();</span>
+<span class="nc" id="L136">            email_existe = this.vintage.existeEmail(email_registo);</span>
+        }
+<span class="nc" id="L138">        String password_registo = this.menu.pedir_password();</span>
+<span class="nc" id="L139">        this.vintage.adicionaUtilizador(email_registo, nome_registo, morada_registo, nif, password_registo); // Adicionar</span>
+                                                                                                             // o
+                                                                                                             // utilizador
+                                                                                                             // ao
+                                                                                                             // gestor
+                                                                                                             // de
+                                                                                                             // utilizadores
+<span class="nc" id="L146">        this.menu.registo_sucesso();</span>
+
+<span class="nc" id="L148">    }</span>
+
+    public void escolha() {
+        int e;
+        do {
+<span class="nc" id="L153">            e = this.menu.menu_escolha();</span>
+<span class="nc bnc" id="L154" title="All 7 branches missed.">            switch (e) {</span>
+                case 1:
+
+                    // Comprar -------------------------------
+<span class="nc" id="L158">                    this.menu.imprimir(this.vintage.todosArtigos()); // Isto ainda precicamos de ver como vamos fazer o</span>
+                                                                     // modo paginação aqui e os artigos que estão a
+                                                                     // venda
+<span class="nc" id="L161">                    this.adicionar_artigo_carrinho();</span>
+
+<span class="nc" id="L163">                    break;</span>
+                case 2:
+<span class="nc" id="L165">                    this.escolha_pesquica();</span>
+<span class="nc" id="L166">                    break;</span>
+                case 3:
+<span class="nc" id="L168">                    this.escolha_venda();</span>
+<span class="nc" id="L169">                    break;</span>
+                case 4:
+<span class="nc" id="L171">                    this.escolha_carrinho();</span>
+<span class="nc" id="L172">                    break;</span>
+                case 5:
+<span class="nc" id="L174">                    this.escolha_faturas();</span>
+<span class="nc" id="L175">                    break;</span>
+                case 6:
+<span class="nc" id="L177">                    this.menu.sair_print();</span>
+<span class="nc" id="L178">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L182" title="All 2 branches missed.">        } while (e != 6);</span>
+
+<span class="nc" id="L184">    }</span>
+
+    public void escolha_faturas() {
+        int e;
+        do {
+<span class="nc" id="L189">            e = this.menu.menu_faturas();</span>
+
+<span class="nc bnc" id="L191" title="All 4 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L193">                    this.menu.faturas_compras();</span>
+<span class="nc" id="L194">                    this.menu.imprimir(this.vintage.faturas_compras());</span>
+<span class="nc" id="L195">                    break;</span>
+                case 2:
+<span class="nc" id="L197">                    this.menu.faturas_vendas();</span>
+<span class="nc" id="L198">                    this.menu.imprimir(this.vintage.faturas_venda());</span>
+<span class="nc" id="L199">                    break;</span>
+                case 3:
+<span class="nc" id="L201">                    this.menu.sair_print();</span>
+<span class="nc" id="L202">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L206" title="All 2 branches missed.">        } while (e != 3);</span>
+<span class="nc" id="L207">    }</span>
+
+    public void escolha_pesquica() {
+        int e;
+        do {
+<span class="nc" id="L212">            e = this.menu.menu_pesquisas();</span>
+<span class="nc bnc" id="L213" title="All 4 branches missed.">            switch (e) {</span>
+                case 1:
+                    // Pesquisa por id
+<span class="nc" id="L216">                    String id = this.menu.pedir_id_artigo();</span>
+<span class="nc" id="L217">                    boolean artigo_existe = this.vintage.existeArtigoId(id);</span>
+<span class="nc bnc" id="L218" title="All 2 branches missed.">                    if (artigo_existe == false)</span>
+<span class="nc" id="L219">                        this.menu.artigo_n_encontrado();</span>
+<span class="nc" id="L220">                    this.menu.imprimir(this.vintage.artigoID(id));</span>
+<span class="nc" id="L221">                    break;</span>
+                case 2:
+                    // Pesquisa por tipo
+<span class="nc" id="L224">                    this.escolha_tipo();</span>
+<span class="nc" id="L225">                    break;</span>
+                case 3:
+                    // Sair
+<span class="nc" id="L228">                    this.menu.sair_print();</span>
+<span class="nc" id="L229">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L233" title="All 2 branches missed.">        } while (e != 3);</span>
+
+<span class="nc" id="L235">    }</span>
+
+    public void escolha_tipo() {
+        int e;
+        do {
+<span class="nc" id="L240">            e = this.menu.menu_pesquisas_tipo();</span>
+
+<span class="nc bnc" id="L242" title="All 5 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L244">                    this.escolha_sapatilhas();</span>
+<span class="nc" id="L245">                    break;</span>
+                case 2:
+<span class="nc" id="L247">                    this.escolha_tshit();</span>
+<span class="nc" id="L248">                    break;</span>
+                case 3:
+<span class="nc" id="L250">                    this.escolha_malas();</span>
+<span class="nc" id="L251">                    break;</span>
+                case 4:
+<span class="nc" id="L253">                    this.menu.sair_print();</span>
+<span class="nc" id="L254">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        } while (e != 4);</span>
+<span class="nc" id="L259">    }</span>
+
+    public void escolha_sapatilhas() {
+        int e;
+        do {
+<span class="nc" id="L264">            e = this.menu.menu_sapatilha_pesquisa();</span>
+
+<span class="nc bnc" id="L266" title="All 5 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L268">                    String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L269">                    this.menu.imprimir(this.vintage.filtraAMarcaSapatilhas(marca));</span>
+
+<span class="nc" id="L271">                    break;</span>
+                case 2:
+<span class="nc" id="L273">                    Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc" id="L274">                    this.menu.imprimir(this.vintage.filtraSapatilhasNovo(novo));</span>
+<span class="nc" id="L275">                    break;</span>
+                case 3:
+<span class="nc" id="L277">                    int tamanho = this.menu.pedir_tamanho_sapatilha();</span>
+<span class="nc" id="L278">                    this.menu.imprimir(this.vintage.filtraSapatilhasTamanho(tamanho));</span>
+<span class="nc" id="L279">                    break;</span>
+                case 4:
+<span class="nc" id="L281">                    String cor = this.menu.pedir_cor();</span>
+<span class="nc" id="L282">                    this.menu.imprimir(this.vintage.filtraSapatilhasCor(cor));</span>
+<span class="nc" id="L283">                    break;</span>
+                case 5:
+                    // podemos colcar isto a pesquisar por todos os parametros mas vamos com calma
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L289" title="All 2 branches missed.">        } while (e != 5);</span>
+<span class="nc" id="L290">    }</span>
+
+    public void escolha_tshit() {
+        int e;
+
+        do {
+<span class="nc" id="L296">            e = this.menu.menu_tshirt_pesquisa();</span>
+
+<span class="nc bnc" id="L298" title="All 6 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L300">                    String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L301">                    this.menu.imprimir(this.vintage.filtraTshirtsMarca(marca));</span>
+<span class="nc" id="L302">                    break;</span>
+                case 2:
+<span class="nc" id="L304">                    Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc" id="L305">                    this.menu.imprimir(this.vintage.filtraTshirtsNovo(novo));</span>
+<span class="nc" id="L306">                    break;</span>
+                case 3:
+<span class="nc" id="L308">                    Tamanho tamanho = this.menu.pedir_tamanho_tshirt();</span>
+<span class="nc" id="L309">                    this.menu.imprimir(this.vintage.filtraTshirtsTamanho(tamanho));</span>
+<span class="nc" id="L310">                    break;</span>
+                case 4:
+<span class="nc" id="L312">                    Padrao padrao = this.menu.pedir_padrao();</span>
+<span class="nc" id="L313">                    this.menu.imprimir(this.vintage.filtraTshirtsPadrao(padrao));</span>
+<span class="nc" id="L314">                    break;</span>
+                case 5:
+<span class="nc" id="L316">                    this.menu.sair_print();</span>
+                    // podemos colcar isto a pesquisar por todos os parametros mas vamos com calma
+
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L322" title="All 2 branches missed.">        } while (e != 5);</span>
+
+<span class="nc" id="L324">    }</span>
+
+    // -------------------------------------------- Tenho de adicionar um metedo de
+    // dizer se o produto não está disponivel, neste momento só está a imprimir
+    public void escolha_malas() {
+        int e;
+        do {
+<span class="nc" id="L331">            e = this.menu.menu_malas_pesquisa();</span>
+<span class="nc bnc" id="L332" title="All 6 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L334">                    String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L335">                    String modelo = this.vintage.filtraMalasMarca(marca);</span>
+<span class="nc bnc" id="L336" title="All 2 branches missed.">                    if (modelo == null)</span>
+<span class="nc" id="L337">                        this.menu.artigo_n_encontrado();</span>
+                    else
+<span class="nc" id="L339">                        this.menu.imprimir(modelo);</span>
+<span class="nc" id="L340">                    break;</span>
+                case 2:
+<span class="nc" id="L342">                    Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc" id="L343">                    this.menu.imprimir(this.vintage.filtraMalasNovo(novo));</span>
+<span class="nc" id="L344">                    break;</span>
+                case 3:
+<span class="nc" id="L346">                    int dimensao = this.menu.pedir_dimensao();</span>
+<span class="nc" id="L347">                    this.menu.imprimir(this.vintage.filtraMalasDimensao(dimensao));</span>
+<span class="nc" id="L348">                    break;</span>
+                case 5:
+<span class="nc" id="L350">                    String material = this.menu.pedir_material();</span>
+<span class="nc" id="L351">                    this.menu.imprimir(this.vintage.filtraMalasMaterial(material));</span>
+<span class="nc" id="L352">                    break;</span>
+                case 4:
+<span class="nc" id="L354">                    int ano_colecao = this.menu.pedir_ano_colecao(this.vintage.getData());</span>
+<span class="nc" id="L355">                    this.menu.imprimir(this.vintage.filtraMalasColecao(ano_colecao));</span>
+                    // podemos colcar isto a pesquisar por todos os parametros mas vamos com calma
+                case 6:
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L361" title="All 2 branches missed.">        } while (e != 6);</span>
+
+<span class="nc" id="L363">    }</span>
+
+    public void escolha_venda() {
+        int e;
+        do {
+<span class="nc" id="L368">            e = this.menu.menu_venda();</span>
+<span class="nc bnc" id="L369" title="All 5 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L371">                    this.menu.meusArtigos();</span>
+<span class="nc" id="L372">                    String meusartigos = this.vintage.meusArtigos();</span>
+                    // if (this.vintage.meusArtigos == null) this.menu.artigo_n_encontrado();
+<span class="nc" id="L374">                    this.menu.imprimir(meusartigos);</span>
+                    // this.menu.artigo_retirado();
+<span class="nc" id="L376">                    break;</span>
+                case 2:
+<span class="nc" id="L378">                    this.escolha_venda_tipo();</span>
+<span class="nc" id="L379">                    this.menu.artigo_a_venda();</span>
+<span class="nc" id="L380">                    break;</span>
+                case 3:
+<span class="nc" id="L382">                    this.menu.print_tirar_produtos_venda();</span>
+<span class="nc" id="L383">                    this.menu_venda_retirar_artigo();</span>
+<span class="nc" id="L384">                    break;</span>
+                case 4:
+<span class="nc" id="L386">                    this.menu.sair_print();</span>
+<span class="nc" id="L387">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L391" title="All 2 branches missed.">        } while (e != 4);</span>
+
+<span class="nc" id="L393">    }</span>
+
+    public void escolha_venda_tipo() {
+        int e;
+        do {
+<span class="nc" id="L398">            e = this.menu.menu_venda_tipos();</span>
+<span class="nc bnc" id="L399" title="All 5 branches missed.">            switch (e) {</span>
+                case 1:
+<span class="nc" id="L401">                    this.escolha_venda_sapatilhas();</span>
+<span class="nc" id="L402">                    break;</span>
+                case 2:
+<span class="nc" id="L404">                    this.escolha_venda_tshirt();</span>
+<span class="nc" id="L405">                    break;</span>
+                case 3:
+<span class="nc" id="L407">                    this.escolha_venda_malas();</span>
+<span class="nc" id="L408">                    break;</span>
+                case 4:
+<span class="nc" id="L410">                    this.menu.sair_print();</span>
+<span class="nc" id="L411">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L415" title="All 2 branches missed.">        } while (e != 4);</span>
+
+<span class="nc" id="L417">    }</span>
+
+    // Adicionar aqui verificações que ele realmente está a colcar o int e o que
+    // for, para não dar erro
+    public void escolha_venda_sapatilhas() {
+<span class="nc" id="L422">        int n_utilizadores = -1;</span>
+<span class="nc" id="L423">        int estado = -1;</span>
+<span class="nc" id="L424">        double desconto = 0;</span>
+<span class="nc" id="L425">        String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L426">        String descricao = this.menu.pedir_descricao();</span>
+<span class="nc" id="L427">        Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc bnc" id="L428" title="All 2 branches missed.">        if (novo == false) {</span>
+<span class="nc" id="L429">            n_utilizadores = this.menu.pedir_numero_utlizador();</span>
+<span class="nc" id="L430">            estado = this.menu.pedir_estado();</span>
+        }
+<span class="nc" id="L432">        int tamanho = this.menu.pedir_tamanho_sapatilha();</span>
+<span class="nc" id="L433">        boolean atacadores = this.menu.atacadores();</span>
+<span class="nc" id="L434">        String cor = this.menu.pedir_cor();</span>
+<span class="nc" id="L435">        double preco = this.menu.pedir_preco();</span>
+<span class="nc" id="L436">        int data = this.menu.pedir_ano_colecao(this.vintage.getData());</span>
+<span class="nc" id="L437">        boolean premium = this.menu.pedir_premium();</span>
+        boolean existe;
+        long id_transporadora;
+<span class="nc bnc" id="L440" title="All 2 branches missed.">        if (premium == true) {</span>
+<span class="nc" id="L441">            this.menu.transportadoras_premium();</span>
+<span class="nc" id="L442">            this.menu.imprimir(vintage.imprimeTransportadoraspremium());</span>
+<span class="nc" id="L443">            id_transporadora = this.menu.pedir_transportadora();</span>
+<span class="nc" id="L444">            existe = this.vintage.existe_transpotadoraPremium(id_transporadora); // Ver se existe a transportadora</span>
+<span class="nc bnc" id="L445" title="All 2 branches missed.">            while (existe == false) {</span>
+<span class="nc" id="L446">                this.menu.imprimir(this.vintage.imprimeTransportadoraspremium());</span>
+<span class="nc" id="L447">                id_transporadora = this.menu.pedir_transportadora(); // Aqui tenho o mesmo problema de cima tenho que</span>
+                                                                     // adicionar uma forma de sair
+<span class="nc" id="L449">                existe = this.vintage.existe_transpotadoraPremium(id_transporadora);</span>
+            }
+        } else {
+<span class="nc" id="L452">            this.menu.print_transportadoras();</span>
+<span class="nc" id="L453">            this.menu.imprimir(this.vintage.imprimeTransportadorasNormais());</span>
+<span class="nc" id="L454">            id_transporadora = this.menu.pedir_transportadora();</span>
+<span class="nc" id="L455">            existe = this.vintage.existe_transpotadoraNormal(id_transporadora); // Ver se existe a transportadora</span>
+<span class="nc bnc" id="L456" title="All 2 branches missed.">            while (existe == false) {</span>
+<span class="nc" id="L457">                this.menu.imprimir(this.vintage.imprimeTransportadorasNormais());</span>
+<span class="nc" id="L458">                id_transporadora = this.menu.pedir_transportadora(); // Aqui tenho o mesmo problema de cima tenho que</span>
+                                                                     // adicionar uma forma de sair
+<span class="nc" id="L460">                existe = this.vintage.existe_transpotadoraNormal(id_transporadora);</span>
+            }
+        }
+
+<span class="nc bnc" id="L464" title="All 2 branches missed.">        if (premium == false) {</span>
+<span class="nc bnc" id="L465" title="All 6 branches missed.">            if ((novo == false) || (tamanho &gt; 45 &amp;&amp; novo == true)) {</span>
+<span class="nc" id="L466">                desconto = this.menu.pedir_desconto();</span>
+            }
+        }
+        try {
+<span class="nc" id="L470">            this.vintage.criaSapatilha(descricao, marca, preco, novo, estado, n_utilizadores, id_transporadora, tamanho,</span>
+                    atacadores, cor, data, premium, desconto);
+<span class="nc" id="L472">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L473">            this.menu.imprimir(e.getMessage());</span>
+
+<span class="nc" id="L475">        }</span>
+<span class="nc" id="L476">    }</span>
+
+    public void escolha_venda_tshirt() {
+<span class="nc" id="L479">        int n_utilizadores = -1;</span>
+<span class="nc" id="L480">        int estado = -1;</span>
+<span class="nc" id="L481">        String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L482">        String descricao = this.menu.pedir_descricao();</span>
+<span class="nc" id="L483">        double preco = this.menu.pedir_preco();</span>
+<span class="nc" id="L484">        Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc" id="L485">        Padrao padrao = this.menu.pedir_padrao();</span>
+<span class="nc bnc" id="L486" title="All 2 branches missed.">        if (novo == false) {</span>
+<span class="nc" id="L487">            n_utilizadores = this.menu.pedir_numero_utlizador();</span>
+<span class="nc" id="L488">            estado = this.menu.pedir_estado();</span>
+        }
+<span class="nc" id="L490">        Tamanho tamanho = this.menu.pedir_tamanho_tshirt();</span>
+        /*
+         * boolean premium = this.menu.pedir_premium();
+         * double desconto = this.menu.pedir_desconto();
+         */
+<span class="nc" id="L495">        this.menu.imprimir(this.vintage.imprimeTransportadoras()); // Aqui vai imprimr as transportadoras</span>
+<span class="nc" id="L496">        long id_transporadora = this.menu.pedir_transportadora();</span>
+<span class="nc" id="L497">        boolean existe = this.vintage.existeTranspotadora(id_transporadora); // Ver se existe a transportadora</span>
+<span class="nc bnc" id="L498" title="All 2 branches missed.">        while (existe == false) {</span>
+<span class="nc" id="L499">            this.menu.imprimir(this.vintage.imprimeTransportadoras());</span>
+<span class="nc" id="L500">            id_transporadora = this.menu.pedir_transportadora(); // Aqui tenho o mesmo problema de cima tenho que</span>
+                                                                 // adicionar uma forma de sair
+<span class="nc" id="L502">            existe = this.vintage.existeTranspotadora(id_transporadora);</span>
+        }
+        try {
+<span class="nc" id="L505">            this.vintage.criaTshirt(descricao, marca, preco, novo, estado, n_utilizadores, id_transporadora, tamanho,</span>
+                    padrao);
+<span class="nc" id="L507">        } catch (ArtigoExistenteException d) {</span>
+<span class="nc" id="L508">            this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L509">            this.escolha();</span>
+<span class="nc" id="L510">        }</span>
+<span class="nc" id="L511">    }</span>
+
+    public void escolha_venda_malas() {
+<span class="fc" id="L514">        int n_utilizadores = -1;</span>
+<span class="fc" id="L515">        int estado = -1;</span>
+<span class="fc" id="L516">        float valorizacao = 1;</span>
+<span class="nc" id="L517">        String marca = this.menu.pedir_marca();</span>
+<span class="nc" id="L518">        String descricao = this.menu.pedir_descricao();</span>
+<span class="nc" id="L519">        double preco = this.menu.pedir_preco();</span>
+<span class="nc" id="L520">        Boolean novo = this.menu.pedir_novo();</span>
+<span class="nc bnc" id="L521" title="All 2 branches missed.">        if (novo == false) {</span>
+<span class="nc" id="L522">            n_utilizadores = this.menu.pedir_numero_utlizador();</span>
+<span class="nc" id="L523">            estado = this.menu.pedir_estado();</span>
+        }
+<span class="nc" id="L525">        int dimensao = this.menu.pedir_tamanho_mala();</span>
+<span class="nc" id="L526">        String material = this.menu.pedir_material();</span>
+<span class="nc" id="L527">        int ano = this.menu.pedir_ano_colecao(this.vintage.getData());</span>
+<span class="nc" id="L528">        boolean premium = this.menu.pedir_premium();</span>
+<span class="nc bnc" id="L529" title="All 2 branches missed.">        if (premium == true) {</span>
+<span class="nc" id="L530">            valorizacao = this.menu.pedir_valorizacao();</span>
+<span class="nc" id="L531">            this.menu.transportadoras_premium();</span>
+<span class="nc" id="L532">            this.menu.imprimir(this.vintage.imprimeTransportadoraspremium());</span>
+        } else {
+<span class="nc" id="L534">            this.menu.imprimir(this.vintage.imprimeTransportadorasNormais()); // Aqui vai imprimr as transportadoras</span>
+        }
+<span class="nc" id="L536">        long id_transporadora = this.menu.pedir_transportadora();</span>
+<span class="nc" id="L537">        boolean existe = this.vintage.existeTranspotadora(id_transporadora); // Ver se existe a transportadora</span>
+<span class="nc bnc" id="L538" title="All 2 branches missed.">        while (existe == false) {</span>
+<span class="nc" id="L539">            this.menu.imprimir(this.vintage.imprimeTransportadoras());</span>
+<span class="nc" id="L540">            id_transporadora = this.menu.pedir_transportadora(); // Aqui tenho o mesmo problema de cima tenho que</span>
+                                                                 // adicionar uma forma de sair
+<span class="nc" id="L542">            existe = this.vintage.existeTranspotadora(id_transporadora);</span>
+        }
+        try {
+<span class="nc" id="L545">            this.vintage.criaMala(descricao, marca, preco, novo, estado, n_utilizadores, id_transporadora, dimensao,</span>
+<span class="nc" id="L546">                    material, ano, premium, valorizacao);</span>
+<span class="nc" id="L547">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L548">            this.menu.imprimir(e.getMessage());</span>
+<span class="nc" id="L549">        }</span>
+<span class="nc" id="L550">    }</span>
+
+    public void adicionar_artigo_carrinho() {
+<span class="nc" id="L553">        String artigo_adicionar = this.menu.pedir_artigo_adicionar();</span>
+        // if (this.vintage.existeArtigoId(artigo_adicionar) == false){
+        // this.menu.artigo_n_encontrado();
+        // }else{
+        try {
+<span class="nc" id="L558">            this.vintage.adicionarArtigoCarrinho(artigo_adicionar);</span>
+<span class="nc" id="L559">        } catch (ArtigoNaoEncontradoException e) {</span>
+<span class="nc" id="L560">            this.menu.imprimir(e.getMessage());</span>
+<span class="nc" id="L561">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L562">            this.menu.imprimir(e.getMessage());</span>
+<span class="nc" id="L563">        }</span>
+
+        // this.menu.print_carrinho();
+        // this.menu.imprimir(this.vintage.imprimeCarrinho());
+        // }
+<span class="nc" id="L568">    }</span>
+
+    public void menu_venda_retirar_artigo() {
+<span class="nc" id="L571">        String artigo = this.menu.pedir_id_artigo();</span>
+<span class="nc bnc" id="L572" title="All 2 branches missed.">        if (this.vintage.existeArtigoId(artigo) == false) {</span>
+<span class="nc" id="L573">            this.menu.artigo_n_encontrado();</span>
+        } else {
+            try {
+<span class="nc" id="L576">                this.vintage.removerArtigosCarrinho(artigo);</span>
+<span class="nc" id="L577">            } catch (ArtigoNaoEncontradoException e) {</span>
+<span class="nc" id="L578">                this.menu.imprimir(e.getMessage());</span>
+<span class="nc" id="L579">            }</span>
+        }
+
+<span class="nc" id="L582">    }</span>
+
+    public void escolha_carrinho() {
+        int e;
+        do {
+<span class="nc" id="L587">            e = this.menu.menu_encomedas();</span>
+<span class="nc bnc" id="L588" title="All 10 branches missed.">            switch (e) {</span>
+                case 1:
+                    // Ver Carrinho
+<span class="nc" id="L591">                    this.menu.print_carrinho();</span>
+<span class="nc" id="L592">                    this.menu.imprimir(this.vintage.imprimeCarrinho());</span>
+<span class="nc" id="L593">                    break;</span>
+
+                case 2:
+                    // Adicionar artigo ao carrinho
+<span class="nc" id="L597">                    this.adicionar_artigo_carrinho();</span>
+
+<span class="nc" id="L599">                    break;</span>
+                case 3:
+                    try {
+<span class="nc" id="L602">                        this.vintage.removerTodosArtigosCarrinho();</span>
+<span class="nc" id="L603">                    } catch (ArtigoNaoEncontradoException d) {</span>
+<span class="nc" id="L604">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L605">                        break;</span>
+                        // this.escolha_carrinho();
+<span class="nc" id="L607">                    }</span>
+                    break;
+
+                case 4:
+                    // Remover artigo da encomenda
+<span class="nc" id="L612">                    String artigo = menu.pedir_artigo_remover();</span>
+                    // this.menu.pedir_artigo_remover();
+                    try {
+<span class="nc" id="L615">                        this.vintage.removerArtigosCarrinho(artigo);</span>
+<span class="nc" id="L616">                    } catch (ArtigoNaoEncontradoException d) {</span>
+<span class="nc" id="L617">                        this.menu.imprimir(d.getMessage());</span>
+                        // this.escolha_carrinho();
+<span class="nc" id="L619">                        break;</span>
+<span class="nc" id="L620">                    }</span>
+                    break;
+
+                case 5:
+                    // Encomendas realizadas
+<span class="nc" id="L625">                    this.menu.print_encomendas_realizadas();</span>
+
+<span class="nc" id="L627">                    this.menu.imprimir(this.vintage.encomendasRealizadas());</span>
+<span class="nc" id="L628">                    break;</span>
+
+                case 6:
+                    // Encomendas devolver
+<span class="nc" id="L632">                    long encomenda = this.menu.encomeda_id();</span>
+                    boolean devolver;
+                    try {
+<span class="nc" id="L635">                        devolver = this.vintage.encomendasDevolver(encomenda);</span>
+<span class="nc bnc" id="L636" title="All 2 branches missed.">                        if (devolver == true) { // Função para remover e para ver se pode remover</span>
+<span class="nc" id="L637">                            this.menu.encomendas_retiradas();</span>
+                        }
+<span class="nc" id="L639">                    } catch (ArtigoNaoEncontradoException d) {</span>
+<span class="nc" id="L640">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L641">                        break;</span>
+                        // this.escolha_carrinho();
+<span class="nc" id="L643">                    } catch (EncomendaNaoEncontradaException d) {</span>
+<span class="nc" id="L644">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L645">                        break;</span>
+                        // this.escolha_carrinho();
+<span class="nc" id="L647">                    } catch (EncomendaDevolucaoImpossivelException d) {</span>
+<span class="nc" id="L648">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L649">                        break;</span>
+<span class="nc" id="L650">                    }</span>
+
+                    break;
+                case 7:
+                    // Encomendas devolvidas
+<span class="nc" id="L655">                    this.menu.encomedas_devolvidas();</span>
+<span class="nc" id="L656">                    this.menu.imprimir(this.vintage.encomendasDevolvidas());</span>
+
+<span class="nc" id="L658">                    break;</span>
+                case 8:
+                    // Finalizar encomenda
+<span class="nc" id="L661">                    double preco = 0;</span>
+                    try {
+<span class="nc" id="L663">                        preco = this.vintage.finalizarEncomenda();</span>
+<span class="nc" id="L664">                    } catch (ArtigoNaoEncontradoException d) {</span>
+<span class="nc" id="L665">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L666">                        break;</span>
+<span class="nc" id="L667">                    } catch (CarrinhoVazioException d) {</span>
+<span class="nc" id="L668">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L669">                        break;</span>
+<span class="nc" id="L670">                    } catch (EncomendaExistenteException d) {</span>
+<span class="nc" id="L671">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L672">                        break;</span>
+<span class="nc" id="L673">                    } catch (EncomendaNaoEncontradaException d) {</span>
+<span class="nc" id="L674">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L675">                        break;</span>
+<span class="nc" id="L676">                    }</span>
+
+<span class="nc" id="L678">                    this.menu.finalizar();</span>
+<span class="nc" id="L679">                    DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="nc" id="L680">                    String precoFormatado = df.format(preco);</span>
+<span class="nc" id="L681">                    this.menu.preco_final();</span>
+<span class="nc" id="L682">                    this.menu.imprimir(precoFormatado + &quot;€&quot;);</span>
+<span class="nc" id="L683">                    break;</span>
+                case 9:
+                    // Sair
+<span class="nc" id="L686">                    this.menu.sair_print();</span>
+<span class="nc" id="L687">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L691" title="All 2 branches missed.">        } while (e != 9);</span>
+
+<span class="nc" id="L693">    }</span>
+
+    public void escolha_query() {
+        int e;
+        int i;
+        LocalDate datainical;
+        LocalDate datafinal;
+
+        do {
+<span class="nc" id="L702">            e = this.menu.escolha_querys();</span>
+<span class="nc bnc" id="L703" title="All 9 branches missed.">            switch (e) {</span>
+                case 1:
+                    // Vendedor que mais facturou desde sempre
+<span class="nc" id="L706">                    this.menu.vendedor_facturou();</span>
+<span class="nc" id="L707">                    this.menu.imprimir(this.vintage.vendedorFacturou());</span>
+<span class="nc" id="L708">                    break;</span>
+                case 2:
+                    // Vendedor que mais num período de tempo
+<span class="nc" id="L711">                    this.menu.print_vendedor_mais_facturou();</span>
+<span class="nc" id="L712">                    datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L713">                    datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+<span class="nc bnc" id="L714" title="All 2 branches missed.">                    while (datainical.isAfter(datafinal) == true) {</span>
+<span class="nc" id="L715">                        this.menu.imprimir(&quot;A data inicial não pode ser depois da data final. Insira novamente&quot;);</span>
+<span class="nc" id="L716">                        datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L717">                        datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+                    }
+<span class="nc" id="L719">                    this.menu.imprimir(this.vintage.vendedorFacturouTempo(datainical, datafinal));</span>
+<span class="nc" id="L720">                    break;</span>
+                case 3:
+                    // Listar as encomendas emitidas por vendedor
+<span class="nc" id="L723">                    long vendedor = this.menu.pedir_vendedor();</span>
+<span class="nc bnc" id="L724" title="All 2 branches missed.">                    if (this.vintage.existeIdUtilizador(vendedor) == false) {</span>
+<span class="nc" id="L725">                        this.menu.vendedor_n_encontrado();</span>
+<span class="nc" id="L726">                        this.escolha_query();</span>
+                    } else {
+<span class="nc" id="L728">                        this.menu.imprimir(this.vintage.encomendasEmitidasVendedor(vendedor));</span>
+                    }
+
+<span class="nc" id="L731">                    break;</span>
+
+                case 4:
+                    // Transportador com maior volume de facturação
+<span class="nc" id="L735">                    this.menu.transportadora_mais_facturou();</span>
+                    try {
+<span class="nc" id="L737">                        this.menu.imprimir(this.vintage.TransportadoraMaiorVolume());</span>
+<span class="nc" id="L738">                    } catch (TransportadoraNaoEncontradaException d) {</span>
+<span class="nc" id="L739">                        this.menu.imprimir(d.getMessage());</span>
+<span class="nc" id="L740">                        break;</span>
+                        // this.escolha_query();
+<span class="nc" id="L742">                    }</span>
+
+                    break;
+
+                case 5:
+                    // Fornecer uma ordenação dos maiores compradores
+<span class="nc" id="L748">                    i = this.menu.n_maiores();</span>
+<span class="nc" id="L749">                    datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L750">                    datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+<span class="nc bnc" id="L751" title="All 2 branches missed.">                    while (datainical.isAfter(datafinal) == true) {</span>
+<span class="nc" id="L752">                        this.menu.imprimir(&quot;A data inicial não pode ser depois da data final. Insira novamente&quot;);</span>
+<span class="nc" id="L753">                        datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L754">                        datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+                    }
+<span class="nc" id="L756">                    this.menu.imprimir(this.vintage.maiorComprador(i, datainical, datafinal));</span>
+<span class="nc" id="L757">                    break;</span>
+
+                case 6:
+                    // Fornecer uma ordenação dos maiores vendedores
+<span class="nc" id="L761">                    i = this.menu.n_maiores();</span>
+<span class="nc" id="L762">                    datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L763">                    datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+<span class="nc bnc" id="L764" title="All 2 branches missed.">                    while (datainical.isAfter(datafinal) == true) {</span>
+<span class="nc" id="L765">                        this.menu.imprimir(&quot;A data inicial não pode ser depois da data final. Insira novamente&quot;);</span>
+<span class="nc" id="L766">                        datainical = this.menu.pedir_data_inicio();</span>
+<span class="nc" id="L767">                        datafinal = this.menu.pedir_data_fim(this.vintage.getData());</span>
+                    }
+<span class="nc" id="L769">                    this.menu.imprimir(this.vintage.maiorVendedor(i, datainical, datafinal));</span>
+<span class="nc" id="L770">                    break;</span>
+
+                case 7:
+                    // Determinar quanto dinheiro ganhou o Vintage
+<span class="nc" id="L774">                    this.menu.imprimir(this.vintage.VintageFaturou());</span>
+<span class="nc" id="L775">                    break;</span>
+                case 8:
+<span class="nc" id="L777">                    this.menu.sair_print();</span>
+<span class="nc" id="L778">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L782" title="All 2 branches missed.">        } while (e != 8);</span>
+
+<span class="nc" id="L784">    }</span>
+
+    public void escolha_transportadora() {
+        int e;
+
+        do {
+<span class="nc" id="L790">            e = this.menu.menuTrasnportadoras();</span>
+<span class="nc bnc" id="L791" title="All 4 branches missed.">            switch (e) {</span>
+                case 1:
+                    // Criar Transportadora
+<span class="nc" id="L794">                    this.menu.adicionar_trasnportadora();</span>
+<span class="nc" id="L795">                    String nome = this.menu.pedir_nome();</span>
+<span class="nc" id="L796">                    double valor_pequenas = this.menu.pedir_valor_pequeno();</span>
+<span class="nc" id="L797">                    double valor_medio = this.menu.pedir_valor_medio();</span>
+<span class="nc" id="L798">                    double valor_grande = this.menu.pedir_valor_grande();</span>
+<span class="nc" id="L799">                    double impostos = this.menu.pedir_impostos();</span>
+<span class="nc" id="L800">                    double margemlucro = this.menu.pedir_margem_lucro();</span>
+<span class="nc" id="L801">                    boolean premium = this.menu.pedir_premium();</span>
+                    int formula;
+<span class="nc bnc" id="L803" title="All 2 branches missed.">                    if (premium == true) {</span>
+<span class="nc" id="L804">                        this.menu.imprimir(this.vintage.imprimeFormulas());</span>
+<span class="nc" id="L805">                        formula = this.menu.pedir_formula(3);</span>
+                    } else {
+<span class="nc" id="L807">                        this.menu.imprimir(this.vintage.imprimeFormulasNormais());</span>
+<span class="nc" id="L808">                        formula = this.menu.pedir_formula(2);</span>
+                    }
+<span class="nc" id="L810">                    this.vintage.adicinonarTransportadora(nome, valor_pequenas, valor_medio, valor_grande, impostos,</span>
+                            margemlucro, premium, formula);
+<span class="nc" id="L812">                    break;</span>
+                case 2:
+                    // Mudar a formula
+<span class="nc" id="L815">                    this.menu.imprimir(this.vintage.imprimeTransportadoras());</span>
+<span class="nc" id="L816">                    long l = this.menu.pedir_transportadora();</span>
+<span class="nc bnc" id="L817" title="All 2 branches missed.">                    while (!this.vintage.existeTranspotadora(l)) {</span>
+<span class="nc" id="L818">                        this.menu.imprimir(&quot;Transportadora não encontrada. Por favor, insira um ID válido.&quot;);</span>
+<span class="nc" id="L819">                        l = this.menu.pedir_transportadora();</span>
+                    }
+                    // Apresentar as formulas
+                    int formula2;
+<span class="nc bnc" id="L823" title="All 2 branches missed.">                    if (this.vintage.existe_transpotadoraNormal(l) == true) {</span>
+<span class="nc" id="L824">                        this.menu.imprimir(this.vintage.imprimeFormulasNormais());</span>
+<span class="nc" id="L825">                        formula2 = this.menu.pedir_formula(2);</span>
+                    } else {
+<span class="nc" id="L827">                        this.menu.imprimir(this.vintage.imprimeFormulas());</span>
+<span class="nc" id="L828">                        formula2 = this.menu.pedir_formula(3);</span>
+                    }
+                    // int formula2 = this.menu.pedir_formula();
+<span class="nc" id="L831">                    this.vintage.alteraFormula(l, formula2);</span>
+<span class="nc" id="L832">                    break;</span>
+                case 3:
+<span class="nc" id="L834">                    this.menu.sair_print();</span>
+<span class="nc" id="L835">                    break;</span>
+                default:
+                    break;
+            }
+<span class="nc bnc" id="L839" title="All 2 branches missed.">        } while (e != 3);</span>
+
+<span class="nc" id="L841">    }</span>
+
+    public void parsing() {
+<span class="nc" id="L844">        String local = this.menu.pedir_local_ficheiro();</span>
+<span class="nc" id="L845">        Parsing parsing = new Parsing(this.vintage, this.menu);</span>
+<span class="nc" id="L846">        this.vintage.setData(parsing.leitura_ficheiro(local, this.vintage.getData()));</span>
+<span class="nc" id="L847">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

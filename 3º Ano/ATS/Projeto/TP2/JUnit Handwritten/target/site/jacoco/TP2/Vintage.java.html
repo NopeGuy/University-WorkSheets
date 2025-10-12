@@ -1,0 +1,818 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Vintage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Vintage.java</span></div><h1>Vintage.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
+
+/*
+ * Não sei se sou usar isto para mim n faz grande sentido da forma que organizamos
+ */
+
+public class Vintage implements Serializable {
+    private Gestor_Artigos gestor_Artigos;
+    private Gestor_Utilizadores gestor_Utilizadores;
+    private Gestor_Transportadoras gestor_Trasportadoras;
+    private GestorEncomendas gestor_Encomendas;
+    private long utilizador;
+    private LocalDate data;
+
+<span class="nc" id="L28">    public Vintage() {</span>
+<span class="nc" id="L29">        this.gestor_Utilizadores = new Gestor_Utilizadores();</span>
+<span class="nc" id="L30">        this.gestor_Artigos = new Gestor_Artigos();</span>
+<span class="nc" id="L31">        this.gestor_Trasportadoras = new Gestor_Transportadoras();</span>
+<span class="nc" id="L32">        this.gestor_Encomendas = new GestorEncomendas();</span>
+<span class="nc" id="L33">        this.utilizador = -1;</span>
+<span class="nc" id="L34">        this.data = LocalDate.now();</span>
+<span class="nc" id="L35">    }</span>
+
+    public static Vintage load() {
+<span class="nc" id="L38">        Vintage vintage = Vintage.carregarEstado();</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (vintage == null) {</span>
+<span class="nc" id="L40">            vintage = new Vintage();</span>
+        }
+<span class="nc" id="L42">        return vintage;</span>
+    }
+
+    private void add_admin() throws ArtigoExistenteException{
+<span class="nc" id="L46">            this.adicionaUtilizador(&quot;admin&quot;, &quot;admin&quot;, &quot;1&quot;, 1, &quot;admin&quot;);</span>
+
+<span class="nc" id="L48">            String id = this.gestor_Artigos.criar_artigo_mala(&quot;Mala de viagem grande&quot;, &quot;Samsonite&quot;, 299.99, false, 0,</span>
+<span class="nc" id="L49">                    0, 1, 1, 70, &quot;Poliéster&quot;, 1950, true, 4.5f);</span>
+<span class="nc" id="L50">            String id1 = this.gestor_Artigos.criar_artigo_mala(&quot;Mala de ombro grande&quot;, &quot;Le Postiche&quot;, 149.90, false, 9,</span>
+<span class="nc" id="L51">                    25, 2, 1, 80, &quot;Couro sintético&quot;, 2022, false, 4.7f);</span>
+<span class="nc" id="L52">            String id2 = this.gestor_Artigos.criar_artigo_mala(&quot;Mochila escolar&quot;, &quot;JanSport&quot;, 139.99, true, 7, 20, 2,</span>
+<span class="nc" id="L53">                    1L, 50, &quot;Poliéster&quot;, 2023, false, 3.5f);</span>
+<span class="nc" id="L54">            String id3 = this.gestor_Artigos.criar_artigo_mala(&quot;Mala de viagem média&quot;, &quot;Samsonite&quot;, 249.99, false, 8,</span>
+<span class="nc" id="L55">                    18, 2, 1, 60, &quot;Poliéster&quot;, 2021, false, 4.2f);</span>
+<span class="nc" id="L56">            String id4 = this.gestor_Artigos.criar_artigo_mala(&quot;Mala de mão com rodinhas&quot;, &quot;Delsey&quot;, 199.99, false, 9,</span>
+<span class="nc" id="L57">                    22, 2, 1, 50, &quot;Couro&quot;, 2022, false, 4.8f);</span>
+<span class="nc" id="L58">            String id5 = this.gestor_Artigos.criar_artigo_mala(&quot;Mala de ombro pequena&quot;, &quot;Guess&quot;, 119.90, true, 6, 12, 2,</span>
+<span class="nc" id="L59">                    1, 30, &quot;Couro sintético&quot;, 2023, false, 3.2f);</span>
+<span class="nc" id="L60">                this.gestor_Utilizadores.vendeArtigo(id, this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;));</span>
+<span class="nc" id="L61">                this.gestor_Utilizadores.vendeArtigo(id1,this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;) );</span>
+<span class="nc" id="L62">                this.gestor_Utilizadores.vendeArtigo(id2, this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;));</span>
+<span class="nc" id="L63">                this.gestor_Utilizadores.vendeArtigo(id3, this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;));</span>
+<span class="nc" id="L64">                this.gestor_Utilizadores.vendeArtigo(id4, this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;));</span>
+<span class="nc" id="L65">                this.gestor_Utilizadores.vendeArtigo(id5, this.gestor_Utilizadores.get1IdUtilizador(&quot;admin&quot;));</span>
+           
+<span class="nc" id="L67">    }</span>
+    private void add_trasportadoras(){
+<span class="nc" id="L69">        this.adicinonarTransportadora(&quot;Fedex&quot;, 10, 20, 30, 0.23, 0.50, true, 3);</span>
+<span class="nc" id="L70">        this.adicinonarTransportadora(&quot;Feliz&quot;, 1, 2, 3, 0.23, 0.15, false, 1);</span>
+<span class="nc" id="L71">    }</span>
+    private void add_poo() throws ArtigoExistenteException {
+<span class="nc" id="L73">        this.adicionaUtilizador(&quot;joaogamer&quot;, &quot;joao&quot;, &quot;Braga&quot;, 123456, &quot;joao&quot;);</span>
+<span class="nc" id="L74">        String id = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Confortáveis&quot;, &quot;Nike AIR&quot;, 250, true, 2, 10, 1L, 2, 38, true, &quot;Branca&quot;, 2022, true, 0.0);</span>
+<span class="nc" id="L75">        String id1 = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Leves&quot;, &quot;Puma&quot;, 80, true, 0, 0, 2L, 2L, 37, false, &quot;Azul&quot;, 2023, false, 0.0);</span>
+<span class="nc" id="L76">        String id2 = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Resistentes&quot;, &quot;Reebok&quot;, 90, false, 1, 5, 2L, 2L, 39, true, &quot;Cinza&quot;, 2022, false, 20.0);</span>
+<span class="nc" id="L77">        String id3 = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Estilosas&quot;, &quot;Vans&quot;, 70, true, 0, 0, 2L, 2, 40, true, &quot;Vermelha&quot;, 2023, false, 0.0);</span>
+<span class="nc" id="L78">        String id4 = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Duráveis&quot;, &quot;New Balance&quot;, 110, false, 2, 8, 2L, 2L, 38, false, &quot;Rosa&quot;, 2022, false, 0.0);</span>
+<span class="nc" id="L79">        String id5 = this.gestor_Artigos.criar_artigo_sapatilhas(&quot;Moda casual&quot;, &quot;Converse&quot;, 60, true, 0, 0, 2L, 2L, 37, false, &quot;Cinza/Preto&quot;, 2023, false, 10.0);</span>
+<span class="nc" id="L80">            this.gestor_Utilizadores.vendeArtigo(id, this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;));</span>
+<span class="nc" id="L81">            this.gestor_Utilizadores.vendeArtigo(id1,this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;) );</span>
+<span class="nc" id="L82">            this.gestor_Utilizadores.vendeArtigo(id2, this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;));</span>
+<span class="nc" id="L83">            this.gestor_Utilizadores.vendeArtigo(id3, this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;));</span>
+<span class="nc" id="L84">            this.gestor_Utilizadores.vendeArtigo(id4, this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;));</span>
+<span class="nc" id="L85">            this.gestor_Utilizadores.vendeArtigo(id5, this.gestor_Utilizadores.get1IdUtilizador(&quot;joaogamer&quot;));</span>
+    
+
+<span class="nc" id="L88">    }</span>
+
+    // Ver onde faz o try
+    public void povoamento() throws ArtigoExistenteException {
+<span class="nc bnc" id="L92" title="All 2 branches missed.">        if (this.gestor_Utilizadores.existeIdUtilizador(&quot;admin&quot;) == false) {</span>
+<span class="nc" id="L93">            this.add_trasportadoras();</span>
+<span class="nc" id="L94">             this.add_admin();</span>
+        }
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        if (this.gestor_Utilizadores.existeIdUtilizador(&quot;joaogamer&quot;) == false) this.add_poo();</span>
+        
+        
+<span class="nc" id="L99">    }</span>
+
+<span class="nc" id="L101">    public Vintage(Gestor_Artigos gestor_Artigos, Gestor_Utilizadores gestor_Utilizadores,</span>
+            GestorEncomendas gestorEncomendas, Gestor_Transportadoras gestor_Transportadoras, Menu menu,
+            int utilizador) {
+<span class="nc" id="L104">        this.gestor_Artigos = gestor_Artigos;</span>
+<span class="nc" id="L105">        this.gestor_Utilizadores = gestor_Utilizadores;</span>
+<span class="nc" id="L106">        this.gestor_Trasportadoras = gestor_Transportadoras;</span>
+<span class="nc" id="L107">        this.gestor_Encomendas = gestorEncomendas;</span>
+<span class="nc" id="L108">        this.utilizador = utilizador;</span>
+
+<span class="nc" id="L110">    }</span>
+
+<span class="nc" id="L112">    public Vintage(Gestor_Artigos gestor_Artigos, Gestor_Utilizadores gestor_Utilizadores,</span>
+            GestorEncomendas gestorEncomendas, Gestor_Transportadoras gestor_Transportadoras, Menu menu) {
+<span class="nc" id="L114">        this.gestor_Artigos = gestor_Artigos;</span>
+<span class="nc" id="L115">        this.gestor_Utilizadores = gestor_Utilizadores;</span>
+<span class="nc" id="L116">        this.gestor_Trasportadoras = gestor_Transportadoras;</span>
+<span class="nc" id="L117">        this.gestor_Encomendas = gestorEncomendas;</span>
+
+<span class="nc" id="L119">    }</span>
+
+<span class="nc" id="L121">    public Vintage(Vintage a) {</span>
+<span class="nc" id="L122">        this.gestor_Artigos = a.getGestor_Artigos();</span>
+<span class="nc" id="L123">        this.gestor_Utilizadores = a.getGestor_Utilizadores();</span>
+<span class="nc" id="L124">        this.utilizador = a.getUtilizador();</span>
+<span class="nc" id="L125">    }</span>
+
+    public Gestor_Artigos getGestor_Artigos() {
+<span class="nc" id="L128">        return this.gestor_Artigos.clone();</span>
+    }
+
+    public Gestor_Utilizadores getGestor_Utilizadores() {
+<span class="nc" id="L132">        return this.gestor_Utilizadores.clone();</span>
+    }
+
+    public long getUtilizador() {
+<span class="nc" id="L136">        return this.utilizador;</span>
+    }
+
+    public LocalDate getData() {
+<span class="nc" id="L140">        return data;</span>
+    }
+
+    public GestorEncomendas getGestor_Encomendas() {
+<span class="nc" id="L144">        return gestor_Encomendas;</span>
+    }
+
+    public Gestor_Transportadoras getGestor_Trasportadoras() {
+<span class="nc" id="L148">        return gestor_Trasportadoras;</span>
+    }
+
+    public void setGestor_Artigos(Gestor_Artigos gestor_Artigos) {
+<span class="nc" id="L152">        this.gestor_Artigos = gestor_Artigos;</span>
+<span class="nc" id="L153">    }</span>
+
+    public void setGestor_Utilizadores(Gestor_Utilizadores gestor_Utilizadores) {
+<span class="nc" id="L156">        this.gestor_Utilizadores = gestor_Utilizadores;</span>
+<span class="nc" id="L157">    }</span>
+
+    public void setUtilizador(long utilizador) {
+<span class="nc" id="L160">        this.utilizador = utilizador;</span>
+<span class="nc" id="L161">    }</span>
+
+    public void setData(LocalDate data) {
+<span class="nc" id="L164">        this.data = data;</span>
+<span class="nc" id="L165">    }</span>
+
+    public void setGestor_Encomendas(GestorEncomendas gestor_Encomendas) {
+<span class="nc" id="L168">        this.gestor_Encomendas = gestor_Encomendas;</span>
+<span class="nc" id="L169">    }</span>
+
+    public void setGestor_Trasportadoras(Gestor_Transportadoras gestor_Trasportadoras) {
+<span class="nc" id="L172">        this.gestor_Trasportadoras = gestor_Trasportadoras;</span>
+<span class="nc" id="L173">    }</span>
+
+    public boolean existeEmail(String email) {
+
+<span class="nc" id="L177">        return this.gestor_Utilizadores.existeIdUtilizador(email);</span>
+    }
+
+    public boolean existeIdUtilizador(long id) {
+<span class="nc" id="L181">        return this.gestor_Utilizadores.existeUtilizador(id);</span>
+    }
+
+    public boolean verificaPassword(String email, String password) {
+<span class="nc" id="L185">        long id = this.gestor_Utilizadores.verificaPassword(email, password);</span>
+<span class="nc bnc" id="L186" title="All 2 branches missed.">        if (id &lt; 0)</span>
+<span class="nc" id="L187">            return false;</span>
+        else {
+<span class="nc" id="L189">            this.setUtilizador(id);</span>
+<span class="nc" id="L190">            return true;</span>
+        }
+    }
+
+    // Todos os artigos a venda
+    public String todosArtigos() {
+<span class="nc" id="L196">        return this.gestor_Artigos.mostrar_gestor(data);</span>
+    }
+
+    public String artigoID(String id) {
+<span class="nc" id="L200">        return this.gestor_Artigos.getArtigos().get(id).mostrar(data);</span>
+    }
+
+    public void adicionaUtilizador(String email, String nome, String morada, long nif, String password) {
+<span class="nc" id="L204">        this.utilizador = this.gestor_Utilizadores.adicionaUtilizador(email, nome, morada, nif, password);</span>
+<span class="nc" id="L205">    }</span>
+
+    public boolean existeArtigoId(String id) {
+<span class="nc" id="L208">        return this.gestor_Artigos.pesquisar_artigo_id(id); // id do artigo deveria ser string mas está como int</span>
+    }
+
+    public void login_utlizador(String email) {
+
+        //for (Long e : this.gestor_Utilizadores.getUtilizadores().keySet()) {
+        //}
+        // for()
+<span class="nc" id="L216">        this.utilizador = this.gestor_Utilizadores.get1IdUtilizador(email);</span>
+<span class="nc" id="L217">    }</span>
+    // Filtros Sapatilhas
+
+    public String filtraAMarcaSapatilhas(String marca) {
+<span class="nc" id="L221">        return this.gestor_Artigos.pesquisar_artigos_marca_sapatilha(marca);</span>
+    }
+
+    public String filtraSapatilhasNovo(Boolean novo) {
+<span class="nc" id="L225">        return this.gestor_Artigos.pesquisar_artigos_novo_sapatilhas(novo);</span>
+    }
+
+    public String filtraSapatilhasTamanho(int tamanho) {
+<span class="nc" id="L229">        return this.gestor_Artigos.pesquipesquisar_artigos_tamanho_sapatilhas(tamanho);</span>
+    }
+
+    public String filtraSapatilhasCor(String cor) {
+<span class="nc" id="L233">        return this.gestor_Artigos.pesquisar_artigos_cor(cor);</span>
+    }
+
+    // Filtros Tshirts
+
+    public String filtraTshirtsMarca(String marca) {
+<span class="nc" id="L239">        return this.gestor_Artigos.pesquisar_artigos_marca_tshirt(marca);</span>
+    }
+
+    public String filtraTshirtsNovo(Boolean novo) {
+<span class="nc" id="L243">        return this.gestor_Artigos.pesquisar_artigos_novo_tshirt(novo);</span>
+    }
+
+    public String filtraTshirtsTamanho(Tamanho tamanho) {
+<span class="nc" id="L247">        return this.gestor_Artigos.pesquipesquisar_artigos_tamanho__tshit(tamanho);</span>
+    }
+
+    public String filtraTshirtsPadrao(Padrao padrao) {
+<span class="nc" id="L251">        return this.gestor_Artigos.pesquisar_artigos_padrao(padrao);</span>
+    }
+
+    // Filtos Malas
+    public String filtraMalasMarca(String marca) {
+<span class="nc" id="L256">        return this.gestor_Artigos.pesquisar_artigos_marca_mala(marca);</span>
+    }
+
+    public String filtraMalasNovo(Boolean novo) {
+<span class="nc" id="L260">        return this.gestor_Artigos.pesquisar_artigos_novo_mala(novo);</span>
+    }
+
+    public String filtraMalasDimensao(int dimensao) {
+<span class="nc" id="L264">        return this.gestor_Artigos.pesquisar_artigos_dimensão_mala(dimensao);</span>
+    }
+
+    public String filtraMalasMaterial(String material) {
+<span class="nc" id="L268">        return this.gestor_Artigos.pesquisar_artigos_material(material);</span>
+    }
+
+    public String filtraMalasColecao(int ano_colecao) {
+<span class="nc" id="L272">        return this.gestor_Artigos.pesquisar_artigos_ano_colecao(ano_colecao);</span>
+    }
+
+    // Continuar os filtros
+
+    public String imprimeTransportadoras() {
+<span class="nc" id="L278">        return this.gestor_Trasportadoras.toString();</span>
+    }
+
+    public String imprimeTransportadorasNormais() {
+<span class="nc" id="L282">        return this.gestor_Trasportadoras.transportadorasNormais();</span>
+    }
+
+    public boolean existeTranspotadora(long id_transporadora) {
+<span class="nc" id="L286">        return this.gestor_Trasportadoras.existe_transpotadora(id_transporadora);</span>
+    }
+
+    public boolean existe_transpotadoraNormal(long id_transporadora) {
+<span class="nc" id="L290">        return this.gestor_Trasportadoras.existe_transpotadoraNormal(id_transporadora);</span>
+    }
+
+    public boolean existe_transpotadoraPremium(long id_transporadora) {
+<span class="nc" id="L294">        return this.gestor_Trasportadoras.existe_transpotadoraPremium(id_transporadora);</span>
+    }
+
+    public void criaSapatilha(String descricao, String marca, double preco, boolean uso, int estado,
+            int n_utilizadores, Long transportadora, int tamanho, boolean atacadores, String cor, int data,
+            boolean premium, double desconto) throws ArtigoExistenteException {
+<span class="nc" id="L300">        String id = this.gestor_Artigos.criar_artigo_sapatilhas(descricao, marca, preco, uso, estado,</span>
+<span class="nc" id="L301">                n_utilizadores, transportadora, this.utilizador, tamanho, atacadores, cor, data, premium, desconto);</span>
+<span class="nc" id="L302">        this.gestor_Utilizadores.vendeArtigo(id, this.utilizador);</span>
+<span class="nc" id="L303">    }</span>
+
+    public void criaTshirt(String descricao, String marca, double preco, boolean uso, int estado,
+            int n_utilizadores, long transportadora, Tamanho tamanho, Padrao padrao) throws ArtigoExistenteException {
+<span class="nc" id="L307">        String id = this.gestor_Artigos.criar_artigo_tshirt(descricao, marca, preco, uso, estado, n_utilizadores,</span>
+<span class="nc" id="L308">                transportadora, this.utilizador, tamanho, padrao);</span>
+<span class="nc" id="L309">        this.gestor_Utilizadores.vendeArtigo(id, this.utilizador);</span>
+<span class="nc" id="L310">    }</span>
+
+    public void criaMala(String descricao, String marca, double preco, boolean uso, int estado, int n_utilizadores,
+            long transportadora, int dimensao, String material, int ano, Boolean premium, float valorizacao)
+            throws ArtigoExistenteException {
+<span class="nc" id="L315">        String id = this.gestor_Artigos.criar_artigo_mala(descricao, marca, preco, uso, estado, n_utilizadores,</span>
+<span class="nc" id="L316">                transportadora, this.utilizador, dimensao, material, ano, premium, valorizacao);</span>
+<span class="nc" id="L317">        this.gestor_Utilizadores.vendeArtigo(id, this.utilizador);</span>
+<span class="nc" id="L318">    }</span>
+
+    public long artigoDisponivel(String id_artigo) throws ArtigoNaoEncontradoException {
+<span class="nc" id="L321">        return (this.gestor_Artigos.colocar_disponivel_artigo(id_artigo));</span>
+    }
+
+    public long artigoIndisponivel(String id_artigo) throws ArtigoNaoEncontradoException {
+<span class="nc" id="L325">        return this.gestor_Artigos.tirar_disponivel_artigo(id_artigo);</span>
+    }
+
+    public String imprimeCarrinho() {
+<span class="nc" id="L329">        return this.gestor_Utilizadores.getCarrinho(this.utilizador);</span>
+    }
+
+    public void adicionarArtigoCarrinho(String id) throws ArtigoNaoEncontradoException, ArtigoExistenteException {
+<span class="nc" id="L333">        this.artigoIndisponivel(id);</span>
+<span class="nc" id="L334">        long vendedor = this.gestor_Artigos.id_artigo_para_id_vendedor(id);</span>
+<span class="nc" id="L335">        this.gestor_Utilizadores.adicionaArtigoEncomenda(id, vendedor, this.utilizador, data);</span>
+<span class="nc" id="L336">    }</span>
+
+    public void adicionarArtigoCarrinhoPorID(String id_artigo, long id_utilizador, LocalDate data)
+            throws ArtigoNaoEncontradoException, ArtigoExistenteException {
+<span class="nc" id="L340">        this.artigoIndisponivel(id_artigo);</span>
+<span class="nc" id="L341">        long vendedor = this.gestor_Artigos.id_artigo_para_id_vendedor(id_artigo);</span>
+<span class="nc" id="L342">        this.gestor_Utilizadores.adicionaArtigoEncomenda(id_artigo, vendedor, id_utilizador, data);</span>
+<span class="nc" id="L343">    }</span>
+
+    public void removerTodosArtigosCarrinho() throws ArtigoNaoEncontradoException {
+<span class="nc" id="L346">        Set&lt;String&gt; artigos = this.gestor_Utilizadores.removeTodosComprador(this.utilizador);</span>
+<span class="nc bnc" id="L347" title="All 2 branches missed.">        for (String s : artigos) {</span>
+<span class="nc" id="L348">            long vendedor = this.artigoDisponivel(s);</span>
+<span class="nc" id="L349">            this.gestor_Utilizadores.voltaAVenderArtigo(s, vendedor);</span>
+        }
+<span class="nc" id="L351">    }</span>
+
+    public void removerArtigosCarrinho(String id) throws ArtigoNaoEncontradoException {
+<span class="nc" id="L354">        long vendedor = this.artigoDisponivel(id);</span>
+<span class="nc" id="L355">        this.gestor_Utilizadores.removeArtigoEncomenda(id, vendedor, utilizador);</span>
+
+<span class="nc" id="L357">    }</span>
+
+    public String encomendasRealizadas() {
+<span class="nc" id="L360">        return this.gestor_Encomendas.encomendasToString(this.gestor_Utilizadores.getEncomendas(this.utilizador));</span>
+    }
+
+    public String encomendasDevolvidas() {
+<span class="nc" id="L364">        return (this.gestor_Encomendas</span>
+<span class="nc" id="L365">                .encomendasToString(this.gestor_Utilizadores.getEncomendasDevolvidas(this.utilizador)));</span>
+    }
+
+    public boolean encomendasDevolver(long l) throws EncomendaNaoEncontradaException,
+            EncomendaDevolucaoImpossivelException, ArtigoNaoEncontradoException {
+<span class="nc" id="L370">        Set&lt;String&gt; artigos = this.gestor_Encomendas.podeDevolvida(l, data);</span>
+<span class="nc bnc" id="L371" title="All 2 branches missed.">        if (artigos == null) {</span>
+<span class="nc" id="L372">            return false;</span>
+        } else {
+            long vendedor;
+<span class="nc bnc" id="L375" title="All 2 branches missed.">            for (String s : artigos) {</span>
+<span class="nc" id="L376">                vendedor = this.artigoDisponivel(s);</span>
+<span class="nc" id="L377">                this.gestor_Artigos.alteraDataToInicio(s);</span>
+<span class="nc" id="L378">                this.gestor_Utilizadores.passaVendidoParaVender(s, vendedor);</span>
+            }
+<span class="nc" id="L380">            this.gestor_Utilizadores.devolveEncomenda(this.utilizador, l);</span>
+<span class="nc" id="L381">            return true;</span>
+        }
+    }
+
+    public int tamanhoEncomenda(long idEncomenda) {
+<span class="nc" id="L386">        return (this.gestor_Encomendas.tamanhoEncomenda(idEncomenda));</span>
+    }
+
+    public String meusArtigos() {
+<span class="nc" id="L390">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc bnc" id="L391" title="All 2 branches missed.">        for (String s : this.gestor_Utilizadores.meusArtigos(this.utilizador)) {</span>
+<span class="nc" id="L392">            sb.append(this.gestor_Artigos.getArtigos().get(s).mostrar(data));</span>
+        }
+<span class="nc" id="L394">        return sb.toString();</span>
+    }
+
+    public void adicinonarTransportadora(String nome, double valor_pequenas, double valor_medio, double valor_grande,
+            double impostos, double margemlucro, boolean premium, int formula) {
+<span class="nc" id="L399">        this.gestor_Trasportadoras.criaTransportadora(nome, valor_pequenas, valor_medio, valor_grande, impostos,</span>
+<span class="nc" id="L400">                margemlucro, premium, formula);</span>
+<span class="nc" id="L401">    }</span>
+
+    public double finalizarEncomenda() throws CarrinhoVazioException, ArtigoNaoEncontradoException,
+            EncomendaExistenteException, EncomendaNaoEncontradaException {
+<span class="nc" id="L405">        long nif = this.gestor_Utilizadores.devolveNif(this.utilizador);</span>
+        // Preço
+<span class="nc" id="L407">        List&lt;Long&gt; transportadoras = new ArrayList&lt;Long&gt;();</span>
+<span class="nc" id="L408">        double preco_artigos = 0;</span>
+<span class="nc bnc" id="L409" title="All 2 branches missed.">        for (String s : this.gestor_Utilizadores.verCarrinho(this.utilizador)) {</span>
+            // Alterar data
+            // ---------------------------------------------------------------------------------------------
+<span class="nc" id="L412">            Artigo artigo = this.gestor_Artigos.getArtigos().get(s);</span>
+<span class="nc" id="L413">            preco_artigos += artigo.preco_atual(this.data);</span>
+<span class="nc" id="L414">            long idTransportadora = artigo.getIdTransportadora();</span>
+<span class="nc" id="L415">            transportadoras.add(idTransportadora);</span>
+<span class="nc" id="L416">            this.gestor_Utilizadores.passaArtigoParaVendido(s, artigo.getIdVendedor());</span>
+<span class="nc" id="L417">            this.gestor_Utilizadores.adicionaFaturaVendedor(artigo.getIdVendedor(), false,</span>
+<span class="nc" id="L418">                    this.gestor_Utilizadores.getIdCarrinho(this.utilizador), nif, artigo.getCodigo_barras(),</span>
+<span class="nc" id="L419">                    artigo.preco_atual(this.data), artigo.getNovo(), Gestor_Artigos.getTaxaNovo(),</span>
+<span class="nc" id="L420">                    Gestor_Artigos.getTaxaUsado());</span>
+        }
+<span class="nc" id="L422">        double preco_transporte = this.gestor_Trasportadoras.precoTransporte(transportadoras);</span>
+<span class="nc" id="L423">        double preco = preco_artigos + preco_transporte;</span>
+
+        // Carrinho
+<span class="nc" id="L426">        Encomenda encomenda = this.gestor_Utilizadores.finalizaEncomenda(this.utilizador, this.data);</span>
+        // Alterar data, acho que funciona
+<span class="nc" id="L428">        this.gestor_Artigos.alteraData(encomenda);</span>
+<span class="nc" id="L429">        this.gestor_Encomendas.adicionaEncomenda(encomenda);</span>
+<span class="nc" id="L430">        this.gestor_Encomendas.FinalizadaToExpedida(encomenda.getId(), this.data); // adicionei 03/05</span>
+<span class="nc" id="L431">        this.gestor_Utilizadores.novoCarrinho(this.utilizador);</span>
+        // adicionar nas encomendas realizadas
+
+        // Faturação
+<span class="nc" id="L435">        this.gestor_Utilizadores.adicionaFaturaComprador(this.utilizador, true, encomenda.getId(), nif,</span>
+<span class="nc" id="L436">                encomenda.getEncomenda(), preco_artigos, preco_transporte, preco);</span>
+        // Alterar as faturas dos vendedores para maps idEncomenda, Fatura para
+        // facilitar a adição
+
+<span class="nc" id="L440">        return preco;</span>
+    }
+
+    public double finalizarEncomendaPorId(Long id_utilizador, LocalDate data) throws CarrinhoVazioException,
+            ArtigoNaoEncontradoException, EncomendaExistenteException, EncomendaNaoEncontradaException {
+<span class="nc" id="L445">        long nif = this.gestor_Utilizadores.devolveNif(id_utilizador);</span>
+        // Preço
+<span class="nc" id="L447">        List&lt;Long&gt; transportadoras = new ArrayList&lt;Long&gt;();</span>
+<span class="nc" id="L448">        double preco_artigos = 0;</span>
+<span class="nc bnc" id="L449" title="All 2 branches missed.">        for (String s : this.gestor_Utilizadores.verCarrinho(id_utilizador)) {</span>
+            // Alterar data
+            // ---------------------------------------------------------------------------------------------
+<span class="nc" id="L452">            Artigo artigo = this.gestor_Artigos.getArtigos().get(s);</span>
+<span class="nc" id="L453">            preco_artigos += artigo.preco_atual(data);</span>
+<span class="nc" id="L454">            long idTransportadora = artigo.getIdTransportadora();</span>
+<span class="nc" id="L455">            transportadoras.add(idTransportadora);</span>
+<span class="nc" id="L456">            this.gestor_Utilizadores.passaArtigoParaVendido(s, artigo.getIdVendedor());</span>
+<span class="nc" id="L457">            this.gestor_Utilizadores.adicionaFaturaVendedor(artigo.getIdVendedor(), false,</span>
+<span class="nc" id="L458">                    this.gestor_Utilizadores.getIdCarrinho(id_utilizador), nif, artigo.getCodigo_barras(),</span>
+<span class="nc" id="L459">                    artigo.preco_atual(data), artigo.getNovo(), Gestor_Artigos.getTaxaNovo(),</span>
+<span class="nc" id="L460">                    Gestor_Artigos.getTaxaUsado());</span>
+        }
+<span class="nc" id="L462">        double preco_transporte = this.gestor_Trasportadoras.precoTransporte(transportadoras);</span>
+<span class="nc" id="L463">        double preco = preco_artigos + preco_transporte;</span>
+
+        // Carrinho
+<span class="nc" id="L466">        Encomenda encomenda = this.gestor_Utilizadores.finalizaEncomenda(id_utilizador, data);</span>
+        // Alterar data, acho que funciona
+<span class="nc" id="L468">        this.gestor_Artigos.alteraData(encomenda);</span>
+<span class="nc" id="L469">        this.gestor_Encomendas.adicionaEncomenda(encomenda);</span>
+<span class="nc" id="L470">        this.gestor_Encomendas.FinalizadaToExpedida(encomenda.getId(), data); // adicionei 03/05</span>
+<span class="nc" id="L471">        this.gestor_Utilizadores.novoCarrinho(id_utilizador);</span>
+        // adicionar nas encomendas realizadas
+
+        // Faturação
+<span class="nc" id="L475">        this.gestor_Utilizadores.adicionaFaturaComprador(id_utilizador, true, encomenda.getId(), nif,</span>
+<span class="nc" id="L476">                encomenda.getEncomenda(), preco_artigos, preco_transporte, preco);</span>
+        // Alterar as faturas dos vendedores para maps idEncomenda, Fatura para
+        // facilitar a adição
+
+<span class="nc" id="L480">        return preco;</span>
+    }
+
+    // Funções para imprimir faturas
+    public String imprimeFaturasCompras() {
+<span class="nc" id="L485">        return this.gestor_Utilizadores.imprimeFaturasCompras(this.utilizador);</span>
+    }
+
+    public String imprimeFaturasVendas() {
+<span class="nc" id="L489">        return this.gestor_Utilizadores.imprimeFaturasVendas(this.utilizador);</span>
+    }
+
+    public String imprime1FaturaCompra(long idEncomenda) {
+<span class="nc" id="L493">        return this.gestor_Utilizadores.imprime1FaturaCompra(idEncomenda, this.utilizador);</span>
+    }
+
+    public String imprime1FaturaVenda(long idEncomenda) {
+<span class="nc" id="L497">        return this.gestor_Utilizadores.imprime1FaturaVenda(idEncomenda, this.utilizador);</span>
+    }
+
+    // ---------------------------- Estado --------------------------------
+
+    public void salvarEstado() throws IOException{
+<span class="nc" id="L503">            FileOutputStream fileOut = new FileOutputStream(&quot;dados.ser&quot;);</span>
+<span class="nc" id="L504">            ObjectOutputStream out = new ObjectOutputStream(fileOut);</span>
+<span class="nc" id="L505">            out.writeObject(this);</span>
+<span class="nc" id="L506">            out.writeObject(Artigo.getCodigo());</span>
+<span class="nc" id="L507">            out.writeObject(Artigo.getContador());</span>
+<span class="nc" id="L508">            out.writeObject(Encomenda.getCodigo());</span>
+<span class="nc" id="L509">            out.writeObject(Fatura.getCodigo());</span>
+<span class="nc" id="L510">            out.writeObject(Transportadora.getCodigo());</span>
+<span class="nc" id="L511">            out.writeObject(Utilizador.getCodigo());</span>
+            // Save contador in class Artigo
+
+            // out.writeObject(Artigo.getContador());
+<span class="nc" id="L515">            out.close();</span>
+<span class="nc" id="L516">            fileOut.close();</span>
+<span class="nc" id="L517">    }</span>
+
+    public static Vintage carregarEstado() {
+        try {
+<span class="nc" id="L521">            FileInputStream fileIn = new FileInputStream(&quot;dados.ser&quot;);</span>
+<span class="nc" id="L522">            ObjectInputStream in = new ObjectInputStream(fileIn);</span>
+            // Load the vintage
+<span class="nc" id="L524">            Vintage v = (Vintage) in.readObject();</span>
+<span class="nc" id="L525">            Artigo.setCodigo((String) in.readObject());</span>
+<span class="nc" id="L526">            Artigo.setContador((long) in.readObject());</span>
+<span class="nc" id="L527">            Encomenda.setCodigo((long) in.readObject());</span>
+<span class="nc" id="L528">            Fatura.setCodigo((long) in.readObject());</span>
+<span class="nc" id="L529">            Transportadora.setCodigo((long) in.readObject());</span>
+<span class="nc" id="L530">            Utilizador.setCodigo((long) in.readObject());</span>
+
+<span class="nc" id="L532">            in.close();</span>
+<span class="nc" id="L533">            fileIn.close();</span>
+<span class="nc" id="L534">            return v;</span>
+<span class="nc" id="L535">        } catch (IOException | ClassNotFoundException i) {</span>
+<span class="nc" id="L536">            return null;</span>
+        }
+
+    }
+    // ---------------------------- Querys ---------------------------------
+
+    public String vendedorFacturou() {
+<span class="nc" id="L543">        double max = 0;</span>
+        double temp;
+<span class="nc" id="L545">        Utilizador vendedor = null;</span>
+<span class="nc bnc" id="L546" title="All 2 branches missed.">        for (Utilizador u : this.gestor_Utilizadores.getUtilizadores().values()) {</span>
+<span class="nc" id="L547">            temp = this.gestor_Artigos.precoFaturou(u.getProdutosVendidos(), this.data);</span>
+<span class="nc bnc" id="L548" title="All 2 branches missed.">            if (max &lt; temp) {</span>
+<span class="nc" id="L549">                max = temp;</span>
+<span class="nc" id="L550">                vendedor = u;</span>
+            }
+        }
+<span class="nc bnc" id="L553" title="All 2 branches missed.">        if (vendedor == null) {</span>
+<span class="nc" id="L554">            return &quot;Não há vendedores&quot;;</span>
+        }
+<span class="nc" id="L556">        DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="nc" id="L557">        String resultado = vendedor.getNome() + &quot; Faturou &quot; + df.format(max) + &quot;€&quot; + &quot;\n&quot;;</span>
+<span class="nc" id="L558">        return resultado;</span>
+
+    }
+
+    public String vendedorFacturouTempo(LocalDate data_inicio, LocalDate dia_final) {
+<span class="nc" id="L563">        double max = 0;</span>
+        double temp;
+<span class="nc" id="L565">        Utilizador vendedor = null;</span>
+<span class="nc bnc" id="L566" title="All 2 branches missed.">        for (Utilizador u : this.gestor_Utilizadores.getUtilizadores().values()) {</span>
+
+<span class="nc" id="L568">            temp = this.gestor_Artigos.precoFaturouTempo(u.getProdutosVendidos(), data_inicio, dia_final);</span>
+<span class="nc bnc" id="L569" title="All 2 branches missed.">            if (max &lt; temp) {</span>
+<span class="nc" id="L570">                max = temp;</span>
+<span class="nc" id="L571">                vendedor = u;</span>
+            }
+        }
+<span class="nc bnc" id="L574" title="All 2 branches missed.">        if (vendedor == null) {</span>
+<span class="nc" id="L575">            return &quot;Não há vendedores&quot;;</span>
+        }
+<span class="nc" id="L577">        DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="nc" id="L578">        String resultado = vendedor.getNome() + &quot; Faturou &quot; + df.format(max) + &quot;€&quot; + &quot;\n&quot;;</span>
+<span class="nc" id="L579">        return resultado;</span>
+    }
+
+    public String VintageFaturou() {
+<span class="nc" id="L583">        double facturou = this.gestor_Artigos.vintageFaturou();</span>
+<span class="nc" id="L584">        String resultado = &quot;A Vintage faturou &quot; + facturou + &quot;€&quot; + &quot;\n&quot;;</span>
+<span class="nc" id="L585">        return resultado;</span>
+    }
+
+    public String TransportadoraMaiorVolume() throws TransportadoraNaoEncontradaException {
+<span class="nc" id="L589">        String resultado = this.gestor_Trasportadoras.fatorouMais();</span>
+<span class="nc" id="L590">        return resultado;</span>
+    }
+
+    public String compradorMaior(int i, LocalDate data_inicio, LocalDate dia_final)
+            throws EncomendaNaoEncontradaException {
+        int quantidade;
+<span class="nc" id="L596">        Set&lt;Utilizador&gt; utilizador = new TreeSet&lt;&gt;();</span>
+<span class="nc bnc" id="L597" title="All 2 branches missed.">        for (Utilizador u : this.gestor_Utilizadores.getUtilizadores().values()) {</span>
+<span class="nc" id="L598">            quantidade = 0;</span>
+<span class="nc bnc" id="L599" title="All 2 branches missed.">            for (long e : u.getComprei()) {</span>
+<span class="nc" id="L600">                Encomenda encomenda = this.gestor_Encomendas.getEncomenda(e);</span>
+<span class="nc bnc" id="L601" title="All 4 branches missed.">                if (encomenda.getData().isAfter(data_inicio) &amp;&amp; encomenda.getData().isBefore(dia_final))</span>
+<span class="nc" id="L602">                    quantidade += this.gestor_Encomendas.EncomendaToArtigos(e).size();</span>
+            }
+<span class="nc" id="L604">            u.setN_comprados(quantidade);</span>
+<span class="nc" id="L605">            utilizador.add(u);</span>
+        }
+<span class="nc" id="L607">        String resultado = compradorMaiorString(utilizador, i);</span>
+<span class="nc" id="L608">        return resultado;</span>
+
+    }
+
+    // Versão 2
+    public String maiorComprador(int n, LocalDate data_inicio, LocalDate dia_final) {
+<span class="nc" id="L614">        int quantidade = 0;</span>
+<span class="nc" id="L615">        Set&lt;Long&gt; kSet = this.gestor_Utilizadores.chaves();</span>
+<span class="nc" id="L616">        Set&lt;Utilizador&gt; ordem = new TreeSet&lt;&gt;();</span>
+
+<span class="nc bnc" id="L618" title="All 2 branches missed.">        for (Long l : kSet) {</span>
+<span class="nc" id="L619">            Set&lt;Long&gt; encomendas = this.gestor_Utilizadores.getEncomendas(l);</span>
+<span class="nc" id="L620">            quantidade = this.gestor_Artigos.entreDatas(this.gestor_Encomendas.encomendasToArtigos(encomendas),</span>
+<span class="nc" id="L621">                    data_inicio, dia_final);</span>
+<span class="nc" id="L622">            this.gestor_Utilizadores.alteraQuantiComprada(l, quantidade);</span>
+<span class="nc" id="L623">            ordem.add(this.gestor_Utilizadores.devolveUtilizador(l));</span>
+        }
+<span class="nc" id="L625">        String resultado = compradorMaiorString(ordem, n);</span>
+<span class="nc" id="L626">        return resultado;</span>
+    }
+
+    private String compradorMaiorString(Set&lt;Utilizador&gt; ordem, int n) {
+<span class="nc" id="L630">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L631">        Iterator&lt;Utilizador&gt; it = ordem.iterator();</span>
+
+<span class="nc bnc" id="L633" title="All 2 branches missed.">        if (n &gt; ordem.size())</span>
+<span class="nc" id="L634">            n = ordem.size();</span>
+
+<span class="nc bnc" id="L636" title="All 4 branches missed.">        while (it.hasNext() &amp;&amp; n &gt; 0) {</span>
+<span class="nc" id="L637">            Utilizador u = it.next();</span>
+<span class="nc" id="L638">            sb.append(u.getNome() + &quot; comprou &quot; + u.getN_comprados() + &quot; artigos&quot; + &quot;\n&quot;);</span>
+<span class="nc" id="L639">            n--;</span>
+        }
+<span class="nc" id="L641">        return sb.toString();</span>
+    }
+
+    public String vendedorMaior(int n, LocalDate data_inicio, LocalDate dia_final) {
+        int quantidade;
+<span class="nc" id="L646">        Set&lt;Utilizador&gt; ordem = new TreeSet&lt;&gt;(new ComparatorVendas());</span>
+<span class="nc bnc" id="L647" title="All 2 branches missed.">        for (Utilizador u : this.gestor_Utilizadores.getUtilizadores().values()) {</span>
+<span class="nc" id="L648">            quantidade = 0;</span>
+<span class="nc" id="L649">            quantidade = this.gestor_Artigos.entreDatas(u.getProdutosVendidos(), data_inicio, dia_final);</span>
+<span class="nc" id="L650">            u.setN_vendidos(quantidade);</span>
+<span class="nc" id="L651">            ordem.add(u);</span>
+        }
+<span class="nc" id="L653">        String resultado = vendedorMaiorString(ordem, n);</span>
+<span class="nc" id="L654">        return resultado;</span>
+
+    }
+
+    // Versão 2
+    public String maiorVendedor(int n, LocalDate data_inicio, LocalDate dia_final) {
+<span class="nc" id="L660">        int quantidade = 0;</span>
+<span class="nc" id="L661">        Set&lt;Long&gt; kSet = this.gestor_Utilizadores.chaves();</span>
+<span class="nc" id="L662">        Set&lt;Utilizador&gt; ordem = new TreeSet&lt;&gt;(new ComparatorVendas());</span>
+
+<span class="nc bnc" id="L664" title="All 2 branches missed.">        for (Long l : kSet) {</span>
+<span class="nc" id="L665">            quantidade = this.gestor_Artigos.entreDatas(this.gestor_Utilizadores.artigosVendidos(l), data_inicio,</span>
+<span class="nc" id="L666">                    dia_final);</span>
+<span class="nc" id="L667">            this.gestor_Utilizadores.alteraQuantiVendida(l, quantidade);</span>
+<span class="nc" id="L668">            ordem.add(this.gestor_Utilizadores.devolveUtilizador(l));</span>
+        }
+<span class="nc" id="L670">        String resultado = vendedorMaiorString(ordem, n);</span>
+<span class="nc" id="L671">        return resultado;</span>
+    }
+
+    private String vendedorMaiorString(Set&lt;Utilizador&gt; ordem, int n) {
+<span class="nc" id="L675">        StringBuilder sb = new StringBuilder();</span>
+<span class="nc" id="L676">        Iterator&lt;Utilizador&gt; it = ordem.iterator();</span>
+
+<span class="nc bnc" id="L678" title="All 2 branches missed.">        if (ordem.size() &lt; n)</span>
+<span class="nc" id="L679">            n = ordem.size();</span>
+
+<span class="nc bnc" id="L681" title="All 4 branches missed.">        while (it.hasNext() &amp;&amp; n &gt; 0) {</span>
+<span class="nc" id="L682">            Utilizador u = it.next();</span>
+<span class="nc" id="L683">            sb.append(u.getNome() + &quot; vendeu &quot; + u.getN_vendidos() + &quot; artigos&quot; + &quot;\n&quot;);</span>
+<span class="nc" id="L684">            n--;</span>
+        }
+<span class="nc" id="L686">        return sb.toString();</span>
+    }
+
+    public String imprimeTransportadoraspremium() {
+<span class="nc" id="L690">        return this.gestor_Trasportadoras.transportadorasPremium();</span>
+    }
+
+    public String imprimeFormulas() {
+<span class="nc" id="L694">        return this.gestor_Trasportadoras.formulasDisponiveis();</span>
+    }
+
+    public String imprimeFormulasNormais() {
+<span class="nc" id="L698">        return this.gestor_Trasportadoras.formulasNormais();</span>
+    }
+
+    public void alteraFormula(long idTransportadora, int formula) {
+<span class="nc" id="L702">        this.gestor_Trasportadoras.alteraFormula(idTransportadora, formula);</span>
+<span class="nc" id="L703">    }</span>
+
+    // ----------------------------- Avançar o tempo ----------------------------
+    public void avancarTempo(LocalDate dia) {
+<span class="nc" id="L707">        this.setData(dia);</span>
+<span class="nc" id="L708">    }</span>
+
+    // ----------------------------------------------
+    public String faturas_compras() {
+<span class="nc" id="L712">        return this.gestor_Utilizadores.imprimeFaturasCompras(this.utilizador);</span>
+
+    }
+
+    public String faturas_venda() {
+<span class="nc" id="L717">        return this.gestor_Utilizadores.imprimeFaturasVendas(this.utilizador);</span>
+    }
+
+    // ---------------------------------------------
+    // Os prints são para sair par por agora, mas n sei como vaomos fazer os prints
+    // +q é suposto só fazermos no menu
+    public boolean comprarArtigo (Long id_utilizador, String id_artigo, LocalDate data) {
+        try {
+<span class="nc" id="L725">            this.adicionarArtigoCarrinhoPorID(id_artigo, id_utilizador, data);</span>
+<span class="nc" id="L726">        } catch (ArtigoNaoEncontradoException e) {</span>
+<span class="nc" id="L727">            return false;</span>
+<span class="nc" id="L728">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L729">            return false;</span>
+        }
+        try {
+<span class="nc" id="L732">            this.finalizarEncomendaPorId(id_utilizador, data);</span>
+<span class="nc" id="L733">        } catch (ArtigoNaoEncontradoException e) {</span>
+<span class="nc" id="L734">            return false;</span>
+<span class="nc" id="L735">        } catch (CarrinhoVazioException e) {</span>
+<span class="nc" id="L736">            return false;</span>
+<span class="nc" id="L737">        } catch (EncomendaExistenteException e) {</span>
+<span class="nc" id="L738">            return false;</span>
+<span class="nc" id="L739">        } catch (EncomendaNaoEncontradaException e) {</span>
+<span class="nc" id="L740">            return false;</span>
+        }
+<span class="nc" id="L742">        return true;</span>
+
+    }
+
+    public String encomendasEmitidasVendedor(long id_vendedor) {
+<span class="nc" id="L747">        return this.gestor_Utilizadores.imprimeFaturasVendas(id_vendedor);</span>
+
+    }
+
+    public boolean ColocarvenderSapatilha(long id_utilizador, LocalDate data, String descricao, String marca,
+            double preco_base, boolean uso, int estado_uso, int n_utilizadores, Long transportadora, long vendedor,
+            int tamanho, boolean atacadores, String cor, int anoColecao, boolean premium, double desconto)
+            throws ArtigoExistenteException {
+<span class="nc" id="L755">        String id = this.gestor_Artigos.criar_artigo_sapatilhas(descricao, marca, preco_base, uso, estado_uso,</span>
+<span class="nc" id="L756">                n_utilizadores, transportadora, id_utilizador, tamanho, atacadores, cor, anoColecao, premium, 0);</span>
+<span class="nc" id="L757">        this.gestor_Utilizadores.vendeArtigo(id, id_utilizador);</span>
+<span class="nc" id="L758">        return true;</span>
+    }
+
+    // Estamos aqui a imprimir coisas que não podemos
+    public boolean ColocarVenderTshit(long id_utilizador, LocalDate data, String descricao, String marca,
+            double preco_base, boolean uso, int estado_uso, int n_utilizadores, long transportadora, Tamanho tamanho,
+            Padrao padrao) {
+<span class="nc" id="L765">        String id = this.gestor_Artigos.criar_artigo_tshirt(descricao, marca, preco_base, uso, estado_uso,</span>
+<span class="nc" id="L766">                n_utilizadores,</span>
+<span class="nc" id="L767">                transportadora, id_utilizador, tamanho, padrao);</span>
+        try {
+<span class="nc" id="L769">            this.gestor_Utilizadores.vendeArtigo(id, id_utilizador);</span>
+<span class="nc" id="L770">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L771">            return false;</span>
+        }
+<span class="nc" id="L773">        return true;</span>
+
+    }
+
+    // Estamos aqui a imprimir coisas que não podemos
+    public boolean ColocarVenderMala(long id_utilizador, LocalDate data, String descricao, String marca,
+            double preco_base, boolean uso, int estado_uso, int n_utilizadores, long transportadora, int dimensao,
+            String material, int ano, boolean premium, float valorizacao) {
+<span class="nc" id="L781">        String id = this.gestor_Artigos.criar_artigo_mala(descricao, marca, preco_base, uso, estado_uso, n_utilizadores,</span>
+<span class="nc" id="L782">                transportadora, id_utilizador, dimensao, material, ano, premium, valorizacao);</span>
+        try {
+<span class="nc" id="L784">            this.gestor_Utilizadores.vendeArtigo(id, id_utilizador);</span>
+<span class="nc" id="L785">        } catch (ArtigoExistenteException e) {</span>
+<span class="nc" id="L786">            return false;</span>
+        }
+
+<span class="nc" id="L789">        return true;</span>
+    }
+}
+
+/*
+ * // Para remover o carrinho todo
+ * // Colcar o artigo a vende
+ * // Criar uma finção que tire o id dos vendedores apartir dos artigos
+ * ------------------------------------ Gestao de artigos
+ * // Aqui um loop do id do artigo e o id de vendedor
+ * // adicinonar o artigo disponivel
+ * this.gestor_Utilizadores().removerArtigoEncomenda(artigo_adicionar, id
+ * Vendedor ,this.utilizador);
+ * case 4:
+ * // Colocar o artigo disponivel a venda
+ * this.gestor_Utilizadores.removerArtigoEncomenda(artigo_adicionar, id Vendedor
+ * ,this.utilizador);
+ * break;
+ * case 5:
+ * 
+ * this.menu.imprimir(encomendasToString(this.gestor_Encomendas.getEncomendas())
+ * );
+ * break;
+ * case 6:
+ * // DE ID DE ARTIGO PARA ID DE TRANSPOORTADORA
+ * 
+ * long encomenda =this.menu.encomeda_id();
+ * 
+ */
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

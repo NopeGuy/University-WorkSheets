@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: poligono.Ponto_ESTest
+-------------------------------------------------------------------------------
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in poligono.Ponto_ESTest

@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TP2.TshirtTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in TP2.TshirtTest
+testClone  Time elapsed: 0.007 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: TP2.Tshirt@a33b4e3<T-shirt:: {Artigo:: { Código de barras: A15 Descrição: Descrição Marca: Marca Preço base: 50.0 Novo: true Estado de uso: 1 Número de utilizadores: 2 Disponivel: true Id da transportadora: 3 Id do vendedor: 4 } Tamanho: S Padrão: riscas}> but was: TP2.Tshirt@c6da8bb<T-shirt:: {Artigo:: { Código de barras: A15 Descrição: Descrição Marca: Marca Preço base: 50.0 Novo: true Estado de uso: 1 Número de utilizadores: 2 Disponivel: true Id da transportadora: 3 Id do vendedor: 4 } Tamanho: S Padrão: riscas}>
+	at TP2.TshirtTest.testClone(TshirtTest.java:57)
+
+testToString  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <T-shirt:: {Artigo:: {Descrição: Descrição Marca: Marca Preço Base: 50.0 Novo: false Estado de Uso: 0 Número de Utilizadores: 0 Transportadora: 1 Vendedor: 1} Tamanho: M Padrão: listrado}> but was: <T-shirt:: {Artigo:: { Código de barras: A16 Descrição: Descrição Marca: Marca Preço base: 50.0 Novo: false Estado de uso: 0 Número de utilizadores: 0 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: M Padrão: riscas}>
+	at TP2.TshirtTest.testToString(TshirtTest.java:90)
+
+testEquals  Time elapsed: 0.004 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <T-shirt:: {Artigo:: { Código de barras: A19 Descrição: Descrição Marca: Marca Preço base: 50.0 Novo: false Estado de uso: 0 Número de utilizadores: 0 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: M Padrão: liso}> but was: <T-shirt:: {Artigo:: { Código de barras: A20 Descrição: Descrição Marca: Marca Preço base: 50.0 Novo: false Estado de uso: 0 Número de utilizadores: 0 Disponivel: true Id da transportadora: 1 Id do vendedor: 1 } Tamanho: M Padrão: liso}>
+	at TP2.TshirtTest.testEquals(TshirtTest.java:67)
+

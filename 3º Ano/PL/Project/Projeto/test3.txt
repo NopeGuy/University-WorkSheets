@@ -1,0 +1,4 @@
+: SOMA5 5 +;
+: MAIOR15 SOMA5 15 >;
+: RES MAIOR15 IF ." O número é maior que 15" ELSE ." O número é menor ou igual a 15" THEN;
+12 RES

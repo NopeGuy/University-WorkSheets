@@ -1,0 +1,33 @@
+﻿@model Noitcua.Models.sala
+@{
+    ViewData["Title"] = "Criar Sala";
+    var errorMessage = TempData["ErrorMessage"] as string;
+    var currentRooms = ViewData["NumeroSalas"] as string;
+}
+
+<h2>Criar Sala</h2>
+
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">
+        @errorMessage
+    </div>
+}
+
+<p>Salas Criadas: @currentRooms / 3</p>
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="titulo">Nome da Sala:</label>
+        <input asp-for="titulo" class="form-control" />
+        <span asp-validation-for="titulo" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="descricao">Descrição:</label>
+        <input asp-for="descricao" class="form-control" type="text" />
+        <span asp-validation-for="descricao" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary">Criar</button>
+</form>

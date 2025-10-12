@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControladorUtilizador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">ControladorUtilizador.java</span></div><h1>ControladorUtilizador.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.io.*;
+import java.time.LocalDate;
+
+public class ControladorUtilizador implements Serializable{
+    
+    private final Input in;
+
+
+<span class="fc" id="L15">    public ControladorUtilizador(){</span>
+<span class="fc" id="L16">        in = new Input();</span>
+<span class="fc" id="L17">    }</span>
+
+
+
+    
+    private String login(Vintage v, Apresentacao a){
+
+<span class="nc" id="L24">        String email = in.lerString(a, &quot;Introduza o email: &quot;);</span>
+<span class="nc" id="L25">        String password = in.lerString(a, &quot;Introduza a password: &quot;);</span>
+
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if(v.existeUser(email, password)) {return email;}</span>
+<span class="nc" id="L28">        return null;</span>
+    }
+
+
+
+    private Utilizador registo(Vintage v, Apresentacao a){
+
+<span class="fc" id="L35">        List&lt;Artigo&gt; compras = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L36">        List&lt;Artigo&gt; porVender = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L37">        String nome = in.lerString(a, &quot;Introduza o nome: &quot;);</span>
+<span class="nc" id="L38">        String email = in.lerString(a, &quot;Introduza o email: &quot;);</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        while (v.existeEmail(email)){ a.printMessage(&quot;Email já existente.&quot;); email = in.lerString(a, &quot;Introduza o email: &quot;);}</span>
+<span class="nc" id="L40">        String password = in.lerString(a, &quot;Introduza a password: &quot;);</span>
+<span class="nc" id="L41">        String morada = in.lerString(a, &quot;Introduza a morada: &quot;);</span>
+<span class="nc" id="L42">        int nif = in.lerInt(a, &quot;Introduza o NIF: &quot;, 10000000, 999999999);</span>
+<span class="nc" id="L43">        List&lt;Artigo&gt; vendas = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L44">        Map&lt;LocalDate,Double&gt; faturacao = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L45">        return new Utilizador(email,password,nome,morada,nif,compras,porVender,vendas,faturacao);</span>
+    }
+
+
+
+
+
+    public String interpretador(Vintage v, Apresentacao a){
+        
+<span class="fc" id="L54">        boolean b = true;</span>
+        int comando;
+<span class="fc" id="L56">        String email = null;</span>
+
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        while(b){</span>
+<span class="fc" id="L59">            comando = in.lerInt(a, &quot;Escolha uma das opções: &quot;, 0, 10000);</span>
+
+<span class="pc bpc" id="L61" title="2 of 4 branches missed.">            switch(comando){</span>
+                case 1: 
+<span class="nc bnc" id="L63" title="All 2 branches missed.">                    if ((email = login(v,a)) != null){</span>
+<span class="nc" id="L64">                        a.printMessage(&quot;Login com Sucesso!&quot;);</span>
+<span class="nc" id="L65">                        b = false;</span>
+                    } else {
+<span class="nc" id="L67">                        a.printMessage(&quot;Dados inválidos.&quot;);</span>
+<span class="nc" id="L68">                    } break;</span>
+                case 2:
+<span class="nc" id="L70">                    Utilizador u = registo(v, a);</span>
+<span class="nc" id="L71">                    v.adicionaUtilizador(u);</span>
+<span class="nc" id="L72">                    email = u.getEmail();</span>
+<span class="nc" id="L73">                    a.printMessage(&quot;Registo com Sucesso!&quot;);</span>
+<span class="nc" id="L74">                    b = false;</span>
+<span class="nc" id="L75">                    a.printMessage(&quot;Email: &quot; + email + &quot;  |  Password: &quot; + u.getPassword());</span>
+                case 0:
+<span class="fc" id="L77">                    b = false;</span>
+<span class="fc" id="L78">                    break;</span>
+            }
+        }
+<span class="fc" id="L81">        return email;</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

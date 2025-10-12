@@ -1,0 +1,479 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="d0/dfb/camadadedados_8h" kind="file" language="C++">
+    <compoundname>camadadedados.h</compoundname>
+    <includedby refid="de/df3/camadadedados_8c" local="yes">src/camadadedados.c</includedby>
+    <includedby refid="d4/da9/interface_8h" local="yes">src/interface.h</includedby>
+    <includedby refid="dd/dda/interface_8c" local="yes">src/interface.c</includedby>
+    <includedby refid="d3/daa/logic_8h" local="yes">src/logic.h</includedby>
+    <includedby refid="d9/d91/lista_8h" local="yes">src/lista.h</includedby>
+    <includedby refid="dc/dff/lista_8c" local="yes">src/lista.c</includedby>
+    <includedby refid="d0/de3/logic_8c" local="yes">src/logic.c</includedby>
+    <invincdepgraph>
+      <node id="11">
+        <label>src/main.c</label>
+        <link refid="d0/d29/main_8c"/>
+      </node>
+      <node id="10">
+        <label>src/interface.c</label>
+        <link refid="dd/dda/interface_8c"/>
+      </node>
+      <node id="9">
+        <label>src/interface.h</label>
+        <link refid="d4/da9/interface_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>src/logic.c</label>
+        <link refid="d0/de3/logic_8c"/>
+      </node>
+      <node id="12">
+        <label>src/logic.h</label>
+        <link refid="d3/daa/logic_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>src/lista.c</label>
+        <link refid="dc/dff/lista_8c"/>
+      </node>
+      <node id="13">
+        <label>src/lista.h</label>
+        <link refid="d9/d91/lista_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>src/camadadedados.c</label>
+        <link refid="de/df3/camadadedados_8c"/>
+      </node>
+      <node id="7">
+        <label>src/camadadedados.h</label>
+        <link refid="d0/dfb/camadadedados_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" prot="public">COORDENADA</innerclass>
+    <innerclass refid="d3/db6/struct_j_o_g_a_d_a" prot="public">JOGADA</innerclass>
+    <innerclass refid="df/d91/struct_e_s_t_a_d_o" prot="public">ESTADO</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" prot="public" static="no">
+        <name>ERROS</name>
+        <enumvalue id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" prot="public">
+          <name>OK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda79ebb08f197afde2120c3a89f2528890" prot="public">
+          <name>COORDENADA_INVALIDA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda402a7096ff471024cb93e6034b6008e2" prot="public">
+          <name>JOGADA_INVALIDA</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdaa11c2bf2a8de9395382caef85ccdeb59" prot="public">
+          <name>ERRO_LER_TAB</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdac2135f62387f11d7f60a020e2f828e66" prot="public">
+          <name>ERRO_ABRIR_FICHEIRO</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="9" column="1" bodyfile="src/camadadedados.h" bodystart="9" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="enum" id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" prot="public" static="no">
+        <name>CASA</name>
+        <enumvalue id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" prot="public">
+          <name>UM</name>
+          <initializer>= &apos;1&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" prot="public">
+          <name>DOIS</name>
+          <initializer>= &apos;2&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" prot="public">
+          <name>VAZIO</name>
+          <initializer>= &apos;_&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" prot="public">
+          <name>BRANCA</name>
+          <initializer>= &apos;O&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a007278eb3827d19891b47cdd3ac8846d" prot="public">
+          <name>PRETA</name>
+          <initializer>= &apos;#&apos;</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Tipo de Dados para as casas do tabuleiro. </para>        </briefdescription>
+        <detaileddescription>
+<para>Dados para cada casa no tabuleiro , as vazias e onde é as casas de vitória e onde se inicia a peça branca. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="22" column="1" bodyfile="src/camadadedados.h" bodystart="22" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="d0/dfb/camadadedados_8h_1abfd4087329f38d5644d91c38b009985d" prot="public" static="no">
+        <type><ref refid="d3/db6/struct_j_o_g_a_d_a" kindref="compound">JOGADA</ref></type>
+        <definition>typedef JOGADA JOGADAS[64]</definition>
+        <argsstring>[64]</argsstring>
+        <name>JOGADAS</name>
+        <briefdescription>
+<para>São dados de modificação de estado. </para>        </briefdescription>
+        <detaileddescription>
+<para>É um Prompt que guarda todas as jogadas efetuadas por cada jogador ao longo do jogo. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="54" column="1" bodyfile="src/camadadedados.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1a7e0c7e26fb685d9ab501e19b05e6954f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+        <definition>ESTADO* inicializar_estado</definition>
+        <argsstring>()</argsstring>
+        <name>inicializar_estado</name>
+        <briefdescription>
+<para>Prepara as condiçoes para o inicio do jogo , poe a primeira jogada e define o jogador atual e o número de jogadas. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A Coordenada </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="70" column="1" bodyfile="src/camadadedados.c" bodystart="6" bodyend="26"/>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" compoundref="d0/dfb/camadadedados_8h" startline="26">BRANCA</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" compoundref="d0/dfb/camadadedados_8h" startline="35">COORDENADA::coluna</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" compoundref="d0/dfb/camadadedados_8h" startline="24">DOIS</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" compoundref="d0/dfb/camadadedados_8h" startline="58">ESTADO::jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" compoundref="d0/dfb/camadadedados_8h" startline="60">ESTADO::jogador_atual</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" compoundref="d0/dfb/camadadedados_8h" startline="36">COORDENADA::linha</references>
+        <references refid="dd/dda/interface_8c_1ad5228cd48403ef9d8b632f5c7c124720" compoundref="dd/dda/interface_8c" startline="14">n</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" compoundref="d0/dfb/camadadedados_8h" startline="59">ESTADO::num_jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" compoundref="d0/dfb/camadadedados_8h" startline="56">ESTADO::tab</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" compoundref="d0/dfb/camadadedados_8h" startline="57">ESTADO::ultima_jogada</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" compoundref="d0/dfb/camadadedados_8h" startline="23">UM</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" compoundref="d0/dfb/camadadedados_8h" startline="25">VAZIO</references>
+        <referencedby refid="d0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" compoundref="d0/d29/main_8c" startline="10" endline="27">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1ad6e326e4ffa57ca1ae0c75377ecefc8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int obter_jogador_atual</definition>
+        <argsstring>(ESTADO *estado)</argsstring>
+        <name>obter_jogador_atual</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>estado</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="72" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1a6cd0b387bdee9e18003c78852394aa63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int obter_numero_de_jogadas</definition>
+        <argsstring>(ESTADO *estado)</argsstring>
+        <name>obter_numero_de_jogadas</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>estado</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="74" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1a6faa68373203923729ed38657aa0f768" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref></type>
+        <definition>CASA obter_estado_casa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>obter_estado_casa</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="76" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1a4ff507f9c0fe1035cf233f4964b1a302" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void set_casa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c, CASA V)</argsstring>
+        <name>set_casa</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref></type>
+          <declname>V</declname>
+        </param>
+        <briefdescription>
+<para>Muda o valor de uma casa. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordenada </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>V</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>O novo valor para a casa </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="85" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/dfb/camadadedados_8h_1a20acddc30eae79368814d559cce579a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref></type>
+        <definition>CASA get_casa</definition>
+        <argsstring>(ESTADO *e, COORDENADA c)</argsstring>
+        <name>get_casa</name>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Devolve o valor de uma casa. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A coordenada </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>O valor da casa </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/camadadedados.h" line="93" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Definição das funções de estado. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">@file<sp/>camadadedados.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Definição<sp/>das<sp/>funções<sp/>de<sp/>estado</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RASTROS_CAMADADEDADOS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RASTROS_CAMADADEDADOS_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kindref="member">OK</ref>,</highlight></codeline>
+<codeline lineno="11" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda79ebb08f197afde2120c3a89f2528890" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda79ebb08f197afde2120c3a89f2528890" kindref="member">COORDENADA_INVALIDA</ref>,</highlight></codeline>
+<codeline lineno="12" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda402a7096ff471024cb93e6034b6008e2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda402a7096ff471024cb93e6034b6008e2" kindref="member">JOGADA_INVALIDA</ref>,</highlight></codeline>
+<codeline lineno="13" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdaa11c2bf2a8de9395382caef85ccdeb59" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdaa11c2bf2a8de9395382caef85ccdeb59" kindref="member">ERRO_LER_TAB</ref>,</highlight></codeline>
+<codeline lineno="14" refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdac2135f62387f11d7f60a020e2f828e66" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdac2135f62387f11d7f60a020e2f828e66" kindref="member">ERRO_ABRIR_FICHEIRO</ref>,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}<sp/><ref refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kindref="member">ERROS</ref>;</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="17"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="18"><highlight class="comment">\brief<sp/>Tipo<sp/>de<sp/>Dados<sp/>para<sp/>as<sp/>casas<sp/>do<sp/>tabuleiro.</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*Dados<sp/>para<sp/>cada<sp/>casa<sp/>no<sp/>tabuleiro<sp/>,<sp/>as<sp/>vazias<sp/>e<sp/>onde<sp/>é<sp/>as<sp/>casas<sp/>de<sp/>vitória<sp/>e<sp/>onde<sp/>se<sp/>inicia<sp/>a<sp/>peça<sp/>branca.</highlight></codeline>
+<codeline lineno="20"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="23" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" kindref="member">UM</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;1&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="24" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" kindref="member">DOIS</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;2&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="25" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" kindref="member">VAZIO</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;_&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="26" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" kindref="member">BRANCA</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;O&apos;</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="27" refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a007278eb3827d19891b47cdd3ac8846d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a007278eb3827d19891b47cdd3ac8846d" kindref="member">PRETA</ref><sp/>=<sp/></highlight><highlight class="charliteral">&apos;#&apos;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}<sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref>;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="30"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="31"><highlight class="comment">\brief<sp/>Tipo<sp/>de<sp/>Dados<sp/>das<sp/>colunas<sp/>e<sp/>linhas<sp/>do<sp/>tabuleiro.</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35" refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kindref="member">coluna</ref>;</highlight></codeline>
+<codeline lineno="36" refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kindref="member">linha</ref>;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="39"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="40"><highlight class="comment">\brief<sp/>Tipo<sp/>de<sp/>dados<sp/>dos<sp/>jogadores<sp/>e<sp/>da<sp/>devida<sp/>jogada.</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*Coordenada<sp/>da<sp/>jogada<sp/>de<sp/>casa<sp/>jogador.</highlight></codeline>
+<codeline lineno="42"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="d3/db6/struct_j_o_g_a_d_a" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45" refid="d3/db6/struct_j_o_g_a_d_a_1a93d9306cb0c49b66b7d9a615bffe0149" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/><ref refid="d3/db6/struct_j_o_g_a_d_a_1a93d9306cb0c49b66b7d9a615bffe0149" kindref="member">jogador1</ref>;</highlight></codeline>
+<codeline lineno="46" refid="d3/db6/struct_j_o_g_a_d_a_1ab46b16dfbdc7f2af9430c8dcdac0914b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/><ref refid="d3/db6/struct_j_o_g_a_d_a_1ab46b16dfbdc7f2af9430c8dcdac0914b" kindref="member">jogador2</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<sp/><ref refid="d3/db6/struct_j_o_g_a_d_a" kindref="compound">JOGADA</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="49"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="50"><highlight class="comment">\brief<sp/>São<sp/>dados<sp/>de<sp/>modificação<sp/>de<sp/>estado.</highlight></codeline>
+<codeline lineno="51"><highlight class="comment"><sp/>*<sp/>É<sp/>um<sp/>Prompt<sp/>que<sp/>guarda<sp/>todas<sp/>as<sp/>jogadas<sp/>efetuadas<sp/>por<sp/>cada<sp/>jogador<sp/>ao<sp/>longo<sp/>do<sp/>jogo.</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="d0/dfb/camadadedados_8h_1abfd4087329f38d5644d91c38b009985d" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/><ref refid="d3/db6/struct_j_o_g_a_d_a" kindref="compound">JOGADA</ref><sp/><ref refid="d0/dfb/camadadedados_8h_1abfd4087329f38d5644d91c38b009985d" kindref="member">JOGADAS</ref>[64];</highlight></codeline>
+<codeline lineno="55" refid="df/d91/struct_e_s_t_a_d_o" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56" refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>tab[8][8];</highlight></codeline>
+<codeline lineno="57" refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/><ref refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" kindref="member">ultima_jogada</ref>;</highlight></codeline>
+<codeline lineno="58" refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/dfb/camadadedados_8h_1abfd4087329f38d5644d91c38b009985d" kindref="member">JOGADAS</ref><sp/><ref refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" kindref="member">jogadas</ref>;</highlight></codeline>
+<codeline lineno="59" refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" kindref="member">num_jogadas</ref>;</highlight></codeline>
+<codeline lineno="60" refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kindref="member">jogador_atual</ref>;</highlight></codeline>
+<codeline lineno="61" refid="df/d91/struct_e_s_t_a_d_o_1adf1064dfc09145b6995a7897249f1674" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="df/d91/struct_e_s_t_a_d_o_1adf1064dfc09145b6995a7897249f1674" kindref="member">num_comando</ref>;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}<sp/><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="64"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="65"><highlight class="comment">*\brief<sp/>Prepara<sp/>as<sp/>condiçoes<sp/>para<sp/>o<sp/>inicio<sp/>do<sp/>jogo<sp/>,<sp/>poe<sp/>a<sp/>primeira<sp/>jogada<sp/>e<sp/>define<sp/>o<sp/>jogador<sp/>atual<sp/>e<sp/>o<sp/>número<sp/>de<sp/>jogadas.</highlight></codeline>
+<codeline lineno="66"><highlight class="comment">@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado</highlight></codeline>
+<codeline lineno="67"><highlight class="comment">@param<sp/>c<sp/>A<sp/>Coordenada</highlight></codeline>
+<codeline lineno="68"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*<ref refid="d0/dfb/camadadedados_8h_1a7e0c7e26fb685d9ab501e19b05e6954f" kindref="member">inicializar_estado</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d0/dfb/camadadedados_8h_1ad6e326e4ffa57ca1ae0c75377ecefc8c" kindref="member">obter_jogador_atual</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*estado);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d0/dfb/camadadedados_8h_1a6cd0b387bdee9e18003c78852394aa63" kindref="member">obter_numero_de_jogadas</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*estado);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/><ref refid="d0/dfb/camadadedados_8h_1a6faa68373203923729ed38657aa0f768" kindref="member">obter_estado_casa</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="78"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="79"><highlight class="comment">\brief<sp/>Muda<sp/>o<sp/>valor<sp/>de<sp/>uma<sp/>casa</highlight></codeline>
+<codeline lineno="80"><highlight class="comment">@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado</highlight></codeline>
+<codeline lineno="81"><highlight class="comment">@param<sp/>c<sp/>A<sp/>coordenada</highlight></codeline>
+<codeline lineno="82"><highlight class="comment">@param<sp/>V<sp/>O<sp/>novo<sp/>valor<sp/>para<sp/>a<sp/>casa</highlight></codeline>
+<codeline lineno="83"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/dfb/camadadedados_8h_1a4ff507f9c0fe1035cf233f4964b1a302" kindref="member">set_casa</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/>c,<sp/><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/>V);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="87"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="88"><highlight class="comment">\brief<sp/>Devolve<sp/>o<sp/>valor<sp/>de<sp/>uma<sp/>casa</highlight></codeline>
+<codeline lineno="89"><highlight class="comment">@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado</highlight></codeline>
+<codeline lineno="90"><highlight class="comment">@param<sp/>c<sp/>A<sp/>coordenada</highlight></codeline>
+<codeline lineno="91"><highlight class="comment">@returns<sp/>O<sp/>valor<sp/>da<sp/>casa</highlight></codeline>
+<codeline lineno="92"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><ref refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kindref="member">CASA</ref><sp/><ref refid="d0/dfb/camadadedados_8h_1a20acddc30eae79368814d559cce579a9" kindref="member">get_casa</ref>(<ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e,<sp/><ref refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kindref="compound">COORDENADA</ref><sp/>c);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="src/camadadedados.h"/>
+  </compounddef>
+</doxygen>

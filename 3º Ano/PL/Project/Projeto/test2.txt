@@ -1,0 +1,4 @@
+: TESTKEY ( -- )
+." Hit a key: " KEY CR
+." That = " . CR;
+TESTKEY

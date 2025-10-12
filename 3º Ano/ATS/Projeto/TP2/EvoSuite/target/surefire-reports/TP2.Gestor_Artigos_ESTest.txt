@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: TP2.Gestor_Artigos_ESTest
+-------------------------------------------------------------------------------
+Tests run: 107, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in TP2.Gestor_Artigos_ESTest

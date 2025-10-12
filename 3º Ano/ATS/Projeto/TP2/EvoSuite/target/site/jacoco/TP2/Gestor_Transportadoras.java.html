@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Gestor_Transportadoras.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Gestor_Transportadoras.java</span></div><h1>Gestor_Transportadoras.java</h1><pre class="source lang-java linenums">package TP2;
+import java.util.HashMap;
+import java.util.Map;
+import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
+import java.util.ArrayList;
+
+public class Gestor_Transportadoras implements Serializable {
+    private Map&lt;Long, Transportadora&gt; transportadoras; // contém as transportadoras todas
+
+    // Construtor vazio
+<span class="fc" id="L13">    public Gestor_Transportadoras() {</span>
+<span class="fc" id="L14">        this.transportadoras = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L15">    }</span>
+
+    // Construtor parametrizado
+<span class="fc" id="L18">    public Gestor_Transportadoras(Map&lt;Long, Transportadora&gt; transportadoras2) {</span>
+<span class="fc" id="L19">        this.transportadoras = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (Long l : transportadoras2.keySet())</span>
+<span class="fc" id="L22">            this.transportadoras.put(l, transportadoras2.get(l).clone());</span>
+<span class="fc" id="L23">    }</span>
+
+    // Construtor cópia
+<span class="fc" id="L26">    public Gestor_Transportadoras(Gestor_Transportadoras umaGestora) {</span>
+<span class="fc" id="L27">        this.transportadoras = umaGestora.getTransportadoras();</span>
+<span class="fc" id="L28">    }</span>
+
+    // Métodos getters e setters
+    public Map&lt;Long, Transportadora&gt; getTransportadoras() {
+<span class="fc" id="L32">        Map&lt;Long, Transportadora&gt; copia = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (Long l : this.transportadoras.keySet())</span>
+<span class="fc" id="L35">            copia.put(l, this.transportadoras.get(l).clone());</span>
+
+<span class="fc" id="L37">        return copia;</span>
+    }
+
+    public void setTransportadoras(Map&lt;Long, Transportadora&gt; novas) {
+<span class="fc" id="L41">        this.transportadoras = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Long l : novas.keySet())</span>
+<span class="fc" id="L44">            this.transportadoras.put(l, novas.get(l).clone());</span>
+<span class="fc" id="L45">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L49">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L50">        sb.append(&quot;Gestor de Transportadoras:: {&quot;);</span>
+<span class="fc" id="L51">        sb.append(&quot; Informações das transportadoras: &quot;).append(this.transportadoras.toString()).append(&quot;}&quot;);</span>
+<span class="fc" id="L52">        sb.append(&quot;\n&quot;);</span>
+<span class="fc" id="L53">        return sb.toString();</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (o == this)</span>
+<span class="fc" id="L59">            return true;</span>
+
+<span class="fc bfc" id="L61" title="All 4 branches covered.">        if (o == null || o.getClass() != this.getClass())</span>
+<span class="fc" id="L62">            return false;</span>
+
+<span class="fc" id="L64">        Gestor_Transportadoras g = (Gestor_Transportadoras) o;</span>
+
+<span class="fc" id="L66">        return (this.transportadoras.equals(g.getTransportadoras()));</span>
+    }
+
+    @Override
+    public Gestor_Transportadoras clone() {
+<span class="fc" id="L71">        Gestor_Transportadoras copia = new Gestor_Transportadoras(this);</span>
+<span class="fc" id="L72">        return copia;</span>
+    }
+
+    // Método que cria uma nova Transportadora e adicona ao map
+    public void criaTransportadora(String nome, double valor_pequenas, double valor_medio, double valor_grande,
+            double impostos,
+            double margemlucro, boolean premium, int formula) {
+<span class="fc" id="L79">        Transportadora t = new Transportadora(nome, valor_pequenas, valor_medio, valor_grande, impostos, margemlucro,</span>
+                premium, formula);
+<span class="fc" id="L81">        this.transportadoras.put(t.getId(), t);</span>
+<span class="fc" id="L82">    }</span>
+
+    // Método que elimina uma Transportadora
+    public long removeTransportadora(long idTransportadora) throws TransportadoraNaoEncontradaException {
+<span class="fc bfc" id="L86" title="All 2 branches covered.">        if (this.transportadoras.containsKey(idTransportadora) == false)</span>
+<span class="fc" id="L87">            throw new TransportadoraNaoEncontradaException(</span>
+                    &quot;A transportadora com ID &quot; + idTransportadora + &quot; não existe&quot;);
+
+        else {
+<span class="fc" id="L91">            this.transportadoras.remove(idTransportadora);</span>
+<span class="fc" id="L92">            return idTransportadora;</span>
+        }
+    }
+
+    // Método que determina qual a transportadora que fatorou mais
+    public String fatorouMais() throws TransportadoraNaoEncontradaException {
+<span class="fc" id="L98">        Transportadora maximo = this.transportadoras.get(this.transportadoras.keySet().iterator().next());</span>
+<span class="pc bpc" id="L99" title="1 of 2 branches missed.">        if (maximo == null)</span>
+<span class="nc" id="L100">            throw new TransportadoraNaoEncontradaException(&quot;Não existe nehuma transportadora na Vintage&quot;);</span>
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        for (Long l : this.transportadoras.keySet()) {</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">            if (this.transportadoras.get(l).getTotalLucro() &gt; maximo.getTotalLucro())</span>
+<span class="fc" id="L104">                maximo = this.transportadoras.get(l); // não sei se tenho de fazer clone</span>
+<span class="fc" id="L105">        }</span>
+<span class="fc" id="L106">        return (maximo.toString());</span>
+    }
+
+    // Método que calcula o preço do transporte de uma encomenda
+    // Recebe um List que contém os ids das transportadoras
+    public double precoTransporte(List&lt;Long&gt; idsTransportadora) {
+<span class="fc" id="L112">        double total = 0;</span>
+<span class="fc" id="L113">        List&lt;Long&gt; idsCopy = new ArrayList&lt;&gt;(idsTransportadora);</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        for (Long l : idsCopy) {</span>
+<span class="fc" id="L115">            int quanti = Collections.frequency(idsTransportadora, l);</span>
+            // É preciso verificar se a transportadora existe
+<span class="fc bfc" id="L117" title="All 2 branches covered.">            if (this.transportadoras.get(l).getFormula() == 1)</span>
+<span class="fc" id="L118">                total += this.transportadoras.get(l).preco_transportadora1(quanti);</span>
+<span class="fc bfc" id="L119" title="All 2 branches covered.">            else if (this.transportadoras.get(l).getFormula() == 2)</span>
+<span class="fc" id="L120">                total += this.transportadoras.get(l).preco_transportadora2(quanti);</span>
+<span class="pc bpc" id="L121" title="1 of 2 branches missed.">            else if (this.transportadoras.get(l).getFormula() == 3)</span>
+<span class="nc" id="L122">                total += this.transportadoras.get(l).preco_transportadora3(quanti);</span>
+
+<span class="pc bpc" id="L124" title="1 of 2 branches missed.">            idsTransportadora.removeIf(id -&gt; id == l);</span>
+<span class="fc" id="L125">        }</span>
+
+<span class="fc" id="L127">        return total;</span>
+    }
+
+    // Método que verifica se uma dada Transportadora existe
+    public boolean existe_transpotadora(long idTransportadora) {
+<span class="fc" id="L132">        return (this.transportadoras.containsKey(idTransportadora));</span>
+    }
+
+    public boolean existe_transpotadoraNormal(long idTransportadora) {
+<span class="fc bfc" id="L136" title="All 2 branches covered.">        return (this.transportadoras.containsKey(idTransportadora) == true</span>
+<span class="fc bfc" id="L137" title="All 2 branches covered.">                &amp;&amp; this.transportadoras.get(idTransportadora).isPremium() == false);</span>
+    }
+
+    public boolean existe_transpotadoraPremium(long idTransportadora) {
+<span class="fc bfc" id="L141" title="All 2 branches covered.">        return (this.transportadoras.containsKey(idTransportadora) == true</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">                &amp;&amp; this.transportadoras.get(idTransportadora).isPremium() == true);</span>
+    }
+
+    // Método que apresenta as transportadoras não premium
+    public String transportadorasNormais() {
+<span class="fc" id="L147">        StringBuilder sb = new StringBuilder();</span>
+
+<span class="fc bfc" id="L149" title="All 2 branches covered.">        for (Long l : this.transportadoras.keySet()) {</span>
+<span class="fc" id="L150">            Transportadora t = this.transportadoras.get(l);</span>
+<span class="fc bfc" id="L151" title="All 2 branches covered.">            if (t.isPremium() == false) {</span>
+<span class="fc" id="L152">                sb.append(t.toString()).append(&quot;\n&quot;);</span>
+            }
+<span class="fc" id="L154">        }</span>
+<span class="fc" id="L155">        return sb.toString();</span>
+    }
+
+    // Método que apresenta apenas as transportadoras premium ----&gt; Nova
+    public String transportadorasPremium() {
+<span class="fc" id="L160">        StringBuilder sb = new StringBuilder();</span>
+
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        for (Long l : this.transportadoras.keySet()) {</span>
+<span class="fc" id="L163">            Transportadora t = this.transportadoras.get(l);</span>
+<span class="fc bfc" id="L164" title="All 2 branches covered.">            if (t.isPremium() == true) {</span>
+<span class="fc" id="L165">                sb.append(t.toString()).append(&quot;\n&quot;);</span>
+            }
+<span class="fc" id="L167">        }</span>
+<span class="fc" id="L168">        return sb.toString();</span>
+    }
+
+    // Método que dado um id de transportadora, altera a formula de custos
+    public void alteraFormula(long idTransportadora, int formula) {
+<span class="fc" id="L173">        this.transportadoras.get(idTransportadora).setFormula(formula);</span>
+<span class="fc" id="L174">    }</span>
+
+    public String formulasNormais() {
+<span class="fc" id="L177">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L178">        sb.append(&quot;1)&quot;).append(&quot; (ValorBase * MargemLucroTransportadora * (1 + Imposto)) * 0,9&quot;).append(&quot;\n&quot;);</span>
+<span class="fc" id="L179">        sb.append(&quot;2)&quot;).append(&quot; (ValorBase * (1 + MargemLucroTransportadora + Imposto)) * 0,7&quot;);</span>
+
+<span class="fc" id="L181">        return sb.toString();</span>
+    }
+
+    public String formulasDisponiveis() {
+<span class="fc" id="L185">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L186">        sb.append(&quot;1)&quot;).append(&quot; (ValorBase * MargemLucroTransportadora * (1 + Imposto)) * 0,9&quot;).append(&quot;\n&quot;);</span>
+<span class="fc" id="L187">        sb.append(&quot;2)&quot;).append(&quot; (ValorBase * (1 + MargemLucroTransportadora + Imposto)) * 0,7&quot;).append(&quot;\n&quot;);</span>
+<span class="fc" id="L188">        sb.append(&quot;3)&quot;).append(&quot; (ValorBase * MargemLucroTransportadora * (1 + Imposto)) * 1,5&quot;);</span>
+
+<span class="fc" id="L190">        return sb.toString();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Malas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">Malas.java</span></div><h1>Malas.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.time.LocalDate;
+
+public class Malas extends Artigo {
+<span class="fc" id="L6">    public enum Tipos_Malas {</span>
+<span class="fc" id="L7">        NORMAL,</span>
+<span class="fc" id="L8">        PREMIUM</span>
+    }
+    private Tipos_Malas tipo_mala;
+    private float dim;
+    private String material;
+    private int ano_da_colecao;
+
+    public Malas(){
+<span class="fc" id="L16">        super();</span>
+<span class="fc" id="L17">        this.tipo_mala = null; // nao sei se é null</span>
+<span class="fc" id="L18">        this.dim = 0;</span>
+<span class="fc" id="L19">        this.material = &quot;&quot;;</span>
+<span class="fc" id="L20">        this.ano_da_colecao = 0;</span>
+<span class="fc" id="L21">    }</span>
+
+    public Malas(Tipos_Malas tipo_mala, float dim, String material, int ano_da_colecao, String tipo, Estado estado, int numeroDonos, Avaliação avaliacao, String descricao, String marca, String codigo, double precoBase, double correcaoPreco, String t) {
+<span class="fc" id="L24">        super(tipo, estado, numeroDonos, avaliacao, descricao, marca, codigo, precoBase, correcaoPreco, t);</span>
+<span class="fc" id="L25">        this.tipo_mala = tipo_mala;</span>
+<span class="fc" id="L26">        this.dim = dim;</span>
+<span class="fc" id="L27">        this.material = material;</span>
+<span class="fc" id="L28">        this.ano_da_colecao = ano_da_colecao;</span>
+<span class="fc" id="L29">    }</span>
+
+    public Malas(Malas mala) {
+<span class="fc" id="L32">        super(mala);</span>
+<span class="fc" id="L33">        this.tipo_mala = mala.getTipo_mala();</span>
+<span class="fc" id="L34">        this.dim = mala.getDim();</span>
+<span class="fc" id="L35">        this.material = mala.getMaterial();</span>
+<span class="fc" id="L36">        this.ano_da_colecao = mala.getAno_da_colecao();</span>
+<span class="fc" id="L37">    }</span>
+
+    public Tipos_Malas getTipo_mala() {
+<span class="fc" id="L40">        return tipo_mala;</span>
+    }
+
+    public void setTipo_mala(Tipos_Malas tipo_mala) {
+<span class="fc" id="L44">        this.tipo_mala = tipo_mala;</span>
+<span class="fc" id="L45">    }</span>
+
+    public float getDim() {
+<span class="fc" id="L48">        return dim;</span>
+    }
+
+    public void setDim(float dim) {
+<span class="fc" id="L52">        this.dim = dim;</span>
+<span class="fc" id="L53">    }</span>
+
+    public String getMaterial() {
+<span class="fc" id="L56">        return material;</span>
+    }
+
+    public void setMaterial(String material) {
+<span class="fc" id="L60">        this.material = material;</span>
+<span class="fc" id="L61">    }</span>
+
+    public int getAno_da_colecao() {
+<span class="fc" id="L64">        return ano_da_colecao;</span>
+    }
+
+    public void setAno_da_colecao(int ano_da_colecao) {
+<span class="fc" id="L68">        this.ano_da_colecao = ano_da_colecao;</span>
+<span class="fc" id="L69">    }</span>
+
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        if(this == o) </span>
+<span class="fc" id="L73">            return true;</span>
+<span class="fc bfc" id="L74" title="All 4 branches covered.">        if((o == null) || (this.getClass() != o.getClass())) </span>
+<span class="fc" id="L75">            return false;</span>
+<span class="fc" id="L76">        Malas m = (Malas) o;</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        return (this.tipo_mala == m.getTipo_mala() &amp;&amp;</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">                this.dim == m.getDim() &amp;&amp;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">                this.material.equals(m.getMaterial()) &amp;&amp;</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">                this.ano_da_colecao == m.getAno_da_colecao());</span>
+    }
+
+    public String toString(LocalDate data) {
+<span class="fc" id="L84">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L85">        sb.append(super.toString(data));</span>
+<span class="fc" id="L86">        sb.append(&quot;Tipo de mala: &quot;).append(this.tipo_mala).append(&quot;\n&quot;);</span>
+<span class="fc" id="L87">        sb.append(&quot;Dimensões: &quot;).append(this.dim).append(&quot;\n&quot;);</span>
+<span class="fc" id="L88">        sb.append(&quot;Material: &quot;).append(this.material).append(&quot;\n&quot;);</span>
+<span class="fc" id="L89">        sb.append(&quot;Ano da coleção: &quot;).append(this.ano_da_colecao).append(&quot;\n&quot;);</span>
+<span class="fc" id="L90">        sb.append(&quot;Preco Final: &quot;).append(this.precoFinal(data)).append(&quot;\n&quot;);</span>
+<span class="fc" id="L91">        return sb.toString();</span>
+    }
+    
+    public Malas clone() {
+<span class="fc" id="L95">        return new Malas(this);</span>
+    }
+
+    public double precoFinal(LocalDate data) {
+<span class="fc" id="L99">        double precoFinal = super.getPrecoBase();</span>
+<span class="fc" id="L100">        int difAno = data.getYear() - this.ano_da_colecao;</span>
+
+<span class="fc bfc" id="L102" title="All 2 branches covered.">        if (this.dim &lt; 10){  // Podemos vir a acrescentar o material</span>
+<span class="fc" id="L103">            precoFinal += (super.getCorrecaoPreco() * 0.5 * difAno);</span>
+        }
+<span class="fc bfc" id="L105" title="All 4 branches covered.">        if (this.dim &gt;= 10 &amp;&amp; this.dim &lt; 30){</span>
+<span class="fc" id="L106">            precoFinal += super.getCorrecaoPreco() * difAno;</span>
+        }
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if (this.dim &gt;= 30){</span>
+<span class="fc" id="L109">            precoFinal += super.getCorrecaoPreco() * difAno * 1.5;</span>
+        }
+<span class="fc" id="L111">        return precoFinal;</span>
+    }
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

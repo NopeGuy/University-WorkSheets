@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Transportadoras.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">Transportadoras.java</span></div><h1>Transportadoras.java</h1><pre class="source lang-java linenums">package TP1;
+import java.io.*;
+
+public class Transportadoras implements Serializable{
+    private String nome;
+    private double imposto;
+    private double lucro;
+    private boolean premium; 
+    private double volFaturacao;
+    private int formula;
+
+
+<span class="fc" id="L13">    public Transportadoras() {</span>
+<span class="fc" id="L14">        this.nome = &quot;&quot;;</span>
+<span class="fc" id="L15">        this.imposto = 0.3;</span>
+<span class="fc" id="L16">        this.lucro = 0.10;</span>
+<span class="fc" id="L17">        this.premium = false;</span>
+<span class="fc" id="L18">        this.volFaturacao = 0.0;</span>
+<span class="fc" id="L19">        this.formula = 1;</span>
+<span class="fc" id="L20">    }</span>
+
+<span class="fc" id="L22">    public Transportadoras(String nome, double imposto, double lucro, boolean premium, double volFaturacao) {</span>
+<span class="fc" id="L23">        this.nome = nome;</span>
+<span class="fc" id="L24">        this.imposto = imposto;</span>
+<span class="fc" id="L25">        this.lucro = lucro;</span>
+<span class="fc" id="L26">        this.premium = premium;</span>
+<span class="fc" id="L27">        this.volFaturacao = volFaturacao;</span>
+<span class="fc" id="L28">        this.formula = 1;       // a transportadora é criada já com a formula pré definida</span>
+<span class="fc" id="L29">    }</span>
+
+<span class="fc" id="L31">    public Transportadoras(Transportadoras t) {</span>
+<span class="fc" id="L32">        this.nome = t.getNome();</span>
+<span class="fc" id="L33">        this.imposto = t.getImposto();</span>
+<span class="fc" id="L34">        this.lucro = t.getLucro();</span>
+<span class="fc" id="L35">        this.premium = t.isPremium();</span>
+<span class="fc" id="L36">        this.volFaturacao = t.getVolFaturacao();</span>
+<span class="fc" id="L37">        this.formula = t.getFormula();</span>
+<span class="fc" id="L38">    }</span>
+
+    public String getNome() {
+<span class="fc" id="L41">        return this.nome;</span>
+    }
+
+    public void setNome(String nome) {
+<span class="fc" id="L45">        this.nome = nome;</span>
+<span class="fc" id="L46">    }</span>
+
+    public double getImposto() {
+<span class="fc" id="L49">        return imposto;</span>
+    }
+
+    public void setImposto(double imposto) {
+<span class="fc" id="L53">        this.imposto = imposto;</span>
+<span class="fc" id="L54">    }</span>
+    
+    
+    public double getLucro() {
+<span class="fc" id="L58">        return lucro;</span>
+    }
+
+    public void setLucro(double lucro) {
+<span class="fc" id="L62">        this.lucro = lucro;</span>
+<span class="fc" id="L63">    }</span>
+    
+    public boolean isPremium() {
+<span class="fc" id="L66">        return premium;</span>
+    }
+
+    public void setPremium(boolean premium) {
+<span class="fc" id="L70">        this.premium = premium;</span>
+<span class="fc" id="L71">    }</span>
+
+    public double getVolFaturacao(){
+<span class="fc" id="L74">        return this.volFaturacao;</span>
+    }
+
+    public void setVolFaturacao(double vol){
+<span class="fc" id="L78">        this.volFaturacao = vol;</span>
+<span class="fc" id="L79">    }</span>
+
+    public void addVolFaturacao(double vol){
+<span class="fc" id="L82">        this.volFaturacao+=vol;</span>
+<span class="fc" id="L83">    }</span>
+
+    public int getFormula(){
+<span class="fc" id="L86">        return this.formula;</span>
+    }
+
+    public void setFormula(int formula){
+<span class="nc" id="L90">        this.formula = formula;</span>
+<span class="nc" id="L91">    }</span>
+
+
+
+
+
+    public String toString() {
+<span class="fc" id="L98">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L99">        sb.append(&quot;Nome: &quot;).append(this.nome).append(&quot;\n&quot;);</span>
+<span class="fc" id="L100">        sb.append(&quot;Imposto: &quot;).append(this.imposto).append(&quot;\n&quot;);</span>
+<span class="fc" id="L101">        sb.append(&quot;Lucro: &quot;).append(this.lucro).append(&quot;\n&quot;);</span>
+<span class="fc" id="L102">        sb.append(&quot;Premium: &quot;).append(this.premium).append(&quot;\n&quot;);</span>
+<span class="fc" id="L103">        sb.append(&quot;# Formula: &quot;).append(this.formula).append(&quot;\n&quot;);</span>
+<span class="fc" id="L104">        return sb.toString();</span>
+    }
+
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L108" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L109" title="All 4 branches covered.">        if (o == null || this.getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L110">        Transportadoras t = (Transportadoras) o;</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">        return this.nome.equals(t.getNome()) &amp;&amp;</span>
+<span class="fc bfc" id="L112" title="All 2 branches covered.">                this.imposto == t.getImposto() &amp;&amp;</span>
+<span class="pc bpc" id="L113" title="1 of 2 branches missed.">                this.lucro == t.getLucro() &amp;&amp;</span>
+<span class="fc bfc" id="L114" title="All 2 branches covered.">                this.premium == t.isPremium() &amp;&amp; </span>
+<span class="pc bpc" id="L115" title="1 of 2 branches missed.">                this.volFaturacao == t.getVolFaturacao() &amp;&amp; </span>
+<span class="pc bpc" id="L116" title="1 of 2 branches missed.">                this.formula == t.getFormula();</span>
+    }
+
+    public Transportadoras clone() {
+<span class="fc" id="L120">        return new Transportadoras(this);</span>
+    }
+
+
+
+
+    public double calculaPrecoExpedicao(Long dimensao){
+<span class="fc" id="L127">        double preco = 0.0;</span>
+<span class="fc" id="L128">        int valorBase = 0;</span>
+<span class="fc bfc" id="L129" title="All 2 branches covered.">        if  (dimensao &gt; 4) valorBase = 50;</span>
+<span class="pc bpc" id="L130" title="1 of 4 branches missed.">        if (dimensao &gt; 1 &amp;&amp; dimensao &lt; 5) valorBase = 30;</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">        if (dimensao == 1) valorBase = 10;</span>
+
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">        if (formula == 1){</span>
+<span class="fc" id="L134">            preco = (valorBase * this.lucro * (1 + this.imposto)) * 0.9;</span>
+<span class="fc" id="L135">        }</span>
+<span class="nc bnc" id="L136" title="All 2 branches missed.">        else if (formula == 2){</span>
+<span class="nc" id="L137">            preco = (valorBase + this.lucro * this.imposto) * 0.5;</span>
+<span class="nc" id="L138">        }</span>
+<span class="nc bnc" id="L139" title="All 2 branches missed.">        else if (this.formula == 3){</span>
+<span class="nc" id="L140">            preco = (1 + this.lucro) + this.imposto * valorBase;</span>
+<span class="nc" id="L141">        }</span>
+<span class="nc bnc" id="L142" title="All 2 branches missed.">        else if (this.formula == 4){</span>
+<span class="nc" id="L143">            preco = this.imposto * 5 + valorBase - this.lucro * 5;</span>
+        }
+
+<span class="fc" id="L146">        this.volFaturacao+= preco;</span>
+<span class="fc" id="L147">        return preco;</span>
+    }
+
+    public void altera(Double lucro, Double imposto, int formula){
+<span class="fc" id="L151">        this.lucro = lucro;</span>
+<span class="fc" id="L152">        this.imposto = imposto;</span>
+<span class="fc" id="L153">        this.formula = formula;</span>
+<span class="fc" id="L154">    }</span>
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

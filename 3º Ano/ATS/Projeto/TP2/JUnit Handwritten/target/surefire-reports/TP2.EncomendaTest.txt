@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TP2.EncomendaTest
+-------------------------------------------------------------------------------
+Tests run: 10, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in TP2.EncomendaTest
+testEquals  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<Encomenda:: { Artigos: [Artigo1] Código: 8 Dimensão: Pequeno Estado: Pendente Data de criação: 2023-01-01 Data de entrega: N/A}> but was:<Encomenda:: { Artigos: [Artigo1] Código: 9 Dimensão: Pequeno Estado: Pendente Data de criação: 2023-01-01 Data de entrega: N/A}>
+	at TP2.EncomendaTest.testEquals(EncomendaTest.java:58)
+

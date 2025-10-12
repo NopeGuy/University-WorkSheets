@@ -1,0 +1,42 @@
+-------------------------------------------------------------------------------
+Test set: TP2.FaturaTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in TP2.FaturaTest
+testClone  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError: 
+expected:<Fatura 1 - Compra
+NIF do comprador: 123456789
+Artigos vendidos: [Artigo1]
+
+Custo dos produtos: 100.00€
+Custo do transporte: 10.00€
+Preço final: 110.00€
+> but was:<Fatura 2 - Compra
+NIF do comprador: 123456789
+Artigos vendidos: [Artigo1]
+
+Custo dos produtos: 100.00€
+Custo do transporte: 10.00€
+Preço final: 110.00€
+>
+	at TP2.FaturaTest.testClone(FaturaTest.java:45)
+
+testEquals  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+expected:<Fatura 6 - Compra
+NIF do comprador: 123456789
+Artigos vendidos: [Artigo1]
+
+Custo dos produtos: 100.00€
+Custo do transporte: 10.00€
+Preço final: 110.00€
+> but was:<Fatura 7 - Compra
+NIF do comprador: 123456789
+Artigos vendidos: [Artigo1]
+
+Custo dos produtos: 100.00€
+Custo do transporte: 10.00€
+Preço final: 110.00€
+>
+	at TP2.FaturaTest.testEquals(FaturaTest.java:59)
+

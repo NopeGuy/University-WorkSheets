@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TP1.TransportadorasTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in TP1.TransportadorasTest
+testCalculaPrecoExpedicao  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<6.075> but was:<8.1>
+	at TP1.TransportadorasTest.testCalculaPrecoExpedicao(TransportadorasTest.java:95)
+

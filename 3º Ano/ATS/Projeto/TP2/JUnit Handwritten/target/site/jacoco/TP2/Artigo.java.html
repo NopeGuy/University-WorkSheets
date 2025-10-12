@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Artigo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Artigo.java</span></div><h1>Artigo.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.Serializable;
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+
+public abstract class Artigo implements Serializable {
+
+    // Variável de classe
+<span class="fc" id="L9">    public static String codigo = &quot;A&quot;;</span>
+<span class="fc" id="L10">    public static long contador = 1;</span>
+
+    public static String getCodigo() {
+<span class="nc" id="L13">        return codigo;</span>
+    }
+
+    public static long getContador(){
+<span class="nc" id="L17">        return contador;</span>
+    }
+
+    public static void setCodigo(String code) {
+<span class="nc" id="L21">        codigo = code;</span>
+<span class="nc" id="L22">    }</span>
+    public static void setContador(long contador) {
+<span class="nc" id="L24">        Artigo.contador = contador;</span>
+<span class="nc" id="L25">    }</span>
+
+    public static String criaCodigo() {
+<span class="fc" id="L28">        String novoCodigo = codigo + contador;</span>
+<span class="fc" id="L29">        contador++;</span>
+<span class="fc" id="L30">        return novoCodigo;</span>
+    }
+
+    private String descricao;
+    private String marca;
+    private String codigo_barras;
+    private double preco_base;
+    // private float preco_atual;
+    private boolean novo;
+    private int estado_uso;
+    private int n_utilizadores;
+    private long idTransportadora;
+    private long idVendedor;
+    private boolean disponivel;
+
+    // Querys
+    private LocalDate data_venda;
+
+    // 0 - Quando é novo, 1 - Quando é usado
+    public abstract double preco_atual(LocalDate data);
+
+    public abstract Artigo clone();
+
+<span class="fc" id="L53">    public Artigo() {</span>
+<span class="fc" id="L54">        this.descricao = &quot;Artigo invalido&quot;;</span>
+<span class="fc" id="L55">        this.marca = &quot;Artigo invalido&quot;;</span>
+<span class="fc" id="L56">        this.codigo_barras = Artigo.criaCodigo();</span>
+<span class="fc" id="L57">        this.preco_base = 0;</span>
+<span class="fc" id="L58">        this.novo = false;</span>
+<span class="fc" id="L59">        this.estado_uso = -1; // Não definido</span>
+<span class="fc" id="L60">        this.n_utilizadores = -1;</span>
+<span class="fc" id="L61">        this.idTransportadora = -1;</span>
+<span class="fc" id="L62">        this.idVendedor = -1;</span>
+<span class="fc" id="L63">        this.disponivel = false;</span>
+<span class="fc" id="L64">        this.data_venda = LocalDate.MIN;</span>
+
+<span class="fc" id="L66">    }</span>
+
+    // No menu perguntar ao vendedor qual a transportadora do artigo
+<span class="fc" id="L69">    public Artigo(String descricao, String marca, double preco_base, boolean novo, int estado_uso,</span>
+            int n_utilizadores, Long idTransportadora, Long idVendedor) {
+        // this.id_vendedor = id_vendedor;
+<span class="fc" id="L72">        this.codigo_barras = Artigo.criaCodigo();</span>
+<span class="fc" id="L73">        this.descricao = descricao;</span>
+<span class="fc" id="L74">        this.marca = marca;</span>
+<span class="fc" id="L75">        this.preco_base = preco_base;</span>
+<span class="fc" id="L76">        this.novo = novo;</span>
+<span class="fc" id="L77">        this.estado_uso = estado_uso;</span>
+<span class="fc" id="L78">        this.n_utilizadores = n_utilizadores;</span>
+<span class="fc" id="L79">        this.idTransportadora = idTransportadora;</span>
+<span class="fc" id="L80">        this.idVendedor = idVendedor;</span>
+<span class="fc" id="L81">        this.disponivel = true;</span>
+<span class="fc" id="L82">        this.data_venda = LocalDate.MIN;</span>
+        // this.codigo_barras = this.codigo_barras + 1;
+
+<span class="fc" id="L85">    }</span>
+
+<span class="fc" id="L87">    public Artigo(Artigo umArtigo) {</span>
+        // this.id_vendedor = umArtigo.getId_vendedor();
+<span class="fc" id="L89">        this.codigo_barras = umArtigo.getCodigo_barras();</span>
+<span class="fc" id="L90">        this.descricao = umArtigo.getDescricao();</span>
+<span class="fc" id="L91">        this.marca = umArtigo.getMarca();</span>
+<span class="fc" id="L92">        this.preco_base = umArtigo.getPreco_base();</span>
+<span class="fc" id="L93">        this.novo = umArtigo.getNovo();</span>
+<span class="fc" id="L94">        this.estado_uso = umArtigo.getEstado_uso();</span>
+<span class="fc" id="L95">        this.n_utilizadores = umArtigo.getN_utilizadores();</span>
+<span class="fc" id="L96">        this.idTransportadora = umArtigo.getIdTransportadora();</span>
+<span class="fc" id="L97">        this.idVendedor = umArtigo.getIdVendedor();</span>
+<span class="fc" id="L98">        this.disponivel = umArtigo.getDisponivel();</span>
+<span class="fc" id="L99">        this.data_venda = umArtigo.getData_venda();</span>
+
+<span class="fc" id="L101">    }</span>
+
+    public void setCodigo_barras(String codigo_barras) {
+<span class="nc" id="L104">        this.codigo_barras = codigo_barras;</span>
+<span class="nc" id="L105">    }</span>
+
+    public void setDescricao(String descricao) {
+<span class="nc" id="L108">        this.descricao = descricao;</span>
+<span class="nc" id="L109">    }</span>
+
+    public void setMarca(String marca) {
+<span class="nc" id="L112">        this.marca = marca;</span>
+<span class="nc" id="L113">    }</span>
+
+    public void setPreco_base(double preco_base) {
+<span class="nc" id="L116">        this.preco_base = preco_base;</span>
+<span class="nc" id="L117">    }</span>
+    /*
+     * public void setUso_estado(boolean novo, int estado_uso, int n_utilizadores) {
+     * this.novo = novo;
+     * this.estado_uso = estado_uso;
+     * this.n_utilizadores = n_utilizadores;
+     * 
+     * }
+     */
+
+    public void setPreco_atual(float preco_atual) {
+        // this.preco_atual = preco_atual;
+<span class="nc" id="L129">    }</span>
+
+    public void setNovo(boolean novo) {
+<span class="fc" id="L132">        this.novo = novo;</span>
+<span class="fc" id="L133">    }</span>
+
+    public void setEstado_uso(int estado_uso) {
+<span class="nc" id="L136">        this.estado_uso = estado_uso;</span>
+<span class="nc" id="L137">    }</span>
+
+    public void setN_utilizadores(int n_utilizadores) {
+<span class="nc" id="L140">        this.n_utilizadores = n_utilizadores;</span>
+<span class="nc" id="L141">    }</span>
+
+    public void setTransportadora(long transportadora) {
+<span class="nc" id="L144">        this.idTransportadora = transportadora;</span>
+<span class="nc" id="L145">    }</span>
+
+    public void setVendedor(long vendedor) {
+<span class="nc" id="L148">        this.idVendedor = vendedor;</span>
+<span class="nc" id="L149">    }</span>
+
+    public void setDisponivel(boolean disponivel) {
+<span class="nc" id="L152">        this.disponivel = disponivel;</span>
+<span class="nc" id="L153">    }</span>
+
+    public void setData_venda(LocalDate data_venda) {
+<span class="nc" id="L156">        this.data_venda = data_venda;</span>
+<span class="nc" id="L157">    }</span>
+
+    /*
+     * public void setId_vendedor(int id_vendedor) {
+     * this.id_vendedor = id_vendedor;
+     * }
+     */
+
+    public String getCodigo_barras() {
+<span class="fc" id="L166">        return codigo_barras;</span>
+    }
+
+    public String getDescricao() {
+<span class="fc" id="L170">        return descricao;</span>
+    }
+
+    public boolean getNovo() {
+<span class="fc" id="L174">        return novo;</span>
+    }
+
+    public int getEstado_uso() {
+<span class="fc" id="L178">        return estado_uso;</span>
+    }
+
+    public String getMarca() {
+<span class="fc" id="L182">        return marca;</span>
+    }
+
+    public int getN_utilizadores() {
+<span class="fc" id="L186">        return n_utilizadores;</span>
+    }
+
+    public double getPreco_base() {
+<span class="fc" id="L190">        return preco_base;</span>
+    }
+
+    public long getIdVendedor() {
+<span class="fc" id="L194">        return idVendedor;</span>
+    }
+
+    public long getIdTransportadora() {
+<span class="fc" id="L198">        return idTransportadora;</span>
+    }
+
+    public boolean getDisponivel() {
+<span class="fc" id="L202">        return disponivel;</span>
+    }
+
+    public LocalDate getData_venda() {
+<span class="fc" id="L206">        return data_venda;</span>
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+<span class="pc bpc" id="L211" title="1 of 2 branches missed.">        if (obj == this)</span>
+<span class="nc" id="L212">            return true;</span>
+<span class="pc bpc" id="L213" title="2 of 4 branches missed.">        if (obj == null || this.getClass() != obj.getClass())</span>
+<span class="nc" id="L214">            return false;</span>
+
+<span class="fc" id="L216">        Artigo a = (Artigo) obj;</span>
+
+<span class="pc bpc" id="L218" title="1 of 4 branches missed.">        return (this.codigo_barras.equals(a.getCodigo_barras()) &amp;&amp; this.descricao.equals(a.getDescricao())</span>
+<span class="pc bpc" id="L219" title="3 of 4 branches missed.">                &amp;&amp; this.descricao.equals(a.getMarca()) &amp;&amp; this.preco_base == a.getPreco_base()</span>
+<span class="nc bnc" id="L220" title="All 4 branches missed.">                &amp;&amp; this.novo == a.getNovo() &amp;&amp; this.estado_uso == a.getEstado_uso()</span>
+<span class="nc bnc" id="L221" title="All 4 branches missed.">                &amp;&amp; this.n_utilizadores == a.getN_utilizadores() &amp;&amp; this.idVendedor == a.getIdVendedor()</span>
+<span class="nc bnc" id="L222" title="All 2 branches missed.">                &amp;&amp; this.idTransportadora == a.getIdTransportadora()</span>
+<span class="nc bnc" id="L223" title="All 2 branches missed.">                &amp;&amp; this.disponivel == a.getDisponivel()</span>
+<span class="nc bnc" id="L224" title="All 2 branches missed.">                &amp;&amp; this.data_venda.equals(a.getData_venda()));</span>
+        // return (this.codigo_barras == ((Artigo) obj).getCodigo_barras());
+        // this.preco_base == a.getPreco_atual()
+
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L232">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L233">        sb.append(&quot;Artigo:: {&quot;);</span>
+<span class="fc" id="L234">        sb.append(&quot; Código de barras: &quot;).append(this.codigo_barras);</span>
+<span class="fc" id="L235">        sb.append(&quot; Descrição: &quot;).append(this.descricao);</span>
+<span class="fc" id="L236">        sb.append(&quot; Marca: &quot;).append(this.marca);</span>
+<span class="fc" id="L237">        sb.append(&quot; Preço base: &quot;).append(this.preco_base);</span>
+<span class="fc" id="L238">        sb.append(&quot; Novo: &quot;).append(this.novo);</span>
+<span class="fc" id="L239">        sb.append(&quot; Estado de uso: &quot;).append(this.estado_uso);</span>
+<span class="fc" id="L240">        sb.append(&quot; Número de utilizadores: &quot;).append(this.n_utilizadores);</span>
+<span class="fc" id="L241">        sb.append(&quot; Disponivel: &quot;).append(this.disponivel);</span>
+<span class="fc" id="L242">        sb.append(&quot; Id da transportadora: &quot;).append(this.idTransportadora);</span>
+<span class="fc" id="L243">        sb.append(&quot; Id do vendedor: &quot;).append(this.idVendedor);</span>
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">        if (this.data_venda.equals(LocalDate.MIN) == false) {</span>
+<span class="nc" id="L245">            sb.append(&quot; Data de venda: &quot;).append(this.data_venda.toString());</span>
+        }
+<span class="fc" id="L247">        sb.append(&quot; }&quot;);</span>
+        // Falta definir a data de venda
+<span class="fc" id="L249">        return sb.toString();</span>
+    }
+
+    public String mostrar(LocalDate data) {
+<span class="nc" id="L253">        DecimalFormat df = new DecimalFormat(&quot;0.00&quot;);</span>
+<span class="nc" id="L254">        String precoFormatado = df.format(this.preco_atual(data));</span>
+<span class="nc" id="L255">        return (this.toString() + &quot; Preço atual: &quot; + precoFormatado + &quot;€ &quot; + '\n');</span>
+
+
+    }
+
+    /*
+     * @Override
+     * public Artigo clone() {
+     * Artigo artigo = new Artigo(this);
+     * return (artigo);
+     * 
+     * }
+     */
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

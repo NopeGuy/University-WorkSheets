@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Encomenda.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Encomenda.java</span></div><h1>Encomenda.java</h1><pre class="source lang-java linenums">package TP2;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+import java.time.temporal.ChronoUnit;
+
+
+public class Encomenda implements Serializable {
+
+    // Variáveis de classe
+<span class="fc" id="L12">    private static long codigo = 1;</span>
+<span class="fc" id="L13">    private static int diasDevolver = 2;</span>
+
+    // Métodos de classe
+    public static long getCodigo() {
+<span class="fc" id="L17">        return codigo;</span>
+    }
+    public static void setCodigo(long codigo) {
+<span class="nc" id="L20">        Encomenda.codigo = codigo;</span>
+<span class="nc" id="L21">    }</span>
+
+    public static long criaCodigo() {
+<span class="fc" id="L24">        return codigo++;</span>
+    }
+
+    public static int getDiasDevolver(){
+<span class="nc" id="L28">        return diasDevolver;</span>
+    }
+
+    public static void setDiasDevolver(int dias){
+<span class="nc" id="L32">        diasDevolver = dias;</span>
+<span class="nc" id="L33">    }</span>
+
+    // Variavéis de instância
+
+    private Set&lt;String&gt; encomenda; // contém os ids dos artigos
+    private long id;
+    private long idComprador;
+    private Dimensao dimensao; // grande, médio, pequeno
+    private Estado estado; // pendente, finalizada, expedida
+    private LocalDate dataCriacao;
+    private LocalDate dataEntrega; // é preciso???
+
+    // Construtor vazio
+<span class="fc" id="L46">    public Encomenda() {</span>
+<span class="fc" id="L47">        this.encomenda = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L48">        this.id = criaCodigo();</span>
+<span class="fc" id="L49">        this.idComprador = -1;</span>
+<span class="fc" id="L50">        this.dimensao = Dimensao.Pequeno;</span>
+<span class="fc" id="L51">        this.estado = Estado.Pendente;</span>
+<span class="fc" id="L52">        this.dataCriacao = LocalDate.now();</span>
+<span class="fc" id="L53">        this.dataEntrega = null;</span>
+<span class="fc" id="L54">    }</span>
+
+    // Construtor parametrizado
+<span class="fc" id="L57">    public Encomenda(Set&lt;String&gt; artigos, long idComprador, Dimensao dimensao, LocalDate data) {</span>
+<span class="fc" id="L58">        this.encomenda = new HashSet&lt;&gt;(artigos);</span>
+<span class="fc" id="L59">        this.id = criaCodigo();</span>
+<span class="fc" id="L60">        this.idComprador = idComprador;</span>
+<span class="fc" id="L61">        this.dimensao = dimensao;</span>
+<span class="fc" id="L62">        this.estado = Estado.Pendente;</span>
+<span class="fc" id="L63">        this.dataCriacao = data;</span>
+<span class="fc" id="L64">        this.dataEntrega = null; // uma vez que quando criasse a encomenda esta ainda não chegou</span>
+<span class="fc" id="L65">    }</span>
+
+    // Construtor cópia
+<span class="fc" id="L68">    public Encomenda(Encomenda umaEncomenda) {</span>
+<span class="fc" id="L69">        this.encomenda = umaEncomenda.getEncomenda();</span>
+<span class="fc" id="L70">        this.id = umaEncomenda.getId();</span>
+<span class="fc" id="L71">        this.idComprador = umaEncomenda.getIdComprador();</span>
+<span class="fc" id="L72">        this.dimensao = umaEncomenda.getDimensao();</span>
+<span class="fc" id="L73">        this.estado = umaEncomenda.getEstado();</span>
+<span class="fc" id="L74">        this.dataCriacao = umaEncomenda.getData();</span>
+<span class="fc" id="L75">        this.dataEntrega = umaEncomenda.getDataEntrega();</span>
+<span class="fc" id="L76">    }</span>
+
+    // Métodos getters e setters
+    public Set&lt;String&gt; getEncomenda() {
+<span class="fc" id="L80">        return (new HashSet&lt;&gt;(this.encomenda));</span>
+    }
+
+    public long getId() {
+<span class="fc" id="L84">        return id;</span>
+    }
+
+    public long getIdComprador() {
+<span class="fc" id="L88">        return idComprador;</span>
+    }
+
+    public Dimensao getDimensao() {
+<span class="fc" id="L92">        return dimensao;</span>
+    }
+
+    public Estado getEstado() {
+<span class="fc" id="L96">        return estado;</span>
+    }
+
+    public LocalDate getData() {
+<span class="fc" id="L100">        return dataCriacao;</span>
+    }
+
+    public LocalDate getDataEntrega() {
+<span class="fc" id="L104">        return dataEntrega;</span>
+    }
+
+
+    public void setEncomenda(Set&lt;String&gt; encomenda) {
+<span class="nc" id="L109">        this.encomenda = new HashSet&lt;&gt;(encomenda);</span>
+<span class="nc" id="L110">    }</span>
+
+    public void setId(long id) {
+<span class="nc" id="L113">        this.id = id;</span>
+<span class="nc" id="L114">    }</span>
+
+    public void setIdComprador(long idComprador) {
+<span class="nc" id="L117">        this.idComprador = idComprador;</span>
+<span class="nc" id="L118">    }</span>
+
+    public void setDimensao(Dimensao dimensao) {
+<span class="nc" id="L121">        this.dimensao = dimensao;</span>
+<span class="nc" id="L122">    }</span>
+
+    public void setEstado(Estado estado) {
+<span class="fc" id="L125">        this.estado = estado;</span>
+<span class="fc" id="L126">    }</span>
+
+    public void setData(LocalDate data) {
+<span class="nc" id="L129">        this.dataCriacao = data;</span>
+<span class="nc" id="L130">    }</span>
+
+    public void setDataEntrega(LocalDate dataEntrega) {
+<span class="fc" id="L133">        this.dataEntrega = dataEntrega;</span>
+<span class="fc" id="L134">    }</span>
+
+    // Método que verifica se duas Encomendas são iguais
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L139" title="1 of 2 branches missed.">        if (o == this)</span>
+<span class="nc" id="L140">            return true;</span>
+
+<span class="pc bpc" id="L142" title="2 of 4 branches missed.">        if (o == null || o.getClass() != this.getClass())</span>
+<span class="nc" id="L143">            return false;</span>
+
+<span class="fc" id="L145">        Encomenda e = (Encomenda) o;</span>
+
+<span class="pc bpc" id="L147" title="2 of 6 branches missed.">        return (this.encomenda.equals(e.getEncomenda()) &amp;&amp; this.id == e.getId() &amp;&amp; this.dimensao.equals(e.getDimensao())</span>
+<span class="pc bpc" id="L148" title="2 of 4 branches missed.">                &amp;&amp; this.estado.equals(e.getEstado()) &amp;&amp; this.dataCriacao.equals(e.getData())</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">                &amp;&amp; this.dataEntrega.equals(e.getDataEntrega()));</span>
+    }
+
+    // Método que transforma o objeto Encomenda numa String
+    @Override
+    public String toString() {
+<span class="fc" id="L155">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L156">        sb.append(&quot;Encomenda:: {&quot;);</span>
+<span class="fc" id="L157">        sb.append(&quot; Artigos: &quot;).append(this.encomenda.toString());</span>
+<span class="fc" id="L158">        sb.append(&quot; Código: &quot;).append(this.id);</span>
+<span class="fc" id="L159">        this.defineTamanho();</span>
+<span class="fc" id="L160">        sb.append(&quot; Dimensão: &quot;).append(this.dimensao.toString());</span>
+<span class="fc" id="L161">        sb.append(&quot; Estado: &quot;).append(this.estado.toString());</span>
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if (this.encomenda.size() == 0) {</span>
+<span class="fc" id="L163">            sb.append(&quot; Data de criação: N/A &quot;);</span>
+<span class="fc" id="L164">        } else {</span>
+<span class="fc" id="L165">            sb.append(&quot; Data de criação: &quot;).append(this.dataCriacao.toString());</span>
+        }
+<span class="pc bpc" id="L167" title="1 of 2 branches missed.">        if (this.dataEntrega == null) {</span>
+<span class="fc" id="L168">            sb.append(&quot; Data de entrega: N/A&quot;).append(&quot;}&quot;);</span>
+<span class="fc" id="L169">        } else {</span>
+<span class="nc" id="L170">            sb.append(&quot; Data de entrega: &quot;).append(this.dataEntrega.toString()).append(&quot;}&quot;);</span>
+        }
+<span class="fc" id="L172">        return sb.toString();</span>
+    }
+
+    // Método que cria uma cópia de uma Encomenda
+    @Override
+    public Encomenda clone() {
+<span class="fc" id="L178">        Encomenda copia = new Encomenda(this);</span>
+
+<span class="fc" id="L180">        return copia;</span>
+    }
+
+    // Método que adiciona um Artigo a uma Encomenda
+    public String adicionaArtigo(String idArtigo) throws ArtigoExistenteException {
+<span class="pc bpc" id="L185" title="1 of 2 branches missed.">        if (this.encomenda.contains(idArtigo) == true)</span>
+<span class="nc" id="L186">            throw new ArtigoExistenteException(&quot;O artigo &quot; +idArtigo+ &quot; já existe na encomenda&quot;);</span>
+
+        else {
+<span class="fc" id="L189">            this.encomenda.add(idArtigo);</span>
+<span class="fc" id="L190">            return idArtigo;</span>
+        }
+    }
+
+    // Método que remove um Artigo de uma Encomenda
+    public String removeArtigo(String idArtigo) throws ArtigoNaoEncontradoException {
+<span class="pc bpc" id="L196" title="1 of 2 branches missed.">        if (this.encomenda.contains(idArtigo) == false)</span>
+<span class="nc" id="L197">            throw new ArtigoNaoEncontradoException(&quot;O artigo &quot;+idArtigo+&quot; não existe na encomenda&quot;);</span>
+
+        else {
+<span class="fc" id="L200">            this.encomenda.remove(idArtigo);</span>
+<span class="fc" id="L201">            return idArtigo;</span>
+        }
+    }
+
+    // Método que remove os Artigos todos de uma Encomenda
+    public Set&lt;String&gt; removeTudo(){
+<span class="fc" id="L207">        Set&lt;String&gt; remove = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L208" title="All 2 branches covered.">        for(String s : this.encomenda)</span>
+<span class="fc" id="L209">            remove.add(s);</span>
+
+<span class="fc" id="L211">        this.encomenda.clear();</span>
+
+<span class="fc" id="L213">        return remove;</span>
+    }
+
+    // Método que verifica se uma Encomenda pode ser devolvida
+    // recebe o numero de dias que até pode devolver
+    // Tirei a LocalDate agora do argumento
+    public boolean podeDevolver(LocalDate data) {
+<span class="pc bpc" id="L220" title="1 of 4 branches missed.">        if (ChronoUnit.DAYS.between(this.dataEntrega, data) &lt;= Encomenda.diasDevolver &amp;&amp; this.estado.equals(Estado.Expedida))</span>
+<span class="fc" id="L221">            return true;</span>
+
+        else
+<span class="fc" id="L224">            return false;</span>
+    }
+
+    // Método que define qual o tamanho da encomenda consoante o numero de artigos que tem
+    public void defineTamanho(){
+<span class="fc" id="L229">        int numero = this.encomenda.size();</span>
+<span class="fc bfc" id="L230" title="All 2 branches covered.">        if(numero &lt;= 1) </span>
+<span class="fc" id="L231">            this.dimensao = Dimensao.Pequeno;</span>
+
+<span class="pc bpc" id="L233" title="1 of 4 branches missed.">        else if(numero &gt;= 2 &amp;&amp; numero &lt;= 5) </span>
+<span class="fc" id="L234">            this.dimensao = Dimensao.Medio;</span>
+
+        else
+<span class="fc" id="L237">            this.dimensao = Dimensao.Grande;</span>
+<span class="fc" id="L238">    }</span>
+
+    // Método que conta o numeros de artigos numa encomenda
+    public int numeroArtigos () {
+<span class="fc" id="L242">        return this.encomenda.size();</span>
+    }
+}
+    
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

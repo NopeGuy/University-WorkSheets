@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="d3/daa/logic_8h" kind="file" language="C++">
+    <compoundname>logic.h</compoundname>
+    <includes refid="d0/dfb/camadadedados_8h" local="yes">camadadedados.h</includes>
+    <includedby refid="dd/dda/interface_8c" local="yes">src/interface.c</includedby>
+    <includedby refid="d0/d29/main_8c" local="yes">src/main.c</includedby>
+    <incdepgraph>
+      <node id="51">
+        <label>src/logic.h</label>
+        <link refid="d3/daa/logic_8h"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="52">
+        <label>camadadedados.h</label>
+        <link refid="d0/dfb/camadadedados_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="55">
+        <label>src/main.c</label>
+        <link refid="d0/d29/main_8c"/>
+      </node>
+      <node id="54">
+        <label>src/interface.c</label>
+        <link refid="dd/dda/interface_8c"/>
+      </node>
+      <node id="53">
+        <label>src/logic.h</label>
+        <link refid="d3/daa/logic_8h"/>
+        <childnode refid="54" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="d3/daa/logic_8h_1a43982fa6048da27b2c695d9e0ef6ac61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int check_finish</definition>
+        <argsstring>(char letter, char number, ESTADO *e)</argsstring>
+        <name>check_finish</name>
+        <param>
+          <type>char</type>
+          <declname>letter</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>number</declname>
+        </param>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função que verifica quando o jogo se dá por terminado. </para>        </briefdescription>
+        <detaileddescription>
+<para>Esta divide-se em 2 casos , onde o primeiro dá vitoria ao player 1 ou 2 casos estes cheguem as casas [0][7] ou [7][0] consideramos no segundo caso , a hipótese de um player ficar rodeado por # , dando assim a vitória ao outro jogador. o check faz com que caso seja o player 1 rodeado entao com o check a vitoria será dada ao player 2 e vice-versa A Parte final da função verifica se as casas á volta estão vazias ou não , se sim , então o valor do check passa a 0 , caso contrário passa a 1 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/logic.h" line="21" column="1" bodyfile="src/logic.c" bodystart="5" bodyend="29"/>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" compoundref="d0/dfb/camadadedados_8h" startline="24">DOIS</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" compoundref="d0/dfb/camadadedados_8h" startline="59">ESTADO::num_jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" compoundref="d0/dfb/camadadedados_8h" startline="56">ESTADO::tab</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" compoundref="d0/dfb/camadadedados_8h" startline="23">UM</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" compoundref="d0/dfb/camadadedados_8h" startline="25">VAZIO</references>
+        <referencedby refid="d3/daa/logic_8h_1a4e5a3116b44605378488af31039df61c" compoundref="d0/de3/logic_8c" startline="32" endline="59">add_position</referencedby>
+        <referencedby refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" compoundref="dd/dda/interface_8c" startline="140" endline="414">interpretador</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/daa/logic_8h_1a4e5a3116b44605378488af31039df61c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int add_position</definition>
+        <argsstring>(char letter, char number, ESTADO *e)</argsstring>
+        <name>add_position</name>
+        <param>
+          <type>char</type>
+          <declname>letter</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>number</declname>
+        </param>
+        <param>
+          <type><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref> *</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Função sobres as jogadas, funcionalidade e dados do jogo. </para>        </briefdescription>
+        <detaileddescription>
+<para>Esta função considera se uma jogada de um jogador é válida ou não e move a peça branca, caso a casa esteja vazia então a jogada é valida. As funçoes ultima_jogada.linha , ultima_jogada.coluna , jogador atual , num_jogadas, jogador2.coluna/linhas e jogador1.coluna/linha são funções de estado que guardam o valor, que depois sempre que sao chamadas através do e-&gt;&quot;...&quot; aplica esse valor que estava guardado. Por fim esta função verifica se uma jogada é impossivel ou não, isto é, se a casa existe, ou se a casa que o jogador quer jogar é consecutiva aquela onde ele se situa. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Apontador para o estado do jogo </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/logic.h" line="30" column="1" bodyfile="src/logic.c" bodystart="32" bodyend="59"/>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" compoundref="d0/dfb/camadadedados_8h" startline="26">BRANCA</references>
+        <references refid="d0/de3/logic_8c_1a43982fa6048da27b2c695d9e0ef6ac61" compoundref="d0/de3/logic_8c" startline="5" endline="29">check_finish</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" compoundref="d0/dfb/camadadedados_8h" startline="35">COORDENADA::coluna</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" compoundref="d0/dfb/camadadedados_8h" startline="24">DOIS</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" compoundref="d0/dfb/camadadedados_8h" startline="58">ESTADO::jogadas</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" compoundref="d0/dfb/camadadedados_8h" startline="60">ESTADO::jogador_atual</references>
+        <references refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" compoundref="d0/dfb/camadadedados_8h" startline="36">COORDENADA::linha</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" compoundref="d0/dfb/camadadedados_8h" startline="59">ESTADO::num_jogadas</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a007278eb3827d19891b47cdd3ac8846d" compoundref="d0/dfb/camadadedados_8h" startline="27">PRETA</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" compoundref="d0/dfb/camadadedados_8h" startline="56">ESTADO::tab</references>
+        <references refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" compoundref="d0/dfb/camadadedados_8h" startline="57">ESTADO::ultima_jogada</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" compoundref="d0/dfb/camadadedados_8h" startline="23">UM</references>
+        <references refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" compoundref="d0/dfb/camadadedados_8h" startline="25">VAZIO</references>
+        <referencedby refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" compoundref="dd/dda/interface_8c" startline="140" endline="414">interpretador</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Inicialização/configuração do tabuleiro e jogadas. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/**</highlight></codeline>
+<codeline lineno="2"><highlight class="comment">@file<sp/>logic.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment">Inicialização/configuração<sp/>do<sp/>tabuleiro<sp/>e<sp/>jogadas</highlight></codeline>
+<codeline lineno="4"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>RASTROSPROJECT_LOGIC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>RASTROSPROJECT_LOGIC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/dfb/camadadedados_8h" kindref="compound">camadadedados.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="13"><highlight class="comment">/**<sp/>\brief<sp/>Função<sp/>que<sp/>verifica<sp/>quando<sp/>o<sp/>jogo<sp/>se<sp/>dá<sp/>por<sp/>terminado.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/><sp/>*<sp/>Esta<sp/>divide-se<sp/>em<sp/>2<sp/>casos<sp/>,<sp/>onde<sp/>o<sp/>primeiro<sp/>dá<sp/>vitoria<sp/>ao<sp/>player<sp/>1<sp/>ou<sp/>2<sp/>casos</highlight></codeline>
+<codeline lineno="15"><highlight class="comment">*<sp/>estes<sp/>cheguem<sp/>as<sp/>casas<sp/>[0][7]<sp/>ou<sp/>[7][0]</highlight></codeline>
+<codeline lineno="16"><highlight class="comment">*<sp/>consideramos<sp/>no<sp/>segundo<sp/>caso<sp/>,<sp/>a<sp/>hipótese<sp/>de<sp/>um<sp/>player<sp/>ficar<sp/>rodeado<sp/>por<sp/>#<sp/>,<sp/>dando<sp/>assim<sp/>a<sp/>vitória<sp/>ao<sp/>outro<sp/>jogador.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment">*<sp/>o<sp/>check<sp/>faz<sp/>com<sp/>que<sp/>caso<sp/>seja<sp/>o<sp/>player<sp/>1<sp/>rodeado<sp/>entao<sp/>com<sp/>o<sp/>check<sp/>a<sp/>vitoria<sp/>será<sp/>dada<sp/>ao<sp/>player<sp/>2<sp/>e<sp/>vice-versa</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/><sp/>*<sp/>A<sp/>Parte<sp/>final<sp/>da<sp/>função<sp/>verifica<sp/>se<sp/>as<sp/>casas<sp/>á<sp/>volta<sp/>estão<sp/>vazias<sp/>ou<sp/>não<sp/>,<sp/>se<sp/>sim<sp/>,<sp/>então<sp/>o<sp/>valor<sp/>do<sp/>check<sp/>passa<sp/>a<sp/>0<sp/>,<sp/>caso<sp/>contrário<sp/>passa<sp/>a<sp/>1</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/daa/logic_8h_1a43982fa6048da27b2c695d9e0ef6ac61" kindref="member">check_finish</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>letter,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>number,<sp/><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment"></highlight></codeline>
+<codeline lineno="23"><highlight class="comment">/**<sp/>\brief<sp/><sp/>Função<sp/>sobres<sp/>as<sp/>jogadas,<sp/>funcionalidade<sp/>e<sp/>dados<sp/>do<sp/>jogo.</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/>Esta<sp/>função<sp/>considera<sp/>se<sp/>uma<sp/>jogada<sp/>de<sp/>um<sp/>jogador<sp/>é<sp/>válida<sp/>ou<sp/>não<sp/>e<sp/>move<sp/>a<sp/>peça<sp/>branca,<sp/>caso<sp/>a<sp/>casa<sp/>esteja<sp/>vazia<sp/>então<sp/>a<sp/>jogada<sp/>é<sp/>valida.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>As<sp/>funçoes<sp/>ultima_jogada.linha<sp/>,<sp/>ultima_jogada.coluna<sp/>,<sp/>jogador<sp/>atual<sp/>,<sp/>num_jogadas,<sp/>jogador2.coluna/linhas<sp/>e<sp/>jogador1.coluna/linha<sp/>são<sp/>funções<sp/>de<sp/>estado<sp/>que<sp/>guardam<sp/>o<sp/>valor,<sp/>que<sp/>depois<sp/>sempre<sp/>que<sp/>sao<sp/>chamadas<sp/>através<sp/>do<sp/>e-&gt;&quot;...&quot;<sp/>aplica<sp/>esse<sp/>valor<sp/>que<sp/>estava<sp/>guardado.</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/>Por<sp/>fim<sp/>esta<sp/>função<sp/>verifica<sp/>se<sp/>uma<sp/>jogada<sp/>é<sp/>impossivel<sp/>ou<sp/>não,<sp/>isto<sp/>é,<sp/>se<sp/>a<sp/>casa<sp/>existe,<sp/>ou<sp/>se<sp/>a<sp/>casa<sp/>que<sp/>o<sp/>jogador<sp/>quer<sp/>jogar<sp/>é<sp/>consecutiva<sp/>aquela<sp/>onde<sp/>ele<sp/>se<sp/>situa.</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>@param<sp/>e<sp/>Apontador<sp/>para<sp/>o<sp/>estado<sp/>do<sp/>jogo</highlight></codeline>
+<codeline lineno="28"><highlight class="comment">*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/daa/logic_8h_1a4e5a3116b44605378488af31039df61c" kindref="member">add_position</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>letter,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>number,<sp/><ref refid="df/d91/struct_e_s_t_a_d_o" kindref="compound">ESTADO</ref><sp/>*e);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//RASTROSPROJECT_LOGIC_H</highlight></codeline>
+    </programlisting>
+    <location file="src/logic.h"/>
+  </compounddef>
+</doxygen>

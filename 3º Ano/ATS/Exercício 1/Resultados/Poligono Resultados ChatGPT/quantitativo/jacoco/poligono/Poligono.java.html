@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Poligono.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">poligono</a> &gt; <span class="el_source">Poligono.java</span></div><h1>Poligono.java</h1><pre class="source lang-java linenums">package poligono;
+/**
+ * Write a description of class Poligono here.
+ * 
+ * @author João Saraiva
+ * @version 6/2018
+ */
+
+import java.util.List;
+import java.util.ArrayList;
+
+public abstract class Poligono
+{
+    private List&lt;Ponto&gt; poligono;
+    
+    public Poligono()
+<span class="fc" id="L17">    { this.poligono = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L18">    }</span>
+    
+    public Poligono(List&lt;Ponto&gt; pol)
+<span class="nc" id="L21">    {  this();</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">       for (Ponto p : pol)</span>
+<span class="nc" id="L23">         this.poligono.add(p.clone());</span>
+<span class="nc" id="L24">       this.poligono.add(pol.get(0).clone());</span>
+<span class="nc" id="L25">    }</span>
+    
+    
+    public List&lt;Ponto&gt; getPoligono()
+<span class="fc" id="L29">    { List&lt;Ponto&gt; pts = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L30" title="All 2 branches covered.">      for (Ponto p : this.poligono)</span>
+<span class="fc" id="L31">        pts.add(p.clone());</span>
+<span class="fc" id="L32">      return pts;</span>
+    }
+    
+    public void setPoligono(List&lt;Ponto&gt; pts)
+<span class="fc" id="L36">    { this.poligono = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">      for (Ponto p : pts)</span>
+<span class="fc" id="L38">        this.poligono.add(p.clone());</span>
+<span class="fc" id="L39">    }</span>
+    
+    
+    public void addPonto(Ponto p)
+<span class="fc" id="L43">    { this.poligono.add(p.clone()); }</span>
+    
+    public boolean fechada()
+<span class="nc" id="L46">    { return this.poligono.get(0).equals(this.poligono.get(this.poligono.size()-1));</span>
+    }
+    
+    public double perimetro()
+<span class="nc" id="L50">    { double res = 0;</span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">      for (int i = 1 ; i &lt; this.poligono.size() ; i++)</span>
+<span class="nc" id="L52">        res += this.poligono.get(i).distancia(this.poligono.get(i-1));</span>
+<span class="nc" id="L53">      return res;</span>
+    }
+    
+       
+/*
+codigo re-utilizado de 
+
+https://stackoverflow.com/questions/471962/how-do-i-efficiently-determine-if-a-polygon-is-convex-non-convex-or-complex
+
+
+The algorithm is guaranteed to work as long as the vertices are ordered (either clockwise or counter-clockwise), 
+and you don't have self-intersecting edges (i.e. it only works for simple polygons)
+*/
+
+    public boolean eConvexo()
+    {  
+<span class="nc bnc" id="L69" title="All 2 branches missed.">       if (this.poligono.size() &lt; 4)     // Triangulo é sempre convexo</span>
+<span class="nc" id="L70">         return true;</span>
+
+<span class="nc" id="L72">       boolean sign = false;</span>
+<span class="nc" id="L73">       int n = this.poligono.size();</span>
+
+<span class="nc bnc" id="L75" title="All 2 branches missed.">       for(int i = 0; i &lt; n; i++)</span>
+<span class="nc" id="L76">         {  double dx1 = poligono.get((i + 2) % n).getX() - poligono.get((i + 1) % n).getX();</span>
+<span class="nc" id="L77">            double dy1 = poligono.get((i + 2) % n).getY() - poligono.get((i + 1) % n).getY();</span>
+<span class="nc" id="L78">            double dx2 = poligono.get(i).getX() - poligono.get((i + 1) % n).getX();</span>
+<span class="nc" id="L79">            double dy2 = poligono.get(i).getY() - poligono.get((i + 1) % n).getY();</span>
+<span class="nc" id="L80">            double zcrossproduct = dx1 * dy2 - dy1 * dx2;</span>
+<span class="nc bnc" id="L81" title="All 2 branches missed.">            if (i == 0)</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">	       sign = zcrossproduct &gt; 0;</span>
+<span class="nc bnc" id="L83" title="All 4 branches missed.">            else { if (sign != (zcrossproduct &gt; 0))</span>
+<span class="nc" id="L84">                     return false;</span>
+                 }
+        }
+
+<span class="nc" id="L88">       return true;</span>
+    }
+
+
+    public abstract double area();
+       
+    public abstract Poligono clone();
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

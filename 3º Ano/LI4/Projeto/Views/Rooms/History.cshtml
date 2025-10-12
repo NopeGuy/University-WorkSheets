@@ -1,0 +1,84 @@
+﻿@model List<Noitcua.Models.venda>
+@{
+    ViewData["Title"] = "History";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .purchase-container {
+            width: 600px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+        }
+
+        .purchase-box {
+            width: 90%;
+            padding: 15px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .purchase-info {
+            margin-bottom: 10px;
+        }
+
+        .pending-checkbox {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="purchase-container">
+        <h2>Histórico de Compras:</h2>
+
+        @foreach (var venda in Model)
+        {
+            <div class="result-box">
+                <div class="sala-title">
+                    <br />
+                    <b>@ViewData["Sala" + venda.id_sala]</b>
+                    <br />
+                    @if(venda.verified == false)
+                    {
+                        <p>Realizada por: @ViewData["User"+venda.id_vendedor]</p>
+                    }
+                    else
+                    {
+                        <p>A realizar com: @ViewData["User"+venda.id_vendedor]</p>
+                    }
+                </div>
+
+                <br />
+
+                <div>
+                    <h4>Valor da venda: @(Math.Round(venda.value, 2)) € <br /> Método de Pagamento: @venda.payment_method </h4>
+                </div>
+
+
+                <div>
+                    <h4>@venda.date</h4>
+                </div>
+
+                <br /><br />
+
+                <div>
+                    @if (venda.verified == true)
+                    {
+                        <a class="result-button" href="@Url.Action("ConfirmDelivery", "Rooms", new {id_sala = venda.id_sala,id_venda= venda.id})">Confirmar Entrega</a>
+                    }
+                    else
+                    {
+                        <h3>Entregue</h3>
+                    }
+                </div>
+            </div>
+        }
+        </div>
+
+</body>
+</html>

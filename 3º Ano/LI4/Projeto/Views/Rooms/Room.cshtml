@@ -1,0 +1,127 @@
+﻿@model IEnumerable<Noitcua.Models.chat>
+@{
+    ViewData["Title"] = "Room";
+}
+<html>
+<head>
+    <style>
+        #tudo {
+            display: flex;
+        }
+        #chat-container {
+            flex-grow: 1;
+            overflow-y: scroll;
+            padding: 10px;
+            height: 300px;
+            border-right: 1px solid #ccc;
+        }
+
+        #purchase-details {
+            width: 250px;
+            float: right;
+            padding: 10px;
+        }
+
+        #input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #messageWrite {
+            flex-grow: 1;
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        #send-button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .accounts{
+            overflow-y: scroll;
+            background-color: #ececec;
+        }
+        .account{
+            border-top: 1px solid grey;
+            padding: 5px;
+        }
+    </style>
+    <script type="text/javascript" src="/lib/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        function isInputActive(inputId) {
+            
+            var activeElement = document.activeElement;
+
+            
+            return activeElement.id === inputId;
+        }
+        setTimeout(function () {
+            document.getElementById('chat-container').scrollTo({
+                top: document.getElementById('chat-container').scrollHeight,
+                behavior: 'smooth' 
+            });
+        }, 200);
+        $(document).ready(function() {
+            setInterval(function () {
+                $.ajax({
+                    url: "/Rooms/CheckChatChanges",
+                    type: 'GET',
+                    data: "id=" + '@ViewData["Id_sala"]' + "&last_time=" + '@ViewData["Last_time"]',
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res);
+                        if (res.hasUpdates)
+                            location.reload();
+                    }
+                });
+            }, 1000);
+            
+        });
+
+    </script>
+
+</head>
+<body>
+    <div id="tudo">
+        <div id="chat-container">
+            @foreach (var item in Model)
+            {
+                <p><handle>@ViewData["Handle"]</handle> <br /><b> @item.data </b> <br /> @item.mensagem </p>
+            }
+        </div>
+        <div id="purchase-details">
+            <h2>Detalhes Produto</h2>
+            <p>Item: @ViewData["titulo"]</p>
+            <p>Descrição: @ViewData["descricao"]</p>
+            <div class="accounts">
+                <b>@ViewData["Handle_Comprador"]</b>
+                @if (ViewData["UsersHandles"] is List<string> usersHandles)
+                {
+                    foreach (var handle in usersHandles)
+                    {
+                        <div class="account">@handle</div>
+                    }
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <div input-container>
+        <form asp-action="SendMessage" method="post">
+            <input name="id_utilizador" value="@ViewData["Id_user"]" type="text" hidden />
+            <input type="text" name="id_sala" value="@ViewData["Id_sala"]" hidden />
+
+            <input type="text" id="messageWrite" name="msg" class="form-control" />
+            <button type="submit" id="send-button" class="btn btn-primary">Enviar</button>
+        </form>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    </div>
+
+</body>
+</html>
+

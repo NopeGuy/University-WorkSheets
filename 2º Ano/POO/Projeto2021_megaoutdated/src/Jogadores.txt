@@ -1,0 +1,445 @@
+Equipa:Mahler Athletic
+Guarda-Redes:Eduardo Costa de Magalhaes,36,58,45,94,36,6,59,47,75
+Lateral:Tiago Rafael Fernandes Guimaraes,29,61,58,58,61,37,95,55,88
+Defesa:Nelson Ramos Alves,48,59,56,51,52,67,59,42
+Defesa:Fabio Fernandes Silva,8,51,91,64,58,14,75,42
+Lateral:Mariana Dinis Rodrigues,20,53,62,56,64,0,92,59,14
+Medio:Francisco Jose Pereira Teofilo,17,68,66,96,74,69,57,76,61
+Medio:Joao Guilherme Rodrigues Reis,12,67,73,61,72,73,54,43,4
+Medio:Carlos Daniel da Silva Santos,11,56,75,84,63,65,56,69,66
+Medio:Goncalo Miguel Leao Barros Oliveira Pinto,21,59,3,1,88,52,54,72,66
+Avancado:Guilherme Gil Rocha Goncalves,39,68,31,13,65,30,61,71
+Avancado:Bruno Filipe Jardim Machado,2,90,73,56,60,41,72,53
+Lateral:Pedro Nuno Fernandes Freitas,30,53,71,63,45,5,63,66,77
+Avancado:Pedro Antonio Pires Correia Leite Sequeira,22,55,54,8,93,94,70,68
+Lateral:Tomas Cardoso Francisco,25,71,58,70,0,71,73,84,50
+Medio:Joao Pedro Martins da Silva Freitas Cardoso,23,3,64,69,54,59,49,90,75
+Avancado:Raul Arieira Parente,28,64,54,87,21,83,82,72
+Lateral:Barbara Paulista de Faria,40,58,24,70,53,54,89,65,0
+Lateral:Diogo da Costa e Silva Lima Rebelo,15,57,66,70,96,60,74,68,22
+Defesa:Pedro Miguel Sampaio Faria,27,58,72,52,51,61,57,51
+Avancado:Jose Pedro Pinto Teixeira da Cunha,32,89,63,59,66,60,50,25
+Equipa:Sporting Club Chopin
+Guarda-Redes:Goncalo Leal Da Mota Meireles Moreira,20,78,55,69,39,90,52,73,72
+Lateral:Diogo Camacho Barbosa,42,100,54,30,72,73,75,75,68
+Defesa:Joao Pedro Espilma Goulart,8,29,74,36,62,66,78,52
+Defesa:Joao Manuel Novais da Silva,44,51,77,59,60,10,65,60
+Lateral:Catarina Martins Sa Quintas,16,84,52,66,50,69,86,62,31
+Medio:Leonardo Barbosa Maia,25,51,32,75,55,53,64,82,60
+Medio:Joao Domingos Pereira Barbosa,4,77,97,50,49,59,63,50,60
+Medio:Andre Luis Ramos Pereira,26,54,59,47,59,71,51,51,65
+Medio:Arthur Cardoso Franca,50,51,60,78,58,75,72,74,71
+Avancado:Meriem Khammassi,35,93,51,44,58,56,98,63
+Avancado:Daniel Torres Azevedo,37,46,63,63,55,73,60,72
+Defesa:Goncalo Couto dos Santos,40,53,26,27,84,59,93,96
+Defesa:Andre Goncalves Pinto,48,54,55,37,62,22,51,92
+Guarda-Redes:Catarina Morales de Los Rios Martins,47,11,82,73,72,73,75,65,88
+Medio:Tiago Pinheiro da Silva,31,63,75,78,82,54,93,64,71
+Defesa:Pedro Paulo Costa Pereira,7,52,26,71,59,70,53,96
+Lateral:Jaime Abreu Fernandes de Oliveira,10,75,18,41,60,80,54,57,58
+Guarda-Redes:Diogo Manuel Brito Pires,22,73,61,18,50,75,71,18,12
+Lateral:Joao Antonio Ribeiro Alves,38,82,50,49,53,75,75,17,27
+Avancado:Beatriz Fernandes Oliveira,23,69,32,53,72,18,67,54
+Equipa:Mozart F. C.
+Guarda-Redes:Tiago Fernandes Ribeiro,20,59,51,73,75,6,100,60,70
+Lateral:Andre Oliveira Barbosa,9,76,88,12,57,79,51,54,51
+Defesa:Alexandre Ferreira de Abreu,25,51,50,22,57,61,1,87
+Defesa:Henrique Veiga da Paz,36,51,51,96,26,50,54,26
+Lateral:Joao Pedro Rodrigues Carvalho,40,93,52,69,56,4,50,85,57
+Medio:Fernando Maria Bicalho,49,59,76,55,0,51,90,52,72
+Medio:Jorge Miguel Silva Melo,34,84,95,38,63,69,53,75,74
+Medio:Margarida Goncalves Carvalho Araujo,6,77,57,70,57,32,97,70,65
+Medio:Daniela Eduarda Cruz Fernandes,5,53,71,5,69,51,80,76,61
+Avancado:Joana Veiga de Oliveira,47,21,87,65,50,52,74,4
+Avancado:Joao Pinheiro Vitor,35,29,53,64,67,15,75,37
+Defesa:Joao Pedro Ramos Monteiro Silva,46,63,76,65,50,58,51,72
+Medio:Vitor Lelis Noronha Leite,48,53,72,23,0,60,58,98,62
+Medio:Joao Miguel Silva Freitas,42,63,51,78,62,57,72,76,58
+Medio:Afonso Abreu Aarao,32,54,57,67,62,79,0,63,43
+Avancado:Marco Antonio Goncalves de Sousa,29,64,66,59,56,97,11,81
+Defesa:Jose Luis Alves Fernandes,11,63,64,89,57,55,83,90
+Guarda-Redes:Marco Andre Pereira da Costa,14,91,45,63,66,51,38,55,74
+Avancado:Ana Filipa da Cunha Rebelo,28,81,22,25,90,60,35,14
+Avancado:Andre Filipe Barbosa de Sousa,19,75,50,6,90,53,61,71
+Equipa:Vivaldi F. C.
+Guarda-Redes:Hugo Joao Pereira Calheiros Brandao,18,50,8,42,65,58,0,2,81
+Lateral:Beatriz da Ponte Rocha,3,57,43,66,61,55,74,18,54
+Defesa:Ricardo Lopes Santos Silva,31,69,28,45,17,24,99,61
+Defesa:Leonor Lopes Caldas,39,45,5,75,56,61,72,48
+Lateral:Tomas Ferreira Sousa Dias,42,74,31,62,80,97,74,95,44
+Medio:Mariana Rocha Marques,8,19,34,14,67,72,50,51,70
+Medio:Ines Maria Fernandes Martins,26,69,16,94,43,58,90,81,92
+Medio:Jorge Rafael Gomes Azevedo,43,82,14,89,59,53,52,51,69
+Medio:Miguel Angelo Mesquita Rego,50,61,97,56,12,65,85,55,50
+Avancado:Tiago Manuel Da Silva Rego Macedo Alves,33,77,55,77,63,96,62,62
+Avancado:Joao Miguel Amorim Alves,28,29,91,28,81,52,75,46
+Avancado:Pedro Tavares Alves,7,75,43,90,12,59,66,70
+Defesa:Daniel Constantino Martins Faria,4,78,66,75,34,61,86,29
+Avancado:Carlos Filipe Almeida Dias,41,34,32,53,72,88,52,70
+Guarda-Redes:Silvia Maria Acosta Roca,20,68,93,71,80,73,53,60,67
+Lateral:Sergio Miguel Cabral Passinhas Dos Santos Costa,47,72,67,78,54,59,25,94,63
+Lateral:Pedro Jorge Fernandes Martins,38,1,52,75,56,22,72,51,51
+Medio:Francisco Antonio Borges Paulino,10,90,62,44,81,52,75,72,61
+Lateral:Helder Cristiano Miranda Lopes,16,27,65,61,62,61,39,35,75
+Avancado:Ricardo Manuel Almeida Vieira De Castro,30,68,10,50,47,83,51,75
+Equipa:Schumann Athletic
+Guarda-Redes:Andre Filipe da Silva Marques,36,87,70,13,55,72,65,73,62
+Lateral:Isabela Marques Rosa Perez,26,48,71,79,65,58,53,43,16
+Defesa:Guilherme Lima Barros Gomes Fernandes,11,55,52,25,52,67,50,64
+Defesa:Luis Manuel Peixoto Silva,7,65,6,91,60,59,36,83
+Lateral:Bruno Ricardo Silva Campos,37,59,72,74,91,74,65,50,72
+Medio:Joao Augusto Macedo Moreira,48,68,73,53,20,75,61,0,77
+Medio:Andre Filipe Araujo Pereira De Sousa,15,61,58,52,94,35,95,55,82
+Medio:Jose Pedro Castro Ferreira,14,70,80,36,39,66,73,73,64
+Medio:Gabriela Moreira Prata,43,60,52,64,73,53,60,63,74
+Avancado:Hugo Lima Fernandes,28,65,52,57,65,56,64,69
+Avancado:Diana Abreu Machado Azevedo Rodrigues,32,62,54,53,71,73,70,55
+Lateral:Bruno Cunha Silva,50,55,65,75,61,75,67,78,71
+Avancado:Ricardo Jose Santos Veloso,5,65,71,100,74,75,32,58
+Guarda-Redes:Hugo Filipe Correia Costeira,10,52,57,53,31,58,51,58,94
+Guarda-Redes:Joao Vitor Cunha Vieira,3,55,100,54,57,71,68,69,60
+Guarda-Redes:Jose Pedro Dias Nascimento Fernandes,4,66,55,78,59,97,65,62,52
+Guarda-Redes:Rui Jordao Sampaio Goncalves,49,61,86,53,60,66,64,61,52
+Defesa:Alexandre Carvalho Flores,30,50,70,54,63,87,63,10
+Lateral:Joao Nuno Vieira Carvalho,23,50,68,64,65,72,56,63,46
+Lateral:Maria Beatriz Araujo Lacerda,20,67,28,71,63,72,62,58,97
+Equipa:Brahms F. C.
+Guarda-Redes:Guilherme Santiago Lopes Pereira,29,55,69,56,69,68,62,81,68
+Lateral:Feliciano Jose Sousa Oliveira,38,7,64,97,66,16,29,90,17
+Defesa:Joel Magalhaes Pinto,41,28,70,15,59,77,89,70
+Defesa:Francisco Maria Sousa Goncalves Paiva,43,66,77,77,73,35,79,95
+Lateral:Rodrigo Jorge Pinto Guimaraes,48,60,64,7,25,65,38,75,55
+Medio:Carlos Humberto da Silva Ferreira,47,43,10,6,63,63,53,36,9
+Medio:Pedro Calheno Pinto,10,61,60,66,71,14,45,92,49
+Medio:Alexandre Rodrigues Balde,31,87,58,72,70,13,60,50,54
+Medio:Pedro Henrique PessÃ´a Camargo,32,68,51,33,53,69,74,50,4
+Avancado:Delio Miguel Lopes Alves,33,62,69,74,74,59,56,75
+Avancado:Joao Manuel Silva Antunes,36,53,42,59,74,61,82,100
+Lateral:Daniel Barbosa Faria,2,47,30,71,65,97,6,60,70
+Avancado:Andre da Silva Veiga,34,53,79,73,60,74,66,60
+Medio:Vasco Mota Marques,25,71,63,62,58,64,59,27,62
+Guarda-Redes:Goncalo Duarte Gomes Rodrigues,27,31,89,94,83,61,72,87,72
+Defesa:Francisco Torrinha Martins Torres Machado,46,68,60,52,69,64,6,62
+Guarda-Redes:Andre Manuel da Costa Ferreira,1,70,62,68,62,68,89,63,67
+Defesa:Joana Maia Teixeira Alves,14,74,53,89,52,90,86,28
+Defesa:Jose Pedro Pinheiro da Silva,7,18,59,66,59,41,65,62
+Defesa:Rui Miguel Borges Braga,23,72,7,34,64,75,62,60
+Equipa:Sporting Club Dvorak
+Guarda-Redes:Luis Soares Jorge,33,59,27,23,53,8,10,52,66
+Lateral:Sara de Sa Hipolito,19,55,14,95,1,56,4,62,67
+Defesa:Luis Filipe Vieira Rodrigues,49,81,60,100,20,62,2,56
+Defesa:Filipe Da Cunha Faria Gajo,6,8,86,21,17,64,51,57
+Lateral:Tiago Manuel Rossas Da Silva,31,73,21,94,65,80,3,84,50
+Medio:Carlos Alberto Fernandes Dias da Silva,45,79,88,63,56,80,62,75,53
+Medio:Vasco Oliveira Matos,10,64,74,65,23,72,91,95,37
+Medio:Aureo Joel Costa dos Santos Benedito,29,27,37,57,70,73,51,93,33
+Medio:Saimon Alves Costa Sousa,32,87,96,73,55,53,21,57,74
+Avancado:David Jose de Sousa Machado,4,85,74,62,72,51,66,56
+Avancado:Jose Alberto Ferreira Malheiro,28,71,62,58,66,56,71,97
+Medio:Mariana do Carmo Araujo Amorim,26,85,21,94,59,62,58,67,94
+Defesa:Ruben Samuel Alves Santos,37,71,25,60,64,60,68,56
+Guarda-Redes:Vicente Goncalves Moreira,48,2,63,66,54,59,81,51,16
+Lateral:Helena Pocas Martins,35,42,72,80,72,58,74,63,58
+Defesa:Goncalo da Cunha Freitas,23,64,67,71,89,55,63,47
+Lateral:Andre Lima Sao Gil,13,97,65,52,80,68,57,64,37
+Medio:Daniela Cristina Miranda Carvalho,42,99,65,79,53,3,51,67,72
+Defesa:Jose Joao Cardoso Goncalves,40,70,54,71,75,53,93,74
+Medio:Marcelo Araujo De Sousa,43,62,9,67,73,64,58,58,53
+Equipa:Bartok F. C.
+Guarda-Redes:Francisco Reis Izquierdo,8,53,50,54,53,67,58,100,60
+Lateral:Beatriz da Silva Rodrigues,7,59,66,51,66,84,10,96,62
+Defesa:Adelio Jose Ferreira Fernandes,1,64,63,70,63,36,76,45
+Defesa:Pedro Miguel Machado Bota da Silva,4,75,16,63,66,58,16,84
+Lateral:Pedro Manuel Soares Bastos,40,51,81,73,66,67,73,67,52
+Medio:Luis Gomes Ferreira,25,56,75,93,52,98,63,73,30
+Medio:Alexandre Daniel Pinto Teixeira,31,100,68,57,17,60,68,50,58
+Medio:Andre Teixeira Da Costa,26,21,58,87,4,73,66,55,50
+Medio:Tiago Daniel Lopes Aroso da Costa,13,69,62,59,62,64,56,4,19
+Avancado:Cristiana Tamborino Ribeiro,22,51,7,82,97,42,68,53
+Avancado:Andre Filipe Novais Vaz,43,61,29,75,14,5,64,86
+Defesa:Duarte Nuno Pereira Moreira,16,58,69,63,79,19,53,46
+Medio:Guilherme da Silva Amorim Martins,33,74,54,75,73,67,12,60,52
+Avancado:Ines Oliveira Anes Vicente,14,80,77,8,81,99,50,55
+Medio:Joao Goncalo Barreto Macedo,38,60,52,10,82,75,70,56,37
+Guarda-Redes:Goncalo Andre Rodrigues Soares,18,9,84,47,90,50,63,64,8
+Defesa:Marco Delgado Esperanca,19,94,60,75,89,58,80,64
+Lateral:Patricia Goncalves Pereira,45,53,62,69,59,79,69,85,11
+Lateral:Paulo Filipe Rodrigues Da Cruz,15,55,78,31,69,62,60,14,68
+Defesa:Joao Ricardo Rodrigues Nogueira,47,21,73,100,24,66,63,91
+Equipa:Stravinsky Athletic
+Guarda-Redes:Jose Duarte Pereira de Castro Alves,36,52,60,67,62,54,51,32,90
+Lateral:Pedro Miguel Pires Martins,29,85,25,67,58,52,99,86,100
+Defesa:Rui Alexandre Dias Neto,13,51,92,49,50,50,63,75
+Defesa:Joao Pedro Pereira Caldas,19,55,61,54,61,83,60,61
+Lateral:Leonardo Araujo Freitas,42,37,70,76,71,74,8,12,59
+Medio:Tiago Leitao Coelho Lima,1,81,70,67,73,67,56,59,47
+Medio:Pedro Aquino Martins de Araujo,50,66,90,91,51,62,52,73,35
+Medio:Miguel Angelo Machado Martins,22,72,50,54,71,91,51,75,73
+Medio:Joaquim Tiago Martins Roque,8,37,95,58,91,68,68,13,54
+Avancado:Pedro Miguel Marques Fernandes,17,51,89,1,77,8,84,51
+Avancado:Claudia Peixoto Silva,0,53,32,75,81,91,73,76
+Guarda-Redes:David Pereira Alves,10,52,72,64,1,75,97,30,67
+Avancado:Tomas Vaz de Carvalho Campinho,27,26,58,62,22,62,70,57
+Avancado:Pedro Alexandre Silva Gomes,44,47,73,62,29,51,66,72
+Defesa:Lidia Anais Coelho de Sousa,4,30,76,53,68,99,62,60
+Guarda-Redes:Joao Henrique Rodrigues Pestana do Vale,23,62,88,67,87,55,68,20,13
+Avancado:Miguel Rodrigues Santa Cruz,16,35,71,75,97,70,57,71
+Lateral:Rodrigo Pires Rodrigues,11,32,46,65,90,69,62,96,75
+Medio:Shahzod Yusupov,24,67,53,59,73,57,44,70,74
+Medio:Filipe Matias Antas Viana,46,97,52,70,69,84,69,66,54
+Equipa:Bach F. C.
+Guarda-Redes:Jose Diogo Martins Vieira,4,85,50,51,62,66,6,57,69
+Lateral:Goncalo Joao de Oliveira Barbosa Lobarinhas Henriques,47,98,92,54,90,56,75,73,14
+Defesa:Teresa Costa Pires Gil Fortes,35,85,29,39,62,56,83,69
+Defesa:Francisca Teixeira Baptista,2,27,63,93,48,50,3,51
+Lateral:Diogo Francisco Lima Barros,36,70,70,81,33,9,83,72,73
+Medio:Joao Antunes Lourenco,39,73,72,51,71,51,62,59,75
+Medio:Matilde Oliveira Pizarro Bravo,14,51,73,69,49,81,72,20,67
+Medio:Andre Pizarro Martins,43,63,57,56,53,48,72,58,99
+Medio:Rodrigo Caldas Meira,5,96,53,91,84,63,78,94,54
+Avancado:Joao Duarte Vila Verde Silva,32,94,62,58,84,72,16,69
+Avancado:Goncalo Pereira Figueiredo Ferreira,50,51,72,58,38,63,0,98
+Guarda-Redes:Rafael Diogo Batista Carvalho,30,67,52,51,81,14,67,68,70
+Defesa:Rui Pedro Gomes Coelho,27,68,31,68,57,27,70,56
+Defesa:Afonso Brandao Cruz,34,42,82,50,58,71,57,75
+Medio:Goncalo da Ponte Carvalho,3,72,51,71,61,68,74,0,90
+Lateral:Marlon Daniel Duarte Ferreira,21,54,89,68,87,70,2,57,59
+Defesa:Lucas da Silva Carvalho,24,53,72,19,52,96,21,56
+Avancado:Ivo Miguel Gomes Lima,37,84,69,75,57,30,72,45
+Medio:Rui Filipe Coelho Moreira,0,92,31,88,75,65,66,67,36
+Avancado:Maria Sofia da Rocha Gomes,1,55,68,56,92,27,69,89
+Equipa:Beethoven F. C.
+Guarda-Redes:Mario Rui Freitas Coelho,39,51,83,33,75,35,70,48,89
+Lateral:Tiago Miguel Martins Rodrigues,38,52,39,71,74,58,51,29,21
+Defesa:Jose Pedro Martins Magalhaes,5,32,48,70,2,73,59,74
+Defesa:Ricardo Andre Silva Pereira,50,78,77,19,97,54,61,94
+Lateral:Francisco Alexandre Pinto Neves,3,85,24,27,73,70,51,90,92
+Medio:Alexandra Dias Candeias,6,62,68,74,88,91,55,9,61
+Medio:Jessica Macedo Fernandes,44,66,65,28,74,54,92,50,55
+Medio:Ivo Pereira Vilas Boas,13,75,24,51,96,75,68,65,24
+Medio:Luis Francisco Ferreira Faria,43,97,95,18,89,74,65,80,67
+Avancado:Ana Miguel da Costa Peixoto Macedo,7,62,26,57,66,76,60,51
+Avancado:Antonio Maria De Araujo Serra Lobo Guerra,9,52,72,71,62,63,29,61
+Avancado:Diogo da Silva Rebelo,25,47,19,57,13,79,61,55
+Avancado:Simao Pedro Sa Cunha,45,9,51,86,23,74,52,24
+Guarda-Redes:Joao Silva Torres,16,50,55,12,90,68,63,60,82
+Lateral:Paulo Ricardo Dias da Costa,30,58,7,58,59,75,95,58,55
+Medio:Muhammad Ilham,20,34,73,66,38,36,39,73,58
+Defesa:Lucas Rafael da Cunha Franco Robertson,48,48,94,54,60,60,75,55
+Lateral:Jorge Furtado Curto,40,53,10,58,58,50,53,16,50
+Lateral:Pedro Miguel Duarte Araujo,19,78,62,50,70,74,68,95,74
+Medio:Andre Aristeu Mateus Vinagreiro,23,74,63,58,60,83,59,75,59
+Equipa:Sporting Club Prokofiev
+Guarda-Redes:Joao Andre Monteiro Martins,3,53,51,92,75,50,91,62,2
+Lateral:Henrique Jose Fernandes Alvelos,38,56,55,88,71,58,50,51,93
+Defesa:Goncalo Jose Teixeira Pereira,15,67,82,51,50,76,72,45
+Defesa:Antonio Luis de Macedo Fernandes,9,85,67,69,86,89,96,66
+Lateral:Joao Alexandre Gandra Ferreira,5,59,72,65,69,69,67,39,65
+Medio:Jorge Frederico Faria da Costa,43,81,68,65,59,75,91,69,52
+Medio:Diogo Miguel da Silva Araujo,28,16,97,76,69,35,54,73,75
+Medio:Emanuel De Jesus Pedrosa Viana,17,85,80,17,71,23,3,68,97
+Medio:Mariana Filipa da Silva Rodrigues,47,56,66,63,51,29,90,93,61
+Avancado:Bruno Filipe Miranda Pereira,11,71,71,8,51,36,77,88
+Avancado:Bohdan Malanka,48,53,50,67,60,55,56,73
+Medio:Joao Tiago Alves Fidalgo de Sousa,2,81,52,70,56,29,68,85,10
+Medio:Moises Araujo Antunes,7,57,58,64,71,74,99,67,67
+Guarda-Redes:Joao Paulo Sousa Mendes,30,72,62,74,51,33,57,81,58
+Lateral:Paulo Miguel Freitas Oliveira,1,66,58,54,67,61,58,54,57
+Medio:Alef Pinto Keuffer,8,50,75,55,94,72,68,58,77
+Lateral:Maria Rita Dias Braga Lino,13,61,76,58,97,65,69,59,74
+Avancado:Aurelio Miguel Carneiro Rio Arageo,12,53,24,12,67,15,90,75
+Defesa:Julio Beites Goncalves,23,73,54,22,78,70,66,0
+Medio:Hugo Henrique Araujo de Sousa,35,53,51,79,51,71,60,34,4
+Equipa:Handel Athletic
+Guarda-Redes:Sergio Bruno Fernandes Peixoto,11,33,69,0,62,16,54,100,19
+Lateral:Joao Pedro Malheiro da Costa,4,69,77,70,15,68,54,64,64
+Defesa:Bruno Miguel Garrido Mortagua,30,51,91,61,50,50,65,9
+Defesa:Lucie Fernandes Dantas,1,67,94,93,24,62,60,33
+Lateral:Jose Pedro de Castro Moreira da Silva,9,40,75,57,58,15,6,54,17
+Medio:Joao Andre Faria de Freitas,22,75,34,54,83,51,51,27,56
+Medio:Eduardo SantAnna Nogueira,5,72,84,64,18,11,75,41,55
+Medio:Ruben Cesar Ferreira Lucas,50,73,63,56,59,61,66,59,2
+Medio:Miguel Castro Rocha,12,1,74,12,57,8,63,71,50
+Avancado:Joao Miguel Faria Leite,37,83,68,58,63,52,62,75
+Avancado:Joao Miguel Santos Sa,27,51,2,23,54,60,27,63
+Defesa:Francisco Alberto do Fundo Novo,47,78,92,57,0,51,98,0
+Avancado:Gerson Henrique de Araujo Junior,46,57,50,61,52,58,68,64
+Guarda-Redes:Joao Duarte Laranjo Cerquido,6,84,9,9,98,75,57,56,97
+Guarda-Redes:Rui Miguel Costa Baptista,39,38,37,67,3,58,61,67,73
+Avancado:Joao Nuno Rodrigues Fernandes,35,72,59,5,71,51,75,82
+Medio:Ana Rita Costa Teixeira,29,76,42,83,71,57,66,18,51
+Medio:Sofia Tereso Faria,13,61,66,53,56,64,85,60,95
+Guarda-Redes:Pedro Alfredo Fontes Machado,0,73,59,65,70,84,72,83,75
+Defesa:Jorge Manuel Costa Lima,10,91,56,54,28,77,67,74
+Equipa:Wagner Athletic
+Guarda-Redes:Alexandre Eduardo Vieira Martins,44,36,75,59,57,71,99,72,96
+Lateral:Joao Pedro Fontes Delgado,29,61,54,52,74,73,78,72,56
+Defesa:Pedro Alexandre Coutinho Goncalves de Sousa,12,72,3,70,60,51,42,58
+Defesa:Alexandre Silva Martins,28,57,99,68,35,58,74,51
+Lateral:Miguel Angelo Ferreira Fernandes,34,38,41,39,60,26,58,64,34
+Medio:Guilherme de Araujo Soares,7,62,68,64,49,50,76,56,59
+Medio:Luis Miguel Teixeira Fernandes,38,81,57,82,56,83,86,33,68
+Medio:Jose Joaquim Machado Barbosa,42,69,97,95,70,69,93,59,88
+Medio:Rui Pedro Chaves Silva Lousada Alves,33,73,21,59,71,71,91,70,52
+Avancado:Daniel Torres Neves,4,49,73,67,33,85,87,54
+Avancado:Cristiano Jose Goncalves Neiva Pereira,2,52,55,85,25,63,66,69
+Guarda-Redes:David Alexandre Ferreira Duarte,46,42,90,57,25,99,68,75,68
+Medio:Andre Oliveira de Paula Boechat Morandi,9,75,58,63,46,89,44,98,70
+Avancado:Beatriz Ribeiro Terra Almeida,25,90,64,81,55,81,82,69
+Defesa:Sara Lima Pereira,15,98,72,88,27,63,74,66
+Avancado:Pedro Santos Arezes Costa,37,66,74,56,95,56,52,81
+Defesa:Pedro Gabriel Fernandes Pereira,27,50,48,71,54,50,71,93
+Medio:Ricardo Manuel Soares Peixoto,14,57,50,72,22,76,69,81,56
+Medio:Joao Manuel Silva de Amorim,45,62,56,50,50,51,98,19,72
+Lateral:Tiago Andre Oliveira Leite,47,56,68,76,78,79,65,31,1
+Equipa:Sporting Club Schubert
+Guarda-Redes:Joao Miguel da Silva Pinto Ferreira,36,22,36,57,54,59,72,68,58
+Lateral:Tiago dos Santos Silva Peixoto Carrico,23,90,61,62,75,37,67,93,37
+Defesa:Luis Filipe Fernandes Vilas,1,62,82,51,86,86,21,53
+Defesa:Ana Filipa Ribeiro Murta,48,69,70,25,71,78,73,79
+Lateral:Goncalo Peres Costa,16,68,55,63,56,9,24,50,60
+Medio:Ruben Filipe Martins Machado,50,54,31,50,1,29,74,70,8
+Medio:Duarte Augusto Rodrigues Lucas,15,57,62,70,94,93,63,27,0
+Medio:Rui Manuel Pereira Pires,11,72,64,63,63,52,66,74,69
+Medio:David Joao Oliveira Goncalves,17,66,87,79,92,81,55,73,69
+Avancado:Rui Filipe Traila de Sousa,22,32,89,52,64,63,61,75
+Avancado:Ruben Daniel Almeida Adao,39,89,82,36,55,71,38,60
+Avancado:Diogo Pereira Matos,30,54,44,60,82,64,72,78
+Guarda-Redes:Bruna Micaela Rodrigues Araujo,34,69,73,77,65,82,54,61,71
+Medio:Miguel Andre Carvalho Goncalves,5,59,8,8,38,72,68,97,99
+Avancado:Geovani Silva Delgado Alves,43,85,97,50,85,33,63,78
+Avancado:Filipe Felix Oliveira,40,51,36,85,65,82,73,50
+Defesa:Mario Rui Sendas Rocha,38,16,79,10,75,49,71,20
+Medio:Tiago Lucas Alves,46,58,60,60,60,66,24,52,12
+Lateral:Jeanete Alves do Couto,3,93,26,99,39,55,59,31,66
+Guarda-Redes:Tiago Passos Rodrigues,12,75,10,67,95,50,50,89,100
+Equipa:Debussy Athletic
+Guarda-Redes:Miguel Angelo Alves de Freitas,21,62,54,69,56,57,72,72,95
+Lateral:Joao Nuno Pereira Barbosa,32,40,63,94,71,81,96,62,54
+Defesa:Marco Antonio Dias Martins,5,17,94,24,92,68,69,80
+Defesa:Jorge Daniel Pereira Da Silva,6,61,59,57,44,54,71,66
+Lateral:Jose Luis Noval Fernandes Mendes,41,56,68,55,47,52,50,65,100
+Medio:Francisco Jose Martinho Toldy,45,96,29,72,55,70,69,52,1
+Medio:Jose Pedro Gomes Ferreira,12,69,58,91,63,52,41,50,33
+Medio:Maria Eugenia Bessa Cunha,22,11,72,55,91,57,65,81,64
+Medio:Ana Beatriz Ribeiro e Silva,48,54,85,80,79,44,89,67,55
+Avancado:Vasco Baptista Moreno,28,67,68,58,99,93,56,66
+Avancado:Joao Aniceto Rodrigues Rocha,3,54,69,77,58,64,54,9
+Defesa:Pedro Daniel Almeida Castro,42,44,64,80,69,71,71,99
+Guarda-Redes:Pedro Miguel Ribeiro Ferreira,18,52,67,70,52,56,58,72,21
+Lateral:Tiago Luis Dias da Silva,4,37,82,7,76,59,61,52,72
+Medio:Augusto Cesar Oliveira Campos,36,85,58,64,50,93,66,4,67
+Avancado:Diogo Andre de Mata Rodrigues,16,66,86,74,73,75,89,30
+Medio:Andre Mateus Pires Presa,15,76,62,94,48,41,86,89,97
+Avancado:Ines Pires Presa,47,74,100,62,56,71,60,78
+Guarda-Redes:Isabel Pereira Inacio,38,95,90,38,51,59,61,53,68
+Medio:Goncalo Braz Afonso,31,72,55,40,53,71,78,31,75
+Equipa:Sporting Club Shostakovich
+Guarda-Redes:Ana Sofia da Silva Alves,43,57,69,51,62,50,56,55,62
+Lateral:Bernardo Emanuel Magalhaes Saraiva,30,94,94,98,32,73,73,98,97
+Defesa:Rodrigo Simoes Guimaraes Mendes,1,61,41,30,72,71,68,6
+Defesa:Daniel Jose Coutinho Goncalves De Faria,22,98,68,52,71,60,54,19
+Lateral:Joao Luis Lopes Giesteira,33,72,56,34,71,75,71,84,87
+Medio:Daniel Silva Xavier,11,87,80,59,68,58,98,73,61
+Medio:Tiago Andre Leca Carneiro,38,51,59,44,47,59,92,74,19
+Medio:Rui Pedro Oliveira Serrano Morais,31,69,34,52,57,77,57,75,57
+Medio:Francisco Luis Rodrigues Claudino,39,86,66,54,75,51,85,3,54
+Avancado:Pedro Miguel Rodrigues Gomes,6,61,66,51,4,58,72,93
+Avancado:Joao Luis Tibo Machado dos Santos,12,100,69,92,98,94,74,63
+Guarda-Redes:Nelson Miranda Ribeiro,25,54,73,57,53,55,51,75,73
+Defesa:Ricardo Augusto da Mota Gama,37,74,77,65,75,34,51,57
+Medio:Rui Guilherme Bretao Rego dos Santos Monteiro,34,89,72,40,40,7,96,57,67
+Avancado:Miguel Jacinto Dias Carvalho,41,73,64,67,59,54,72,70
+Avancado:Antonio Ricardo Vieira da Fonseca,4,54,85,74,57,51,84,70
+Lateral:Diogo Viana Ramos Casal Novo,47,66,50,93,72,73,53,60,60
+Medio:Henrique Pinto Pires Lopes de Faria,9,17,68,61,63,74,93,86,62
+Guarda-Redes:Luis Carlos Sousa Magalhaes,3,15,45,75,59,94,60,53,16
+Avancado:Samuel de Almeida Simoes Lira,20,75,37,10,68,73,52,69
+Equipa:Mendelssohn F. C.
+Guarda-Redes:Hugo Ferreira Nogueira,2,12,75,74,58,56,94,57,67
+Lateral:Jose Miguel Carvalho Neiva,1,59,46,98,72,24,17,72,53
+Defesa:Leonardo de Freitas Marreiros,40,74,78,61,12,68,71,98
+Defesa:Henrique Parola Meziara da Costa,16,11,87,98,65,30,89,50
+Lateral:Miguel Angelo de Sousa Martins,25,68,89,97,91,93,56,53,93
+Medio:Andre Lucas Silva Verdelho,49,73,51,78,24,69,57,52,56
+Medio:Tiago Alexandre Ferreira Silva,41,56,72,75,1,68,66,35,16
+Medio:Rui Pedro Magalhaes Torres,17,89,58,60,50,36,9,71,60
+Medio:Joao Pedro Silva Neves,14,66,50,54,93,89,81,83,66
+Avancado:Afonso Franco Ferreira,33,46,74,67,52,67,75,62
+Avancado:Joao do Nascimento Queiros Ferreira,36,51,74,58,87,60,58,67
+Lateral:Jose Pedro Gaveta Abreu,12,37,65,67,30,52,11,3,18
+Lateral:Pedro Diogo Pinto Martins,43,59,98,100,74,58,55,65,18
+Lateral:Bruna Dias Carvalho,42,61,48,54,67,77,55,13,73
+Guarda-Redes:Andre Goncalves Vieira,22,95,54,75,60,56,79,91,69
+Medio:Vasco Mota de Oliveira,31,75,74,64,68,68,65,52,58
+Lateral:Joao Pedro Carvalho Henriques,28,71,76,63,88,72,72,22,74
+Medio:Rafael dos Anjos Areas,45,37,65,66,75,72,20,85,69
+Lateral:Nuno Alexandre Pereira Machado,23,96,57,54,53,74,65,14,55
+Avancado:Joao Manuel Cardoso Guedes,13,5,94,55,52,67,68,1
+Jogo:Sporting Club Shostakovich,Mendelssohn F. C.,0,0,2021-03-30,43,30,1,22,33,11,38,31,39,6,12,22->37,43->25,25->3,2,1,40,16,25,49,41,17,14,33,36,1->42,49->31,14->45
+Jogo:Mozart F. C.,Sporting Club Dvorak,2,2,2021-04-02,20,9,25,36,40,49,34,6,5,47,35,36->11,35->28,34->42,33,19,49,6,31,45,10,29,32,4,28,19->13,49->37,45->42
+Jogo:Debussy Athletic,Stravinsky Athletic,5,2,2021-03-14,21,32,5,6,41,45,12,22,48,28,3,3->47,21->18,45->31,36,29,13,19,42,1,50,22,8,17,0,17->44,22->24,36->23
+Jogo:Schumann Athletic,Beethoven F. C.,2,1,2021-02-05,36,26,11,7,37,48,15,14,43,28,32,11->30,37->20,32->5,39,38,5,50,3,6,44,13,43,7,9,39->16,38->40,3->19
+Jogo:Mendelssohn F. C.,Bartok F. C.,1,0,2021-02-17,2,1,40,16,25,49,41,17,14,33,36,49->45,41->31,2->22,8,7,1,4,40,25,31,26,13,22,43,1->19,40->45,8->18
+Jogo:Bach F. C.,Sporting Club Shostakovich,1,3,2021-02-02,4,47,35,2,36,39,14,43,5,32,50,14->0,4->30,36->21,43,30,1,22,33,11,38,31,39,6,12,43->3,31->34,12->20
+Jogo:Beethoven F. C.,Handel Athletic,0,2,2021-01-01,39,38,5,50,3,6,44,13,43,7,9,43->23,50->48,38->19,11,4,30,1,9,22,5,50,12,37,27,11->0,0->39,30->47
+Jogo:Wagner Athletic,Stravinsky Athletic,1,2,2021-01-29,44,29,12,28,34,7,38,42,33,4,2,33->45,28->27,12->15,36,29,13,19,42,1,50,22,8,17,0,0->44,36->10,19->4
+Jogo:Bartok F. C.,Wagner Athletic,0,1,2021-01-04,8,7,1,4,40,25,31,26,13,22,43,13->38,8->18,4->47,44,29,12,28,34,7,38,42,33,4,2,12->27,42->45,38->9
+Jogo:Sporting Club Shostakovich,Stravinsky Athletic,1,0,2021-01-01,43,30,1,22,33,11,38,31,39,6,12,11->34,12->20,43->25,36,29,13,19,42,1,50,22,8,17,0,17->44,8->46,36->10
+Jogo:Sporting Club Chopin,Sporting Club Schubert,4,0,2021-03-28,20,42,8,44,16,25,4,26,50,35,37,44->40,20->47,42->38,36,23,1,48,16,50,15,11,17,22,39,17->5,39->30,30->43
+Jogo:Brahms F. C.,Sporting Club Chopin,2,3,2021-01-27,29,38,41,43,48,47,10,31,32,33,36,43->46,38->2,31->25,20,42,8,44,16,25,4,26,50,35,37,42->38,8->40,26->31
+Jogo:Mozart F. C.,Sporting Club Prokofiev,2,1,2021-03-14,20,9,25,36,40,49,34,6,5,47,35,36->46,5->48,20->14,3,38,15,9,5,43,28,17,47,11,48,38->1,9->23,43->8
+Jogo:Mozart F. C.,Sporting Club Chopin,5,1,2021-02-15,20,9,25,36,40,49,34,6,5,47,35,34->48,6->32,20->14,20,42,8,44,16,25,4,26,50,35,37,16->10,20->47,8->48
+Jogo:Sporting Club Prokofiev,Debussy Athletic,1,0,2021-03-12,3,38,15,9,5,43,28,17,47,11,48,38->13,3->30,5->1,21,32,5,6,41,45,12,22,48,28,3,12->31,5->42,21->38
+Jogo:Beethoven F. C.,Bach F. C.,0,3,2021-03-31,39,38,5,50,3,6,44,13,43,7,9,38->30,39->16,44->23,4,47,35,2,36,39,14,43,5,32,50,2->27,32->1,27->34
+Jogo:Mozart F. C.,Wagner Athletic,2,2,2021-02-27,20,9,25,36,40,49,34,6,5,47,35,20->14,35->19,36->11,44,29,12,28,34,7,38,42,33,4,2,2->37,38->45,29->47
+Jogo:Brahms F. C.,Vivaldi F. C.,1,2,2021-01-25,29,38,41,43,48,47,10,31,32,33,36,41->23,23->46,29->1,18,3,31,39,42,8,26,43,50,33,28,43->10,39->4,28->7
+Jogo:Sporting Club Chopin,Mendelssohn F. C.,1,3,2021-02-03,20,42,8,44,16,25,4,26,50,35,37,20->47,25->31,42->10,2,1,40,16,25,49,41,17,14,33,36,25->42,1->23,23->12
+Jogo:Handel Athletic,Mahler Athletic,0,2,2021-02-05,11,4,30,1,9,22,5,50,12,37,27,11->0,0->6,30->47,36,29,48,8,20,17,12,11,21,39,2,29->15,39->32,2->22
+Jogo:Sporting Club Chopin,Sporting Club Dvorak,0,3,2021-02-02,20,42,8,44,16,25,4,26,50,35,37,20->47,8->40,42->38,33,19,49,6,31,45,10,29,32,4,28,19->13,6->23,23->37
+Jogo:Schumann Athletic,Handel Athletic,2,1,2021-01-05,36,26,11,7,37,48,15,14,43,28,32,36->4,4->49,32->5,11,4,30,1,9,22,5,50,12,37,27,37->35,11->39,50->29
+Jogo:Schumann Athletic,Debussy Athletic,2,1,2021-03-23,36,26,11,7,37,48,15,14,43,28,32,36->3,3->4,32->5,21,32,5,6,41,45,12,22,48,28,3,21->18,32->4,12->15
+Jogo:Debussy Athletic,Bartok F. C.,0,1,2021-02-15,21,32,5,6,41,45,12,22,48,28,3,48->31,21->38,45->15,8,7,1,4,40,25,31,26,13,22,43,4->16,8->18,31->38
+Jogo:Sporting Club Schubert,Mendelssohn F. C.,0,0,2021-01-20,36,23,1,48,16,50,15,11,17,22,39,39->43,36->34,22->40,2,1,40,16,25,49,41,17,14,33,36,25->28,17->45,1->42
+Jogo:Sporting Club Dvorak,Vivaldi F. C.,2,1,2021-02-17,33,19,49,6,31,45,10,29,32,4,28,49->40,19->13,32->42,18,3,31,39,42,8,26,43,50,33,28,3->16,28->30,33->7
+Jogo:Bartok F. C.,Vivaldi F. C.,0,2,2021-02-23,8,7,1,4,40,25,31,26,13,22,43,1->47,4->16,7->45,18,3,31,39,42,8,26,43,50,33,28,33->30,18->20,31->4
+Jogo:Sporting Club Shostakovich,Schumann Athletic,2,1,2021-03-09,43,30,1,22,33,11,38,31,39,6,12,39->9,6->20,20->4,36,26,11,7,37,48,15,14,43,28,32,36->4,26->23,37->20
+Jogo:Handel Athletic,Vivaldi F. C.,3,1,2021-04-01,11,4,30,1,9,22,5,50,12,37,27,30->10,27->35,1->47,18,3,31,39,42,8,26,43,50,33,28,42->47,3->38,26->10
+Jogo:Beethoven F. C.,Sporting Club Dvorak,1,1,2021-04-06,39,38,5,50,3,6,44,13,43,7,9,3->30,5->48,6->23,33,19,49,6,31,45,10,29,32,4,28,33->48,6->23,32->42
+Jogo:Sporting Club Shostakovich,Brahms F. C.,1,3,2021-01-01,43,30,1,22,33,11,38,31,39,6,12,38->34,11->9,30->47,29,38,41,43,48,47,10,31,32,33,36,41->23,43->14,23->7
+Jogo:Debussy Athletic,Sporting Club Dvorak,2,0,2021-01-18,21,32,5,6,41,45,12,22,48,28,3,5->42,21->38,45->36,33,19,49,6,31,45,10,29,32,4,28,32->26,49->23,19->13
+Jogo:Mozart F. C.,Sporting Club Shostakovich,3,2,2021-01-07,20,9,25,36,40,49,34,6,5,47,35,35->28,36->11,25->46,43,30,1,22,33,11,38,31,39,6,12,6->4,12->20,1->37
+Jogo:Sporting Club Chopin,Wagner Athletic,2,2,2021-04-03,20,42,8,44,16,25,4,26,50,35,37,44->40,40->7,20->22,44,29,12,28,34,7,38,42,33,4,2,29->47,2->25,7->9
+Jogo:Sporting Club Schubert,Sporting Club Prokofiev,3,1,2021-04-04,36,23,1,48,16,50,15,11,17,22,39,15->5,48->38,39->40,3,38,15,9,5,43,28,17,47,11,48,48->12,28->7,5->1
+Jogo:Mendelssohn F. C.,Schumann Athletic,2,2,2021-03-05,2,1,40,16,25,49,41,17,14,33,36,33->13,2->22,14->45,36,26,11,7,37,48,15,14,43,28,32,11->30,28->5,37->20
+Jogo:Vivaldi F. C.,Sporting Club Prokofiev,2,3,2021-01-27,18,3,31,39,42,8,26,43,50,33,28,33->30,3->38,30->41,3,38,15,9,5,43,28,17,47,11,48,9->23,43->35,17->7
+Jogo:Brahms F. C.,Sporting Club Shostakovich,1,2,2021-01-07,29,38,41,43,48,47,10,31,32,33,36,43->7,7->14,29->27,43,30,1,22,33,11,38,31,39,6,12,39->34,43->3,30->47
+Jogo:Sporting Club Prokofiev,Bach F. C.,0,1,2021-01-14,3,38,15,9,5,43,28,17,47,11,48,38->1,47->8,8->2,4,47,35,2,36,39,14,43,5,32,50,43->0,50->1,35->24
+Jogo:Bartok F. C.,Mahler Athletic,2,1,2021-03-18,8,7,1,4,40,25,31,26,13,22,43,40->45,31->33,45->15,36,29,48,8,20,17,12,11,21,39,2,20->25,25->15,2->28
+Jogo:Mahler Athletic,Sporting Club Schubert,0,2,2021-04-02,36,29,48,8,20,17,12,11,21,39,2,39->22,29->25,25->15,36,23,1,48,16,50,15,11,17,22,39,22->30,1->38,39->40
+Jogo:Bach F. C.,Stravinsky Athletic,0,0,2021-03-09,4,47,35,2,36,39,14,43,5,32,50,5->0,2->24,50->1,36,29,13,19,42,1,50,22,8,17,0,42->11,36->10,10->23
+Jogo:Sporting Club Prokofiev,Stravinsky Athletic,3,0,2021-01-25,3,38,15,9,5,43,28,17,47,11,48,38->1,48->12,15->23,36,29,13,19,42,1,50,22,8,17,0,8->24,1->46,19->4
+Jogo:Sporting Club Shostakovich,Beethoven F. C.,3,1,2021-01-11,43,30,1,22,33,11,38,31,39,6,12,38->34,30->47,6->20,39,38,5,50,3,6,44,13,43,7,9,38->40,39->16,50->48
+Jogo:Mendelssohn F. C.,Bach F. C.,3,3,2021-02-25,2,1,40,16,25,49,41,17,14,33,36,36->13,17->31,25->43,4,47,35,2,36,39,14,43,5,32,50,43->3,35->27,27->34
+Jogo:Vivaldi F. C.,Handel Athletic,5,1,2021-04-05,18,3,31,39,42,8,26,43,50,33,28,33->41,3->38,38->47,11,4,30,1,9,22,5,50,12,37,27,11->39,1->47,47->10
+Jogo:Vivaldi F. C.,Beethoven F. C.,3,0,2021-04-05,18,3,31,39,42,8,26,43,50,33,28,39->4,28->41,42->47,39,38,5,50,3,6,44,13,43,7,9,3->40,13->23,7->25
+Jogo:Sporting Club Dvorak,Stravinsky Athletic,1,1,2021-03-17,33,19,49,6,31,45,10,29,32,4,28,33->48,32->43,49->37,36,29,13,19,42,1,50,22,8,17,0,1->46,42->11,17->44
+Jogo:Sporting Club Schubert,Sporting Club Shostakovich,2,3,2021-01-21,36,23,1,48,16,50,15,11,17,22,39,36->12,39->30,48->38,43,30,1,22,33,11,38,31,39,6,12,43->25,33->47,39->9
+Jogo:Bartok F. C.,Handel Athletic,3,2,2021-04-02,8,7,1,4,40,25,31,26,13,22,43,26->38,1->16,25->33,11,4,30,1,9,22,5,50,12,37,27,27->35,30->10,37->46
+Jogo:Schumann Athletic,Mozart F. C.,0,1,2021-03-12,36,26,11,7,37,48,15,14,43,28,32,36->3,28->5,26->50,20,9,25,36,40,49,34,6,5,47,35,34->42,36->11,20->14
+Jogo:Sporting Club Schubert,Wagner Athletic,3,4,2021-04-09,36,23,1,48,16,50,15,11,17,22,39,50->46,22->43,39->40,44,29,12,28,34,7,38,42,33,4,2,33->45,34->47,42->14
+Jogo:Sporting Club Chopin,Sporting Club Prokofiev,4,3,2021-04-02,20,42,8,44,16,25,4,26,50,35,37,8->40,20->47,42->38,3,38,15,9,5,43,28,17,47,11,48,28->35,15->23,35->7
+Jogo:Bach F. C.,Vivaldi F. C.,1,1,2021-02-12,4,47,35,2,36,39,14,43,5,32,50,32->37,35->34,5->0,18,3,31,39,42,8,26,43,50,33,28,33->7,7->41,39->4
+Jogo:Sporting Club Chopin,Handel Athletic,1,1,2021-04-07,20,42,8,44,16,25,4,26,50,35,37,35->23,16->38,26->31,11,4,30,1,9,22,5,50,12,37,27,27->46,1->10,22->13
+Jogo:Vivaldi F. C.,Brahms F. C.,0,0,2021-01-13,18,3,31,39,42,8,26,43,50,33,28,28->41,33->7,7->30,29,38,41,43,48,47,10,31,32,33,36,36->34,41->23,23->7
+Jogo:Sporting Club Schubert,Handel Athletic,1,2,2021-02-08,36,23,1,48,16,50,15,11,17,22,39,50->5,16->3,39->40,11,4,30,1,9,22,5,50,12,37,27,1->47,11->0,12->13
+Jogo:Schumann Athletic,Vivaldi F. C.,1,2,2021-03-28,36,26,11,7,37,48,15,14,43,28,32,36->3,37->50,3->4,18,3,31,39,42,8,26,43,50,33,28,28->41,3->38,42->16
+Jogo:Bach F. C.,Brahms F. C.,1,0,2021-01-23,4,47,35,2,36,39,14,43,5,32,50,4->30,50->1,47->21,29,38,41,43,48,47,10,31,32,33,36,41->46,29->1,33->34
+Jogo:Sporting Club Prokofiev,Bartok F. C.,1,0,2021-01-16,3,38,15,9,5,43,28,17,47,11,48,15->23,43->8,5->13,8,7,1,4,40,25,31,26,13,22,43,31->38,40->15,15->45
+Jogo:Sporting Club Schubert,Sporting Club Chopin,0,4,2021-01-22,36,23,1,48,16,50,15,11,17,22,39,48->38,50->5,36->34,20,42,8,44,16,25,4,26,50,35,37,8->7,35->23,20->47
+Jogo:Bartok F. C.,Mendelssohn F. C.,3,3,2021-02-22,8,7,1,4,40,25,31,26,13,22,43,40->15,22->14,4->16,2,1,40,16,25,49,41,17,14,33,36,2->22,1->43,14->45
+Jogo:Mendelssohn F. C.,Sporting Club Schubert,1,2,2021-01-14,2,1,40,16,25,49,41,17,14,33,36,36->13,49->45,45->31,36,23,1,48,16,50,15,11,17,22,39,36->12,11->5,15->46
+Jogo:Mozart F. C.,Mahler Athletic,1,5,2021-02-06,20,9,25,36,40,49,34,6,5,47,35,36->11,35->29,5->48,36,29,48,8,20,17,12,11,21,39,2,29->30,30->15,11->23
+Jogo:Sporting Club Prokofiev,Mahler Athletic,2,1,2021-03-27,3,38,15,9,5,43,28,17,47,11,48,3->30,28->2,38->13,36,29,48,8,20,17,12,11,21,39,2,48->27,17->23,39->22
+Jogo:Beethoven F. C.,Brahms F. C.,1,3,2021-01-06,39,38,5,50,3,6,44,13,43,7,9,50->48,44->20,3->19,29,38,41,43,48,47,10,31,32,33,36,33->34,43->7,31->25
+Jogo:Stravinsky Athletic,Sporting Club Prokofiev,2,2,2021-01-16,36,29,13,19,42,1,50,22,8,17,0,36->23,1->24,23->10,3,38,15,9,5,43,28,17,47,11,48,38->1,47->35,3->30

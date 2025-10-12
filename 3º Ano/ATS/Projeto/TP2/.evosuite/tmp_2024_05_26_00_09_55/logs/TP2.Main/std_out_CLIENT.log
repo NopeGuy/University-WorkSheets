@@ -1,0 +1,80 @@
+* Starting client
+* Connecting to master process on port 16264
+* Analyzing classpath: 
+  - /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/target/classes
+  - /home/lufe/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar
+  - /home/lufe/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar
+  - /home/lufe/.m2/repository/org/junit/vintage/junit-vintage-engine/5.8.1/junit-vintage-engine-5.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-engine/1.8.1/junit-platform-engine-1.8.1.jar
+  - /home/lufe/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.8.1/junit-jupiter-api-5.8.1.jar
+  - /home/lufe/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar
+  - /home/lufe/.m2/repository/org/junit/platform/junit-platform-commons/1.8.1/junit-platform-commons-1.8.1.jar
+  - /home/lufe/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.8.1/junit-jupiter-engine-5.8.1.jar
+* Finished analyzing classpath
+* Generating tests for class TP2.Main
+* Test criteria:
+  - Line Coverage
+  - Branch Coverage
+  - Exception
+  - Mutation testing (weak)
+  - Method-Output Coverage
+  - Top-Level Method Coverage
+  - No-Exception Top-Level Method Coverage
+  - Context Branch Coverage
+* Setting up search algorithm for whole suite generation
+[MASTER] 00:39:29.300 [pool-2-thread-1] WARN  TestSuiteSerialization - Cannot load tests because file does not exist: /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Main.seed
+* Loaded 0 tests from /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/evosuite-seeds/TP2.Main.seed
+* Total number of test goals: 
+  - Line 6
+  - Branch 2
+  - Exception 0
+  - MutationFactory 0
+  - Output 0
+  - Method 2
+  - MethodNoException 2
+  - CBranchFitnessFactory 2
+* Using seed 1716680368142
+* Starting evolution
+* Search finished after 21s and 440 generations, 76529 statements, best individual has fitness: 0.3333333333333333
+* Writing sequences to pool
+* Minimizing test suite
+[MASTER] 00:39:59.252 [pool-2-thread-1] WARN  TestSuiteMinimizer - Minimization timeout. Roll back to original test suite
+[MASTER] 00:39:59.252 [pool-2-thread-1] WARN  TimeController - Phase MINIMIZATION lasted too long, 1 seconds more than allowed.
+* Going to analyze the coverage criteria
+* Coverage analysis for criterion LINE
+* Coverage of criterion LINE: 100%
+* Total number of goals: 6
+* Number of covered goals: 6
+* Coverage analysis for criterion BRANCH
+* Coverage of criterion BRANCH: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion EXCEPTION
+* Coverage of criterion EXCEPTION: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion WEAKMUTATION
+* Coverage of criterion WEAKMUTATION: 100% (no goals)
+* Coverage analysis for criterion OUTPUT
+* Coverage of criterion OUTPUT: 100% (no goals)
+* Coverage analysis for criterion METHOD
+* Coverage of criterion METHOD: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion METHODNOEXCEPTION
+* Coverage of criterion METHODNOEXCEPTION: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Coverage analysis for criterion CBRANCH
+* Coverage of criterion CBRANCH: 100%
+* Total number of goals: 2
+* Number of covered goals: 2
+* Generated 5 tests with total length 104
+* Resulting test suite's coverage: 100% (average coverage for all fitness functions)
+* Generating assertions
+* Resulting test suite's mutation score: 100%
+* Compiling and checking tests
+* Writing JUnit test case 'Main_ESTest' to /home/lufe/Documents/Uni Projects/ATS-2324/Projeto/TP2/.evosuite/tmp_2024_05_26_00_09_55/tests
+* Done!
+

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a" kind="struct"><name>COORDENADA</name>
+    <member refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1adfbc8d4856ce807139fdf62e00aed29a" kind="variable"><name>coluna</name></member>
+    <member refid="d2/d32/struct_c_o_o_r_d_e_n_a_d_a_1aefe14bcc5a066ac3b21500cc3d28c06f" kind="variable"><name>linha</name></member>
+  </compound>
+  <compound refid="df/d91/struct_e_s_t_a_d_o" kind="struct"><name>ESTADO</name>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1ab56f0f1be16954d3768b4174d14c087d" kind="variable"><name>tab</name></member>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1a4896a5c5c1f40b43fb795623327e3f47" kind="variable"><name>ultima_jogada</name></member>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1afae43b87a488fad0f2b56a18bad31d18" kind="variable"><name>jogadas</name></member>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1a261495728744647e618b4e623f5a4b7a" kind="variable"><name>num_jogadas</name></member>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1a5dd28e2e68b7aef2b6b7ea88e02eff58" kind="variable"><name>jogador_atual</name></member>
+    <member refid="df/d91/struct_e_s_t_a_d_o_1adf1064dfc09145b6995a7897249f1674" kind="variable"><name>num_comando</name></member>
+  </compound>
+  <compound refid="d3/db6/struct_j_o_g_a_d_a" kind="struct"><name>JOGADA</name>
+    <member refid="d3/db6/struct_j_o_g_a_d_a_1a93d9306cb0c49b66b7d9a615bffe0149" kind="variable"><name>jogador1</name></member>
+    <member refid="d3/db6/struct_j_o_g_a_d_a_1ab46b16dfbdc7f2af9430c8dcdac0914b" kind="variable"><name>jogador2</name></member>
+  </compound>
+  <compound refid="df/d41/structlista" kind="struct"><name>lista</name>
+    <member refid="df/d41/structlista_1ab7945423d00f5d335df61c1812c111fa" kind="variable"><name>cabeca</name></member>
+    <member refid="df/d41/structlista_1af9b3f841c6bd58d83f984ed3be745cf7" kind="variable"><name>proximo</name></member>
+  </compound>
+  <compound refid="de/df3/camadadedados_8c" kind="file"><name>camadadedados.c</name>
+    <member refid="de/df3/camadadedados_8c_1a7e0c7e26fb685d9ab501e19b05e6954f" kind="function"><name>inicializar_estado</name></member>
+  </compound>
+  <compound refid="d0/dfb/camadadedados_8h" kind="file"><name>camadadedados.h</name>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fd" kind="enum"><name>ERROS</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda2bc49ec37d6a5715dd23e85f1ff5bb59" kind="enumvalue"><name>OK</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda79ebb08f197afde2120c3a89f2528890" kind="enumvalue"><name>COORDENADA_INVALIDA</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fda402a7096ff471024cb93e6034b6008e2" kind="enumvalue"><name>JOGADA_INVALIDA</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdaa11c2bf2a8de9395382caef85ccdeb59" kind="enumvalue"><name>ERRO_LER_TAB</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ab8d2e03f1be6ed043ab77a0ea6d0c3fdac2135f62387f11d7f60a020e2f828e66" kind="enumvalue"><name>ERRO_ABRIR_FICHEIRO</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039" kind="enum"><name>CASA</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ab620e38b0268bee43c7e9a88bd6e73fa" kind="enumvalue"><name>UM</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a2bf153109d0c8b96e61bc18d5be7c5da" kind="enumvalue"><name>DOIS</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039abc711f491a56ec7af7a688be508c5113" kind="enumvalue"><name>VAZIO</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039ad24485fddec75419fd4a0cc9edda0ca5" kind="enumvalue"><name>BRANCA</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1aba91601f16d4c485b2d9b8c429f27039a007278eb3827d19891b47cdd3ac8846d" kind="enumvalue"><name>PRETA</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1abfd4087329f38d5644d91c38b009985d" kind="typedef"><name>JOGADAS</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1a7e0c7e26fb685d9ab501e19b05e6954f" kind="function"><name>inicializar_estado</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1ad6e326e4ffa57ca1ae0c75377ecefc8c" kind="function"><name>obter_jogador_atual</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1a6cd0b387bdee9e18003c78852394aa63" kind="function"><name>obter_numero_de_jogadas</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1a6faa68373203923729ed38657aa0f768" kind="function"><name>obter_estado_casa</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1a4ff507f9c0fe1035cf233f4964b1a302" kind="function"><name>set_casa</name></member>
+    <member refid="d0/dfb/camadadedados_8h_1a20acddc30eae79368814d559cce579a9" kind="function"><name>get_casa</name></member>
+  </compound>
+  <compound refid="dd/dda/interface_8c" kind="file"><name>interface.c</name>
+    <member refid="dd/dda/interface_8c_1a6821bafc3c88dfb2e433a095df9940c6" kind="define"><name>BUF_SIZE</name></member>
+    <member refid="dd/dda/interface_8c_1ad5228cd48403ef9d8b632f5c7c124720" kind="define"><name>n</name></member>
+    <member refid="dd/dda/interface_8c_1aa065f30aa9f5f9a42132c82c787ee70b" kind="variable"><name>fp</name></member>
+    <member refid="dd/dda/interface_8c_1ad24ebffc3b7cd5e04988c49fdcb80293" kind="variable"><name>finish</name></member>
+    <member refid="dd/dda/interface_8c_1a8716f6d46efcf2a5f9289cae79a2d7d5" kind="function"><name>jogadas</name></member>
+    <member refid="dd/dda/interface_8c_1a6e4ec549c380199b75e71502e50b4d55" kind="function"><name>distancia_euclidiana</name></member>
+    <member refid="dd/dda/interface_8c_1ae404db419db2957309e2e9a5aa656060" kind="function"><name>jogadasInFile</name></member>
+    <member refid="dd/dda/interface_8c_1abef6a3cea4024b440dd53791f894d859" kind="function"><name>printBoard</name></member>
+    <member refid="dd/dda/interface_8c_1aaba49233e5966d7bdb109c2ceb59f7a0" kind="function"><name>printInFile</name></member>
+    <member refid="dd/dda/interface_8c_1af4ccfe7bf0afc3f0395cea05cec0604a" kind="function"><name>position</name></member>
+    <member refid="dd/dda/interface_8c_1a24da95ebeede4a540e37790ce8be359b" kind="function"><name>interpretador</name></member>
+  </compound>
+  <compound refid="d4/da9/interface_8h" kind="file"><name>interface.h</name>
+    <member refid="d4/da9/interface_8h_1ad5228cd48403ef9d8b632f5c7c124720" kind="define"><name>n</name></member>
+    <member refid="d4/da9/interface_8h_1ad24ebffc3b7cd5e04988c49fdcb80293" kind="variable"><name>finish</name></member>
+    <member refid="d4/da9/interface_8h_1abef6a3cea4024b440dd53791f894d859" kind="function"><name>printBoard</name></member>
+    <member refid="d4/da9/interface_8h_1a24da95ebeede4a540e37790ce8be359b" kind="function"><name>interpretador</name></member>
+  </compound>
+  <compound refid="dc/dff/lista_8c" kind="file"><name>lista.c</name>
+    <member refid="dc/dff/lista_8c_1ae3b99323b6f8f35d80bb69ff1a27985e" kind="function"><name>criar_lista</name></member>
+    <member refid="dc/dff/lista_8c_1a37ba5fc3cfddb6bc94d4b54b00bc696e" kind="function"><name>insere_cabeca</name></member>
+    <member refid="dc/dff/lista_8c_1abfcb205f3eb670157be0d1221021714b" kind="function"><name>devolve_cabeca</name></member>
+    <member refid="dc/dff/lista_8c_1ad9380152361127432c55c1c6067e05ae" kind="function"><name>proximo</name></member>
+    <member refid="dc/dff/lista_8c_1a9026a681a68322b5ec7f07137b864cbd" kind="function"><name>remove_cabeca</name></member>
+    <member refid="dc/dff/lista_8c_1a4c10928f7acaa4e3de3760cea0dfd9c0" kind="function"><name>lista_esta_vazia</name></member>
+  </compound>
+  <compound refid="d9/d91/lista_8h" kind="file"><name>lista.h</name>
+    <member refid="d9/d91/lista_8h_1a2e57892ea33fc5094decb7891da28a9f" kind="typedef"><name>CABECA</name></member>
+    <member refid="d9/d91/lista_8h_1ac294034fbe3bf9846e0465051a477f55" kind="typedef"><name>LISTA</name></member>
+    <member refid="d9/d91/lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" kind="function"><name>criar_lista</name></member>
+    <member refid="d9/d91/lista_8h_1a37ba5fc3cfddb6bc94d4b54b00bc696e" kind="function"><name>insere_cabeca</name></member>
+    <member refid="d9/d91/lista_8h_1abfcb205f3eb670157be0d1221021714b" kind="function"><name>devolve_cabeca</name></member>
+    <member refid="d9/d91/lista_8h_1ad9380152361127432c55c1c6067e05ae" kind="function"><name>proximo</name></member>
+    <member refid="d9/d91/lista_8h_1a9026a681a68322b5ec7f07137b864cbd" kind="function"><name>remove_cabeca</name></member>
+    <member refid="d9/d91/lista_8h_1a4c10928f7acaa4e3de3760cea0dfd9c0" kind="function"><name>lista_esta_vazia</name></member>
+  </compound>
+  <compound refid="d0/de3/logic_8c" kind="file"><name>logic.c</name>
+    <member refid="d0/de3/logic_8c_1a43982fa6048da27b2c695d9e0ef6ac61" kind="function"><name>check_finish</name></member>
+    <member refid="d0/de3/logic_8c_1a4e5a3116b44605378488af31039df61c" kind="function"><name>add_position</name></member>
+  </compound>
+  <compound refid="d3/daa/logic_8h" kind="file"><name>logic.h</name>
+    <member refid="d3/daa/logic_8h_1a43982fa6048da27b2c695d9e0ef6ac61" kind="function"><name>check_finish</name></member>
+    <member refid="d3/daa/logic_8h_1a4e5a3116b44605378488af31039df61c" kind="function"><name>add_position</name></member>
+  </compound>
+  <compound refid="d0/d29/main_8c" kind="file"><name>main.c</name>
+    <member refid="d0/d29/main_8c_1a6821bafc3c88dfb2e433a095df9940c6" kind="define"><name>BUF_SIZE</name></member>
+    <member refid="d0/d29/main_8c_1ad24ebffc3b7cd5e04988c49fdcb80293" kind="variable"><name>finish</name></member>
+    <member refid="d0/d29/main_8c_1ae66f6b31b5ad750f1fe042a706a4e3d4" kind="function"><name>main</name></member>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+</doxygenindex>

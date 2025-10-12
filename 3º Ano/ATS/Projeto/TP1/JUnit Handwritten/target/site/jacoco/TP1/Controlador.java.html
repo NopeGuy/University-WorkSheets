@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controlador.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">Controlador.java</span></div><h1>Controlador.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.util.List;
+import java.util.Scanner;
+import java.io.*;
+import java.time.LocalDate;
+
+public class Controlador implements Serializable{
+    private final Input in;
+    private final ControladorArtigo ca;
+    private final ControladorUtilizador cu;
+    private final ControladorTransportadoras ct;
+    private final ControladorEncomenda ce;
+
+<span class="nc" id="L15">    public Controlador(){</span>
+<span class="nc" id="L16">        in = new Input();</span>
+<span class="nc" id="L17">        ca = new ControladorArtigo();</span>
+<span class="nc" id="L18">        cu = new ControladorUtilizador();</span>
+<span class="nc" id="L19">        ct = new ControladorTransportadoras();</span>
+<span class="nc" id="L20">        ce = new ControladorEncomenda();</span>
+<span class="nc" id="L21">    }</span>
+
+
+    
+    private void interpretadorEstatisticas (Vintage v, Apresentacao a){
+        int comando;
+<span class="nc" id="L27">        boolean b = true;</span>
+
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        while(b){</span>
+<span class="nc" id="L30">            a.printMenuEstatisticas(); </span>
+<span class="nc" id="L31">            comando = in.lerInt(a,&quot;Escolha uma das opções:&quot;,0,5);</span>
+
+<span class="nc bnc" id="L33" title="All 7 branches missed.">            switch(comando){</span>
+                case 1:
+<span class="nc" id="L35">                    a.printMessage(&quot;--------------------------&quot;);</span>
+<span class="nc" id="L36">                    int opcao = in.lerInt(a, &quot;1 | Desde sempre\n2 | Intervalo de Tempo&quot;, 1, 2);</span>
+<span class="nc" id="L37">                    a.printMessage(&quot;--------------------------&quot;);</span>
+<span class="nc bnc" id="L38" title="All 2 branches missed.">                    if (opcao == 1) {</span>
+<span class="nc" id="L39">                        String vendedor = v.calculaMaiorFaturacaoSempre();</span>
+<span class="nc" id="L40">                        double valor = v.getMaiorFaturacaoSempre(vendedor);</span>
+<span class="nc" id="L41">                        a.printMessage(&quot;O Vendedor que mais faturou desde sempre foi: &quot; + vendedor + &quot; num total de: &quot; + valor);</span>
+                    }
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                    if (opcao == 2){</span>
+<span class="nc" id="L44">                        LocalDate before = in.lerData(a, &quot;Data início (dd-mm-aaaa): &quot;);</span>
+<span class="nc" id="L45">                        LocalDate after = in.lerData(a, &quot;Data fim (dd-mm-aaaa): &quot;);</span>
+<span class="nc" id="L46">                        String vendedor = v.calculaMaiorFauracaoIntevalo(before, after);</span>
+<span class="nc" id="L47">                        double valor = v.getMaiorFaturacaoIntervalo(before, after, vendedor);</span>
+<span class="nc" id="L48">                        a.printMessage(&quot;O Vendedor que mais faturou entre&quot; + before + &quot; e &quot; + after + &quot; foi: &quot; + vendedor + &quot; num total de: &quot; + valor);</span>
+                    }
+<span class="nc" id="L50">                    break;</span>
+                case 2:
+<span class="nc" id="L52">                    String transportadora = v.calculaMaiorVolFaturacao();</span>
+<span class="nc" id="L53">                    double valor = v.getMaiorVolFaturacao(transportadora);</span>
+<span class="nc" id="L54">                    a.printMessage(&quot;A transportadora com maior volume de faturação é: &quot; + transportadora + &quot; num total de: &quot; + valor);</span>
+<span class="nc" id="L55">                    break;</span>
+                case 3:
+<span class="nc" id="L57">                    String email = in.lerString(a, &quot;Email do vendedor: &quot;);</span>
+<span class="nc" id="L58">                    List&lt;Artigo&gt; vendas = v.listarVendas(email);</span>
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                    if (vendas != null){</span>
+<span class="nc" id="L60">                        a.printArtigos(vendas, v.getDataPrograma());</span>
+<span class="nc" id="L61">                    }</span>
+                    else {
+<span class="nc" id="L63">                        a.printMessage(&quot;Email não existe!&quot;);</span>
+                    }
+<span class="nc" id="L65">                    break;</span>
+                case 4:
+<span class="nc" id="L67">                    a.printMessage(&quot;--------------------------&quot;);</span>
+<span class="nc" id="L68">                    int opt = in.lerInt(a, &quot;1 | Listar Vendedores\n2 | Listar Compradores&quot;, 0, 2);</span>
+<span class="nc" id="L69">                    int dias = in.lerInt(a,&quot;Indique os dias que quer recuar: &quot;, 0, 1000);</span>
+<span class="nc" id="L70">                    a.printMessage(&quot;.-------------------------&quot;);</span>
+<span class="nc" id="L71">                    LocalDate dataInicial = v.getDataPrograma().minusDays(dias);</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">                    if (opt == 1) {</span>
+<span class="nc" id="L73">                        a.printTop10(v.top10Vendedores(dataInicial));</span>
+                    }
+<span class="nc bnc" id="L75" title="All 2 branches missed.">                    if (opt == 2){</span>
+<span class="nc" id="L76">                        a.printTop10(v.top10Compradores(dataInicial));</span>
+                    }
+<span class="nc" id="L78">                    break;</span>
+                case 5:
+<span class="nc" id="L80">                    double total = v.totalDinheiroVintage();</span>
+<span class="nc" id="L81">                    a.printMessage(&quot;Dinheiro ganho pela Vintage: &quot; + total);</span>
+<span class="nc" id="L82">                    break;</span>
+                case 0:
+<span class="nc" id="L84">                    b = false;</span>
+<span class="nc" id="L85">                    break;</span>
+                default:
+<span class="nc" id="L87">                    a.printMessage(&quot;Erro Comando Inválido&quot;);</span>
+                    break;
+            }
+        }
+<span class="nc" id="L91">    }</span>
+    
+
+
+
+
+
+    private void interpretadorConsultas (Vintage v, Apresentacao a){
+        int comando;
+<span class="nc" id="L100">        boolean b = true;</span>
+
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        while(b){</span>
+<span class="nc" id="L103">            a.printMenuConsultas();</span>
+<span class="nc" id="L104">            comando = in.lerInt(a,&quot;Escolha uma das opções:&quot;,0,5);</span>
+
+<span class="nc bnc" id="L106" title="All 7 branches missed.">            switch(comando){</span>
+                 case 1: // Ver Produtos que está a Vender       
+<span class="nc" id="L108">                    a.printArtigos(v.getUtilizadores().get(v.getSessaoAtual()).getPorVender(), v.getDataPrograma());</span>
+<span class="nc" id="L109">                    break;</span>
+                case 2: // Ver os Produtos que já Comprou
+<span class="nc" id="L111">                    a.printArtigos(v.getUtilizadores().get(v.getSessaoAtual()).getCompras(), v.getDataPrograma());</span>
+<span class="nc" id="L112">                    break;</span>
+                case 3: // Ver os Produtos que já Vendeu
+<span class="nc" id="L114">                    a.printArtigos(v.getUtilizadores().get(v.getSessaoAtual()).getVendas(), v.getDataPrograma());</span>
+<span class="nc" id="L115">                    break;</span>
+                case 4: // Ver transportadoras disponíveis
+<span class="nc" id="L117">                    a.printTransportadoras(v.getTransportadoras());</span>
+<span class="nc" id="L118">                    break;</span>
+                case 5:
+<span class="nc" id="L120">                    a.printEncomendas(v.getEncomendasSessaoAtual());</span>
+                case 0:
+<span class="nc" id="L122">                    b = false;</span>
+<span class="nc" id="L123">                    break;</span>
+                default:
+<span class="nc" id="L125">                    a.printMessage(&quot;Erro Comando Inválido!&quot;);</span>
+            }
+        }
+
+<span class="nc" id="L129">    }</span>
+
+
+
+
+
+
+
+
+
+
+    public void interpretador (Vintage v, Apresentacao a) throws ClassNotFoundException, IOException{
+        int comando;
+<span class="nc" id="L142">        boolean b = true;</span>
+
+<span class="nc" id="L144">        Estados e = new Estados();</span>
+<span class="nc" id="L145">        Scanner s = new Scanner(System.in);</span>
+<span class="nc" id="L146">        a.welcome();</span>
+<span class="nc" id="L147">        s.nextLine();</span>
+
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        while(b){</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">            if(v.getSessaoAtual() == null){</span>
+                
+<span class="nc" id="L152">                a.printMenuInicial();</span>
+<span class="nc" id="L153">                comando = in.lerInt(a,&quot;Escolhe uma das opcões: &quot;,0,6);</span>
+                
+<span class="nc bnc" id="L155" title="All 8 branches missed.">                switch(comando){</span>
+                    case 1: // Login / Registar
+<span class="nc" id="L157">                        a.printMenuLogin();</span>
+<span class="nc" id="L158">                        String sessaoAtual = cu.interpretador(v, a);</span>
+<span class="nc" id="L159">                        v.SetSessaoAtual(sessaoAtual);</span>
+<span class="nc" id="L160">                        break;</span>
+                    case 2: // Gravar para um Ficheiro
+<span class="nc" id="L162">                        String ficheiroG = in.lerString(a, &quot;Nome do ficheiro que pretende guardar: &quot;);</span>
+<span class="nc" id="L163">                        e.dadosGuardar(ficheiroG + &quot;.dat&quot;,v);</span>
+<span class="nc" id="L164">                        a.printMessage(&quot;Dados Guardados com Sucesso em &quot; + ficheiroG + &quot;.dat&quot;);</span>
+<span class="nc" id="L165">                        break;</span>
+                    case 3: // Carregar um Ficheiro
+<span class="nc" id="L167">                        String ficheiroA = in.lerString(a, &quot;Nome do ficheiro que prentede carregar: &quot;);</span>
+<span class="nc" id="L168">                        v = e.dadoscarregar(ficheiroA + &quot;.dat&quot;);</span>
+<span class="nc" id="L169">                        a.printMessage(&quot;Dados Carregados com Sucesso em &quot; + ficheiroA + &quot;.dat&quot;);</span>
+<span class="nc" id="L170">                        break;</span>
+                    case 4: // Criar Transportadora
+<span class="nc" id="L172">                        a.printMessage(&quot;----------------------------&quot;);</span>
+<span class="nc" id="L173">                        a.printMessage(&quot;1 | Criar Transportadora\n2 | Editar Transportadora\n0 | Voltar Atrás&quot;);</span>
+<span class="nc" id="L174">                        a.printMessage(&quot;----------------------------&quot;);</span>
+<span class="nc" id="L175">                        int option = in.lerInt(a, &quot;Escolha uma das opções: &quot;, 0, 2);</span>
+<span class="nc bnc" id="L176" title="All 2 branches missed.">                        if (option == 1){ct.interpretador(v,a);break;}</span>
+<span class="nc bnc" id="L177" title="All 2 branches missed.">                        if (option == 2){ct.alterarTransportadora(v,a);break;}</span>
+                        break;
+                    case 5: // Avançar no Tempo
+<span class="nc" id="L180">                        Input in = new Input();</span>
+<span class="nc" id="L181">                        a.printMessage(&quot;Data do Programa: &quot; + v.getDataPrograma());</span>
+<span class="nc" id="L182">                        int dias= in.lerInt(a, &quot;Selecione quantos dias pretende avançar: &quot;,0,1000);</span>
+<span class="nc" id="L183">                        v.setDataPrograma(v.getDataPrograma().plusDays(dias));</span>
+<span class="nc" id="L184">                        v.avancarTempo();</span>
+<span class="nc" id="L185">                        a.printMessage(&quot;Data do Programa Atualizada: &quot; + v.getDataPrograma());</span>
+<span class="nc" id="L186">                        break;</span>
+                    case 6: // Estatísticas
+<span class="nc" id="L188">                        this.interpretadorEstatisticas(v, a);</span>
+<span class="nc" id="L189">                        break;</span>
+                    case 0: // Sair do programa
+<span class="nc" id="L191">                        b = false;</span>
+<span class="nc" id="L192">                        break;</span>
+                    default:
+<span class="nc" id="L194">                        a.printMessage(&quot;Erro! Comando Inválido.&quot;);</span>
+                        break;
+                }
+<span class="nc" id="L197">            }else{</span>
+<span class="nc" id="L198">                a.printMainMenuLogOut();</span>
+<span class="nc" id="L199">                comando = in.lerInt(a,&quot;Escolhe uma das opções: &quot;,0,5);</span>
+<span class="nc bnc" id="L200" title="All 7 branches missed.">                switch(comando){</span>
+                    case 1: // Dar logout
+<span class="nc" id="L202">                        v.SetSessaoAtual(null);</span>
+<span class="nc" id="L203">                        a.printMessage(&quot;Logout feito com Sucesso!&quot;);</span>
+<span class="nc" id="L204">                        break;</span>
+                    case 2: // Consultar os Produtos
+<span class="nc" id="L206">                        interpretadorConsultas(v,a);</span>
+<span class="nc" id="L207">                        break;</span>
+                    case 3: // Colocar Produto para Vender
+<span class="nc" id="L209">                        ca.interpretador(a,v);</span>
+<span class="nc" id="L210">                        break;</span>
+                    case 4: // Fazer encomenda
+<span class="nc" id="L212">                        ce.interpretador(a,v);</span>
+<span class="nc" id="L213">                        break;</span>
+                    case 5: // Devolver encomenda
+<span class="nc" id="L215">                        a.printMessage(&quot;--------------------------&quot;);</span>
+<span class="nc" id="L216">                        a.printMessage(&quot;1 | Devolver Encomenda\n2 | Adiar Prazo Limite\n0 | Voltar Atrás&quot;);</span>
+<span class="nc" id="L217">                        a.printMessage(&quot;--------------------------&quot;);</span>
+<span class="nc" id="L218">                        int opt = in.lerInt(a,&quot;Escolha uma das opções&quot;, 0, 2);</span>
+<span class="nc bnc" id="L219" title="All 2 branches missed.">                        if (opt == 1){ce.interpretadorDevolver(a,v);break;}</span>
+<span class="nc bnc" id="L220" title="All 2 branches missed.">                        if (opt == 2){ce.interpretadorAdiar(a, v);break;}</span>
+                        break;
+                    case 0: // Sair do programa
+<span class="nc" id="L223">                        b = false;</span>
+<span class="nc" id="L224">                        break;</span>
+                    default:
+<span class="nc" id="L226">                        a.printMessage(&quot;Erro! Comando Inválido.&quot;);</span>
+                        break;
+
+
+                }
+            }
+        }
+
+<span class="nc" id="L234">        a.printSair();</span>
+<span class="nc" id="L235">        s.close();</span>
+<span class="nc" id="L236">    }</span>
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

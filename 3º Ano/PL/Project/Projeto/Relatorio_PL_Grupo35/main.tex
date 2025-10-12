@@ -1,0 +1,580 @@
+\documentclass{predef}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{adjustbox}
+\usepackage{listings}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{xcolor}
+\usepackage{titlesec}
+% Define colors
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+% Define subsubsubsection
+\titleclass{\subsubsubsection}{straight}[\subsection]
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\addto\captionsenglish{
+  \renewcommand{\contentsname}
+    {Tabela de conteúdos}%
+}
+\title{Rapport ECL - Template}
+
+\begin{document}
+
+\title{Trabalho Prático de Processamento de Linguagens 23/24}
+
+\sujet{Escola de Engenharia}
+
+\enseignant{José Carlos Ramalho}
+
+\eleves{A91672  \textsc{Luís Ferreira} \\
+		 \\ A93258  \textsc{Bernardo Lima}} 
+
+
+
+%----------- Inicialização -------------------
+        
+\makemargins %fazer margens
+
+\makecoverpage
+
+%------------ Corpo do relatório ----------------
+\tableofcontents
+
+\newpage
+\section{Introdução}
+Neste trabalho, efetuado com o auxílio da linguagem de programação \textit{Python} e do módulo \textit{ply}, desenvolvemos um programa capaz de fazer a análise léxica e sintática da linguagem \textit{Forth} e transformar o código \textit{Forth} em código \textit{Assembly}.
+
+A análise sintática recebe como entrada o código que é identificado como uma sequência de \textit{tokens}, através da análise léxica. Os \textit{tokens} representam elementos básicos da linguagem, como palavras-chave, identificadores, operadores e símbolos especiais.
+
+
+\subsection{Apresentação do Problema}
+O desafio proposto neste projeto consiste na implementação de um compilador para a linguagem \textit{Forth}, com o intuito de gerar código compatível com a máquina virtual desenvolvida no âmbito desta unidade curricular. Tanto a linguagem \textit{Forth} quanto o código da máquina virtual foram explorados e discutidos nas aulas teóricas, proporcionando uma base de conhecimento sólida para o desenvolvimento deste compilador.
+
+Entre os requisitos mínimos de implementação deste compilador estão o suporte a todas as expressões aritméticas, criação de funções, impressão de caracteres e strings, condicionais, ciclos e variáveis.
+
+
+\subsection{Objetivo}
+Este trabalho prático tem como objetivo ganhar experiência em engenharia de linguagens e programação generativa, aprimorando a nossa capacidade de elaborar gramáticas. Além disso, fortalece e melhora a capacidade de desenvolver processadores de linguagens utilizando o método da tradução dirigida pela sintaxe, a partir de uma gramática tradutora. O objetivo é desenvolver um compilador capaz de gerar código para um propósito específico. Para que seja possível atingi-lo, são utilizados geradores de compiladores baseados em gramáticas tradutoras, com destaque para o \textit{Yacc}, do \textit{PLY}, complementado pelo gerador de analisadores léxicos \textit{Lex}, também do \textit{PLY} do \textit{Python}.
+
+\newpage
+\section{Análise e Especificação}
+
+\subsection{Descrição informal do problema}
+
+O problema abordado neste trabalho consiste na implementação de um compilador para a linguagem Forth. A linguagem Forth é uma linguagem de programação de baixo nível e extensível, baseada em pilhas, que se destaca pela sua simplicidade e eficiência. O compilador deve ser capaz de converter código Forth para código de máquina compatível com a máquina virtual.
+
+A principal dificuldade desse problema reside na complexidade da gramática da linguagem Forth, que é baseada em conceitos como \textit{stacks}, operadores e estruturas de controlo. Além disso, é necessário implementar análise léxica e sintática para identificar corretamente os tokens e estruturas da linguagem.
+
+\subsection{Especificação dos Requisitos}
+
+Com base na descrição informal do problema, os requisitos mínimos para o compilador Forth são os seguintes:
+
+\begin{itemize}
+    \item Implementar análise léxica e sintática para reconhecer corretamente os tokens e estruturas da linguagem Forth.
+    \item Suportar todas as expressões aritméticas, incluindo adição, subtração, multiplicação, divisão e operações de módulo.
+    \item Permitir a definição e chamada de funções.
+    \item Possibilitar a impressão de strings.
+    \item Implementar estruturas de controlo condicionais, como 'if', 'then' e 'else'.
+    \item Garantir que o compilador gere código de máquina compatível com a máquina virtual.
+\end{itemize}
+
+Esses requisitos serão a base para o desenvolvimento e teste do compilador Forth ao longo deste trabalho.
+
+
+\newpage
+\section{Desenho da Solução}
+O nosso trabalho pode ser dividido em \textbf{2} partes:
+\begin{itemize}
+\item Construção do \textbf{analisador léxico}.
+\item Construção do \textbf{analisador sintático}.
+\end{itemize}
+
+\subsection{Analisador léxico}
+O analisador léxico, é o responsável por ’capturar’ os simbolos terminais(tokens) da nossa linguagem
+através de expressões regulares. Para a implementação do analisador léxico utilizamos o módulo ’Lex’ do
+’PLY/Python’.
+
+Os tokens e respetivas expressões regulares da nossa linguagem são os seguintes:
+
+\begin{verbatim}
+NUMBER : '\d+'
+ADD : '\+'
+SUB : '\-'
+MUL : '\*'
+DIV : '/'
+MOD : '%'
+EQUALS : '='
+DIFF : '<>'
+GREQUAL : '>='
+LESEQUAL : '<='
+LESSER : '<'
+GREATER : '>'
+COMMENT : '\\\s.+\n'
+COMMENT2 : '\(\s.+\s\)'
+FUNCTIONSTART : ':\s'
+FUNCTIONEND : ';(?!.*;)'
+FUNIN : '[^-\s\n]+'
+FUNOUT : '[^\s\)\n]+'
+LPAREN : '\(\s'
+RPAREN : '\s\)'
+ARGSEP : '\s--\s'
+WORD : '[A-Z0-9][A-Z0-9]+'
+POPPRINT : '\.'
+PRINTDELIM : '\."\s[^"]+\s"'
+EMIT : 'EMIT\b'
+KEY : 'KEY\b'
+SPACES : 'SPACES\b'
+SPACE : 'SPACE\b'
+CHAR : 'CHAR\b'
+CR : 'CR\b'
+IF : 'IF\b'
+THEN : 'THEN\b'
+ELSE : 'ELSE\b'
+DO : 'DO\b'
+LOOP : 'LOOP\b'
+SWAP : 'SWAP\b'
+\end{verbatim}
+
+\subsubsection{Estados}
+
+Os estados definem diferentes modos de análise léxica no compilador Forth, adaptando o comportamento do analisador léxico de acordo com o contexto do código. Aqui estão os estados utilizados no compilador Forth:
+
+\begin{itemize}
+    \item \textbf{functionDefState}: Este estado é utilizado para definir a estrutura de uma função Forth. Durante este estado, o analisador léxico está focado na captura dos parâmetros de entrada e saída da função. Ele é designado como inclusivo, o que significa que todas as funções que tiverem esse estado no nome serão adicionadas a este estado durante a análise léxica. Isso permite que o analisador léxico identifique corretamente a estrutura de definição de funções no código e capture os parâmetros corretamente.
+    
+    \item \textbf{funInpState}: Este estado é exclusivo e é ativado durante a declaração de input de funções. Quando o analisador léxico entra neste estado, apenas as funções com o nome do estado podem ser utilizadas. Isso garante que apenas tokens relacionados à entrada de funções sejam reconhecidos durante esta fase da análise léxica, facilitando a captura dos parâmetros de entrada da função.
+    
+    \item \textbf{funOutState}: Assim como o estado anterior, o funOutState é exclusivo e é utilizado durante a declaração de output de funções. Durante este estado, apenas as funções com o nome do estado podem ser usadas. Isso assegura que apenas tokens relacionados à saída de funções sejam reconhecidos durante esta fase da análise léxica, garantindo a captura precisa dos parâmetros de saída da função.
+    
+    \item \textbf{conditionalState}: Este estado é inclusivo e é ativado quando o analisador léxico encontra uma estrutura condicional no código, como um 'if'. Durante este estado, o analisador léxico está focado na análise da expressão condicional e de seus blocos de código associados. Designar este estado como inclusivo permite que todas as funções que tiverem esse estado no nome sejam adicionadas a este estado durante a análise léxica, facilitando a identificação correta dos tokens relacionados a estruturas condicionais no código.
+\end{itemize}
+
+\textbf{Falar da transição de estados}
+
+Os estados no compilador Forth são fundamentais para garantir uma análise léxica precisa e eficiente, adaptando o comportamento do analisador léxico de acordo com o contexto do código.
+
+
+
+\subsubsection{Tratamento de Tokens}
+
+O tratamento dos tokens no analisador léxico do compilador Forth é crucial para identificar corretamente os elementos da linguagem e processá-los de acordo com as regras definidas. Existem diferentes tipos de tokens no Forth, cada um com suas características específicas e tratamentos necessários.
+\\\\
+\textbf{WORD} \\
+O token \textbf{WORD} representa palavras-chave e identificadores na linguagem Forth. Durante o tratamento desse token, é importante verificar se a palavra é uma palavra-chave reservada da linguagem ou um identificador definido pelo usuário.
+\\\\
+\textbf{NUMBER} \\
+O token \textbf{NUMBER} captura números inteiros na linguagem Forth. Durante o tratamento desse token, é necessário converter a sequência de caracteres em um valor numérico adequado, levando em consideração possíveis sinais, underscores entre os dígitos e representações em hexadecimal, octal e binário.
+\\\\
+\textbf{COMMENT} \\
+O token \textbf{COMMENT} identifica comentários no código Forth. Durante o tratamento desse token, o comentário pode ser ignorado pelo compilador, já que não afeta a execução do programa.
+\\\\
+\textbf{STRING} \\
+O token \textbf{STRING} representa strings na linguagem Forth. Durante o tratamento desse token, é necessário manipular as strings de acordo com suas características específicas, como delimitadores e escapes, garantindo que o compilador seja capaz de processá-las corretamente.
+
+Além desses tokens principais, o compilador Forth pode definir outros tokens para operadores, estruturas de controlo e símbolos especiais, cada um exigindo um tratamento específico durante a análise léxica para garantir a correta interpretação do código.
+
+O tratamento adequado dos tokens no analisador léxico é fundamental para garantir que o compilador Forth seja capaz de reconhecer e processar corretamente o código, transformando-o em instruções compreensíveis para a máquina virtual.
+
+
+\subsection{Gramática}
+O analisador sintático é responsável por analisar a estrutura gramatical do código Forth e construir a árvore de análise sintática correspondente. Utilizamos o gerador de analisadores sintáticos 'Yacc' do 'PLY/Python' para implementar o analisador sintático. A gramática da linguagem Forth é definida através de regras de produção que especificam como os tokens devem ser combinados para formar instruções válidas.
+\\
+\title{Estruturas Auxiliares Globais}
+Para auxiliar a conversão de Forth para linguagem da \textit{VM}, foram implementadas as seguintes estruturas auxiliares, acopuladas ao objeto responsável pela análise sintática, o \textit{parser}:
+\begin{itemize}
+    \item enderecos: Este dicionário é responsável por armazenar informações sobre funções definidas no input e tem duas componentes:
+    \begin{itemize}
+        \item 'body': Armazena o corpo de funções definidas no ficheiro de input, de modo a ser possível reutilizar o código da \textit{VM} gerado.
+        \item 'saldo': Contabiliza o estado da stack principal, de modo a verificar possíveis chamadas inválidas de funções.
+    \end{itemize}
+    \item func: Armazena o nome da função a ser definida, de modo a ser possível adicionar funções já definidas dentro de outras.
+    \item funCount: Counter que é responsável por fazer um cálculo sobre as modificações que uma determinada função ao ser definida provoca na stack principal.
+    \item i: Counter que contabiliza o número de inteiros existentes na stack principal.
+    \item labels: Counter que contabiliza o número de labels existentes no código gerado.
+    \item funDef: Flag que indica se uma expressão está a ser deduzida dentro da definição de uma função.
+\end{itemize}
+
+Com esse objetivo, a gramática tem o símbolo não terminal \textbf{exps} como \textbf{axioma}. Deste símbolo, são derivadas duas produções:
+
+\begin{lstlisting}[language=Python]
+def p_exps(p):
+    '''exps : exps exp'''
+    p[0] = p[1] + p[2]
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+def p_exps_empty(p):
+    '''exps : empty'''
+    p[0] = ""
+\end{lstlisting}
+
+A primeira, servindo para agrupar todas as expressões que constituem instruções válidas a ser introduzidas na máquina virtual \textit{VM}. A segunda, para possibilitar a primeira no caso da primeira expressão obtida.
+
+\subsubsection{Exp}
+De forma a suportar o axioma, cabe ao símbolo não terminal \textbf{exp}, que deriva a grande maioria das expressões, maioritariamente, \textbf{funções}, quer as predefinidas, quer as definidas pelo utilizador, \textbf{expressões aritméticas}, \textbf{expressões lógicas}, \textbf{condicionais} e sobre \textbf{strings}.
+
+\title{Funções}
+
+\begin{lstlisting}[language=Python]
+    def p_exp_word(p):
+    '''exp : WORD'''
+    p[0] = ""
+    if p[1] not in parser.enderecos and p[1] != parser.func:
+        print("Function '" + p[1] + "' not defined.")
+        raise SyntaxError
+    
+    funInfo = parser.enderecos.get(p[1]) # Encontra a função no dicionário
+
+    if parser.funDef == False:
+        p[0] = funInfo['body'] # Adicionar corpo da função ao código
+        parser.i += funInfo['saldo'] # Adiciona o saldo da função ao contador
+    else:
+        p[0] = funInfo['body']
+        funAdef = parser.enderecos.get(parser.func)
+        funAdef['saldo'] += funInfo['saldo']
+\end{lstlisting}
+
+Quando uma função é encontrada, existe primeiramente uma verificação sobre a existência de uma definição da mesma (que iremos abordar mais tarde). Após isso, o corpo da função é copiado do \textbf{parser.enderecos}, de modo a ser inserido no código gerado, assim como é adicionado ao \textbf{parser.i} o \textbf{'saldo'} da função, de modo a registar quantos inteiros existem na stack com a chamada da função.
+
+\title{Expressões aritméticas e lógicas}
+De modo a lidar com expressões aritméticas, estão associadas as seguintes derivações da \textit{exp}:
+\begin{lstlisting}[language=Python]
+    def p_exp_aritOnly(p):
+    '''exp : ADD
+           | SUB
+           | MUL
+           | DIV
+           | MOD'''
+
+    if parser.funDef == False:
+        if parser.i < 2:
+            print("Arithmetic Error: Not enough values on stack!")
+        parser.i -= 1
+    else:
+        parser.funCount -=1
+
+    if p[1] == '+':
+        p[0] = 'ADD\n'
+    elif p[1] == '-':
+        p[0] = 'SUB\n'
+    elif p[1] == '/':
+        p[0] = 'DIV\n'
+    elif p[1] == '*':
+        p[0] = 'MUL\n'
+    elif p[1] == '%':
+        p[0] = 'MOD\n'
+
+def p_exp_relOpOnly(p):
+    '''exp : LESSER
+            | GREATER
+            | DIFF
+            | GREQUAL
+            | LESEQUAL
+            | EQUALS'''
+
+    if parser.funDef == False:
+        if parser.i < 2:
+            print("Logical Error: Not enough values on stack!")
+            raise SyntaxError
+        parser.i -= 1
+    else:
+        parser.funCount -=1
+
+    if p[1] == '<':
+        p[0] = 'INF\n'
+    elif p[1] == '>':
+        p[0] = 'SUP\n'
+    elif p[1] == '<>':
+        p[0] = 'NOT\n'
+    elif p[1] == '<=':
+        p[0] = 'INFEQ\n'
+    elif p[1] == '>=':
+        p[0] = 'SUPEQ\n'
+    elif p[1] == '=':
+        p[0] = 'EQUAL\n'
+\end{lstlisting}
+Ambas possuem o mesmo raciocínio lógico. Primeiramente no caso de não estarem a ser incluídas numa definição de função, verifica-se se existem valores na stack principal para ser possível realizarem essa operação. Caso afirmativo, é contabilizada a diferença na stack principal através da \textit{funCount}. Caso contrário, é subtraída ao contador global de inteiros na stack, o \textit{parser.i}. E finalmente é adicionado o código ao \textit{output}.
+
+\subsubsection{Strings}
+Também derivadas da \textit{exp}, servem para lidar com todas as funções propostas da linguagem Forth que lidam com \textit{strings}:
+\begin{lstlisting}[language=Python]
+    def p_exp_charOnly(p):
+    '''exp : CHAR WORD'''
+
+    if len(p[2]) > 1:
+        print("SyntaxError - CHAR applied to more than one character.")
+        raise SyntaxError
+
+    p[0] = 'pushs "' + p[2] + '"\n'
+    p[0] += 'CHRCODE\n'
+
+    if parser.funDef == False:
+        parser.i += 1
+    else:
+        parser.funCount +=1
+
+
+def p_exp_printOnly(p):
+    '''exp : PRINTDELIM
+           | CR
+           | SPACE
+           | KEY'''
+    if p[1] == 'CR':
+        p[0] = 'writeln\n'
+    elif p[1] == 'SPACE':
+        p[0] = 'pushs " " \n'
+    elif p[1] == 'KEY':
+        p[0] = 'read\n'
+        p[0] += 'chrcode\n'
+        if parser.funDef == False:
+            parser.i += 1
+        else:
+            parser.funCount +=1
+    else: # PRINTDELIM
+        p[0] = 'pushs "' + p[1] + '"\n'
+        p[0] += 'writes \n'
+
+
+def p_exp_prints(p):
+    '''exp : SPACES 
+           | EMIT'''
+    
+    strt = 'l' + str(parser.labels) 
+    parser.labels +=1
+    fin = 'l' + str(parser.labels) 
+    parser.labels +=1
+    if parser.funDef == False:
+        if parser.i <= 0:
+            print('Syntax Error on SPACES or EMIT function. Not enough arguments.\n')
+            raise SyntaxError
+        parser.i -= 1
+    else:
+        parser.funCount -=1
+
+    if p[1] == 'SPACES':
+        #loop core 1
+        p[0] += strt + ':\n'
+        p[0] += 'dup 1\npushi 0\nsup\njz ' + fin + '\n'
+        #print espaço
+        p[0] += 'pushs " "\nwrites\n'
+        #loop core 2
+        p[0] += 'pushi 1\nsub\njump ' + strt + '\n'
+        p[0] += fin + ':\n' + 'pop 1\n'
+    else: # EMIT
+        p[0] = 'writechr\n'
+\end{lstlisting}
+Destas produções, é de destacar dois casos:\\
+Primeiramente, as funções que não requerem elementos da stack principal, referentes à produção \textbf{printOnly}, que possuem um comportamento simples, aonde é apenas adicionado o código correspondente, salvo a exceção da KEY que possui um comportamento semelhante às ainda não referidas. Com foco nas produções que necessitam de elementos da stack principal, estas têm um comportamento semelhante às expressões aritméticas e lógicas.
+
+\subsubsection{Condicionais}
+Para a utilização de condicionais, também derivadas de \textbf{exp}, utilizam também o simbolo não terminal \textbf{exps}, de forma a não restringir o tamanho das ramificações lógicas possíveis.
+\begin{lstlisting}[language=Python]
+    def p_exp_ifThen(p):
+    '''exp : IF exps THEN'''
+    if parser.funDef == False:
+        if parser.i < 1:
+            print("Conditional Error: Not enough values on stack!")
+            raise SyntaxError
+        parser.i -= 1
+    else:
+        parser.funCount -= 1
+
+    false = 'l' + str(parser.labels)
+    p[0] = 'JZ ' + false + '\n' # Salto caso seja falso
+    p[0] += p[2] # Condição caso verdadeiro
+    p[0] += false + ':\n' # Salto (falso)
+    parser.labels+=1
+
+def p_exp_ifElseThenOnly(p):
+    '''exp : IF exps ELSE exps THEN'''
+    if parser.funDef == False:
+        if parser.i < 1:
+            print("Conditional Error: Not enough values on stack!")
+            raise SyntaxError
+        parser.i -= 1
+    else:
+        parser.funCount -= 1
+    
+    fi = 'l' + str(parser.labels)
+    parser.labels+=1
+    els = 'l' + str(parser.labels)
+    parser.labels+=1
+    fim = 'l' + str(parser.labels)
+    p[0] = 'JZ ' + els + '\n' # Salto caso seja falso
+    p[0] += p[2] # V
+    p[0] += 'jump ' + fim + '\n' # Salto para o fim
+    p[0] += els + ':\n' # Salto F
+    p[0] += p[4] # F
+    p[0] += fim + ':\n' # fim
+    
+    parser.labels+=1
+\end{lstlisting}
+Com destaque nestas produções, as \textbf{labels} e os \textit{jumps}, que serão cruciais para possíbilitar a navegação lógica, garantindo que não existem confusões nas mesmas. Garantindo que uma condicional não interfere com outra.
+
+\subsubsection{funStarted e functionBody}
+As produções derivadas destes símbolos não terminais surgem com a necessidade de ativar flags para deteção caso a leitura seja dentro da definição de funções.
+
+\subsubsection{Definição de funções}
+
+\begin{lstlisting}[language=Python]
+    def p_funStarted_WORD(p):
+    '''funStarted : FUNCTIONSTART WORD'''
+    p[0] = ""
+    if p[2] in parser.enderecos:
+        print('Function ' + p[2] + ' already exists.')
+        raise SyntaxError
+    parser.funDef = True
+    parser.func = p[2]
+    data = ({p[2]: {'body':"",'saldo':0}})
+    parser.enderecos.update(data)
+    
+
+def p_functionBody(p):
+    '''functionBody : exps FUNCTIONEND'''
+    p[0] = ""
+    nome = parser.func
+    bodyFun = p[1]
+
+    parser.enderecos[nome]['body'] = bodyFun
+    parser.enderecos[nome]['saldo'] = parser.funCount
+
+
+    #Reiniciar Variáveis globais
+    parser.funCount = 0
+    parser.func = ""
+    parser.funDef = False
+    
+
+def p_exp_funDefined(p):
+    '''exp : funStarted functionBody'''
+    p[0] = ""
+\end{lstlisting}
+Assim, a produção \textit{funStarted} fica responsável pela ativação da flag global anteriormente referida. Complementado esta produção, a \textit{functionBody}, de modo a reiniciar parte da estrutura auxiliar global referente à definição de funções. Finalmente a produção funDefined, que é derivada da \textit{exp}, mas é aqui inserida pois representa uma boa definição de funções.
+
+\newpage
+\section{Testes Realizados e resultados}
+
+\subsection{Alternativas, Decisões e Problemas de Implementação }
+
+A implementação de um dicionário global, onde são armazenados os corpos das funções, impossibilita a chamada aninhada de funções dentro de outras funções que usem \textit{labels}, o que limita bastante o desempenho do programa. Este problema poderia ter sido resolvido através da utilização de \textit{frame pointers} e \textit{global pointers} fornecidos na máquina virtual. Contudo, devido a falhas do nosso conhecimento da linguagem da máquina, não nos foi possível implementar essa opção.
+
+
+\subsection{Testes realizados e Resultados}
+
+\begin{verbatim}
+Input:
+    3 +
+Output:
+    Arithmetic Error: Not enough values on stack!
+
+Input:
+    3 5 + 8 > IF ." Valor é superior " ELSE ." Valor é igual ou inferior." THEN
+Output:
+    START
+    pushi 3
+    pushi 5
+    ADD
+    pushi 8
+    SUP
+    JZ l2
+    pushs "Valor é superior"
+    writes 
+    jump l3
+    l2:
+    pushs "Valor é igual ou inferior"
+    writes 
+    l3:
+    STOP
+
+Input:
+    2 3 + .
+    2 3 + 10 + .
+Output:
+    START
+    pushi 2
+    pushi 3
+    ADD
+    writei
+    pushi 2
+    pushi 3
+    ADD
+    pushi 10
+    ADD
+    writei
+    STOP
+
+Input:
+    : TESTKEY ( -- )
+    ." Hit a key: " KEY CR
+    ." That = " . CR;
+    TESTKEY
+Output:
+    START
+    pushs "Hit a key:"
+    writes 
+    read
+    chrcode
+    writeln
+    pushs "That ="
+    writes 
+    writei
+    writeln
+    STOP
+
+Input:
+    : AVERAGE ( a b -- avg ) + 2/ ;
+    10 20 AVERAGE .
+Output:
+    START
+    pushi 10
+    pushi 20
+    ADD
+    pushi 2
+    DIV
+    writei
+    STOP
+\end{verbatim}
+
+\newpage
+\section{Conclusão}
+
+Durante o desenvolvimento deste trabalho prático, enfrentamos diversos desafios e adquirimos uma compreensão mais profunda sobre as linguages de programação e compiladores. Ao longo do processo, aplicamos os conhecimentos adquiridos na aula para criar uma gramática e implementar um compilador capaz de transformar código Forth em código de máquina compatível com a máquina virtual.
+
+No entanto, mesmo com esforço e dedicação, encontramos algumas dificuldades significativas. Uma das principais dificuldades foi a compreensão e implementação do código da máquina virtual, que serve como plataforma de execução para o código gerado pelo nosso compilador. Demorou-nos bastante tempo para conseguirmos começar a compreender como o código da máquina funcionava e como traduzir para esta linguagem.
+
+Outro desafio importante foi a implementação do tratamento de funções aninhadas, variáveis e ciclos no compilador Forth. Devido à complexidade desses recursos não conseguimos implementar esses aspectos na versão final do compilador.
+
+Apesar das dificuldades encontradas, consideramos que alcançamos os objetivos principais do trabalho, ganhando prática e experiência. O processo de desenvolvimento proporcionou-nos uma compreensão mais sólida dos conceitos teóricos abordados em sala de aula e preparou-nos para enfrentar desafios semelhantes no futuro.
+
+\end{document}

@@ -1,0 +1,6 @@
+[MASTER] 00:23:20.896 [main] ERROR ExternalProcessHandler - Class TP2.Menu. Clients have not finished yet, although a timeout occurred.
+ClientNode: MINIMIZATION
+
+[MASTER] 00:23:20.998 [main] ERROR SearchStatistics - No obtained value for output variable: LineCoverage
+[MASTER] 00:23:22.006 [main] ERROR SearchStatistics - Not going to write down statistics data, as some are missing
+[MASTER] 00:23:22.107 [main] ERROR TestGeneration - failed to write statistics data

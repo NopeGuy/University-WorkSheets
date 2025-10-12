@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Noitcua.Models.sala>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .search-container {
+            width: 600px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .result-container {
+            width: 600px;
+            margin: 20px;
+        }
+
+        .result-box {
+            width: 100%;
+            padding: 15px;
+            background-color: #ccc;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .result-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .result-date {
+            color: gray;
+        }
+
+        .align-content-center {
+            margin: auto;
+            width: 50%;
+        }
+
+        .result-button {
+            text-decoration: none;
+            color: black;
+            border: 2px solid black;
+            padding: 5px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="align-content-center">
+    <div class="search-container">
+        <form method="get" action="@Url.Action("Search", "Rooms")">
+            <label for="searchQuery">Procurar Salas:</label>
+            <input type="text" id="searchQuery" name="searchQuery" />
+            <button type="submit">Pesquisar</button>
+        </form>
+    </div>
+
+    <div class="result-container">
+        <h2>
+            <b>Resultados de Pesquisa para :</b>@ViewData["SearchQuery"]
+            </h2>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var sala in Model)
+            {
+                <div class="result-box">
+                    <div class="result-title">@sala.titulo</div>
+                    <span>@sala.descricao</span>
+                    <br /><br />
+                    <a class="result-button" href="@Url.Action("Room", "Rooms", new {id = sala.id})">Entrar na Sala</a>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Nenhuma sala encontrada.</p>
+        }
+    </div>
+</body>
+</html>

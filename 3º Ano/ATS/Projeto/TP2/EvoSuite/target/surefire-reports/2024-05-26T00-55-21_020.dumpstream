@@ -1,0 +1,27 @@
+# Created at 2024-05-26T00:55:21.654
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+
+# Created at 2024-05-26T00:55:21.654
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+
+# Created at 2024-05-26T00:55:21.655
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
+# Created at 2024-05-26T00:55:24.964
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+
+# Created at 2024-05-26T00:55:24.964
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+
+# Created at 2024-05-26T00:55:24.964
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+
+# Created at 2024-05-26T00:55:24.965
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+
+# Created at 2024-05-26T00:55:24.965
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+
+# Created at 2024-05-26T00:55:24.965
+*** java.lang.instrument ASSERTION FAILED ***: "!errorOutstanding" with message transform method call failed at JPLISAgent.c line: 844
+

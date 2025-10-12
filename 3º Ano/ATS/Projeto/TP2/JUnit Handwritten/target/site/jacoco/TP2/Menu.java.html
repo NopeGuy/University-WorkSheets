@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Menu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">Menu.java</span></div><h1>Menu.java</h1><pre class="source lang-java linenums">package TP2;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+<span class="nc" id="L8">public class Menu {</span>
+    public Scanner scanner;
+
+    public int iniciar_menu() {
+<span class="nc" id="L12">        scanner = new Scanner(System.in);</span>
+        int escolha;
+
+<span class="nc" id="L15">        System.out.print(&quot;Bem vindo a Vintage \nEscolha uma opção:\n&quot;);</span>
+<span class="nc" id="L16">        System.out.println(&quot;1 - Login&quot;);</span>
+<span class="nc" id="L17">        System.out.println(&quot;2 - Registar&quot;);</span>
+<span class="nc" id="L18">        System.out.println(&quot;3 - Querys&quot;);</span>
+<span class="nc" id="L19">        System.out.println(&quot;4 - Transportadora&quot;);</span>
+<span class="nc" id="L20">        System.out.println(&quot;5 - Avançar tempo&quot;);</span>
+<span class="nc" id="L21">        System.out.println(&quot;6 - Ver de um ficheiro&quot;);</span>
+<span class="nc" id="L22">        System.out.println(&quot;7 - Sair&quot;);</span>
+    
+        try {
+<span class="nc" id="L25">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L26">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L27">            System.out</span>
+<span class="nc" id="L28">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L29">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L30">            escolha = iniciar_menu();</span>
+        }
+
+<span class="nc bnc" id="L33" title="All 4 branches missed.">        if(escolha &lt; 1 || escolha &gt; 7){</span>
+<span class="nc" id="L34">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L35">            scanner.nextLine();</span>
+<span class="nc" id="L36">            escolha = iniciar_menu();</span>
+        }
+
+<span class="nc" id="L39">        return escolha;</span>
+    }
+    public void tempo_vintage(String tempo){
+<span class="nc" id="L42">        System.out.println(&quot;Tempo Vintage: &quot; + tempo);</span>
+<span class="nc" id="L43">    }</span>
+
+
+      public void clear(){
+<span class="nc" id="L47">      System.out.print(&quot;\033[H\033[2J&quot;);</span>
+<span class="nc" id="L48">      System.out.flush();</span>
+<span class="nc" id="L49">      }</span>
+     
+    public String pedir_email() {
+<span class="nc" id="L52">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L53">        System.out.print(&quot;Digite seu email: &quot;);</span>
+
+        try {
+<span class="nc" id="L56">            String email = scanner.nextLine();</span>
+<span class="nc" id="L57">            return email;</span>
+<span class="nc" id="L58">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L59">            System.out.println(&quot;Não foi possível ler o email. &quot;);</span>
+<span class="nc" id="L60">            return pedir_email();</span>
+        }
+    }
+
+    public String pedir_nome() {
+<span class="nc" id="L65">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L66">        System.out.print(&quot;Digite seu nome: &quot;);</span>
+
+        try {
+<span class="nc" id="L69">            String nome = scanner.nextLine();</span>
+<span class="nc" id="L70">            return nome;</span>
+<span class="nc" id="L71">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L72">            System.out.println(&quot;Não foi possível ler o nome. &quot;);</span>
+<span class="nc" id="L73">            return pedir_nome();</span>
+        }
+        // scanner.close();
+    }
+
+    public long pedir_nif() {
+<span class="nc" id="L79">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L80">        System.out.print(&quot;Digite seu NIF: &quot;);</span>
+        long nif;
+
+        try {
+<span class="nc" id="L84">            nif = scanner.nextInt();</span>
+<span class="nc" id="L85">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L86">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L87">            scanner.nextLine();</span>
+<span class="nc" id="L88">            nif = pedir_nif();</span>
+        }
+<span class="nc" id="L90">        return nif;</span>
+        // scanner.close();
+    }
+
+    public String pedir_morada() {
+<span class="nc" id="L95">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L96">        String morada = &quot;&quot;;</span>
+
+        try {
+<span class="nc" id="L99">            System.out.print(&quot;Digite sua cidade: &quot;);</span>
+<span class="nc" id="L100">            String cidade = scanner.nextLine();</span>
+
+<span class="nc" id="L102">            System.out.print(&quot;Digite sua rua: &quot;);</span>
+<span class="nc" id="L103">            String rua = scanner.nextLine();</span>
+
+<span class="nc" id="L105">            morada = cidade + &quot; &quot; + rua;</span>
+<span class="nc" id="L106">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L107">            System.out.println(&quot;Ocorreu um erro ao solicitar a morada. &quot;);</span>
+<span class="nc" id="L108">            return pedir_morada();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L112">        return morada;</span>
+    }
+
+    public String pedir_password() {
+<span class="nc" id="L116">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L117">        System.out.print(&quot;Digite seu password: &quot;);</span>
+
+        try {
+<span class="nc" id="L120">            String password = scanner.nextLine();</span>
+<span class="nc" id="L121">            return password;</span>
+<span class="nc" id="L122">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L123">            System.out.println(&quot;Não foi possível ler a password. &quot;);</span>
+<span class="nc" id="L124">            return pedir_password();</span>
+        }
+
+        // scanner.close();
+    }
+
+    public void email_nao_existe() {
+<span class="nc" id="L131">        System.out.println(&quot;Email não existe!&quot;);</span>
+<span class="nc" id="L132">    }</span>
+
+    public void password_incorreta() {
+<span class="nc" id="L135">        System.out.println(&quot;Password incorreta!&quot;);</span>
+<span class="nc" id="L136">    }</span>
+
+    public void login_sucesso() {
+<span class="nc" id="L139">        System.out.println(&quot;Login com sucesso!&quot;);</span>
+<span class="nc" id="L140">    }</span>
+
+    public void login() {
+<span class="nc" id="L143">        System.out.println(&quot;Login:&quot;);</span>
+<span class="nc" id="L144">    }</span>
+
+    public void registo() {
+<span class="nc" id="L147">        System.out.println(&quot;Registo:&quot;);</span>
+<span class="nc" id="L148">    }</span>
+
+    public void registo_sucesso() {
+<span class="nc" id="L151">        System.out.println(&quot;Registo com sucesso!&quot;);</span>
+<span class="nc" id="L152">    }</span>
+
+    public void email_ja_existe_print() {
+<span class="nc" id="L155">        System.out.println(&quot;Email já existe!&quot;);</span>
+<span class="nc" id="L156">    }</span>
+
+    public void sair_print() {
+<span class="nc" id="L159">        System.out.println(&quot;Sair...&quot;);</span>
+<span class="nc" id="L160">    }</span>
+
+    public int menu_escolha() {
+<span class="nc" id="L163">        scanner = new Scanner(System.in);</span>
+        int escolha;
+<span class="nc" id="L165">        System.out.println(&quot;1 - Comprar&quot;);</span>
+<span class="nc" id="L166">        System.out.println(&quot;2 - Pesquisar&quot;);</span>
+<span class="nc" id="L167">        System.out.println(&quot;3 - Vender&quot;);</span>
+<span class="nc" id="L168">        System.out.println(&quot;4 - Opções das encomendas&quot;);</span>
+<span class="nc" id="L169">        System.out.println(&quot;5 - Ver faturas&quot;);</span>
+<span class="nc" id="L170">        System.out.println(&quot;6 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L173">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L174">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L175">            System.out</span>
+<span class="nc" id="L176">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L177">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L178">            escolha = menu_escolha();</span>
+        }
+
+<span class="nc bnc" id="L181" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 6) {</span>
+<span class="nc" id="L182">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L183">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L184">            escolha = menu_escolha();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L187">        return escolha;</span>
+    }
+
+    public int menu_faturas() {
+<span class="nc" id="L191">        scanner = new Scanner(System.in);</span>
+        int escolha;
+<span class="nc" id="L193">        System.out.println(&quot;1 - Faturas das compras&quot;);</span>
+<span class="nc" id="L194">        System.out.println(&quot;2 - Faturas das vendas&quot;);</span>
+<span class="nc" id="L195">        System.out.println(&quot;3 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L198">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L199">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L200">            System.out</span>
+<span class="nc" id="L201">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L202">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L203">            escolha = menu_faturas();</span>
+        }
+
+<span class="nc bnc" id="L206" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 3) {</span>
+<span class="nc" id="L207">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L208">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L209">            escolha = menu_faturas();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L213">        return escolha;</span>
+    }
+
+    public void faturas_compras() {
+<span class="nc" id="L217">        System.out.println(&quot;Faturas das compras:&quot;);</span>
+<span class="nc" id="L218">    }</span>
+
+    public void faturas_vendas() {
+<span class="nc" id="L221">        System.out.println(&quot;Faturas das vendas:&quot;);</span>
+<span class="nc" id="L222">    }</span>
+
+    public void print_de_comprar() {
+<span class="nc" id="L225">        System.out.println(&quot;Lista de artigos:&quot;);</span>
+<span class="nc" id="L226">    }</span>
+
+    public int menu_pesquisas() {
+        // this.clear();
+<span class="nc" id="L230">        scanner = new Scanner(System.in);</span>
+        int escolha;
+
+<span class="nc" id="L233">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L234">        System.out.println(&quot;1 - Pesquisar por id&quot;);</span>
+<span class="nc" id="L235">        System.out.println(&quot;2 - Pesquisar por tipo&quot;);</span>
+<span class="nc" id="L236">        System.out.println(&quot;3 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L239">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L240">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L241">            System.out</span>
+<span class="nc" id="L242">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L243">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L244">            escolha = menu_pesquisas();</span>
+        }
+
+<span class="nc bnc" id="L247" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 3) {</span>
+<span class="nc" id="L248">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L249">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L250">            escolha = menu_pesquisas();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L254">        return escolha;</span>
+    }
+
+    public void artigo_n_encontrado() {
+<span class="nc" id="L258">        System.out.println(&quot;Artigo não encontrado!&quot;);</span>
+<span class="nc" id="L259">    }</span>
+
+    public String pedir_id_artigo() {
+<span class="nc" id="L262">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L263">        System.out.print(&quot;Digite o id do artigo: &quot;);</span>
+
+        try {
+<span class="nc" id="L266">            String id = scanner.nextLine();</span>
+<span class="nc" id="L267">            return id;</span>
+<span class="nc" id="L268">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L269">            System.out.println(&quot;Não foi possível ler o ID do artigo. &quot;);</span>
+<span class="nc" id="L270">            return pedir_id_artigo();</span>
+        }
+        // scanner.close();
+    }
+
+    public int menu_pesquisas_tipo() {
+        // this.clear();
+<span class="nc" id="L277">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L278">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+        int escolha;
+
+<span class="nc" id="L281">        System.out.println(&quot;1 - Sapatilhas&quot;);</span>
+<span class="nc" id="L282">        System.out.println(&quot;2 - T-shirts&quot;);</span>
+<span class="nc" id="L283">        System.out.println(&quot;3 - Malas&quot;);</span>
+<span class="nc" id="L284">        System.out.println(&quot;4 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L287">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L288">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L289">            System.out</span>
+<span class="nc" id="L290">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L291">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L292">            escolha = menu_pesquisas_tipo();</span>
+        }
+
+<span class="nc bnc" id="L295" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 4) {</span>
+<span class="nc" id="L296">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L297">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L298">            escolha = menu_pesquisas_tipo();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L302">        return escolha;</span>
+    }
+
+    public int menu_sapatilha_pesquisa() {
+        // this.clear();
+<span class="nc" id="L307">        scanner = new Scanner(System.in);</span>
+        int escolha;
+
+<span class="nc" id="L310">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L311">        System.out.println(&quot;1 - Marca&quot;);</span>
+<span class="nc" id="L312">        System.out.println(&quot;2 - Novo&quot;);</span>
+<span class="nc" id="L313">        System.out.println(&quot;3 - Tamanho&quot;);</span>
+<span class="nc" id="L314">        System.out.println(&quot;4 - Cor&quot;);</span>
+<span class="nc" id="L315">        System.out.println(&quot;5 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L318">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L319">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L320">            System.out</span>
+<span class="nc" id="L321">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L322">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L323">            escolha = menu_sapatilha_pesquisa();</span>
+        }
+
+<span class="nc bnc" id="L326" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 5) {</span>
+<span class="nc" id="L327">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L328">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L329">            escolha = menu_sapatilha_pesquisa();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L333">        return escolha;</span>
+    }
+
+    public int menu_tshirt_pesquisa() {
+        // this.clear();
+<span class="nc" id="L338">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L339">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+        int escolha;
+
+<span class="nc" id="L342">        System.out.println(&quot;1 - Marca&quot;);</span>
+<span class="nc" id="L343">        System.out.println(&quot;2 - Novo&quot;);</span>
+<span class="nc" id="L344">        System.out.println(&quot;3 - Tamanho&quot;);</span>
+<span class="nc" id="L345">        System.out.println(&quot;4 - Padrão&quot;);</span>
+<span class="nc" id="L346">        System.out.println(&quot;5 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L349">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L350">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L351">            System.out</span>
+<span class="nc" id="L352">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L353">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L354">            escolha = menu_tshirt_pesquisa();</span>
+        }
+
+<span class="nc bnc" id="L357" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 5) {</span>
+<span class="nc" id="L358">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L359">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L360">            escolha = menu_tshirt_pesquisa();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L364">        return escolha;</span>
+    }
+
+    public int menu_malas_pesquisa() {
+        // this.clear();
+<span class="nc" id="L369">        scanner = new Scanner(System.in);</span>
+        int escolha;
+
+<span class="nc" id="L372">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L373">        System.out.println(&quot;1 - Marca&quot;);</span>
+<span class="nc" id="L374">        System.out.println(&quot;2 - Novo&quot;);</span>
+<span class="nc" id="L375">        System.out.println(&quot;3 - Tamanho&quot;);</span>
+<span class="nc" id="L376">        System.out.println(&quot;4 - Ano de coleção&quot;);</span>
+<span class="nc" id="L377">        System.out.println(&quot;5 - Material&quot;);</span>
+<span class="nc" id="L378">        System.out.println(&quot;6 - Sair&quot;);</span>
+
+        try {
+<span class="nc" id="L381">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L382">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L383">            System.out</span>
+<span class="nc" id="L384">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L385">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L386">            escolha = menu_malas_pesquisa();</span>
+        }
+
+<span class="nc bnc" id="L389" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 6) {</span>
+<span class="nc" id="L390">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L391">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L392">            escolha = menu_malas_pesquisa();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L396">        return escolha;</span>
+    }
+
+    public String pedir_marca() {
+<span class="nc" id="L400">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L401">        System.out.print(&quot;Digite a marca: &quot;);</span>
+
+        try {
+<span class="nc" id="L404">            String marca = scanner.nextLine();</span>
+<span class="nc" id="L405">            return marca;</span>
+<span class="nc" id="L406">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L407">            System.out.println(&quot;Não foi possível ler a marca. &quot;);</span>
+<span class="nc" id="L408">            return pedir_marca();</span>
+        }
+
+        // scanner.close();
+    }
+
+    public int pedir_tamanho_sapatilha() {
+<span class="nc" id="L415">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L416">        System.out.print(&quot;Digite o tamanho: &quot;);</span>
+        int tamanho;
+
+        try {
+<span class="nc" id="L420">            tamanho = scanner.nextInt();</span>
+<span class="nc" id="L421">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L422">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L423">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L424">            tamanho = pedir_tamanho_sapatilha();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L428">        return tamanho;</span>
+
+    }
+
+    public Tamanho pedir_tamanho_tshirt() {
+<span class="nc" id="L433">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L434">        System.out.print(&quot;Digite o tamanho S/M/L/XL:&quot;);</span>
+<span class="nc" id="L435">        String tamanho = scanner.nextLine();</span>
+
+<span class="nc bnc" id="L437" title="All 2 branches missed.">        if (tamanho.equals(&quot;S&quot;)) {</span>
+<span class="nc" id="L438">            return Tamanho.S;</span>
+<span class="nc bnc" id="L439" title="All 2 branches missed.">        } else if (tamanho.equals(&quot;M&quot;)) {</span>
+            // scanner.close();
+<span class="nc" id="L441">            return Tamanho.M;</span>
+<span class="nc bnc" id="L442" title="All 2 branches missed.">        } else if (tamanho.equals(&quot;L&quot;)) {</span>
+            // scanner.close();
+<span class="nc" id="L444">            return Tamanho.L;</span>
+<span class="nc bnc" id="L445" title="All 2 branches missed.">        } else if (tamanho.equals(&quot;XL&quot;)) {</span>
+            // scanner.close();
+<span class="nc" id="L447">            return Tamanho.XL;</span>
+        } else {
+<span class="nc" id="L449">            System.out.println(&quot;Tamanho inválido. Digite S, M, L ou XL.&quot;);</span>
+<span class="nc" id="L450">            return pedir_tamanho_tshirt();</span>
+        }
+        // scanner.close();
+    }
+
+    public int pedir_tamanho_mala() {
+<span class="nc" id="L456">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L457">        System.out.print(&quot;Digite o tamanho em cm: &quot;);</span>
+        int tamanho;
+
+        try {
+<span class="nc" id="L461">            tamanho = scanner.nextInt();</span>
+<span class="nc" id="L462">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L463">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L464">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L465">            tamanho = pedir_tamanho_mala();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L468">        return tamanho;</span>
+    }
+
+    public int pedir_numero_utlizador() {
+<span class="nc" id="L472">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L473">        System.out.print(&quot;Digite o número de utilizadores que o artigo teve: &quot;);</span>
+        int numero;
+
+        try {
+<span class="nc" id="L477">            numero = scanner.nextInt();</span>
+<span class="nc" id="L478">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L479">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L480">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L481">            numero = pedir_numero_utlizador();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L485">        return numero;</span>
+    }
+
+    public int pedir_estado() {
+<span class="nc" id="L489">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L490">        System.out.print(&quot;Digite o estado, (0/10): &quot;);</span>
+        int estado;
+
+        try {
+<span class="nc" id="L494">            estado = scanner.nextInt();</span>
+<span class="nc" id="L495">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L496">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro entre 0 e 10.&quot;);</span>
+<span class="nc" id="L497">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L498">            estado = pedir_estado();</span>
+        }
+
+<span class="nc bnc" id="L501" title="All 4 branches missed.">        if (estado &lt; 0 || estado &gt; 10) {</span>
+<span class="nc" id="L502">            System.out.println(&quot;Estado inválido!&quot;);</span>
+<span class="nc" id="L503">            scanner.nextLine();</span>
+<span class="nc" id="L504">            estado = iniciar_menu();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L507">        return estado;</span>
+    }
+
+    public boolean atacadores() {
+<span class="nc" id="L511">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L512">        System.out.print(&quot;Tem atacadores, (true/false): &quot;);</span>
+        boolean atacadores;
+
+        try {
+<span class="nc" id="L516">            atacadores = scanner.nextBoolean();</span>
+<span class="nc" id="L517">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L518">            System.out.println(&quot;Entrada inválida. Por favor, digite true ou false. &quot;);</span>
+<span class="nc" id="L519">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L520">            atacadores = atacadores();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L523">        return atacadores;</span>
+    }
+
+    public String pedir_cor() {
+<span class="nc" id="L527">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L528">        System.out.print(&quot;Digite a cor: &quot;);</span>
+
+        try {
+<span class="nc" id="L531">            String cor = scanner.nextLine();</span>
+<span class="nc" id="L532">            return cor;</span>
+<span class="nc" id="L533">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L534">            System.out.println(&quot;Não foi possível ler a cor. &quot;);</span>
+<span class="nc" id="L535">            return pedir_cor();</span>
+        }
+    }
+
+    public boolean pedir_novo() {
+<span class="nc" id="L540">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L541">        System.out.print(&quot;Novo, (true/false): &quot;);</span>
+        boolean novo;
+
+        try {
+<span class="nc" id="L545">            novo = scanner.nextBoolean();</span>
+<span class="nc" id="L546">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L547">            System.out.println(&quot;Entrada inválida. Por favor, digite true ou false.&quot;);</span>
+<span class="nc" id="L548">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L549">            novo = pedir_novo();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L552">        return novo;</span>
+    }
+
+    public void pesquisa_falhou() {
+<span class="nc" id="L556">        System.out.println(&quot;Pesquisa falhou!&quot;);</span>
+<span class="nc" id="L557">    }</span>
+
+    public Padrao pedir_padrao() {
+<span class="nc" id="L560">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L561">        System.out.print(&quot; Padrão, (liso/riscas/palmeiras):&quot;);</span>
+<span class="nc" id="L562">        String padrao = scanner.nextLine();</span>
+        // scanner.close();
+<span class="nc bnc" id="L564" title="All 2 branches missed.">        if (padrao.equals(&quot;liso&quot;)) {</span>
+<span class="nc" id="L565">            return Padrao.liso;</span>
+<span class="nc bnc" id="L566" title="All 2 branches missed.">        } else if (padrao.equals(&quot;riscas&quot;)) {</span>
+<span class="nc" id="L567">            return Padrao.riscas;</span>
+<span class="nc bnc" id="L568" title="All 2 branches missed.">        } else if (padrao.equals(&quot;palmeiras&quot;)) {</span>
+<span class="nc" id="L569">            return Padrao.palmeiras;</span>
+        } else {
+<span class="nc" id="L571">            System.out.println(&quot;Padrão inválido. Digite liso, riscas ou palmeiras.&quot;);</span>
+<span class="nc" id="L572">            return pedir_padrao();</span>
+        }
+        // scanner.close();
+    }
+
+    public int pedir_ano() {
+<span class="nc" id="L578">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L579">        System.out.print(&quot;Digite o ano da coleção: &quot;);</span>
+        int ano;
+
+        try {
+<span class="nc" id="L583">            ano = scanner.nextInt();</span>
+<span class="nc bnc" id="L584" title="All 2 branches missed.">            if (ano &gt; LocalDate.now().getYear()) {</span>
+<span class="nc" id="L585">                System.out.println(&quot;Ano inválido&quot;);</span>
+<span class="nc" id="L586">                scanner.nextLine();</span>
+<span class="nc" id="L587">                ano = pedir_ano();</span>
+            }
+<span class="nc" id="L589">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L590">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L591">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L592">            ano = pedir_ano();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L596">        return ano;</span>
+    }
+
+    public String pedir_material() {
+<span class="nc" id="L600">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L601">        System.out.print(&quot;Digite o material: &quot;);</span>
+
+        try {
+<span class="nc" id="L604">            String material = scanner.nextLine();</span>
+<span class="nc" id="L605">            return material;</span>
+<span class="nc" id="L606">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L607">            System.out.println(&quot;Não foi possível ler o material. &quot;);</span>
+<span class="nc" id="L608">            return pedir_material();</span>
+        }
+    }
+
+    public int pedir_dimensao() {
+<span class="nc" id="L613">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L614">        System.out.print(&quot;Digite a dimensão: &quot;);</span>
+        int dimensao;
+
+        try {
+<span class="nc" id="L618">            dimensao = scanner.nextInt();</span>
+<span class="nc" id="L619">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L620">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L621">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L622">            dimensao = pedir_dimensao();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L625">        return dimensao;</span>
+    }
+
+    public int pedir_ano_colecao(LocalDate data) {
+<span class="nc" id="L629">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L630">        System.out.print(&quot;Digite o ano de coleção: &quot;);</span>
+        int ano;
+
+        try {
+<span class="nc" id="L634">            ano = scanner.nextInt();</span>
+<span class="nc bnc" id="L635" title="All 2 branches missed.">            if (ano &gt; data.getYear()) {</span>
+<span class="nc" id="L636">                System.out.println(&quot;Ano inválido&quot;);</span>
+<span class="nc" id="L637">                scanner.nextLine();</span>
+<span class="nc" id="L638">                ano = pedir_ano();</span>
+            }
+<span class="nc" id="L640">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L641">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L642">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L643">            ano = pedir_ano_colecao(data);</span>
+        }
+        // scanner.close();
+<span class="nc" id="L646">        return ano;</span>
+    }
+
+    public int menu_venda() {
+<span class="nc" id="L650">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L651">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L652">        System.out.println(&quot;1 - Ver artigos à venda&quot;);</span>
+<span class="nc" id="L653">        System.out.println(&quot;2 - Colocar artigo à venda&quot;);</span>
+<span class="nc" id="L654">        System.out.println(&quot;3 - Tirar artigo à venda&quot;);</span>
+<span class="nc" id="L655">        System.out.println(&quot;4 - Sair&quot;);</span>
+        int escolha;
+
+        try {
+<span class="nc" id="L659">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L660">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L661">            System.out</span>
+<span class="nc" id="L662">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L663">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L664">            escolha = menu_venda();</span>
+        }
+
+<span class="nc bnc" id="L667" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 4) {</span>
+<span class="nc" id="L668">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L669">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L670">            escolha = menu_venda();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L674">        return escolha;</span>
+    }
+
+    public void artigo_a_venda() {
+<span class="nc" id="L678">        System.out.println(&quot;Artigo à venda!&quot;);</span>
+<span class="nc" id="L679">    }</span>
+
+    public void meusArtigos() {
+<span class="nc" id="L682">        System.out.println(&quot;Artigos à venda:&quot;);</span>
+<span class="nc" id="L683">    }</span>
+
+    public void artigo_retirado() {
+<span class="nc" id="L686">        System.out.println(&quot;Artigo retirado!&quot;);</span>
+<span class="nc" id="L687">    }</span>
+
+    public int menu_venda_tipos() {
+<span class="nc" id="L690">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L691">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L692">        System.out.println(&quot;1 - Sapatilhas&quot;);</span>
+<span class="nc" id="L693">        System.out.println(&quot;2 - T-shirts&quot;);</span>
+<span class="nc" id="L694">        System.out.println(&quot;3 - Malas&quot;);</span>
+<span class="nc" id="L695">        System.out.println(&quot;4 - Sair&quot;);</span>
+        int escolha;
+
+        try {
+<span class="nc" id="L699">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L700">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L701">            System.out</span>
+<span class="nc" id="L702">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+            // scanner.nextLine(); // Limpa o buffer do scanner
+<span class="nc" id="L704">            escolha = menu_venda_tipos();</span>
+        }
+
+<span class="nc bnc" id="L707" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 4) {</span>
+<span class="nc" id="L708">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L709">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L710">            escolha = menu_venda_tipos();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L714">        return escolha;</span>
+    }
+
+    public void print_tirar_produtos_venda() {
+<span class="nc" id="L718">        System.out.println(&quot;Tirar produtos de venda:&quot;);</span>
+<span class="nc" id="L719">    }</span>
+
+    // Não pôs exception pq acho que vamos mudar
+    public LocalDate pedir_data() {
+<span class="nc" id="L723">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L724">        System.out.print(&quot;Digite a data da coleção:yyyy-MM-dd:&quot;);</span>
+<span class="nc" id="L725">        LocalDate data = LocalDate.parse(scanner.nextLine());</span>
+        // scanner.close();
+<span class="nc" id="L727">        return data;</span>
+    }
+
+    public double pedir_preco() {
+<span class="nc" id="L731">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L732">        System.out.print(&quot;Digite o preço: &quot;);</span>
+        double preco;
+
+        try {
+<span class="nc" id="L736">            preco = scanner.nextDouble();</span>
+<span class="nc" id="L737">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L738">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L739">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L740">            preco = pedir_preco();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L743">        return preco;</span>
+    }
+
+    public double pedir_desconto() {
+<span class="nc" id="L747">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L748">        System.out.print(&quot;Digite o desconto em percentagem: &quot;);</span>
+        double desconto;
+
+        try {
+<span class="nc" id="L752">            desconto = scanner.nextDouble();</span>
+<span class="nc" id="L753">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L754">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L755">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L756">            desconto = pedir_desconto();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L759">        return desconto;</span>
+    }
+
+    // Transportadoras
+    public int menuTrasnportadoras() {
+<span class="nc" id="L764">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L765">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L766">        System.out.println(&quot;1 - Criar transportadora&quot;);</span>
+<span class="nc" id="L767">        System.out.println(&quot;2 - Mudar a fórmula de cálculo&quot;);</span>
+<span class="nc" id="L768">        System.out.println(&quot;3 - Sair&quot;);</span>
+        int escolha;
+
+        try {
+<span class="nc" id="L772">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L773">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L774">            System.out</span>
+<span class="nc" id="L775">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L776">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L777">            escolha = menuTrasnportadoras();</span>
+        }
+
+<span class="nc bnc" id="L780" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 3) {</span>
+<span class="nc" id="L781">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L782">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L783">            escolha = menuTrasnportadoras();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L787">        return escolha;</span>
+    }
+
+    public String pedirNomeTransportadora() {
+<span class="nc" id="L791">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L792">        System.out.print(&quot;Digite o nome da transportadora: &quot;);</span>
+
+        try {
+<span class="nc" id="L795">            String nome = scanner.nextLine();</span>
+<span class="nc" id="L796">            return nome;</span>
+<span class="nc" id="L797">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L798">            System.out.println(&quot;Não foi possível ler a transportadora.&quot;);</span>
+<span class="nc" id="L799">            return pedirNomeTransportadora();</span>
+        }
+    }
+
+    public void print_transportadoras() {
+<span class="nc" id="L804">        System.out.println(&quot;Transportadoras:&quot;);</span>
+<span class="nc" id="L805">    }</span>
+
+    public long pedir_transportadora() {
+<span class="nc" id="L808">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L809">        System.out.print(&quot;Digite o id da transportadora: &quot;);</span>
+        long numero;
+
+        try {
+<span class="nc" id="L813">            numero = scanner.nextLong();</span>
+<span class="nc" id="L814">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L815">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L816">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L817">            numero = pedir_transportadora();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L820">        return numero;</span>
+    }
+
+    public String pedir_descricao() {
+<span class="nc" id="L824">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L825">        System.out.print(&quot;Digite a descrição: &quot;);</span>
+
+        try {
+<span class="nc" id="L828">            String descricao = scanner.nextLine();</span>
+<span class="nc" id="L829">            return descricao;</span>
+<span class="nc" id="L830">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L831">            System.out.println(&quot;Não foi possível ler a descrição. &quot;);</span>
+<span class="nc" id="L832">            return pedir_descricao();</span>
+        }
+    }
+
+    public boolean pedir_premium() {
+<span class="nc" id="L837">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L838">        System.out.print(&quot;É premium, (true/false): &quot;);</span>
+        boolean premium;
+
+        try {
+<span class="nc" id="L842">            premium = scanner.nextBoolean();</span>
+<span class="nc" id="L843">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L844">            System.out.println(&quot;Entrada inválida. Por favor, digite true ou false.&quot;);</span>
+<span class="nc" id="L845">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L846">            premium = pedir_premium();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L849">        return premium;</span>
+    }
+
+    public float pedir_valorizacao() {
+<span class="nc" id="L853">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L854">        System.out.print(&quot;Digite a valorização, em percentagem: &quot;);</span>
+        float valorizacao;
+
+        try {
+<span class="nc" id="L858">            valorizacao = scanner.nextFloat();</span>
+<span class="nc" id="L859">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L860">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L861">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L862">            valorizacao = pedir_valorizacao();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L865">        return valorizacao;</span>
+    }
+
+    public int menu_encomedas() {
+<span class="nc" id="L869">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L870">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L871">        System.out.println(&quot;1 - Ver carrinho&quot;);</span>
+<span class="nc" id="L872">        System.out.println(&quot;2 - Adicionar artigo ao carrinho&quot;);</span>
+<span class="nc" id="L873">        System.out.println(&quot;3 - Remover todos os artigos do carrinho&quot;);</span>
+<span class="nc" id="L874">        System.out.println(&quot;4 - Remover artigo do carrinho &quot;);</span>
+<span class="nc" id="L875">        System.out.println(&quot;5 - Ver encomendas realizadas&quot;);</span>
+<span class="nc" id="L876">        System.out.println(&quot;6 - Devolver encomendas&quot;);</span>
+<span class="nc" id="L877">        System.out.println(&quot;7 - Ver encomendas devolvidas&quot;);</span>
+<span class="nc" id="L878">        System.out.println(&quot;8 - Finalizar carrinho&quot;);</span>
+<span class="nc" id="L879">        System.out.println(&quot;9 - Sair&quot;);</span>
+        int escolha;
+
+        try {
+<span class="nc" id="L883">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L884">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L885">            System.out</span>
+<span class="nc" id="L886">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L887">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L888">            escolha = menu_encomedas();</span>
+        }
+
+<span class="nc bnc" id="L891" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 9) {</span>
+<span class="nc" id="L892">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L893">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L894">            escolha = menu_encomedas();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L898">        return escolha;</span>
+    }
+
+    public void print_carrinho() {
+<span class="nc" id="L902">        System.out.println(&quot;Carrinho:&quot;);</span>
+<span class="nc" id="L903">    }</span>
+
+    public String pedir_artigo_adicionar() {
+<span class="nc" id="L906">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L907">        System.out.println(&quot;Adicionar artigo ao carrinho:&quot;);</span>
+
+        try {
+<span class="nc" id="L910">            String escolha = scanner.nextLine();</span>
+<span class="nc" id="L911">            return escolha;</span>
+<span class="nc" id="L912">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L913">            System.out.println(&quot;Não foi possível ler o artigo. &quot;);</span>
+<span class="nc" id="L914">            return pedir_artigo_adicionar();</span>
+        }
+    }
+
+    public String pedir_artigo_remover() {
+<span class="nc" id="L919">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L920">        System.out.println(&quot;Remover artigo do carrinho:&quot;);</span>
+
+        try {
+<span class="nc" id="L923">            String escolha = scanner.nextLine();</span>
+<span class="nc" id="L924">            return escolha;</span>
+<span class="nc" id="L925">        } catch (NoSuchElementException e) {</span>
+<span class="nc" id="L926">            System.out.println(&quot;Não foi possível ler o artigo. &quot;);</span>
+<span class="nc" id="L927">            return pedir_artigo_remover();</span>
+        }
+    }
+
+    public void imprimir(String s) {
+<span class="nc" id="L932">        System.out.println(s);</span>
+
+<span class="nc" id="L934">    }</span>
+
+    public long encomeda_id() {
+<span class="nc" id="L937">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L938">        System.out.println(&quot;Digite o id da encomenda:&quot;);</span>
+        long id;
+
+        try {
+<span class="nc" id="L942">            id = scanner.nextLong();</span>
+<span class="nc" id="L943">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L944">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L945">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L946">            id = encomeda_id();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L949">        return id;</span>
+
+    }
+
+    public void print_encomendas_realizadas() {
+<span class="nc" id="L954">        System.out.println(&quot;Encomendas realizadas:&quot;);</span>
+<span class="nc" id="L955">    }</span>
+
+    public void encomendas_retiradas() {
+<span class="nc" id="L958">        System.out.println(&quot;Encomendas retirada!&quot;);</span>
+<span class="nc" id="L959">    }</span>
+
+    public void encomedas_devolvidas() {
+<span class="nc" id="L962">        System.out.println(&quot;Encomendas devolvidas:&quot;);</span>
+<span class="nc" id="L963">    }</span>
+
+    public void finalizar() {
+<span class="nc" id="L966">        System.out.println(&quot;Carrinho finalizado!&quot;);</span>
+<span class="nc" id="L967">    }</span>
+
+    public void adicionar_trasnportadora() {
+<span class="nc" id="L970">        System.out.println(&quot;Adicionar transportadora:&quot;);</span>
+<span class="nc" id="L971">    }</span>
+
+    public double pedir_valor_pequeno() {
+<span class="nc" id="L974">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L975">        System.out.print(&quot;Digite o preço para as encomedas pequenas: &quot;);</span>
+        double valor;
+
+        try {
+<span class="nc" id="L979">            valor = scanner.nextDouble();</span>
+<span class="nc" id="L980">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L981">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L982">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L983">            valor = pedir_valor_pequeno();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L986">        return valor;</span>
+    }
+
+    public double pedir_valor_medio() {
+<span class="nc" id="L990">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L991">        System.out.print(&quot;Digite o preço para as encomedas médias: &quot;);</span>
+        double valor;
+
+        try {
+<span class="nc" id="L995">            valor = scanner.nextDouble();</span>
+<span class="nc" id="L996">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L997">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L998">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L999">            valor = pedir_valor_medio();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1002">        return valor;</span>
+    }
+
+    public void preco_final() {
+<span class="nc" id="L1006">        System.out.print(&quot;Preço final: &quot;);</span>
+<span class="nc" id="L1007">    }</span>
+
+    public double pedir_valor_grande() {
+<span class="nc" id="L1010">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1011">        System.out.print(&quot;Digite o preço para as encomedas grandes: &quot;);</span>
+        double valor;
+
+        try {
+<span class="nc" id="L1015">            valor = scanner.nextDouble();</span>
+<span class="nc" id="L1016">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1017">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L1018">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1019">            valor = pedir_valor_grande();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1022">        return valor;</span>
+    }
+
+    public double pedir_impostos() {
+<span class="nc" id="L1026">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1027">        System.out.print(&quot;Digite o imposto, em percentagem: &quot;);</span>
+        double valor;
+
+        try {
+<span class="nc" id="L1031">            valor = scanner.nextDouble();</span>
+<span class="nc" id="L1032">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1033">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L1034">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1035">            valor = pedir_impostos();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1038">        return (valor / (double) 100);</span>
+    }
+
+    public double pedir_margem_lucro() {
+<span class="nc" id="L1042">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1043">        System.out.print(&quot;Digite a margem de lucro, em percentagem: &quot;);</span>
+        double margem;
+
+        try {
+<span class="nc" id="L1047">            margem = scanner.nextDouble();</span>
+<span class="nc" id="L1048">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1049">            System.out.println(&quot;Entrada inválida. Por favor, digite um número.&quot;);</span>
+<span class="nc" id="L1050">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1051">            margem = pedir_margem_lucro();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1054">        return (margem / (double) 100);</span>
+    }
+
+    public int pedir_formula(int n) {
+<span class="nc" id="L1058">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1059">        System.out.print(&quot;Qual a fórmula que deseja usar: &quot;);</span>
+        int formula;
+
+        try {
+<span class="nc" id="L1063">            formula = scanner.nextInt();</span>
+<span class="nc bnc" id="L1064" title="All 4 branches missed.">            if (formula &lt; 1 || formula &gt; n) {</span>
+<span class="nc" id="L1065">                System.out.println(&quot;Fórmula não disponível&quot;);</span>
+<span class="nc" id="L1066">                scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1067">                formula = pedir_formula(n);</span>
+            }
+<span class="nc" id="L1069">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1070">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L1071">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1072">            formula = pedir_formula(n);</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1075">        return formula;</span>
+    }
+
+    public boolean perguntar_sair() {
+<span class="nc" id="L1079">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1080">        System.out.print(&quot;Deseja sair? (true/false): &quot;);</span>
+        boolean sair;
+
+        try {
+<span class="nc" id="L1084">            sair = scanner.nextBoolean();</span>
+<span class="nc" id="L1085">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1086">            System.out.println(&quot;Entrada inválida. Por favor, digite true ou false.&quot;);</span>
+<span class="nc" id="L1087">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1088">            sair = perguntar_sair();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1091">        return sair;</span>
+    }
+
+    // --------------- Menu Querys -----------
+    public int escolha_querys() {
+<span class="nc" id="L1096">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1097">        System.out.println(&quot;Escolha uma opção:&quot;);</span>
+<span class="nc" id="L1098">        System.out.println(&quot;1 - Vendedor que mais faturou desde sempre&quot;);</span>
+<span class="nc" id="L1099">        System.out.println(&quot;2 - Vendedor que mais faturou num período de tempo&quot;);</span>
+<span class="nc" id="L1100">        System.out.println(&quot;3 - Listar as encomendas emitidas por vendedor&quot;);</span>
+<span class="nc" id="L1101">        System.out.println(&quot;4 - Transportadora com maior volume de faturação&quot;);</span>
+<span class="nc" id="L1102">        System.out.println(&quot;5 - Fornecer uma ordenação dos maiores compradores&quot;);</span>
+<span class="nc" id="L1103">        System.out.println(&quot;6 - Fornecer uma ordenação dos maiores vendedores&quot;);</span>
+<span class="nc" id="L1104">        System.out.println(&quot;7 - Determinar quanto dinheiro ganhou a Vintage&quot;);</span>
+<span class="nc" id="L1105">        System.out.println(&quot;8 - Sair&quot;);</span>
+        int escolha;
+
+        try {
+<span class="nc" id="L1109">            escolha = scanner.nextInt();</span>
+<span class="nc" id="L1110">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1111">            System.out</span>
+<span class="nc" id="L1112">                    .println(&quot;Entrada inválida. Por favor, digite um número inteiro correspondente à opção desejada.&quot;);</span>
+<span class="nc" id="L1113">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1114">            escolha = escolha_querys();</span>
+        }
+
+<span class="nc bnc" id="L1117" title="All 4 branches missed.">        if (escolha &lt; 1 || escolha &gt; 8) {</span>
+<span class="nc" id="L1118">            System.out.println(&quot;Opção não disponível&quot;);</span>
+<span class="nc" id="L1119">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1120">            escolha = escolha_querys();</span>
+        }
+
+        // scanner.close();
+<span class="nc" id="L1124">        return escolha;</span>
+    }
+
+    public void print_vendedor_mais_facturou() {
+<span class="nc" id="L1128">        System.out.println(&quot;Vendedor que mais faturou desde sempre:&quot;);</span>
+<span class="nc" id="L1129">    }</span>
+
+    public LocalDate pedir_data_inicio() {
+<span class="nc" id="L1132">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1133">        System.out.println(&quot;Digite a data de inicio:&quot;);</span>
+
+        int ano, mes, dia;
+        try {
+<span class="nc" id="L1137">            System.out.print(&quot;Ano: &quot;);</span>
+<span class="nc" id="L1138">            ano = scanner.nextInt();</span>
+<span class="nc" id="L1139">            System.out.print(&quot;Mês: &quot;);</span>
+<span class="nc" id="L1140">            mes = scanner.nextInt();</span>
+<span class="nc" id="L1141">            System.out.print(&quot;Dia: &quot;);</span>
+<span class="nc" id="L1142">            dia = scanner.nextInt();</span>
+<span class="nc" id="L1143">            LocalDate data = LocalDate.of(ano, mes, dia);</span>
+<span class="nc" id="L1144">            return data;</span>
+<span class="nc" id="L1145">        } catch (DateTimeException e) {</span>
+<span class="nc" id="L1146">            System.out.println(&quot;Data inválida. Por favor, digite uma data válida.&quot;);</span>
+<span class="nc" id="L1147">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1148">            return pedir_data_inicio();</span>
+        }
+    }
+
+    public LocalDate pedir_data_fim(LocalDate data_atual) {
+<span class="nc" id="L1153">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1154">        System.out.println(&quot;Digite a data de fim:&quot;);</span>
+
+        int ano, mes, dia;
+
+        try {
+<span class="nc" id="L1159">            System.out.print(&quot;Ano: &quot;);</span>
+<span class="nc" id="L1160">            ano = scanner.nextInt();</span>
+<span class="nc" id="L1161">            System.out.print(&quot;Mês: &quot;);</span>
+<span class="nc" id="L1162">            mes = scanner.nextInt();</span>
+<span class="nc" id="L1163">            System.out.print(&quot;Dia: &quot;);</span>
+<span class="nc" id="L1164">            dia = scanner.nextInt();</span>
+<span class="nc" id="L1165">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1166">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L1167">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1168">            return pedir_data_fim(data_atual);</span>
+        }
+
+        try {
+<span class="nc" id="L1172">            LocalDate data = LocalDate.of(ano, mes, dia);</span>
+<span class="nc" id="L1173">            return data;</span>
+<span class="nc" id="L1174">        } catch (DateTimeException e) {</span>
+<span class="nc" id="L1175">            System.out.println(&quot;Data inválida. Por favor, digite uma data válida.&quot;);</span>
+<span class="nc" id="L1176">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1177">            return pedir_data_fim(data_atual);</span>
+        }
+    }
+
+    public void transportadora_mais_facturou() {
+<span class="nc" id="L1182">        System.out.println(&quot;Transportadora que mais facturou:&quot;);</span>
+<span class="nc" id="L1183">    }</span>
+
+    public int n_maiores() {
+<span class="nc" id="L1186">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1187">        System.out.println(&quot;Digite o Top N:&quot;);</span>
+        int n;
+
+        try {
+<span class="nc" id="L1191">            n = scanner.nextInt();</span>
+<span class="nc" id="L1192">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1193">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L1194">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1195">            n = n_maiores();</span>
+        }
+        // scanner.close();
+<span class="nc" id="L1198">        return n;</span>
+    }
+
+    public void vendedor_facturou() {
+<span class="nc" id="L1202">        System.out.println(&quot;Vendedor que mais faturou num período de tempo:&quot;);</span>
+<span class="nc" id="L1203">    }</span>
+
+    public void transportadoras_premium() {
+<span class="nc" id="L1206">        System.out.println(&quot;Transportadoras Premium:&quot;);</span>
+<span class="nc" id="L1207">    }</span>
+
+    public void tempo_avançado() {
+<span class="nc" id="L1210">        System.out.println(&quot;Tempo avançado!&quot;);</span>
+<span class="nc" id="L1211">    }</span>
+
+    public LocalDate tempo_avançar(LocalDate data_atual) {
+<span class="nc" id="L1214">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1215">        System.out.println(&quot;Digite o tempo que deseja avançar:&quot;);</span>
+
+        int ano, mes, dia;
+
+        try {
+<span class="nc" id="L1220">            System.out.print(&quot;Ano: &quot;);</span>
+<span class="nc" id="L1221">            ano = scanner.nextInt();</span>
+<span class="nc" id="L1222">            System.out.print(&quot;Mês: &quot;);</span>
+<span class="nc" id="L1223">            mes = scanner.nextInt();</span>
+<span class="nc" id="L1224">            System.out.print(&quot;Dia: &quot;);</span>
+<span class="nc" id="L1225">            dia = scanner.nextInt();</span>
+<span class="nc" id="L1226">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1227">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L1228">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1229">            return tempo_avançar(data_atual);</span>
+        }
+
+        try {
+<span class="nc" id="L1233">            LocalDate data = LocalDate.of(ano, mes, dia);</span>
+<span class="nc" id="L1234">            LocalDate hoje = data_atual;</span>
+<span class="nc bnc" id="L1235" title="All 2 branches missed.">            if (data.isBefore(hoje)) {</span>
+<span class="nc" id="L1236">                System.out.println(&quot;A data inserida é anterior à data atual. Por favor, digite uma data futura.&quot;);</span>
+<span class="nc" id="L1237">                scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1238">                return tempo_avançar(data_atual);</span>
+            } else {
+<span class="nc" id="L1240">                return data;</span>
+            }
+<span class="nc" id="L1242">        } catch (DateTimeException e) {</span>
+<span class="nc" id="L1243">            System.out.println(&quot;Data inválida. Por favor, digite uma data válida.&quot;);</span>
+<span class="nc" id="L1244">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1245">            return tempo_avançar(data_atual);</span>
+        }
+    }
+
+    public long pedir_vendedor() {
+<span class="nc" id="L1250">        scanner = new Scanner(System.in);</span>
+<span class="nc" id="L1251">        System.out.println(&quot;Digite o id do vendedor:&quot;);</span>
+        long id;
+        try {
+<span class="nc" id="L1254">            id = scanner.nextLong();</span>
+<span class="nc" id="L1255">        } catch (InputMismatchException e) {</span>
+<span class="nc" id="L1256">            System.out.println(&quot;Entrada inválida. Por favor, digite um número inteiro.&quot;);</span>
+<span class="nc" id="L1257">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1258">            id = pedir_vendedor();</span>
+        }
+<span class="nc" id="L1260">        return id;</span>
+    }
+
+    public void vendedor_n_encontrado() {
+<span class="nc" id="L1264">        System.out.println(&quot;Vendedor não encontrado!&quot;);</span>
+<span class="nc" id="L1265">    }</span>
+    public String pedir_local_ficheiro(){
+<span class="nc" id="L1267">        scanner = new Scanner(System.in);    </span>
+        String local;    
+<span class="nc" id="L1269">        System.out.println(&quot;Digite o local do ficheiro:&quot;);</span>
+        try{
+<span class="nc" id="L1271">         local = scanner.nextLine();</span>
+<span class="nc" id="L1272">        }</span>
+<span class="nc" id="L1273">        catch(InputMismatchException e){</span>
+<span class="nc" id="L1274">            System.out.println(&quot;Entrada inválida. Por favor, digite uma string.&quot;);</span>
+<span class="nc" id="L1275">            scanner.nextLine(); // Limpa o buffer do scanner</span>
+<span class="nc" id="L1276">            local = pedir_local_ficheiro();</span>
+        }
+<span class="nc" id="L1278">        return local;</span>
+    }
+
+    /*
+     * public boolean escolha_query(){
+     * scanner = new Scanner(System.in); System.out.println(&quot;Queys:&quot;);
+     * System.out.println(&quot;1 - Marca&quot;);
+     * System.out.println(&quot;2 - Novo&quot;);
+     * System.out.println(&quot;3 - Tamanho&quot;);
+     * System.out.println(&quot;4 - Ano de coleção&quot;);
+     * System.out.println(&quot;5 - Material&quot;);
+     * System.out.println(&quot;6 - Sair&quot;);
+     * 
+     * }
+     */
+
+}
+
+// public int iniciar_menu(){
+// System.out.print(&quot;Bem vindo a Vintage \nEscolha uma opção:&quot;);
+
+// scanner = new Scanner(System.in);// int escolha;
+// System.out.println(&quot;1 - Login&quot;);
+// System.out.println(&quot;2 - Registar&quot;);
+// System.out.println(&quot;3 - Sair&quot;);
+
+// escolha = scanner.nextInt();
+// do{
+// switch (escolha) {
+// case 1:
+// System.out.println(&quot;Login:&quot;);
+// if(pedir_login() == true){
+// this.exposição();
+
+// }else{
+// System.out.println(&quot;Login inválido!&quot;);
+// this.iniciar_menu();
+// }
+// break;
+// case 2:
+// System.out.println(&quot;Registar:&quot;);
+// if(fazer_registo() == true){
+
+// }else{
+// System.out.println(&quot;Registo inválido!&quot;);
+// this.iniciar_menu();
+// }
+// break;
+// case 3:
+// System.out.println(&quot;Sair...&quot;);
+// break;
+// default:
+// System.out.println(&quot;Opção inválida.&quot;);
+// }
+// }while(escolha != 3);
+
+// scanner.close();
+
+// }
+
+// public boolean pedir_login(){
+// scanner = new Scanner(System.in);// System.out.print(&quot;Digite seu email: &quot;);
+// String email = scanner.nextLine();
+// System.out.print(&quot;Digite seu password: &quot;);
+// String password = scanner.nextLine();
+
+// if(get_utlizador_emaail(email) == getutlizador_passoword(password)){
+// this.get_utlizador_id(get_utlizador_emaail(email));
+// return true;
+// }
+// return false;
+
+// }
+// public boolean fazer_registo(){
+// scanner = new Scanner(System.in);// System.out.print(&quot;Registo na Vintage: &quot;);
+
+// System.out.print(&quot;Digite seu nome: &quot;);
+// String name = scanner.nextLine();
+
+// System.out.print(&quot;Digite seu email: &quot;);
+// String email = scanner.nextLine();
+
+// System.out.print(&quot;Digite seu cidade: &quot;);
+// String cidade = scanner.nextLine();
+
+// System.out.print(&quot;Digite seu Rua: &quot;);
+// String rua = scanner.nextLine();
+
+// String morada = cidade + &quot; &quot; + rua;
+
+// System.out.print(&quot;Digite seu NIL: &quot;);
+// String nif = scanner.nextLine();
+
+// System.out.print(&quot;Digite seu password: &quot;);
+// String password = scanner.nextLine();
+
+// Utilizador utilizador = new Utilizador(email,name,morada,nif,password);
+// scanner.close();
+
+// retrun(utilizador.addutilizador());
+
+// }
+
+// public void exposiçãpo(){
+// scanner = new Scanner(System.in);
+// System.out.println(&quot;1 - Listar artigos&quot;);
+// System.out.println(&quot;2 - Pesquisar artigo&quot;);
+// System.out.println(&quot;2 - Vender artigo&quot;);
+// System.out.println(&quot;4 - Sair artigo&quot;);
+// int opecao;
+// opecao = scanner.nextInt();
+
+// switch (opecao) {
+// case 1:
+// this.listar_artigos();
+// break;
+// case 2:
+// this.pesquisar_artigo();
+// break;
+// case 3:
+// this.vender_artigo();
+// break;
+// case 4:
+// System.out.println(&quot;Sair...&quot;);
+// break;
+// break;
+// default:
+// }
+
+// scanner.close();
+
+// }
+
+// public void listar_artigos(){
+
+// get_print_todos_artigos();
+
+// }
+
+// public void pesquisar_artigo(){
+
+// scanner = new Scanner(System.in);
+// System.out.println(&quot;1 - ID&quot;);
+// System.out.println(&quot;2 - Modelo&quot;);
+// System.out.println(&quot;3 - Tamannho&quot;);
+// System.out.println(&quot;4 - Modelo e tamanho&quot;);
+// System.out.println(&quot;5 - Sair da pesquisa dos artigos&quot;);
+// int opecao
+// opecao = scanner.nextInt();
+
+// switch (opecao) {
+// case 1:
+// System.out.println(&quot;ID:&quot;);
+// this.gestor_Artigos.pesquisar_id();
+// break;
+// case 2:
+// this.gestor_Artigos.pesquisar_modelo();
+// break;
+// case 3:
+// this.gestor_Artigos.pesquisar_tamanho();
+// break;
+// case 4:
+// this.pesquisar_modelo_tamanho();
+// break;
+// case 5:
+// System.out.println(&quot;Sair...&quot;);
+// break;
+// break;
+// default:
+// }
+
+// scanner.close();
+
+// }
+
+// }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

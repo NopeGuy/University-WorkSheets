@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControladorArtigo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">ControladorArtigo.java</span></div><h1>ControladorArtigo.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.time.LocalDate;
+import java.io.*;
+
+public class ControladorArtigo implements Serializable{
+
+    private final Input in;
+
+<span class="nc" id="L10">    public ControladorArtigo(){</span>
+<span class="nc" id="L11">        in = new Input();</span>
+<span class="nc" id="L12">    }</span>
+
+
+
+    public TShirt registarTShirt(Apresentacao a, Vintage v){
+        int numDonos;
+        Artigo.Avaliação avaliacao;
+<span class="nc" id="L19">        Transportadoras transportadora = null; // MUDAR MAIS TARDE CASO SEJA NECESSARIO</span>
+<span class="nc" id="L20">        String transp = &quot;&quot;;</span>
+
+<span class="nc" id="L22">        a.printMessage(&quot;===== Registo T-Shirt ====&quot;);</span>
+<span class="nc" id="L23">        String tamanhoString = in.lerString(a, &quot;&gt;&gt; Tamanho T-Shirt (S,M,L,XL): &quot;);</span>
+<span class="nc" id="L24">        TShirt.Tamanho tamanho = TShirt.Tamanho.valueOf(tamanhoString);</span>
+<span class="nc" id="L25">        String padraoString = in.lerString(a, &quot;&gt;&gt; Padrão T-Shirt (LISO,RISCAS,PALMEIRAS): &quot;);</span>
+<span class="nc" id="L26">        TShirt.Padrao padrao = TShirt.Padrao.valueOf(padraoString);</span>
+<span class="nc" id="L27">        String estadoString = in.lerString(a, &quot;&gt;&gt; Estado T-Shirt (NOVO,USADO): &quot;);</span>
+<span class="nc" id="L28">        Artigo.Estado estado = Artigo.Estado.valueOf(estadoString);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if ((estadoString.equals(&quot;USADO&quot;))){</span>
+<span class="nc" id="L30">            numDonos = in.lerInt(a, &quot;&gt;&gt; Nº Donos: &quot;, 1, 1000);</span>
+<span class="nc" id="L31">            String avaliacaoString = in.lerString(a, &quot;&gt;&gt; Avaliação T-Shirt (IMPECÁVEL,BOM,SATISFATÓRIO): &quot;);</span>
+<span class="nc" id="L32">            avaliacao = Artigo.Avaliação.valueOf(avaliacaoString);</span>
+<span class="nc" id="L33">        }else {</span>
+<span class="nc" id="L34">            numDonos = 0;</span>
+<span class="nc" id="L35">            avaliacao = null;</span>
+        }
+<span class="nc" id="L37">        String descricao = in.lerString(a,&quot;&gt;&gt; Descrição T-Shirt: &quot;);</span>
+<span class="nc" id="L38">        String marca = in.lerString(a,&quot;&gt;&gt; Marca T-Shirt: &quot;);</span>
+<span class="nc" id="L39">        String cod = in.lerString(a,&quot;&gt;&gt; Código T-Shirt: &quot;);</span>
+<span class="nc" id="L40">        Double precoB = in.lerDouble(a,&quot;&gt;&gt; Preço Base T-Shirt: &quot;,0,100000);</span>
+<span class="nc" id="L41">        Double correcaoP = in.lerDouble(a,&quot;&gt;&gt; Correção Preço T-Shirt: &quot;,0,10000);</span>
+<span class="nc" id="L42">        a.printTransportadoras(v.getTransportadoras());</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        while (transportadora == null){</span>
+<span class="nc" id="L44">            transp = in.lerString(a, &quot;&gt;&gt; Transportadora: &quot;);</span>
+<span class="nc" id="L45">            transportadora = v.getTransportadora(transp);</span>
+        }
+<span class="nc" id="L47">        return new TShirt(tamanho, padrao,&quot;TShirt&quot;,estado,numDonos,avaliacao,descricao,marca,cod,precoB,correcaoP,transp);</span>
+    }
+
+
+
+
+    public Malas registarMala(Apresentacao a, Vintage v){
+        int numDonos;
+        Artigo.Avaliação avaliacao;
+<span class="nc" id="L56">        Transportadoras transportadora = null;</span>
+<span class="nc" id="L57">        String transp = &quot;&quot;;</span>
+<span class="nc" id="L58">        a.printMessage(&quot;===== Registo Mala =====&quot;);</span>
+<span class="nc" id="L59">        String tipoString = in.lerString(a, &quot;&gt;&gt; Tipo Mala (NORMAL,PREMIUM)&quot;);</span>
+<span class="nc" id="L60">        Malas.Tipos_Malas tipo = Malas.Tipos_Malas.valueOf(tipoString);</span>
+<span class="nc" id="L61">        float dimensao = in.lerFloat(a, &quot;&gt;&gt; Dimensão Mala: &quot;, 0, 100000);</span>
+<span class="nc" id="L62">        String material = in.lerString(a, &quot;&gt;&gt; Material Mala: &quot;);</span>
+<span class="nc" id="L63">        int ano = in.lerInt(a, &quot;&gt;&gt; Ano Coleção: &quot;, 0, 10000);</span>
+<span class="nc" id="L64">        String estadoString = in.lerString(a, &quot;&gt;&gt; Estado da Mala (NOVO,USADO): &quot;);</span>
+<span class="nc" id="L65">        Artigo.Estado estado = Artigo.Estado.valueOf(estadoString);</span>
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        if (estadoString.equals(&quot;USADO&quot;)){</span>
+<span class="nc" id="L67">            numDonos = in.lerInt(a, &quot;&gt;&gt; Nº Donos: &quot;, 1, 1000);</span>
+<span class="nc" id="L68">            String avaliacaoString = in.lerString(a, &quot;&gt;&gt; Avaliação Mala (IMPECÁVEL,BOM,SATISFATÓRIO): &quot;);</span>
+<span class="nc" id="L69">            avaliacao = Artigo.Avaliação.valueOf(avaliacaoString);</span>
+<span class="nc" id="L70">        } else {</span>
+<span class="nc" id="L71">            numDonos = 0;</span>
+<span class="nc" id="L72">            avaliacao = null;</span>
+        }
+<span class="nc" id="L74">        String descricao = in.lerString(a,&quot;&gt;&gt; Descrição Mala: &quot;);</span>
+<span class="nc" id="L75">        String marca = in.lerString(a,&quot;&gt;&gt; Marca Mala: &quot;);</span>
+<span class="nc" id="L76">        String cod = in.lerString(a,&quot;&gt;&gt; Código Mala: &quot;);</span>
+<span class="nc" id="L77">        Double precoB = in.lerDouble(a,&quot;&gt;&gt; Preço Base Mala: &quot;,0,10000000);</span>
+<span class="nc" id="L78">        Double correcaoP = in.lerDouble(a,&quot;&gt;&gt; Correção Preço Mala: &quot;,0,1000000);</span>
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (tipoString.equals(&quot;PREMIUM&quot;)){</span>
+<span class="nc" id="L80">            a.printTransportadoras(v.getTransportadorasPremium());</span>
+<span class="nc" id="L81">        }</span>
+<span class="nc" id="L82">        else {a.printTransportadoras(v.getTransportadoras());}</span>
+        
+<span class="nc bnc" id="L84" title="All 2 branches missed.">        while (transportadora == null){</span>
+<span class="nc" id="L85">            transp = in.lerString(a, &quot;&gt;&gt; Transportadora: &quot;);</span>
+<span class="nc" id="L86">            transportadora = v.getTransportadora(transp);</span>
+        }
+<span class="nc" id="L88">        return new Malas(tipo,dimensao,material,ano,&quot;Mala&quot;,estado,numDonos,avaliacao,descricao,marca,cod,precoB,correcaoP,transp);</span>
+    }
+
+
+
+
+
+    public Sapatilhas registarSapatilha(Apresentacao a, Vintage v){
+        int numDonos;
+        Artigo.Avaliação avaliacao;
+<span class="nc" id="L98">        Transportadoras transportadora = null;</span>
+<span class="nc" id="L99">        String transp = &quot;&quot;;</span>
+
+<span class="nc" id="L101">        a.printMessage(&quot;===== Registo Sapatilha =====&quot;);</span>
+<span class="nc" id="L102">        String tipoString = in.lerString(a, &quot;&gt;&gt; Tipo Sapatilha (NORMAL,PREMIUM): &quot;);</span>
+<span class="nc" id="L103">        Sapatilhas.Tipos_Sapatilhas tipo = Sapatilhas.Tipos_Sapatilhas.valueOf(tipoString);</span>
+<span class="nc" id="L104">        int tamanho = in.lerInt(a, &quot;&gt;&gt; Tamanho Sapatilha: &quot;, 0, 100);</span>
+<span class="nc" id="L105">        boolean temAtilhos = in.lerSN(a, &quot;Tem atilhos (S,N): &quot;);</span>
+<span class="nc" id="L106">        String cor = in.lerString(a, &quot;&gt;&gt; Cor Sapatilha: &quot;);</span>
+<span class="nc" id="L107">        LocalDate data = in.lerData(a, &quot;&gt;&gt; Data Lançamento Sapatilha (dd-mm-yyyy): &quot;);</span>
+<span class="nc" id="L108">        String estadoString = in.lerString(a, &quot;&gt;&gt; Estado Sapatilha (NOVO,USADO): &quot;);</span>
+<span class="nc" id="L109">        Artigo.Estado estado = Artigo.Estado.valueOf(estadoString);</span>
+<span class="nc bnc" id="L110" title="All 2 branches missed.">        if (estadoString.equals(&quot;USADO&quot;)){</span>
+<span class="nc" id="L111">            numDonos = in.lerInt(a, &quot;&gt;&gt; Nº Donos: &quot;, 1, 1000);</span>
+<span class="nc" id="L112">            String avaliacaoString = in.lerString(a, &quot;&gt;&gt; Avaliação Sapatilha (IMPECÁVEL,BOM,SATISFATÓRIO): &quot;);</span>
+<span class="nc" id="L113">            avaliacao = TShirt.Avaliação.valueOf(avaliacaoString);</span>
+<span class="nc" id="L114">        } else {</span>
+<span class="nc" id="L115">            numDonos = 0;</span>
+<span class="nc" id="L116">            avaliacao = null;</span>
+        }
+<span class="nc" id="L118">        String desc = in.lerString(a,&quot;&gt;&gt; Descrição Sapatilha: &quot;);</span>
+<span class="nc" id="L119">        String marca = in.lerString(a,&quot;&gt;&gt; Marca Sapatilha: &quot;);</span>
+<span class="nc" id="L120">        String cod = in.lerString(a,&quot;&gt;&gt;&gt; Código Sapatilha: &quot;);</span>
+<span class="nc" id="L121">        Double precoB = in.lerDouble(a,&quot;&gt;&gt;&gt; Preço Base Sapatilha: &quot;,0,10000000);</span>
+<span class="nc" id="L122">        Double correcaoP = in.lerDouble(a,&quot;&gt;&gt;&gt; Correção Preço Sapatilha: &quot;,0,1000000);</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        if (tipoString.equals(&quot;PREMIUM&quot;)){</span>
+<span class="nc" id="L124">            a.printTransportadoras(v.getTransportadorasPremium());</span>
+<span class="nc" id="L125">        }</span>
+<span class="nc" id="L126">        else {a.printTransportadoras(v.getTransportadoras());}</span>
+
+<span class="nc bnc" id="L128" title="All 2 branches missed.">        while (transportadora == null){</span>
+<span class="nc" id="L129">            transp = in.lerString(a, &quot;&gt;&gt; Transportadora: &quot;);</span>
+<span class="nc" id="L130">            transportadora = v.getTransportadora(transp);</span>
+        }
+
+<span class="nc" id="L133">        return new Sapatilhas(tamanho,temAtilhos,cor,data,tipo,&quot;Sapatilha&quot;,estado,numDonos,avaliacao,desc,marca,cod,precoB,correcaoP,transp);</span>
+    }
+
+
+
+
+
+
+
+    public void interpretador(Apresentacao a,Vintage v){
+<span class="nc" id="L143">        boolean b = true;</span>
+        int comando;
+<span class="nc" id="L145">        String userAtual = v.getSessaoAtual();</span>
+        
+<span class="nc bnc" id="L147" title="All 2 branches missed.">        while(b){</span>
+<span class="nc" id="L148">            a.printMenuArtigo();</span>
+<span class="nc" id="L149">            comando = in.lerInt(a,&quot;Escolha a sua opção:&quot;,0,3);</span>
+
+<span class="nc bnc" id="L151" title="All 5 branches missed.">            switch(comando){</span>
+                case 1:
+<span class="nc" id="L153">                    TShirt tShirt = registarTShirt(a, v);</span>
+<span class="nc" id="L154">                    a.printMessage(&quot;T-Shirt registada com Sucesso!&quot;);</span>
+<span class="nc" id="L155">                    v.adicionarPorVender(tShirt,userAtual);</span>
+<span class="nc" id="L156">                    break;</span>
+                    
+                case 2:
+<span class="nc" id="L159">                    Malas mala = registarMala(a,v);</span>
+<span class="nc" id="L160">                    a.printMessage(&quot;Mala registada com Sucesso!&quot;);</span>
+<span class="nc" id="L161">                    v.adicionarPorVender(mala,userAtual);</span>
+<span class="nc" id="L162">                    break;</span>
+
+                case 3:
+<span class="nc" id="L165">                    Sapatilhas sap = registarSapatilha(a,v);</span>
+<span class="nc" id="L166">                    a.printMessage(&quot;Sapatilha registada com Sucesso!&quot;);</span>
+<span class="nc" id="L167">                    v.adicionarPorVender(sap,userAtual);</span>
+<span class="nc" id="L168">                    break;</span>
+                case 0:
+<span class="nc" id="L170">                    b = false;</span>
+<span class="nc" id="L171">                    break;</span>
+                default:
+<span class="nc" id="L173">                    a.printMessage(&quot;Erro! Comando Inválido.&quot;);</span>
+                    break;
+            }
+        }
+<span class="nc" id="L177">    }</span>
+
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

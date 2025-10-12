@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Turma.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectturma</a> &gt; <a href="index.source.html" class="el_package">turma</a> &gt; <span class="el_source">Turma.java</span></div><h1>Turma.java</h1><pre class="source lang-java linenums">package turma;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Turma {
+
+    private List&lt;Aluno&gt; alunos;
+
+<span class="fc" id="L11">    public Turma(){</span>
+<span class="fc" id="L12">        alunos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L13">    }</span>
+
+<span class="fc" id="L15">    public Turma(List&lt;Aluno&gt; novosAlunos) {</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (novosAlunos == null) {</span>
+<span class="fc" id="L17">            throw new IllegalArgumentException(&quot;A lista de alunos não pode ser nula&quot;);</span>
+        }
+<span class="fc" id="L19">        this.setAlunos(novosAlunos);</span>
+<span class="fc" id="L20">    }</span>
+
+    public Turma (Turma t){
+<span class="nc" id="L23">        this(t.getAlunos());</span>
+<span class="nc" id="L24">    }</span>
+
+    public void setAlunos(List&lt;Aluno&gt; novosAlunos) {
+<span class="fc bfc" id="L27" title="All 2 branches covered.">        if (novosAlunos == null) {</span>
+<span class="fc" id="L28">            throw new IllegalArgumentException(&quot;A lista de alunos não pode ser nula&quot;);</span>
+        }
+<span class="fc" id="L30">        alunos = novosAlunos.stream().map(Aluno::clone).collect(Collectors.toList());</span>
+<span class="fc" id="L31">    }</span>
+
+    public List&lt;Aluno&gt; getAlunos(){
+<span class="fc" id="L34">        return alunos.stream().map(Aluno::clone).collect(Collectors.toList());</span>
+    }
+
+    public void addAluno(Aluno a) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (a == null) {</span>
+<span class="fc" id="L39">            throw new IllegalArgumentException(&quot;Aluno cannot be null&quot;);</span>
+        }
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        if (!alunos.contains(a)) {</span>
+<span class="fc" id="L42">            alunos.add(a.clone());</span>
+<span class="fc" id="L43">        } else {</span>
+<span class="fc" id="L44">            throw new IllegalArgumentException(&quot;Aluno already exists in Turma&quot;);</span>
+        }
+<span class="fc" id="L46">    }</span>
+
+    public boolean containsAluno(String numero) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        return alunos.stream().filter(x -&gt; x.getNumero().equals(numero)).count() &gt; 0;</span>
+    }
+
+    public void removeAluno(String numero) throws AlunoInexistenteException {
+<span class="fc" id="L53">        Iterator&lt;Aluno&gt; it = alunos.iterator();</span>
+<span class="fc" id="L54">        boolean removido = false;</span>
+<span class="pc bpc" id="L55" title="1 of 4 branches missed.">        while (it.hasNext() &amp;&amp; !removido) {</span>
+<span class="fc" id="L56">            Aluno aluno = it.next();</span>
+<span class="pc bpc" id="L57" title="1 of 2 branches missed.">            if (aluno.getNumero().equals(numero)) {</span>
+<span class="fc" id="L58">                it.remove();</span>
+<span class="fc" id="L59">                removido = true;</span>
+            }
+        }
+<span class="pc bpc" id="L62" title="1 of 2 branches missed.">        if (!removido)</span>
+<span class="nc" id="L63">            throw new AlunoInexistenteException(numero);</span>
+<span class="fc" id="L64">    }</span>
+
+    public Aluno getAluno(String numero) throws AlunoInexistenteException{
+<span class="pc" id="L67">         return alunos.stream().filter(x -&gt; x.getNumero().equals(numero)).findFirst().orElseThrow(() -&gt; new AlunoInexistenteException(numero)).clone();</span>
+    }
+
+    public double media(){
+<span class="nc" id="L71">        int i = 0;</span>
+<span class="nc" id="L72">        double media = 0.0;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        for (Aluno a : alunos){</span>
+<span class="nc" id="L74">            media += a.media();</span>
+<span class="nc" id="L75">            i++;</span>
+        }
+<span class="nc" id="L77">        return media/i;</span>
+    }
+
+    public List&lt;Aluno&gt; reprovados(){
+<span class="nc" id="L81">        List&lt;Aluno&gt; r = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">        for (Aluno a : alunos) {</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">            if (a.media() &lt; 10) alunos.add(a.clone());</span>
+        }
+<span class="nc" id="L85">        return r;</span>
+    }
+
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

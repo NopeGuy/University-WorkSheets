@@ -1,0 +1,3 @@
+Select id,nomes,salaraio
+from empregados where
+salario >= 820

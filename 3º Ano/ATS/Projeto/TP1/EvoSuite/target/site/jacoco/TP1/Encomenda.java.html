@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Encomenda.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO1</a> &gt; <a href="index.source.html" class="el_package">TP1</a> &gt; <span class="el_source">Encomenda.java</span></div><h1>Encomenda.java</h1><pre class="source lang-java linenums">package TP1;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.io.*;
+
+public class Encomenda implements Serializable{
+<span class="fc" id="L11">    public enum Dimensao_Embalagem {</span>
+<span class="fc" id="L12">        GRANDE, // + de 5 artigos</span>
+<span class="fc" id="L13">        MEDIO,  // 2 a 5 artigos</span>
+<span class="fc" id="L14">        PEQUENO // 1 artigo</span>
+    }
+<span class="fc" id="L16">    public enum Estado_Encomenda {</span>
+<span class="fc" id="L17">        PENDENTE,</span>
+<span class="fc" id="L18">        FINALIZADA,</span>
+<span class="fc" id="L19">        EXPEDIDA,</span>
+<span class="fc" id="L20">        DEVOLVIDA</span>
+    } 
+<span class="fc" id="L22">    private static int nextID = 1;</span>
+    private String dono;
+    private int id;
+    private List&lt;Artigo&gt; artigos;
+    private Dimensao_Embalagem embalagem;
+    private double precoFinal;
+    private double custosExpedicao;                 // Dependem da transportadora, na classe Artigo vamos ter de adicionar a transportadora depois
+    private Estado_Encomenda estado;
+    private LocalDate dataCriacao;
+    private int tamanho;  
+    private LocalDate prazoLimite; 
+    private Map&lt;Integer,String&gt; vendedores;
+
+<span class="fc" id="L35">    public Encomenda() {</span>
+<span class="fc" id="L36">        this.id = nextID++;</span>
+<span class="fc" id="L37">        this.dono = &quot;&quot;;</span>
+<span class="fc" id="L38">        this.artigos = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L39">        this.embalagem = null;</span>
+<span class="fc" id="L40">        this.precoFinal = 0;</span>
+<span class="fc" id="L41">        this.custosExpedicao = 0;</span>
+<span class="fc" id="L42">        this.estado = Estado_Encomenda.PENDENTE;</span>
+<span class="fc" id="L43">        this.dataCriacao = LocalDate.now();</span>
+<span class="fc" id="L44">        this.tamanho = 0;</span>
+<span class="fc" id="L45">        prazoLimite = dataCriacao.plusDays(2);</span>
+<span class="fc" id="L46">        this.vendedores = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L47">    }</span>
+
+<span class="fc" id="L49">    public Encomenda(String dono, List&lt;Artigo&gt; artigos, double custosExpedicao, LocalDate dataCriacao, Map&lt;Integer,String&gt; vendedores) {</span>
+<span class="fc" id="L50">        this.precoFinal = 0.0;</span>
+<span class="fc" id="L51">        setArtigos(artigos);</span>
+<span class="fc" id="L52">        this.id = nextID++;</span>
+<span class="fc" id="L53">        this.dono = dono;</span>
+<span class="fc" id="L54">        this.custosExpedicao = custosExpedicao;</span>
+<span class="fc" id="L55">        this.estado = Estado_Encomenda.EXPEDIDA;</span>
+<span class="fc" id="L56">        this.dataCriacao = dataCriacao;</span>
+<span class="fc" id="L57">        this.tamanho = artigos.size();</span>
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (this.tamanho &gt; 5) this.embalagem = Dimensao_Embalagem.GRANDE;</span>
+<span class="fc bfc" id="L59" title="All 4 branches covered.">        if (this.tamanho &gt; 1 &amp;&amp; this.tamanho &lt;= 5) this.embalagem = Dimensao_Embalagem.MEDIO;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">        if (this.tamanho == 1) this.embalagem = Dimensao_Embalagem.PEQUENO;</span>
+<span class="fc" id="L61">        this.prazoLimite = dataCriacao.plusDays(2);</span>
+<span class="fc" id="L62">        this.vendedores  = vendedores; </span>
+
+<span class="fc bfc" id="L64" title="All 2 branches covered.">        for (Artigo a : artigos){</span>
+
+<span class="fc bfc" id="L66" title="All 2 branches covered.">            if (a instanceof TShirt){</span>
+<span class="fc" id="L67">                TShirt t = (TShirt) a;</span>
+<span class="fc" id="L68">                precoFinal += t.precoFinal(dataCriacao);</span>
+<span class="fc" id="L69">            }</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">            else if (a instanceof Sapatilhas){</span>
+<span class="fc" id="L71">                Sapatilhas s = (Sapatilhas) a;</span>
+<span class="fc" id="L72">                precoFinal += s.precoFinal(dataCriacao);</span>
+<span class="fc" id="L73">            }</span>
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">            else if (a instanceof Malas){</span>
+<span class="fc" id="L75">                Malas m = (Malas) a;</span>
+<span class="fc" id="L76">                precoFinal += m.precoFinal(dataCriacao);</span>
+            }
+<span class="fc bfc" id="L78" title="All 2 branches covered.">            if (a.getEstado() == Artigo.Estado.NOVO){this.precoFinal += 0.5;}</span>
+<span class="fc" id="L79">            else{this.precoFinal += 0.25;}</span>
+<span class="fc" id="L80">        }</span>
+<span class="fc" id="L81">        this.precoFinal += this.custosExpedicao;</span>
+        
+<span class="fc" id="L83">    }</span>
+
+<span class="fc" id="L85">    public Encomenda(Encomenda enc) {</span>
+<span class="fc" id="L86">        this.id = enc.getId();</span>
+<span class="fc" id="L87">        this.artigos = enc.getArtigos();</span>
+<span class="fc" id="L88">        this.embalagem = enc.getEmbalagem();</span>
+<span class="fc" id="L89">        this.precoFinal = enc.getPrecoFinal();</span>
+<span class="fc" id="L90">        this.custosExpedicao = enc.getCustosExpedicao();</span>
+<span class="fc" id="L91">        this.estado = enc.getEstado();</span>
+<span class="fc" id="L92">        this.dataCriacao = enc.getDataCriacao();</span>
+<span class="fc" id="L93">        this.tamanho =  enc.getTamanho();</span>
+<span class="fc" id="L94">        this.prazoLimite = enc.getPrazoLimite();</span>
+<span class="fc" id="L95">    }</span>
+
+    public int getId() {
+<span class="fc" id="L98">        return id;</span>
+    }
+
+    public void setId(int id) {
+<span class="fc" id="L102">        this.id = id;</span>
+<span class="fc" id="L103">    }</span>
+
+
+    public String getDono(){
+<span class="fc" id="L107">        return this.dono;</span>
+    }
+
+    public void setDono(String dono){
+<span class="fc" id="L111">        this.dono = dono;</span>
+<span class="fc" id="L112">    }</span>
+
+    public int getTamanho(){
+<span class="fc" id="L115">        return this.tamanho;</span>
+    }
+
+    public void setTamanho(int t){
+<span class="fc" id="L119">        this.tamanho = t;</span>
+<span class="fc" id="L120">    }</span>
+
+
+    public List&lt;Artigo&gt; getArtigos() {
+<span class="fc" id="L124">    ArrayList&lt;Artigo&gt; res = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">        for(Artigo a: this.artigos){</span>
+<span class="fc" id="L126">            res.add(a.clone());</span>
+<span class="fc" id="L127">        }</span>
+<span class="fc" id="L128">        return res;</span>
+    }
+
+    public void setArtigos(List&lt;Artigo&gt; artigos) {
+<span class="fc" id="L132">        this.artigos = new ArrayList&lt;&gt;(artigos.size());</span>
+<span class="fc bfc" id="L133" title="All 2 branches covered.">        for(Artigo a: artigos){</span>
+<span class="fc" id="L134">            this.artigos.add(a.clone());</span>
+<span class="fc" id="L135">        }</span>
+<span class="fc" id="L136">    }</span>
+
+    public Dimensao_Embalagem getEmbalagem() {
+<span class="fc" id="L139">        return embalagem;</span>
+    }
+
+    public void setEmbalagem(Dimensao_Embalagem embalagem) {
+<span class="fc" id="L143">        this.embalagem = embalagem;</span>
+<span class="fc" id="L144">    }</span>
+
+    public double getPrecoFinal() {
+<span class="fc" id="L147">        return precoFinal;</span>
+    }
+
+    public void setPrecoFinal(double precoFinal) {
+<span class="fc" id="L151">        this.precoFinal = precoFinal;</span>
+<span class="fc" id="L152">    }</span>
+
+    public double getCustosExpedicao() {
+<span class="fc" id="L155">        return custosExpedicao;</span>
+    }
+
+    public void setCustosExpedicao(double custosExpedicao) {
+<span class="fc" id="L159">        this.custosExpedicao = custosExpedicao;</span>
+<span class="fc" id="L160">    }</span>
+
+    public Estado_Encomenda getEstado() {
+<span class="fc" id="L163">        return estado;</span>
+    }
+
+    public void setEstado(Estado_Encomenda estado) {
+<span class="fc" id="L167">        this.estado = estado;</span>
+<span class="fc" id="L168">    }</span>
+
+    public LocalDate getDataCriacao() {
+<span class="fc" id="L171">        return dataCriacao;</span>
+    }
+
+    public void setDataCriacao(LocalDate dataCriacao) {
+<span class="fc" id="L175">        this.dataCriacao = dataCriacao;</span>
+<span class="fc" id="L176">    }</span>
+
+    public LocalDate getPrazoLimite(){
+<span class="fc" id="L179">        return this.prazoLimite;</span>
+    }
+
+    public void setPrazoLimite(LocalDate prazo){
+<span class="fc" id="L183">        this.prazoLimite = prazo;</span>
+<span class="fc" id="L184">    }</span>
+
+
+    public Map&lt;Integer,String&gt; getVendedores(){
+<span class="fc" id="L188">        return new HashMap&lt;&gt;(vendedores);</span>
+    }
+
+    public void setVendedores(Map&lt;Integer,String&gt; vendedores){
+<span class="fc" id="L192">        this.vendedores = new HashMap&lt;&gt;(vendedores);</span>
+<span class="fc" id="L193">    }</span>
+
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L196" title="All 2 branches covered.">        if (this == o) return true;</span>
+<span class="fc bfc" id="L197" title="All 4 branches covered.">        if (o == null || this.getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L198">        Encomenda enc = (Encomenda) o;</span>
+<span class="fc bfc" id="L199" title="All 2 branches covered.">        return  this.id == enc.getId() &amp;&amp;</span>
+<span class="fc bfc" id="L200" title="All 2 branches covered.">                this.artigos.equals(enc.getArtigos()) &amp;&amp;</span>
+<span class="fc bfc" id="L201" title="All 2 branches covered.">                this.embalagem == enc.getEmbalagem() &amp;&amp;</span>
+<span class="fc bfc" id="L202" title="All 2 branches covered.">                this.precoFinal == enc.getPrecoFinal() &amp;&amp;</span>
+<span class="fc bfc" id="L203" title="All 2 branches covered.">                this.custosExpedicao == enc.getCustosExpedicao() &amp;&amp;</span>
+<span class="fc bfc" id="L204" title="All 2 branches covered.">                this.estado == enc.getEstado() &amp;&amp;</span>
+<span class="fc bfc" id="L205" title="All 2 branches covered.">                this.dataCriacao.equals(enc.getDataCriacao());</span>
+    }
+
+    public String toString() {
+<span class="fc" id="L209">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L210">        sb.append(&quot;==========  Encomenda  ==========\n&quot;);</span>
+<span class="fc" id="L211">        sb.append(&quot;ID da Encomenda: &quot; + id + &quot;\n&quot;);</span>
+<span class="fc" id="L212">        sb.append(&quot;Encomenda criada em: &quot; + this.dataCriacao + &quot;\n&quot;);</span>
+<span class="fc" id="L213">        sb.append(&quot;Prazo Limite: &quot; + this.prazoLimite + &quot;\n&quot;);</span>
+<span class="fc" id="L214">        sb.append(&quot;==========   Artigos   ==========\n&quot;);</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">        for (Artigo artigo : artigos) {</span>
+<span class="fc" id="L216">            sb.append(artigo.toString(this.dataCriacao) + &quot;\n&quot;);</span>
+<span class="fc" id="L217">        }</span>
+<span class="fc" id="L218">        sb.append(&quot;========== Fim Artigos ==========\n&quot;);</span>
+<span class="fc" id="L219">        sb.append(&quot;Dimensão da embalagem: &quot; + embalagem + &quot;\n&quot;);</span>
+<span class="fc" id="L220">        sb.append(&quot;Custo Expedição: &quot; + custosExpedicao + &quot;\n&quot;);</span>
+<span class="fc" id="L221">        sb.append(&quot;Preço final: &quot; + precoFinal + &quot;\n&quot;);</span>
+<span class="fc" id="L222">        sb.append(&quot;Estado da encomenda: &quot; + estado + &quot;\n&quot;);</span>
+<span class="fc" id="L223">        return sb.toString();</span>
+    }
+
+    public Encomenda clone() {
+<span class="fc" id="L227">        return new Encomenda(this);</span>
+    }
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

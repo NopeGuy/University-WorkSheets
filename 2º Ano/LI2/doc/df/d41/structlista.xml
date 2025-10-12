@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="df/d41/structlista" kind="struct" language="C++" prot="public">
+    <compoundname>lista</compoundname>
+    <includes refid="d9/d91/lista_8h" local="no">lista.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="df/d41/structlista_1ab7945423d00f5d335df61c1812c111fa" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* lista::cabeca</definition>
+        <argsstring></argsstring>
+        <name>cabeca</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lista.h" line="12" column="1" bodyfile="src/lista.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="d9/d91/lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" compoundref="dc/dff/lista_8c" startline="7" endline="12">criar_lista</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1abfcb205f3eb670157be0d1221021714b" compoundref="dc/dff/lista_8c" startline="28" endline="30">devolve_cabeca</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a37ba5fc3cfddb6bc94d4b54b00bc696e" compoundref="dc/dff/lista_8c" startline="15" endline="25">insere_cabeca</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a4c10928f7acaa4e3de3760cea0dfd9c0" compoundref="dc/dff/lista_8c" startline="49" endline="55">lista_esta_vazia</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a9026a681a68322b5ec7f07137b864cbd" compoundref="dc/dff/lista_8c" startline="38" endline="46">remove_cabeca</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="df/d41/structlista_1af9b3f841c6bd58d83f984ed3be745cf7" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="df/d41/structlista" kindref="compound">lista</ref> *</type>
+        <definition>struct lista* lista::proximo</definition>
+        <argsstring></argsstring>
+        <name>proximo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/lista.h" line="12" column="1" bodyfile="src/lista.h" bodystart="12" bodyend="-1"/>
+        <referencedby refid="d9/d91/lista_8h_1ae3b99323b6f8f35d80bb69ff1a27985e" compoundref="dc/dff/lista_8c" startline="7" endline="12">criar_lista</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a37ba5fc3cfddb6bc94d4b54b00bc696e" compoundref="dc/dff/lista_8c" startline="15" endline="25">insere_cabeca</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a4c10928f7acaa4e3de3760cea0dfd9c0" compoundref="dc/dff/lista_8c" startline="49" endline="55">lista_esta_vazia</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1ad9380152361127432c55c1c6067e05ae" compoundref="dc/dff/lista_8c" startline="33" endline="35">proximo</referencedby>
+        <referencedby refid="d9/d91/lista_8h_1a9026a681a68322b5ec7f07137b864cbd" compoundref="dc/dff/lista_8c" startline="38" endline="46">remove_cabeca</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="10">
+        <label>lista</label>
+        <link refid="df/d41/structlista"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>proximo</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/lista.h" line="11" column="1" bodyfile="src/lista.h" bodystart="11" bodyend="14"/>
+    <listofallmembers>
+      <member refid="df/d41/structlista_1ab7945423d00f5d335df61c1812c111fa" prot="public" virt="non-virtual"><scope>lista</scope><name>cabeca</name></member>
+      <member refid="df/d41/structlista_1af9b3f841c6bd58d83f984ed3be745cf7" prot="public" virt="non-virtual"><scope>lista</scope><name>proximo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

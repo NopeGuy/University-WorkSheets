@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Noitcua.Models.sala>
+@{
+    ViewData["Title"] = "MyRooms";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .result-box {
+            width: 100%;
+            padding: 15px;
+            background-color: #ccc;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .result-button {
+            text-decoration: none;
+            color: black;
+            border: 2px solid black;
+            padding: 5px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2><b>Salas Criadas</b>:</h2>
+        @foreach (var sala in Model)
+        {
+            @if (sala.estado != 2)
+            {
+                @if (ViewData["IdComp"] != null)
+                {
+                    var idComp = (int)ViewData["IdComp"];
+                    if (sala.id_comprador == idComp)
+                    {
+                        <div class="result-box">
+                            <div class="result-title"><b>@sala.titulo</b></div>
+                            <br />
+                            <span>@sala.descricao</span>
+                            <br /><br />
+                            <a class="result-button" href="@Url.Action("Room", "Rooms", new {id=sala.id})">Entrar na Sala</a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+        <br />
+        <br />
+        <h2><b>Outras Salas</b>:</h2>
+        @foreach (var sala in Model)
+        {
+            @if (sala.estado != 2)
+            {
+                @if (ViewData["IdVend"] != null)
+                {
+                    var idComp = (int)ViewData["IdComp"];
+                    var idVend = (int)ViewData["IdVend"];
+                    if (sala.id_comprador != idComp || idComp == 0)
+                    {
+                        <div class="result-box">
+                            <div class="result-title"><b>@sala.titulo</b></div>
+                            <br />
+                            <span>@sala.descricao</span>
+                            <br /><br />
+                            <a class="result-button" href="@Url.Action("Room", "Rooms", new {id=sala.id})">Entrar na Sala</a>
+                        </div>
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+        }
+    </div>
+</body>
+</html>

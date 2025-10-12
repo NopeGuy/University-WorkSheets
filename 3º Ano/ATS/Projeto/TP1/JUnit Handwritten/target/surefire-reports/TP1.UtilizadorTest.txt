@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+Test set: TP1.UtilizadorTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.035 s <<< FAILURE! - in TP1.UtilizadorTest
+testClone  Time elapsed: 0.022 s  <<< FAILURE!
+java.lang.AssertionError: 
+expected: TP1.Utilizador<----------------------------------------
+               UTILIZADOR               
+----------------------------------------
+Utilizador: 4
+Email: email@example.com
+Password: password
+Nome: Nome
+Morada: Morada
+NIF: 123456789
+Por Vender: []
+> but was: TP1.Utilizador<----------------------------------------
+               UTILIZADOR               
+----------------------------------------
+Utilizador: 4
+Email: email@example.com
+Password: password
+Nome: Nome
+Morada: Morada
+NIF: 123456789
+Por Vender: []
+>
+	at TP1.UtilizadorTest.testClone(UtilizadorTest.java:135)
+
+testEquals  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at TP1.UtilizadorTest.testEquals(UtilizadorTest.java:99)
+

@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: TP1.VintageTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in TP1.VintageTest
+testGettersAndSetters  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The method setSessaoAtual(String) is undefined for the type Vintage
+	The method setUtilizadores(Map<String,Utilizador>) is undefined for the type Vintage
+
+	at TP1.VintageTest.testGettersAndSetters(VintageTest.java:29)
+
+testGetArtigosVenda  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The constructor Utilizador(String, String, String, String, String, int) is undefined
+	The constructor Utilizador(String, String, String, String, String, int) is undefined
+	Cannot instantiate the type Artigo
+	Cannot instantiate the type Artigo
+
+	at TP1.VintageTest.testGetArtigosVenda(VintageTest.java:68)
+
+testGetTransportadora  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The constructor Transportadoras(String, String, int, double, double, int) is undefined
+
+	at TP1.VintageTest.testGetTransportadora(VintageTest.java:60)
+
+testEqualsDifferentDataPrograma  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+	at TP1.VintageTest.testEqualsDifferentDataPrograma(VintageTest.java:156)
+
+testAddUtilizador  Time elapsed: 0 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The constructor Utilizador(String, String, String, String, String, int) is undefined
+
+	at TP1.VintageTest.testAddUtilizador(VintageTest.java:44)
+
+testEqualsDifferentEncomendas  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at TP1.VintageTest.testEqualsDifferentEncomendas(VintageTest.java:127)
+
+testHashCode  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The method setSessaoAtual(String) is undefined for the type Vintage
+
+	at TP1.VintageTest.testHashCode(VintageTest.java:169)
+
+testEqualsDifferentUtizadores  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.NullPointerException
+	at TP1.VintageTest.testEqualsDifferentUtizadores(VintageTest.java:110)
+
+testEqualsDifferentTransportadoras  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.NullPointerException
+	at TP1.VintageTest.testEqualsDifferentTransportadoras(VintageTest.java:142)
+
+testEqualsDifferentSessaoAtual  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problems: 
+	The method setSessaoAtual(String) is undefined for the type Vintage
+	The method setSessaoAtual(String) is undefined for the type Vintage
+
+	at TP1.VintageTest.testEqualsDifferentSessaoAtual(VintageTest.java:94)
+
+testAddTransportadora  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.Error: 
+Unresolved compilation problem: 
+	The constructor Transportadoras(String, String, int, double, double, int) is undefined
+
+	at TP1.VintageTest.testAddTransportadora(VintageTest.java:52)
+

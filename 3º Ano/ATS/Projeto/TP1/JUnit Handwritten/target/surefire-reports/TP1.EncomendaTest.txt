@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TP1.EncomendaTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.014 s <<< FAILURE! - in TP1.EncomendaTest
+testConstrutorComParametros  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<2>
+	at TP1.EncomendaTest.testConstrutorComParametros(EncomendaTest.java:36)
+
+testConstrutorPadrao  Time elapsed: 0.003 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<4>
+	at TP1.EncomendaTest.testConstrutorPadrao(EncomendaTest.java:16)
+
+testEquals  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at TP1.EncomendaTest.testEquals(EncomendaTest.java:95)
+

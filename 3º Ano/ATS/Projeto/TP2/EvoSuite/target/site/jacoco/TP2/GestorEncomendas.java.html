@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GestorEncomendas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">projectPOO2</a> &gt; <a href="index.source.html" class="el_package">TP2</a> &gt; <span class="el_source">GestorEncomendas.java</span></div><h1>GestorEncomendas.java</h1><pre class="source lang-java linenums">package TP2;
+import java.util.Map;
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+public class GestorEncomendas implements Serializable  {
+    private Map&lt;Long, Encomenda&gt; encomendas;
+
+    // Construtor vazio
+<span class="fc" id="L13">    public GestorEncomendas() {</span>
+<span class="fc" id="L14">        this.encomendas = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L15">    }</span>
+
+    // Construtor parametrizado
+<span class="fc" id="L18">    public GestorEncomendas(Map&lt;Long, Encomenda&gt; encomendas) {</span>
+<span class="fc" id="L19">        this.encomendas = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L21" title="All 2 branches covered.">        for (Long l : encomendas.keySet())</span>
+<span class="fc" id="L22">            this.encomendas.put(l, encomendas.get(l).clone());</span>
+<span class="fc" id="L23">    }</span>
+
+    // Construtor cópia
+<span class="fc" id="L26">    public GestorEncomendas(GestorEncomendas umGestor) {</span>
+<span class="fc" id="L27">        this.encomendas = umGestor.getEncomendas();</span>
+<span class="fc" id="L28">    }</span>
+
+    // Método getters e setters
+    public Map&lt;Long, Encomenda&gt; getEncomendas() {
+<span class="fc" id="L32">        Map&lt;Long, Encomenda&gt; copia = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L34" title="All 2 branches covered.">        for (Long l : this.encomendas.keySet())</span>
+<span class="fc" id="L35">            copia.put(l, this.encomendas.get(l).clone());</span>
+
+<span class="fc" id="L37">        return copia;</span>
+    }
+
+    public void setEncomendas(Map&lt;Long, Encomenda&gt; encomendas) {
+<span class="fc" id="L41">        this.encomendas = new HashMap&lt;&gt;();</span>
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">        for (Long l : encomendas.keySet())</span>
+<span class="fc" id="L44">            this.encomendas.put(l, encomendas.get(l).clone());</span>
+<span class="fc" id="L45">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L49">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L50">        sb.append(&quot;Gestor de Encomendas:: {&quot;);</span>
+<span class="fc" id="L51">        sb.append(&quot; Informações das encomendas: &quot;).append(this.encomendas.toString()).append(&quot;}&quot;);</span>
+<span class="fc" id="L52">        return sb.toString();</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        if (this == o)</span>
+<span class="fc" id="L58">            return true;</span>
+
+<span class="fc bfc" id="L60" title="All 4 branches covered.">        if (o == null || this.getClass() != o.getClass())</span>
+<span class="fc" id="L61">            return false;</span>
+
+<span class="fc" id="L63">        GestorEncomendas g = (GestorEncomendas) o;</span>
+
+<span class="fc" id="L65">        return (this.encomendas.equals(g.getEncomendas()));</span>
+    }
+
+    @Override
+    public GestorEncomendas clone() {
+<span class="fc" id="L70">        GestorEncomendas copia = new GestorEncomendas(this);</span>
+<span class="fc" id="L71">        return copia;</span>
+    }
+
+    // Método que adiciona uma Encomenda no map
+    // Retorna o id da encomenda
+    public long adicionaEncomenda(Encomenda e) throws EncomendaExistenteException{
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        if(this.encomendas.containsKey(e.getId()) == true)</span>
+<span class="fc" id="L78">            throw new EncomendaExistenteException(&quot;Já existe uma encomenda com o ID &quot; + e.getId());</span>
+
+        else{
+<span class="fc" id="L81">            this.encomendas.put(e.getId(), e.clone());</span>
+<span class="fc" id="L82">            return e.getId();</span>
+        }
+    }
+
+    // Método que remove uma Encomenda do map
+    public long removeEncomenda(long idEncomenda) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L88" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L89">            throw new EncomendaNaoEncontradaException(&quot;Não exite nenhuma encomenda com o ID &quot; + idEncomenda);</span>
+
+        else{
+<span class="fc" id="L92">            this.encomendas.remove(idEncomenda);</span>
+<span class="fc" id="L93">            return idEncomenda;</span>
+        }
+    }
+
+    // Método que verifica se uma encomenda pode ser devolvida e retorna um set de ids de artigos devolvidos
+    public Set&lt;String&gt; podeDevolvida(long idEncomenda, LocalDate data) throws EncomendaNaoEncontradaException, EncomendaDevolucaoImpossivelException{
+<span class="fc bfc" id="L99" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L100">            throw new EncomendaNaoEncontradaException(&quot;Não exite nenhuma encomenda com o ID &quot; + idEncomenda);</span>
+
+        else{
+<span class="fc bfc" id="L103" title="All 2 branches covered.">            if(this.encomendas.get(idEncomenda).podeDevolver(data))</span>
+<span class="fc" id="L104">                return(this.encomendas.get(idEncomenda).getEncomenda());</span>
+            else
+<span class="fc" id="L106">                throw new EncomendaDevolucaoImpossivelException(&quot;A encomenda com o ID &quot; + idEncomenda + &quot; não pode ser devolvida&quot;);</span>
+        }
+    }
+
+    // Método que dado um set de ids de Encomendas
+    // Devolve um set com os artigos todos
+    public Set&lt;String&gt; encomendasToArtigos(Set&lt;Long&gt; idsEncomenda){
+<span class="fc" id="L113">        Set&lt;String&gt; artigosTodos = new HashSet&lt;&gt;();</span>
+
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        for(Long l : idsEncomenda){</span>
+<span class="fc" id="L116">            artigosTodos.addAll(this.encomendas.get(l).getEncomenda());</span>
+<span class="fc" id="L117">        }</span>
+<span class="fc" id="L118">        return artigosTodos;</span>
+    }
+
+    public Set&lt;String&gt; EncomendaToArtigos(long idEncomenda) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L122" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L123">            throw new EncomendaNaoEncontradaException(&quot;Não exite nenhuma encomenda com o ID &quot; + idEncomenda);</span>
+
+        else{
+<span class="fc" id="L126">            return(this.encomendas.get(idEncomenda).getEncomenda());</span>
+        }
+    }
+
+    public int EncomendaToQuantidade(long idEncomenda) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L131" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L132">            throw new EncomendaNaoEncontradaException(&quot;Não exite nenhuma encomenda com o ID &quot; + idEncomenda);</span>
+
+        else{
+<span class="fc" id="L135">            return(this.encomendas.get(idEncomenda).numeroArtigos());</span>
+        }
+    }
+
+
+    // Método que transforma uma dada encomenda numa String
+    public String encomendaToString(long idEncomenda) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L142" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L143">            throw new EncomendaNaoEncontradaException(&quot;Não exite nenhuma encomenda com o ID &quot; + idEncomenda);</span>
+
+        else{
+<span class="fc" id="L146">            return(this.encomendas.get(idEncomenda).toString());</span>
+        }
+    }
+
+    // Método que transforma as encomendas numa string
+    public String encomendasToString(Set&lt;Long&gt; idsEncomendas){
+<span class="fc" id="L152">        StringBuilder sb = new StringBuilder();</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">        for(Long l : idsEncomendas){ </span>
+<span class="fc" id="L154">                sb.append(this.encomendas.get(l).toString()).append(&quot;\n&quot;);</span>
+<span class="fc" id="L155">        }</span>
+<span class="fc" id="L156">        return sb.toString();</span>
+        
+    }
+
+    // Método que altera o estado da encomenda para expedida e a data de entrega
+    public void FinalizadaToExpedida(long idEncomenda, LocalDate data) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L162" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L163">            throw new EncomendaNaoEncontradaException(&quot;A encomenda com o ID &quot; + idEncomenda + &quot;não foi expedida&quot;);</span>
+
+        else{
+<span class="fc" id="L166">            Encomenda encomenda = this.encomendas.get(idEncomenda);</span>
+<span class="fc" id="L167">            encomenda.setEstado(Estado.Expedida);</span>
+<span class="fc" id="L168">            encomenda.setDataEntrega(data);</span>
+        }
+<span class="fc" id="L170">    }</span>
+
+    public Encomenda getEncomenda(long idEncomenda) throws EncomendaNaoEncontradaException{
+<span class="fc bfc" id="L173" title="All 2 branches covered.">        if(this.encomendas.containsKey(idEncomenda) == false)</span>
+<span class="fc" id="L174">            throw new EncomendaNaoEncontradaException(&quot;Não existe nehuma encomenda com o ID &quot;+ idEncomenda);</span>
+
+        else{
+<span class="fc" id="L177">            return this.encomendas.get(idEncomenda).clone();</span>
+        }
+    }
+
+    // Método que dado um id de uma Encomenda retorna o tamanho dela
+    public int tamanhoEncomenda(long idEncomenda){
+<span class="fc" id="L183">        return(this.encomendas.get(idEncomenda).numeroArtigos());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

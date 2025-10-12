@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: TP1.MegaTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.011 s <<< FAILURE! - in TP1.MegaTest
+complexTest1  Time elapsed: 0.008 s  <<< FAILURE!
+java.lang.AssertionError: expected:<73.51> but was:<74.51>
+	at TP1.MegaTest.complexTest1(MegaTest.java:89)
+

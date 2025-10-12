@@ -1,0 +1,10 @@
+package business.Station.enums;
+
+public enum TypesOfCombustionServices {
+    CHANGING_ENGINE_OIL,
+    REPLACING_ENGINE_OIL,
+    REPLACING_FUEL,
+    REPLACING_AIR_FILTERS,
+    REPLACING_CATALYTIC_CONVERTER,
+    REPLACING_STARTER_BATTERY
+}

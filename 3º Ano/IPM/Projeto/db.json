@@ -1,0 +1,335 @@
+{
+  "worker": [
+    {
+      "name": "John Doe",
+      "password": "a",
+      "age": 35,
+      "job": "Automotive Technician",
+      "location": "Braga",
+      "education": "Associate Degree in Automotive Technology",
+      "specialty": "Engine Performance and Diagnostics",
+      "interests": [
+        "Vintage car restoration",
+        "Automotive technology advancements",
+        "Electric vehicles"
+      ],
+      "objectives": [
+        "To become a master technician within the next 5 years",
+        "To lead a team of technicians in developing sustainable automotive solutions",
+        "To contribute to the advancement of electric vehicle technology"
+      ],
+      "challenges": [
+        "Adaptar-se às novas tecnologias",
+        "Evitar erros e reclamações"
+      ],
+      "solutions": "Developed a cost-effective method for improving fuel efficiency in traditional combustion engines, resulting in a 15% decrease in fuel consumption for serviced vehicles.",
+      "quote": "The future of automotive is not just in faster cars, but in more efficient and sustainable ones.",
+      "id": "3184"
+    }
+  ],
+  "service-definitions": [
+    {
+      "id": "sp",
+      "descr": "Substituir pneus",
+      "duração": 40
+    },
+    {
+      "id": "cr",
+      "descr": "Calibrar rodas",
+      "duração": 20
+    },
+    {
+      "id": "ad",
+      "descr": "Alinhar direção",
+      "duração": 30
+    },
+    {
+      "id": "sct",
+      "descr": "Subsituir calços travões",
+      "duração": 60
+    },
+    {
+      "id": "mot",
+      "descr": "Mudar óleo travões",
+      "duração": 20
+    },
+    {
+      "id": "li",
+      "descr": "Limpeza interior",
+      "duração": 120
+    },
+    {
+      "id": "le",
+      "descr": "Limpeza exterior",
+      "duração": 30
+    },
+    {
+      "id": "sfah",
+      "descr": "Substituir filtro ar habitáculo",
+      "duração": 30
+    },
+    {
+      "id": "mom",
+      "descr": "Mudar óleo motor",
+      "duração": 10
+    },
+    {
+      "id": "sfo",
+      "descr": "Substituir filtro óleo",
+      "duração": 20
+    },
+    {
+      "id": "sfc",
+      "descr": "Substituir filtro combustível",
+      "duração": 30
+    },
+    {
+      "id": "sfam",
+      "descr": "Substituir filtro ar motor",
+      "duração": 30
+    },
+    {
+      "id": "scc",
+      "descr": "Substituir conversor catalítico",
+      "duração": 30
+    },
+    {
+      "id": "sba",
+      "descr": "Substituir bateria de arranque",
+      "duração": 30
+    },
+    {
+      "id": "svi",
+      "descr": "Substituir velas de incandescência",
+      "duração": 30
+    },
+    {
+      "id": "sfp",
+      "descr": "Substituir filtro de partículas",
+      "duração": 30
+    },
+    {
+      "id": "rfp",
+      "descr": "Regenerar filtro de partículas",
+      "duração": 30
+    },
+    {
+      "id": "sva",
+      "descr": "Substituir válvula do acelerador",
+      "duração": 30
+    },
+    {
+      "id": "svi",
+      "descr": "Substituir velas de ignição",
+      "duração": 30
+    },
+    {
+      "id": "adb",
+      "descr": "Avaliar desempenho da bateria",
+      "duração": 30
+    },
+    {
+      "id": "sb",
+      "descr": "Substituir bateria",
+      "duração": 20
+    }
+  ],
+  "vehicle-types": [
+    {
+      "id": "gasolina",
+      "serviços": [
+        "sp",
+        "cr",
+        "ad",
+        "sct",
+        "mot",
+        "li",
+        "le",
+        "sfah",
+        "mom",
+        "sfo",
+        "sfc",
+        "sfam",
+        "scc",
+        "sba",
+        "sva",
+        "svi"
+      ]
+    },
+    {
+      "id": "gasoleo",
+      "serviços": [
+        "sp",
+        "cr",
+        "ad",
+        "sct",
+        "mot",
+        "li",
+        "le",
+        "sfah",
+        "mom",
+        "sfo",
+        "sfc",
+        "sfam",
+        "scc",
+        "sba",
+        "svi",
+        "sfp",
+        "rfp"
+      ]
+    },
+    {
+      "id": "eletrico",
+      "serviços": [
+        "sp",
+        "cr",
+        "ad",
+        "sct",
+        "mot",
+        "li",
+        "le",
+        "sfah",
+        "adb",
+        "sb"
+      ]
+    },
+    {
+      "id": "hibrido",
+      "serviços": [
+        "sp",
+        "cr",
+        "ad",
+        "sct",
+        "mot",
+        "li",
+        "le",
+        "sfah",
+        "mom",
+        "sfo",
+        "sfc",
+        "sfam",
+        "scc",
+        "sba",
+        "sva",
+        "svi",
+        "adb",
+        "sb"
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "id": "123",
+      "nome": "João Silva",
+      "email": "js@imail.com",
+      "telefone": "912345678"
+    },
+    {
+      "id": "124",
+      "nome": "Maria Santos",
+      "email": "jms@imail.com",
+      "telefone": "912345679"
+    },
+    {
+      "id": "125",
+      "nome": "José Pereira",
+      "email": "jp@imail.com",
+      "telefone": "912345680"
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "08-25-AA",
+      "clientId": "123",
+      "vehicle-typeId": "gasolina",
+      "cilindrada": 1000,
+      "kms": 200000
+    },
+    {
+      "id": "AH-31-BB",
+      "clientId": "124",
+      "vehicle-typeId": "gasoleo",
+      "cilindrada": 2000,
+      "kms": 120000
+    },
+    {
+      "id": "AH-32-44",
+      "clientId": "123",
+      "vehicle-typeId": "eletrico",
+      "potencia": 200,
+      "kms": 20000
+    },
+    {
+      "id": "AH-21-25",
+      "clientId": "125",
+      "vehicle-typeId": "hibrido",
+      "cilindrada": 1000,
+      "potencia": 200,
+      "kms": 80000
+    }
+  ],
+  "services": [
+    {
+      "id": "s31",
+      "vehicleId": "08-25-AA",
+      "service-definitionId": "sp",
+      "estado": "nafila",
+      "agendamento": "filaDeEspera",
+      "descrição": "Colocar XPTO 225R15"
+    },
+    {
+      "id": "s32",
+      "vehicleId": "AH-31-BB",
+      "service-definitionId": "li",
+      "estado": "programado",
+      "agendamento": "programado",
+      "data": {
+        "dia": 26,
+        "mes": 3,
+        "ano": 2024,
+        "hora": 14,
+        "minutos": 15
+      },
+      "descrição": "Atenção ao banco do condutor."
+    },
+    {
+      "id": "s33",
+      "vehicleId": "AH-32-44",
+      "service-definitionId": "le",
+      "estado": "nafila",
+      "agendamento": "filaDeEspera",
+      "descrição": "Ver jantes."
+    },
+    {
+      "id": "s34",
+      "vehicleId": "AH-21-25",
+      "service-definitionId": "sfc",
+      "estado": "parado",
+      "agendamento": "filaDeEspera",
+      "descrição": "Falta o filtro."
+    },
+    {
+      "id": "s12",
+      "vehicleId": "08-25-AA",
+      "service-definitionId": "sp",
+      "estado": "realizado",
+      "agendamento": "filaDeEspera",
+      "descrição": "Colocar XPTO 225R15"
+    },
+    {
+      "id": "s24",
+      "vehicleId": "08-25-AA",
+      "service-definitionId": "li",
+      "estado": "realizado",
+      "agendamento": "programado",
+      "data": {
+        "dia": 2,
+        "mes": 2,
+        "ano": 2024,
+        "hora": 14,
+        "minutos": 15
+      },
+      "descrição": "shampoo XPTO"
+    }
+  ]
+}
