@@ -18,10 +18,10 @@ Project made for **CG** (Computação Gráfica) class, at "Universidade do Minho
 ## Images:
 
 <p align="center">
-  <img src="SolarSystem1.png" alt="Solar System Wireframe" />
+  <img src="/assets/SolarSystem1.png" alt="Solar System Wireframe" />
 </p>
 
 <p align="center">
-  <img src="SolarSystem2.png" alt="Solar System" />
+  <img src="/assets/SolarSystem2.png" alt="Solar System" />
 </p>
 

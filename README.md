@@ -22,14 +22,14 @@
 | **Year 3** | **Semester 1** | [Cálculo de Programas (CP)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/CP)                      |
 |            |                | [Inteligência Artificial (IA)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/IA)                   |
 |            |                | [Sistemas Distribuídos (SD)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/SD)                     |
-|            |                | [Desenvolvimento de Sistemas de Software (DSS)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/DSS) |
-|            |                | [Computação na Nuvem (CC)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/CC)                       |
+|            |                | [Desenvolvimento de Sistemas e Software (DSS)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/DSS) |
+|            |                | [Comunicação de Computadores (CC)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/CC)                       |
 |            |                | [Laboratórios de Informática IV (LI4)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/LI4)          |
 | **Year 3** | **Semester 2** | [Computação Gráfica (CG)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/CG)                        |
 |            |                | [Processamento de Linguagens (PL)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/PL)               |
 |            |                | [Segurança e Sistemas de Informação (SSI)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/SSI)      |
-|            |                | [Administração e Testes de Sistemas (ATS)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/ATS)      |
-|            |                | [Interação Pessoa-Máquina (IPM)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/IPM)                |
+|            |                | [Análise e Teste de Software (ATS)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/ATS)      |
+|            |                | [Interface Pessoa-Máquina (IPM)](https://github.com/NopeGuy/University-WorkSheets/tree/main/3%C2%BA%20Ano/IPM)                |
 
 </div>
 

@@ -1,7 +1,7 @@
 # Distributed File Sharing System with UDP datagram transfer between nodes
 
 <p align="center">
-  <img src="assets/torrent-animation.gif" alt="Torrent Animation" />
+  <img src="/assets/torrent-animation.gif" alt="Torrent Animation" />
 </p>
 
 

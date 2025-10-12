@@ -2,7 +2,7 @@
 # Health Planet Delivery System
 
 <p align="center">
-  <img src="https://github.com/NopeGuy/IA-2324/blob/main/circuit-animation.gif?raw=true" />
+  <img src="/assets/circuit-animation.gif" alt="Gengar Top" />
 </p>
 
 ## Table of Contents
